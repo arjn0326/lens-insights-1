@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import {
   ArrowDown,
   ArrowLeft,
@@ -53,6 +54,7 @@ import {
   severity,
   severityLabel,
 } from "@/lib/lens-data";
+import { LA_PATH } from "@/lib/la-geo";
 
 interface Props {
   parishId: string;
