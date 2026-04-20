@@ -90,6 +90,10 @@ export function ParishReport({ parishId }: Props) {
   const grades = buildGradeDistribution(parishId);
   const funding = buildFundingBreakdown(parishId);
   const workforce = buildWorkforceAlignment(parishId);
+  const sankey = buildOutcomeSankey(parishId);
+  const raceSeries = buildRaceSeries();
+  const schoolDots = buildSchoolDots().filter(() => true);
+  const hexBins = buildHexBins(3.5);
 
   const radarData = LAYERS.map((k) => ({
     layer: k,
