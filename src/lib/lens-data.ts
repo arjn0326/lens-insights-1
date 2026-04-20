@@ -102,22 +102,50 @@ export const PARISHES: Parish[] = [
   },
 ];
 
+/** Major existing employers — used as context pins on the Health layer. */
 export const EMPLOYERS = [
-  { name: "META", value: "$10B", x: 56, y: 20 },
-  { name: "HYUNDAI", value: "$5.8B", x: 62, y: 71 },
-  { name: "WOODSIDE", value: "$17.5B", x: 20, y: 76 },
+  { name: "META", value: "$10B", x: 39.5, y: 18.5 },     // Richland
+  { name: "EXXON", value: "$2.4B", x: 56.5, y: 58.0 },   // Baton Rouge
+  { name: "WOODSIDE", value: "$17.5B", x: 18.0, y: 64.0 }, // Calcasieu LNG
 ];
 
 /**
- * Major Louisiana interstates as polylines in 0-100 viewport coordinates.
- * Approximated routes for visual reference, not survey-accurate.
+ * Major announced industrial investments — green $ markers on the map.
+ * Hover reveals: amount, jobs, sector, and which parish demand it lifts.
+ */
+export interface Investment {
+  id: string;
+  name: string;
+  parish: string;
+  amount: string;
+  jobs: number;
+  sector: string;
+  status: "Announced" | "Under construction" | "Operational";
+  online: string;
+  x: number;
+  y: number;
+}
+
+export const INVESTMENTS: Investment[] = [
+  { id: "meta", name: "Meta AI Data Center", parish: "Richland", amount: "$10B", jobs: 500, sector: "Tech / AI infra", status: "Under construction", online: "2027", x: 43.5, y: 19.0 },
+  { id: "hyundai", name: "Hyundai Steel Mill", parish: "Ascension", amount: "$5.8B", jobs: 1300, sector: "Heavy industry", status: "Announced", online: "2029", x: 58.0, y: 67.5 },
+  { id: "woodside", name: "Woodside Louisiana LNG", parish: "Calcasieu", amount: "$17.5B", jobs: 1500, sector: "Energy / LNG", status: "Under construction", online: "2026", x: 17.0, y: 67.5 },
+  { id: "ccs", name: "Air Products Clean Energy", parish: "Ascension", amount: "$4.5B", jobs: 170, sector: "Hydrogen / CCS", status: "Under construction", online: "2026", x: 60.0, y: 67.0 },
+  { id: "venture", name: "Venture Global CP2 LNG", parish: "Cameron", amount: "$10B", jobs: 250, sector: "Energy / LNG", status: "Announced", online: "2027", x: 12.0, y: 73.0 },
+  { id: "first", name: "First Solar Cell Plant", parish: "Iberia", amount: "$1.1B", jobs: 700, sector: "Solar mfg", status: "Under construction", online: "2025", x: 47.5, y: 70.5 },
+  { id: "shintech", name: "Shintech PVC Expansion", parish: "Plaquemine", amount: "$1.4B", jobs: 120, sector: "Petrochem", status: "Operational", online: "2024", x: 55.0, y: 64.5 },
+];
+
+/**
+ * Major Louisiana interstates as polylines in the projected 0-100 viewBox.
+ * Approximate routes — visual reference, not survey-accurate.
  */
 export const HIGHWAYS: { name: string; d: string }[] = [
-  { name: "I-10", d: "M 6,80 L 22,79 L 38,75 L 54,72 L 64,76 L 76,82 L 92,84" },
-  { name: "I-20", d: "M 6,18 L 20,18 L 38,18 L 54,22 L 64,22 L 76,22" },
-  { name: "I-49", d: "M 12,16 L 18,28 L 28,40 L 36,52 L 40,66 L 42,72" },
-  { name: "I-12", d: "M 54,68 L 64,68 L 74,70 L 82,71" },
-  { name: "I-55", d: "M 70,40 L 72,55 L 74,68 L 76,80" },
+  { name: "I-10", d: "M 4,67 L 16,67 L 30,68 L 40,67 L 50,64 L 57,61 L 65,66 L 73,72 L 78,71 L 88,71" },
+  { name: "I-20", d: "M 5,16 L 10,14 L 22,15 L 30,17 L 38,17 L 44,19 L 52,18 L 60,17" },
+  { name: "I-49", d: "M 5,17 L 9,24 L 16,32 L 22,40 L 27,46 L 32,54 L 36,62 L 39,67" },
+  { name: "I-12", d: "M 57,60 L 65,60 L 72,60 L 78,61" },
+  { name: "I-55", d: "M 65,30 L 66,42 L 67,52 L 68,60" },
 ];
 
 /**
