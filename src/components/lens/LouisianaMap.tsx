@@ -661,7 +661,32 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
                 inv={inv}
               />
             )}
+
+            {/* Isochrone info card — appears when a school dot is clicked */}
+            {isoSchool && (
+              <IsochroneCard
+                school={isoSchool}
+                inv={inv}
+                onClose={() => setIsoSchool(null)}
+              />
+            )}
           </div>
+
+          {/* Focus chip — top-left, mirrors sidebar focus state */}
+          {hasFocus && (
+            <div className="absolute left-3 top-3 z-40 flex items-center gap-2 rounded-full border border-[var(--blue)]/50 bg-[var(--surface-elevated)]/95 px-2.5 py-1 shadow-card backdrop-blur">
+              <Crosshair className="h-3 w-3" style={{ color: "var(--blue)" }} />
+              <span className="text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: "var(--blue)" }}>
+                Focused · {focusIds.size} parish{focusIds.size > 1 ? "es" : ""}
+              </span>
+              <button
+                onClick={onClearFocus}
+                className="ml-1 inline-flex items-center gap-0.5 rounded-full border border-border bg-[var(--background)] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.1em] text-[var(--text-secondary)] hover:text-foreground"
+              >
+                <X className="h-2.5 w-2.5" /> clear
+              </button>
+            </div>
+          )}
 
           {/* Zoom controls */}
           <div className="absolute right-3 top-3 z-40 flex flex-col overflow-hidden rounded-md border border-border bg-[var(--surface-elevated)]/95 shadow-card backdrop-blur">
