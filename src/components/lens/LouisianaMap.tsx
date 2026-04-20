@@ -560,6 +560,7 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
                 const isSelected = selectedId === p.id;
                 const isHovered = hoverId === p.id;
                 const isActive = isSelected || isHovered;
+                const dim = hasFocus && !focusIds.has(p.id);
 
                 return (
                   <button
@@ -570,11 +571,13 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
                     }}
                     onMouseEnter={() => setHoverId(p.id)}
                     onMouseLeave={() => setHoverId(null)}
-                    className="absolute z-10 flex items-center justify-center"
+                    className="absolute z-10 flex items-center justify-center transition-opacity"
                     style={{
                       left: `${p.x}%`,
                       top: `${p.y}%`,
                       transform: `translate(-50%, -50%) scale(${inv})`,
+                      opacity: dim ? 0.18 : 1,
+                      filter: dim ? "grayscale(0.5)" : "none",
                     }}
                     aria-label={p.name}
                   >
