@@ -173,19 +173,148 @@ export function buildSchoolDots(): SchoolDot[] {
   const rand = mulberry32(42);
   for (const p of PARISHES) {
     // Cap rendered dots so dense parishes don't dominate visually
-    const renderCount = Math.min(p.totalSchools, 18);
+    const renderCount = Math.min(p.totalSchools, 22);
     const failingCount = Math.round((p.dfSchools / p.totalSchools) * renderCount);
     for (let i = 0; i < renderCount; i++) {
       const angle = rand() * Math.PI * 2;
-      const radius = Math.sqrt(rand()) * 4.2; // cluster radius (% of viewport)
+      const radius = Math.sqrt(rand()) * 3.0; // tighter cluster, fits within parish
       dots.push({
         x: p.x + Math.cos(angle) * radius,
-        y: p.y + Math.sin(angle) * radius * 0.85,
+        y: p.y + Math.sin(angle) * radius * 0.9,
         failing: i < failingCount,
       });
     }
   }
   return dots;
+}
+
+/* ------------------------- Hex-bin school density ------------------------ */
+
+export interface HexBin {
+  x: number;
+  y: number;
+  count: number;
+  failing: number;
+}
+
+/**
+ * Bins school dots into a hex grid. Used for the report-page density map and
+ * (optionally) the dashboard heatmap mode.
+ */
+export function buildHexBins(size = 4.2): HexBin[] {
+  const dots = buildSchoolDots();
+  const w = size;
+  const h = size * Math.sqrt(3) / 2;
+  const bins = new Map<string, HexBin>();
+  for (const d of dots) {
+    const row = Math.round(d.y / h);
+    const offset = row % 2 === 0 ? 0 : w / 2;
+    const col = Math.round((d.x - offset) / w);
+    const cx = col * w + offset;
+    const cy = row * h;
+    const key = `${col}_${row}`;
+    const b = bins.get(key);
+    if (b) {
+      b.count++;
+      if (d.failing) b.failing++;
+    } else {
+      bins.set(key, { x: cx, y: cy, count: 1, failing: d.failing ? 1 : 0 });
+    }
+  }
+  return [...bins.values()];
+}
+
+/* ------------------------- Sankey: graduate outcomes --------------------- */
+
+export interface SankeyData {
+  nodes: { name: string }[];
+  links: { source: number; target: number; value: number }[];
+}
+
+export function buildOutcomeSankey(parishId: string): SankeyData {
+  const p = PARISHES.find((x) => x.id === parishId);
+  if (!p) return { nodes: [], links: [] };
+  const rand = mulberry32(p.population);
+  const grads = Math.round(p.students / 13); // ~ one grade
+  const onTime = Math.round(grads * (0.78 + rand() * 0.12));
+  const late = grads - onTime;
+
+  const fourYear = Math.round(onTime * (0.28 + rand() * 0.10));
+  const twoYear = Math.round(onTime * (0.22 + rand() * 0.08));
+  const cte = Math.round(onTime * (0.18 + rand() * 0.08));
+  const workforce = Math.round(onTime * (0.18 + rand() * 0.06));
+  const military = Math.round(onTime * 0.04);
+  const unknown = Math.max(0, onTime - fourYear - twoYear - cte - workforce - military);
+
+  // Outcomes from each pathway
+  const indices = {
+    grads: 0, onTime: 1, late: 2,
+    fourYear: 3, twoYear: 4, cte: 5, workforce: 6, military: 7, unknown: 8,
+    employed: 9, enrolled: 10, disconnected: 11,
+  };
+  const nodes = [
+    { name: "Graduates" },
+    { name: "On-time" },
+    { name: "Late / GED" },
+    { name: "4-yr College" },
+    { name: "2-yr College" },
+    { name: "CTE Credential" },
+    { name: "Direct Workforce" },
+    { name: "Military" },
+    { name: "Unknown" },
+    { name: "Employed @ 1yr" },
+    { name: "Still enrolled" },
+    { name: "Disconnected" },
+  ];
+
+  const links = [
+    { source: indices.grads, target: indices.onTime, value: onTime },
+    { source: indices.grads, target: indices.late, value: late },
+    { source: indices.onTime, target: indices.fourYear, value: fourYear },
+    { source: indices.onTime, target: indices.twoYear, value: twoYear },
+    { source: indices.onTime, target: indices.cte, value: cte },
+    { source: indices.onTime, target: indices.workforce, value: workforce },
+    { source: indices.onTime, target: indices.military, value: military },
+    { source: indices.onTime, target: indices.unknown, value: unknown },
+    { source: indices.late, target: indices.workforce, value: Math.round(late * 0.45) },
+    { source: indices.late, target: indices.cte, value: Math.round(late * 0.18) },
+    { source: indices.late, target: indices.unknown, value: Math.round(late * 0.37) },
+    // 1-year outcomes
+    { source: indices.fourYear, target: indices.enrolled, value: Math.round(fourYear * 0.85) },
+    { source: indices.fourYear, target: indices.disconnected, value: Math.round(fourYear * 0.15) },
+    { source: indices.twoYear, target: indices.enrolled, value: Math.round(twoYear * 0.65) },
+    { source: indices.twoYear, target: indices.employed, value: Math.round(twoYear * 0.25) },
+    { source: indices.twoYear, target: indices.disconnected, value: Math.round(twoYear * 0.10) },
+    { source: indices.cte, target: indices.employed, value: Math.round(cte * 0.75) },
+    { source: indices.cte, target: indices.enrolled, value: Math.round(cte * 0.15) },
+    { source: indices.cte, target: indices.disconnected, value: Math.round(cte * 0.10) },
+    { source: indices.workforce, target: indices.employed, value: Math.round((workforce + late * 0.45) * 0.78) },
+    { source: indices.workforce, target: indices.disconnected, value: Math.round((workforce + late * 0.45) * 0.22) },
+    { source: indices.military, target: indices.employed, value: military },
+    { source: indices.unknown, target: indices.disconnected, value: Math.round((unknown + late * 0.37) * 0.7) },
+    { source: indices.unknown, target: indices.employed, value: Math.round((unknown + late * 0.37) * 0.3) },
+  ].filter(l => l.value > 0);
+
+  return { nodes, links };
+}
+
+/* ------------------------- Trajectory race ------------------------------- */
+
+/** 6-year rank race across all parishes for the active layer (Health). */
+export function buildRaceSeries() {
+  const years = ["2019", "2020", "2021", "2022", "2023", "2024"];
+  return years.map((year, i) => {
+    const t = i / (years.length - 1);
+    const row: Record<string, string | number> = { year };
+    for (const p of PARISHES) {
+      const rand = mulberry32(p.name.length * 31 + i * 7);
+      const drift = p.trend === "up" ? -10 : p.trend === "down" ? 9 : 1;
+      const start = Math.max(15, Math.min(95, p.scores.Health - drift));
+      const wobble = (rand() - 0.5) * 5;
+      row[p.id] = Math.round(start + (p.scores.Health - start) * t + wobble);
+    }
+    return row;
+  });
 }
 
 /**
