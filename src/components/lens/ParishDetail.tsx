@@ -1,6 +1,7 @@
 import {
   ALERT_EXPLANATIONS,
   INDEX_LABELS,
+  LAYER_INFO,
   PARISHES,
   SEV_COLOR,
   interventionRecommendation,
@@ -8,6 +9,7 @@ import {
   severityLabel,
 } from "@/lib/lens-data";
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Lightbulb, Minus, TriangleAlert } from "lucide-react";
+import { InfoTip } from "@/components/lens/InfoTip";
 
 interface Props {
   parishId: string;
@@ -21,6 +23,7 @@ export function ParishDetail({ parishId, onBack }: Props) {
   const healthSev = severity("Health", parish.scores.Health);
   const healthColor = SEV_COLOR[healthSev];
   const healthLabel = severityLabel("Health", parish.scores.Health);
+  const dfPct = ((parish.dfSchools / parish.totalSchools) * 100).toFixed(0);
 
   const TrendIcon = parish.trend === "up" ? ArrowUp : parish.trend === "down" ? ArrowDown : Minus;
   const trendColor =
@@ -43,11 +46,11 @@ export function ParishDetail({ parishId, onBack }: Props) {
         {/* Header */}
         <div className="flex items-start justify-between gap-3 border-b border-border px-4 py-4">
           <div className="min-w-0">
-            <h2 className="truncate text-[20px] font-bold leading-tight text-foreground">
+            <h2 className="truncate font-display text-[22px] font-bold leading-tight tracking-tight text-foreground">
               {parish.name}
             </h2>
             <div className="mt-1 flex items-center gap-2 text-[11px] text-[var(--text-secondary)]">
-              <span className="font-mono">{parish.population.toLocaleString()} pop</span>
+              <span className="font-mono tabular-nums">{parish.population.toLocaleString()} pop</span>
               <span style={{ color: trendColor }} className="inline-flex items-center gap-0.5">
                 <TrendIcon className="h-3 w-3" />
                 {parish.trend === "flat" ? "stable" : parish.trend}
@@ -55,12 +58,18 @@ export function ParishDetail({ parishId, onBack }: Props) {
             </div>
           </div>
           <div className="flex flex-col items-end">
-            <span className="font-mono text-[32px] font-bold leading-none" style={{ color: healthColor }}>
+            <span
+              className="font-display text-[34px] font-bold leading-none tabular-nums"
+              style={{ color: healthColor }}
+            >
               {parish.scores.Health}
             </span>
             <span
               className="mt-1 rounded-sm px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider"
-              style={{ background: `${healthColor}22`, color: healthColor }}
+              style={{
+                background: `color-mix(in oklab, ${healthColor} 14%, transparent)`,
+                color: healthColor,
+              }}
             >
               {healthLabel}
             </span>
@@ -69,7 +78,7 @@ export function ParishDetail({ parishId, onBack }: Props) {
 
         {/* Composite indices */}
         <div className="border-b border-border px-4 py-4">
-          <div className="mb-3 text-[9px] font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)]">
+          <div className="mb-3 text-[9px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
             Composite Indices
           </div>
           <div className="flex flex-col gap-2.5">
@@ -80,8 +89,11 @@ export function ParishDetail({ parishId, onBack }: Props) {
               return (
                 <div key={key}>
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] text-[var(--text-secondary)]">{label}</span>
-                    <span className="font-mono text-[12px] font-bold" style={{ color }}>
+                    <span className="inline-flex items-center gap-1 text-[11px] text-[var(--text-secondary)]">
+                      {label}
+                      <InfoTip text={LAYER_INFO[key]} size={10} />
+                    </span>
+                    <span className="font-mono text-[12px] font-bold tabular-nums" style={{ color }}>
                       {score}
                     </span>
                   </div>
@@ -98,20 +110,25 @@ export function ParishDetail({ parishId, onBack }: Props) {
         </div>
 
         {/* Mini stats */}
-        <div className="grid grid-cols-2 gap-2 border-b border-border px-4 py-4">
-          <MiniStat label="Students" value={parish.students.toLocaleString()} />
-          <MiniStat label="D/F Schools" value={String(parish.dfSchools)} tone="danger" />
+        <div className="grid grid-cols-3 gap-2 border-b border-border px-4 py-4">
+          <MiniStat label="Schools" value={String(parish.totalSchools)} />
+          <MiniStat label="Students" value={`${(parish.students / 1000).toFixed(0)}K`} />
+          <MiniStat
+            label="D/F Schools"
+            value={`${parish.dfSchools}`}
+            sub={`${dfPct}%`}
+            tone="danger"
+          />
         </div>
 
         {/* Alert */}
         {parish.alert && (
           <div className="border-b border-border px-4 py-4">
             <div
-              className="rounded-md border p-3"
+              className="rounded-lg border p-3"
               style={{
-                background: "var(--sev-red)/10",
-                backgroundColor: "color-mix(in oklab, var(--sev-red) 10%, transparent)",
-                borderColor: "color-mix(in oklab, var(--sev-red) 35%, transparent)",
+                backgroundColor: "color-mix(in oklab, var(--sev-red) 8%, transparent)",
+                borderColor: "color-mix(in oklab, var(--sev-red) 30%, transparent)",
               }}
             >
               <div className="flex items-center gap-1.5">
@@ -133,15 +150,15 @@ export function ParishDetail({ parishId, onBack }: Props) {
         {/* Recommendation */}
         <div className="px-4 py-4">
           <div
-            className="rounded-md border p-3"
+            className="rounded-lg border p-3"
             style={{
-              backgroundColor: "color-mix(in oklab, var(--blue) 10%, transparent)",
-              borderColor: "color-mix(in oklab, var(--blue) 35%, transparent)",
+              backgroundColor: "color-mix(in oklab, var(--blue) 8%, transparent)",
+              borderColor: "color-mix(in oklab, var(--blue) 28%, transparent)",
             }}
           >
             <div className="flex items-center gap-1.5">
-              <Lightbulb className="h-3.5 w-3.5" style={{ color: "var(--cyan)" }} />
-              <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--cyan)]">
+              <Lightbulb className="h-3.5 w-3.5" style={{ color: "var(--blue)" }} />
+              <span className="text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: "var(--blue)" }}>
                 Recommendation · {parish.intervention}
               </span>
             </div>
@@ -154,13 +171,13 @@ export function ParishDetail({ parishId, onBack }: Props) {
 
       {/* CTAs */}
       <div className="flex flex-col gap-2 border-t border-border bg-[var(--surface)] p-4">
-        <button className="inline-flex items-center justify-center gap-1.5 rounded-md bg-gradient-brand px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white shadow-glow transition-transform hover:scale-[1.01]">
+        <button className="inline-flex items-center justify-center gap-1.5 rounded-md bg-foreground px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--background)] transition-transform hover:scale-[1.01]">
           Generate Funder Brief <ArrowRight className="h-3.5 w-3.5" />
         </button>
-        <button className="rounded-md border border-border bg-transparent px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--text-secondary)] transition-colors hover:border-[var(--cyan)]/40 hover:text-foreground">
+        <button className="rounded-md border border-border bg-transparent px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)] transition-colors hover:border-foreground/40 hover:text-foreground">
           Open in Simulator
         </button>
-        <button className="rounded-md border border-border bg-transparent px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--text-secondary)] transition-colors hover:border-[var(--cyan)]/40 hover:text-foreground">
+        <button className="rounded-md border border-border bg-transparent px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)] transition-colors hover:border-foreground/40 hover:text-foreground">
           View School-Level Detail
         </button>
       </div>
@@ -171,10 +188,12 @@ export function ParishDetail({ parishId, onBack }: Props) {
 function MiniStat({
   label,
   value,
+  sub,
   tone,
 }: {
   label: string;
   value: string;
+  sub?: string;
   tone?: "danger";
 }) {
   const color = tone === "danger" ? "var(--sev-red)" : "var(--foreground)";
@@ -183,9 +202,14 @@ function MiniStat({
       <div className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--text-muted)]">
         {label}
       </div>
-      <div className="mt-1 font-mono text-[18px] font-bold leading-none" style={{ color }}>
+      <div className="mt-1 font-display text-[18px] font-bold leading-none tabular-nums" style={{ color }}>
         {value}
       </div>
+      {sub && (
+        <div className="mt-0.5 text-[10px] tabular-nums text-[var(--text-muted)]">
+          {sub}
+        </div>
+      )}
     </div>
   );
 }

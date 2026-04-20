@@ -23,7 +23,7 @@ export function LensDashboard() {
 
       <div className="flex flex-1 overflow-hidden">
         {/* Main */}
-        <main className="flex flex-1 flex-col gap-4 overflow-y-auto p-5">
+        <main className="scrollbar-thin flex flex-1 flex-col gap-4 overflow-y-auto p-5">
           <LayerToggle active={layer} onChange={setLayer} />
           <LouisianaMap
             layer={layer}
