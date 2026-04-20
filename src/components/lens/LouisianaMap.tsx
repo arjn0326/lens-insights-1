@@ -47,7 +47,7 @@ type ViewMode = "pins" | "heatmap" | "hex";
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 3.5;
 
-export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
+export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFocus }: Props) {
   const [hoverId, setHoverId] = useState<string | null>(null);
   const [hoverInv, setHoverInv] = useState<Investment | null>(null);
   const [hoverEmp, setHoverEmp] = useState<string | null>(null);
@@ -55,11 +55,20 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [dragging, setDragging] = useState(false);
   const [mode, setMode] = useState<ViewMode>("pins");
+  const [isoSchool, setIsoSchool] = useState<ParishSchoolDot | null>(null);
   const dragStart = useRef<{ x: number; y: number; px: number; py: number } | null>(null);
 
   const dots = useMemo(() => buildSchoolDots(), []);
   const hexes = useMemo(() => buildHexBins(4.0), []);
   const maxHex = useMemo(() => Math.max(1, ...hexes.map((h) => h.count)), [hexes]);
+
+  // Per-focused-parish school dots — cached per id.
+  const focusedDots = useMemo<ParishSchoolDot[]>(() => {
+    if (focusIds.size === 0) return [];
+    return [...focusIds].flatMap((id) => buildParishSchoolDots(id));
+  }, [focusIds]);
+
+  const hasFocus = focusIds.size > 0;
 
   const activeId = hoverId ?? selectedId;
   const activeParish = PARISHES.find((p) => p.id === activeId) ?? null;
