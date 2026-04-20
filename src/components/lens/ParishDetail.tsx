@@ -181,14 +181,18 @@ export function ParishDetail({ parishId, onBack }: Props) {
 
       {/* CTAs */}
       <div className="flex flex-col gap-2 border-t border-border bg-[var(--surface)] p-4">
-        <button className="inline-flex items-center justify-center gap-1.5 rounded-md bg-foreground px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--background)] transition-transform hover:scale-[1.01]">
-          Generate Funder Brief <ArrowRight className="h-3.5 w-3.5" />
+        <Link
+          to="/parish/$parishId"
+          params={{ parishId: parish.id }}
+          className="inline-flex items-center justify-center gap-1.5 rounded-md bg-foreground px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--background)] transition-transform hover:scale-[1.01]"
+        >
+          See Full Report <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+        <button className="rounded-md border border-border bg-transparent px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)] transition-colors hover:border-foreground/40 hover:text-foreground">
+          Generate Funder Brief
         </button>
         <button className="rounded-md border border-border bg-transparent px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)] transition-colors hover:border-foreground/40 hover:text-foreground">
           Open in Simulator
-        </button>
-        <button className="rounded-md border border-border bg-transparent px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)] transition-colors hover:border-foreground/40 hover:text-foreground">
-          View School-Level Detail
         </button>
       </div>
     </div>
