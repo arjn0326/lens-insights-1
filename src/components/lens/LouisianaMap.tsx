@@ -209,6 +209,18 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
                       </radialGradient>
                     );
                   })}
+
+                {/* Glow filter for focused parish boundaries + D/F clusters */}
+                <filter id="focusGlow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="0.6" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+                <filter id="dfHalo" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="1.4" />
+                </filter>
               </defs>
 
               {/* Real Louisiana shape */}
@@ -220,6 +232,31 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
                 strokeLinejoin="round"
               />
               <path d={LA_PATH} fill="url(#dots)" opacity="0.4" />
+
+              {/* HEATMAP MODE: parish-level choropleth fills */}
+              {showHeat && (
+                <g clipPath="url(#laClip)">
+                  {PARISHES.map((p) => {
+                    const score = p.scores[layer];
+                    const color = SEV_COLOR[severity(layer, score)];
+                    return (
+                      <polygon
+                        key={`fill-${p.id}`}
+                        points={PARISH_POLYGONS[p.id]}
+                        fill={color}
+                        fillOpacity={0.55}
+                        stroke={color}
+                        strokeWidth={0.2}
+                        style={{ mixBlendMode: "multiply" }}
+                        onMouseEnter={() => setHoverId(p.id)}
+                        onMouseLeave={() => setHoverId(null)}
+                        onClick={() => onSelect(p.id)}
+                        className="cursor-pointer"
+                      />
+                    );
+                  })}
+                </g>
+              )}
 
               {/* Highways */}
               <g clipPath="url(#laClip)" opacity="0.55">
@@ -256,25 +293,6 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
                   );
                 })}
               </g>
-
-              {/* HEATMAP MODE: density blobs replace pins */}
-              {showHeat && (
-                <g clipPath="url(#laClip)">
-                  {PARISHES.map((p) => {
-                    const r = 9 + Math.sqrt(p.totalSchools) * 1.6;
-                    return (
-                      <circle
-                        key={p.id}
-                        cx={p.x}
-                        cy={p.y}
-                        r={r}
-                        fill={`url(#heat-${p.id})`}
-                        style={{ mixBlendMode: "multiply" }}
-                      />
-                    );
-                  })}
-                </g>
-              )}
 
               {/* HEX MODE: hex bins of school density */}
               {showHex && (
