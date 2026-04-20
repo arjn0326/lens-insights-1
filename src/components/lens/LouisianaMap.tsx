@@ -4,19 +4,24 @@ import {
   HIGHWAYS,
   INVESTMENTS,
   PARISHES,
+  PARISH_POLYGONS,
   SEV_COLOR,
   buildHexBins,
   buildSchoolDots,
+  buildParishSchoolDots,
+  failingClusterScore,
   severity,
   severityLabel,
   type Investment,
   type LayerKey,
+  type ParishSchoolDot,
 } from "@/lib/lens-data";
 import { LA_PATH } from "@/lib/la-geo";
 import {
   ArrowDown,
   ArrowUp,
   Briefcase,
+  Crosshair,
   DollarSign,
   Flame,
   Hexagon,
@@ -26,12 +31,15 @@ import {
   Plus,
   RotateCcw,
   TriangleAlert,
+  X,
 } from "lucide-react";
 
 interface Props {
   layer: LayerKey;
   selectedId: string | null;
   onSelect: (id: string) => void;
+  focusIds: Set<string>;
+  onClearFocus: () => void;
 }
 
 type ViewMode = "pins" | "heatmap" | "hex";
