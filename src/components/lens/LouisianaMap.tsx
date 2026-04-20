@@ -4,19 +4,24 @@ import {
   HIGHWAYS,
   INVESTMENTS,
   PARISHES,
+  PARISH_POLYGONS,
   SEV_COLOR,
   buildHexBins,
   buildSchoolDots,
+  buildParishSchoolDots,
+  failingClusterScore,
   severity,
   severityLabel,
   type Investment,
   type LayerKey,
+  type ParishSchoolDot,
 } from "@/lib/lens-data";
 import { LA_PATH } from "@/lib/la-geo";
 import {
   ArrowDown,
   ArrowUp,
   Briefcase,
+  Crosshair,
   DollarSign,
   Flame,
   Hexagon,
@@ -26,12 +31,15 @@ import {
   Plus,
   RotateCcw,
   TriangleAlert,
+  X,
 } from "lucide-react";
 
 interface Props {
   layer: LayerKey;
   selectedId: string | null;
   onSelect: (id: string) => void;
+  focusIds: Set<string>;
+  onClearFocus: () => void;
 }
 
 type ViewMode = "pins" | "heatmap" | "hex";
@@ -39,7 +47,7 @@ type ViewMode = "pins" | "heatmap" | "hex";
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 3.5;
 
-export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
+export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFocus }: Props) {
   const [hoverId, setHoverId] = useState<string | null>(null);
   const [hoverInv, setHoverInv] = useState<Investment | null>(null);
   const [hoverEmp, setHoverEmp] = useState<string | null>(null);
@@ -47,11 +55,20 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [dragging, setDragging] = useState(false);
   const [mode, setMode] = useState<ViewMode>("pins");
+  const [isoSchool, setIsoSchool] = useState<ParishSchoolDot | null>(null);
   const dragStart = useRef<{ x: number; y: number; px: number; py: number } | null>(null);
 
   const dots = useMemo(() => buildSchoolDots(), []);
   const hexes = useMemo(() => buildHexBins(4.0), []);
   const maxHex = useMemo(() => Math.max(1, ...hexes.map((h) => h.count)), [hexes]);
+
+  // Per-focused-parish school dots — cached per id.
+  const focusedDots = useMemo<ParishSchoolDot[]>(() => {
+    if (focusIds.size === 0) return [];
+    return [...focusIds].flatMap((id) => buildParishSchoolDots(id));
+  }, [focusIds]);
+
+  const hasFocus = focusIds.size > 0;
 
   const activeId = hoverId ?? selectedId;
   const activeParish = PARISHES.find((p) => p.id === activeId) ?? null;
@@ -192,6 +209,18 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
                       </radialGradient>
                     );
                   })}
+
+                {/* Glow filter for focused parish boundaries + D/F clusters */}
+                <filter id="focusGlow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="0.6" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+                <filter id="dfHalo" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="1.4" />
+                </filter>
               </defs>
 
               {/* Real Louisiana shape */}
@@ -203,6 +232,31 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
                 strokeLinejoin="round"
               />
               <path d={LA_PATH} fill="url(#dots)" opacity="0.4" />
+
+              {/* HEATMAP MODE: parish-level choropleth fills */}
+              {showHeat && (
+                <g clipPath="url(#laClip)">
+                  {PARISHES.map((p) => {
+                    const score = p.scores[layer];
+                    const color = SEV_COLOR[severity(layer, score)];
+                    return (
+                      <polygon
+                        key={`fill-${p.id}`}
+                        points={PARISH_POLYGONS[p.id]}
+                        fill={color}
+                        fillOpacity={0.55}
+                        stroke={color}
+                        strokeWidth={0.2}
+                        style={{ mixBlendMode: "multiply" }}
+                        onMouseEnter={() => setHoverId(p.id)}
+                        onMouseLeave={() => setHoverId(null)}
+                        onClick={() => onSelect(p.id)}
+                        className="cursor-pointer"
+                      />
+                    );
+                  })}
+                </g>
+              )}
 
               {/* Highways */}
               <g clipPath="url(#laClip)" opacity="0.55">
@@ -240,25 +294,6 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
                 })}
               </g>
 
-              {/* HEATMAP MODE: density blobs replace pins */}
-              {showHeat && (
-                <g clipPath="url(#laClip)">
-                  {PARISHES.map((p) => {
-                    const r = 9 + Math.sqrt(p.totalSchools) * 1.6;
-                    return (
-                      <circle
-                        key={p.id}
-                        cx={p.x}
-                        cy={p.y}
-                        r={r}
-                        fill={`url(#heat-${p.id})`}
-                        style={{ mixBlendMode: "multiply" }}
-                      />
-                    );
-                  })}
-                </g>
-              )}
-
               {/* HEX MODE: hex bins of school density */}
               {showHex && (
                 <g clipPath="url(#laClip)">
@@ -286,8 +321,9 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
                 </g>
               )}
 
-              {/* School dots — only in pin mode */}
-              {showPins && (
+              {/* School dots — only in pin mode and only when NOT focused.
+                  When focused, we show only the focused parishes' schools below. */}
+              {showPins && !hasFocus && (
                 <g clipPath="url(#laClip)">
                   {dots.map((d, i) => (
                     <circle
@@ -301,6 +337,142 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
                       style={{ animationDelay: `${(i % 7) * 0.4}s` }}
                     />
                   ))}
+                </g>
+              )}
+
+              {/* SPOTLIGHT: dim everything outside focused parish polygons */}
+              {hasFocus && (
+                <g pointerEvents="none">
+                  <defs>
+                    <mask id="focusMask">
+                      <rect x="0" y="0" width="100" height="100" fill="white" />
+                      {[...focusIds].map((id) => (
+                        <polygon key={id} points={PARISH_POLYGONS[id]} fill="black" />
+                      ))}
+                    </mask>
+                  </defs>
+                  <path
+                    d={LA_PATH}
+                    fill="oklch(0.18 0.015 260 / 0.55)"
+                    mask="url(#focusMask)"
+                  />
+                </g>
+              )}
+
+              {/* Focused parish boundaries — glowing outline */}
+              {hasFocus &&
+                [...focusIds].map((id) => {
+                  const p = PARISHES.find((x) => x.id === id);
+                  if (!p) return null;
+                  const color = SEV_COLOR[severity(layer, p.scores[layer])];
+                  return (
+                    <g key={`focus-${id}`}>
+                      <polygon
+                        points={PARISH_POLYGONS[id]}
+                        fill={color}
+                        fillOpacity={0.12}
+                        stroke={color}
+                        strokeWidth={0.55}
+                        strokeDasharray="0.8 0.4"
+                        filter="url(#focusGlow)"
+                      />
+                      {/* Parish label inside polygon */}
+                      <text
+                        x={p.x}
+                        y={p.y - 4}
+                        fontSize="2.2"
+                        fontWeight="800"
+                        fill="var(--ink)"
+                        textAnchor="middle"
+                        style={{ paintOrder: "stroke", stroke: "var(--surface-elevated)", strokeWidth: 0.5 }}
+                      >
+                        {p.name}
+                      </text>
+                    </g>
+                  );
+                })}
+
+              {/* Focused-parish school dots (always visible when focused, in any mode) */}
+              {hasFocus && (
+                <g clipPath="url(#laClip)">
+                  {/* D/F red glow halos for clusters */}
+                  {focusedDots
+                    .filter((d) => d.failing)
+                    .map((d) => {
+                      const cluster = failingClusterScore(focusedDots, d.x, d.y, 4);
+                      if (cluster < 2) return null;
+                      const r = 1.6 + cluster * 0.5;
+                      return (
+                        <circle
+                          key={`halo-${d.id}`}
+                          cx={d.x}
+                          cy={d.y}
+                          r={r}
+                          fill="var(--sev-red)"
+                          fillOpacity={Math.min(0.45, 0.12 + cluster * 0.06)}
+                          filter="url(#dfHalo)"
+                        />
+                      );
+                    })}
+                  {/* Dots */}
+                  {focusedDots.map((d) => (
+                    <circle
+                      key={d.id}
+                      cx={d.x}
+                      cy={d.y}
+                      r={d.failing ? 0.7 : 0.5}
+                      fill={d.failing ? "var(--sev-red)" : "var(--ink)"}
+                      opacity={d.failing ? 0.95 : 0.7}
+                      stroke="var(--surface-elevated)"
+                      strokeWidth={0.12}
+                      className={d.failing ? "school-dot cursor-pointer" : "cursor-pointer"}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsoSchool((curr) => (curr?.id === d.id ? null : d));
+                      }}
+                    />
+                  ))}
+                </g>
+              )}
+
+              {/* Travel-time isochrones — concentric rings around clicked school */}
+              {isoSchool && (
+                <g pointerEvents="none">
+                  {[
+                    { r: 3.0, label: "30 min", color: "var(--sev-green)" },
+                    { r: 6.0, label: "60 min", color: "var(--sev-yellow)" },
+                    { r: 9.0, label: "90 min", color: "var(--sev-orange)" },
+                  ].map((ring) => (
+                    <g key={ring.label}>
+                      <circle
+                        cx={isoSchool.x}
+                        cy={isoSchool.y}
+                        r={ring.r}
+                        fill={ring.color}
+                        fillOpacity={0.07}
+                        stroke={ring.color}
+                        strokeWidth={0.2}
+                        strokeDasharray="0.5 0.4"
+                      />
+                      <text
+                        x={isoSchool.x + ring.r * 0.71}
+                        y={isoSchool.y - ring.r * 0.71}
+                        fontSize="1.6"
+                        fontWeight="700"
+                        fill={ring.color}
+                      >
+                        {ring.label}
+                      </text>
+                    </g>
+                  ))}
+                  <circle
+                    cx={isoSchool.x}
+                    cy={isoSchool.y}
+                    r={0.9}
+                    fill="var(--ink)"
+                    stroke="var(--surface-elevated)"
+                    strokeWidth={0.3}
+                  />
                 </g>
               )}
             </svg>
@@ -388,6 +560,7 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
                 const isSelected = selectedId === p.id;
                 const isHovered = hoverId === p.id;
                 const isActive = isSelected || isHovered;
+                const dim = hasFocus && !focusIds.has(p.id);
 
                 return (
                   <button
@@ -398,11 +571,13 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
                     }}
                     onMouseEnter={() => setHoverId(p.id)}
                     onMouseLeave={() => setHoverId(null)}
-                    className="absolute z-10 flex items-center justify-center"
+                    className="absolute z-10 flex items-center justify-center transition-opacity"
                     style={{
                       left: `${p.x}%`,
                       top: `${p.y}%`,
                       transform: `translate(-50%, -50%) scale(${inv})`,
+                      opacity: dim ? 0.18 : 1,
+                      filter: dim ? "grayscale(0.5)" : "none",
                     }}
                     aria-label={p.name}
                   >
@@ -486,7 +661,32 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
                 inv={inv}
               />
             )}
+
+            {/* Isochrone info card — appears when a school dot is clicked */}
+            {isoSchool && (
+              <IsochroneCard
+                school={isoSchool}
+                inv={inv}
+                onClose={() => setIsoSchool(null)}
+              />
+            )}
           </div>
+
+          {/* Focus chip — top-left, mirrors sidebar focus state */}
+          {hasFocus && (
+            <div className="absolute left-3 top-3 z-40 flex items-center gap-2 rounded-full border border-[var(--blue)]/50 bg-[var(--surface-elevated)]/95 px-2.5 py-1 shadow-card backdrop-blur">
+              <Crosshair className="h-3 w-3" style={{ color: "var(--blue)" }} />
+              <span className="text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: "var(--blue)" }}>
+                Focused · {focusIds.size} parish{focusIds.size > 1 ? "es" : ""}
+              </span>
+              <button
+                onClick={onClearFocus}
+                className="ml-1 inline-flex items-center gap-0.5 rounded-full border border-border bg-[var(--background)] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.1em] text-[var(--text-secondary)] hover:text-foreground"
+              >
+                <X className="h-2.5 w-2.5" /> clear
+              </button>
+            </div>
+          )}
 
           {/* Zoom controls */}
           <div className="absolute right-3 top-3 z-40 flex flex-col overflow-hidden rounded-md border border-border bg-[var(--surface-elevated)]/95 shadow-card backdrop-blur">
@@ -741,5 +941,97 @@ function Legend({ swatch, children }: { swatch: React.ReactNode; children: React
       {swatch}
       {children}
     </span>
+  );
+}
+
+function IsochroneCard({
+  school,
+  inv,
+  onClose,
+}: {
+  school: ParishSchoolDot;
+  inv: number;
+  onClose: () => void;
+}) {
+  // Synthetic reach numbers based on grade severity
+  const baseStudents = school.failing ? 480 : 720;
+  const reach30 = baseStudents;
+  const reach60 = Math.round(baseStudents * 3.4);
+  const reach90 = Math.round(baseStudents * 7.1);
+  const peers30 = school.failing ? 1 : 4;
+  const above = school.y > 30;
+  return (
+    <div
+      className="pointer-events-auto absolute z-40 w-[230px]"
+      style={{
+        left: `${school.x}%`,
+        top: `${school.y}%`,
+        transform: above
+          ? `translate(-50%, calc(-100% - 22px)) scale(${inv})`
+          : `translate(-50%, 22px) scale(${inv})`,
+        transformOrigin: above ? "bottom center" : "top center",
+      }}
+    >
+      <div className="overflow-hidden rounded-xl border border-border bg-[var(--surface-elevated)]/97 shadow-elevated backdrop-blur-md">
+        <div className="flex items-center justify-between gap-2 px-3 pt-2.5">
+          <div className="min-w-0">
+            <div className="text-[8px] font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)]">
+              School · Travel-time reach
+            </div>
+            <div className="truncate font-display text-[13px] font-bold tracking-tight text-foreground">
+              {school.name}
+            </div>
+          </div>
+          <span
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md font-mono text-[12px] font-bold"
+            style={{
+              background: school.failing
+                ? "color-mix(in oklab, var(--sev-red) 18%, transparent)"
+                : "color-mix(in oklab, var(--sev-green) 14%, transparent)",
+              color: school.failing ? "var(--sev-red)" : "var(--sev-green)",
+            }}
+          >
+            {school.grade}
+          </span>
+        </div>
+        <div className="grid grid-cols-3 gap-1 px-3 py-2.5">
+          <ReachCell color="var(--sev-green)" mins="30" students={reach30} />
+          <ReachCell color="var(--sev-yellow)" mins="60" students={reach60} />
+          <ReachCell color="var(--sev-orange)" mins="90" students={reach90} />
+        </div>
+        <div className="flex items-center justify-between border-t border-border px-3 py-1.5 text-[10px] text-[var(--text-secondary)]">
+          <span>
+            <span className="font-mono font-bold tabular-nums text-foreground">{peers30}</span>{" "}
+            quality alt within 30m
+          </span>
+          <button
+            onClick={onClose}
+            className="inline-flex items-center gap-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)] hover:text-foreground"
+          >
+            <X className="h-2.5 w-2.5" /> close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ReachCell({ color, mins, students }: { color: string; mins: string; students: number }) {
+  return (
+    <div
+      className="rounded-md border px-1.5 py-1.5"
+      style={{
+        borderColor: `color-mix(in oklab, ${color} 30%, transparent)`,
+        background: `color-mix(in oklab, ${color} 8%, transparent)`,
+      }}
+    >
+      <div className="text-[8px] font-semibold uppercase tracking-[0.12em]" style={{ color }}>
+        {mins} min
+      </div>
+      <div className="font-mono text-[12px] font-bold tabular-nums leading-tight text-foreground">
+        {students.toLocaleString()}
+      </div>
+      <div className="text-[8px] text-[var(--text-muted)]">students</div>
+    </div>
   );
 }

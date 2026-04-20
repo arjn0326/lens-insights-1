@@ -188,6 +188,165 @@ export function buildSchoolDots(): SchoolDot[] {
   return dots;
 }
 
+export interface ParishSchoolDot extends SchoolDot {
+  parishId: string;
+  id: string;
+  name: string;
+  grade: "A" | "B" | "C" | "D" | "F";
+}
+
+/**
+ * Per-parish school dots — used when focusing on specific parishes so we can
+ * show ONLY their schools (and color D/F red with a glow halo for clusters).
+ */
+export function buildParishSchoolDots(parishId: string): ParishSchoolDot[] {
+  const p = PARISHES.find((x) => x.id === parishId);
+  if (!p) return [];
+  const rand = mulberry32(p.name.length * 131 + p.totalSchools);
+  const out: ParishSchoolDot[] = [];
+  const failingCount = p.dfSchools;
+  // Spread a bit wider so individual schools are scannable.
+  for (let i = 0; i < p.totalSchools; i++) {
+    const angle = rand() * Math.PI * 2;
+    const radius = Math.sqrt(rand()) * 3.6;
+    const failing = i < failingCount;
+    const grade: ParishSchoolDot["grade"] = failing
+      ? rand() > 0.55
+        ? "F"
+        : "D"
+      : rand() > 0.7
+      ? "A"
+      : rand() > 0.4
+      ? "B"
+      : "C";
+    out.push({
+      x: p.x + Math.cos(angle) * radius,
+      y: p.y + Math.sin(angle) * radius * 0.9,
+      failing,
+      parishId: p.id,
+      id: `${p.id}-${i}`,
+      name: `${p.name} School ${i + 1}`,
+      grade,
+    });
+  }
+  return out;
+}
+
+/**
+ * For each school dot, count how many other failing schools are within `radius`.
+ * Used to render a glow halo around D/F clusters.
+ */
+export function failingClusterScore(
+  dots: ParishSchoolDot[],
+  cx: number,
+  cy: number,
+  radius = 4,
+): number {
+  let n = 0;
+  for (const d of dots) {
+    if (!d.failing) continue;
+    const dx = d.x - cx;
+    const dy = d.y - cy;
+    if (dx * dx + dy * dy <= radius * radius) n++;
+  }
+  return n;
+}
+
+/* ------------------------- Synthetic parish polygons --------------------- */
+
+/**
+ * Build a stylized convex polygon around each parish point so we can render
+ * boundaries on the map (real GeoJSON for all 64 parishes is heavy; this is a
+ * Voronoi-flavored stand-in good enough for choropleth visuals).
+ */
+function parishPolygonPoints(seed: number, cx: number, cy: number, baseR: number): string {
+  const rand = mulberry32(seed);
+  const sides = 8;
+  const pts: string[] = [];
+  for (let i = 0; i < sides; i++) {
+    const a = (Math.PI * 2 * i) / sides + rand() * 0.25;
+    const r = baseR * (0.78 + rand() * 0.55);
+    const px = cx + Math.cos(a) * r;
+    const py = cy + Math.sin(a) * r * 0.88;
+    pts.push(`${px.toFixed(2)},${py.toFixed(2)}`);
+  }
+  return pts.join(" ");
+}
+
+export const PARISH_POLYGONS: Record<string, string> = (() => {
+  const out: Record<string, string> = {};
+  for (const p of PARISHES) {
+    // Larger parishes get bigger polygons.
+    const r = 5.5 + Math.sqrt(p.totalSchools) * 0.85;
+    out[p.id] = parishPolygonPoints(p.name.length * 17 + p.totalSchools * 3, p.x, p.y, r);
+  }
+  return out;
+})();
+
+/* ------------------------- Funding flow Sankey (statewide) --------------- */
+
+/** Federal → State → Parish → School type. Synthetic but coherent. */
+export function buildFundingFlowSankey(): SankeyData {
+  const sources = [
+    { name: "Federal Title I", val: 480 },
+    { name: "State MFP", val: 1850 },
+    { name: "Local Property Tax", val: 920 },
+    { name: "Federal IDEA", val: 210 },
+    { name: "Federal Other", val: 140 },
+  ];
+  const buckets = [
+    { name: "LDOE Pool", id: "pool" },
+  ];
+  // Top parishes by students get explicit nodes; rest aggregated.
+  const top = [...PARISHES].sort((a, b) => b.students - a.students).slice(0, 6);
+  const totals = sources.reduce((s, x) => s + x.val, 0);
+  const studentTotal = PARISHES.reduce((s, p) => s + p.students, 0);
+
+  const nodes: { name: string }[] = [
+    ...sources.map((s) => ({ name: s.name })),
+    ...buckets.map((b) => ({ name: b.name })),
+    ...top.map((p) => ({ name: p.name })),
+    { name: "Other parishes" },
+    { name: "Traditional schools" },
+    { name: "Charter schools" },
+    { name: "CTE / Magnet" },
+  ];
+
+  const idx = {
+    poolNode: sources.length, // first bucket
+    parishStart: sources.length + buckets.length,
+    other: sources.length + buckets.length + top.length,
+    trad: sources.length + buckets.length + top.length + 1,
+    charter: sources.length + buckets.length + top.length + 2,
+    cte: sources.length + buckets.length + top.length + 3,
+  };
+
+  const links: { source: number; target: number; value: number }[] = [];
+  // Sources → Pool
+  sources.forEach((s, i) => links.push({ source: i, target: idx.poolNode, value: s.val }));
+
+  // Pool → top parishes (proportional to students)
+  let allocated = 0;
+  top.forEach((p, i) => {
+    const v = Math.round((p.students / studentTotal) * totals);
+    allocated += v;
+    links.push({ source: idx.poolNode, target: idx.parishStart + i, value: v });
+  });
+  links.push({ source: idx.poolNode, target: idx.other, value: Math.max(50, totals - allocated) });
+
+  // Each parish (and "other") → school types
+  const parishNodeIdxs = [...top.map((_, i) => idx.parishStart + i), idx.other];
+  const parishVals = [...top.map((p) => Math.round((p.students / studentTotal) * totals)), Math.max(50, totals - allocated)];
+  parishNodeIdxs.forEach((nIdx, i) => {
+    const v = parishVals[i];
+    links.push({ source: nIdx, target: idx.trad, value: Math.round(v * 0.74) });
+    links.push({ source: nIdx, target: idx.charter, value: Math.round(v * 0.18) });
+    links.push({ source: nIdx, target: idx.cte, value: Math.round(v * 0.08) });
+  });
+
+  return { nodes, links: links.filter((l) => l.value > 0) };
+}
+
 /* ------------------------- Hex-bin school density ------------------------ */
 
 export interface HexBin {

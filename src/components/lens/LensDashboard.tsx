@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Header } from "@/components/lens/Header";
 import { SimulatorPanel } from "@/components/lens/SimulatorPanel";
 import { LayerToggle } from "@/components/lens/LayerToggle";
@@ -6,12 +6,25 @@ import { LouisianaMap } from "@/components/lens/LouisianaMap";
 import { StatRow } from "@/components/lens/StatRow";
 import { RankingsList } from "@/components/lens/RankingsList";
 import { ParishDetail } from "@/components/lens/ParishDetail";
+import { FundingFlowPanel } from "@/components/lens/FundingFlowPanel";
 import type { LayerKey } from "@/lib/lens-data";
 
 export function LensDashboard() {
   const [layer, setLayer] = useState<LayerKey>("Health");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [simulatorOpen, setSimulatorOpen] = useState(false);
+  const [focusIds, setFocusIds] = useState<Set<string>>(new Set());
+
+  const toggleFocus = useCallback((id: string) => {
+    setFocusIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }, []);
+
+  const clearFocus = useCallback(() => setFocusIds(new Set()), []);
 
   return (
     <div className="flex h-screen w-full flex-col overflow-hidden bg-background text-foreground">
@@ -29,8 +42,11 @@ export function LensDashboard() {
             layer={layer}
             selectedId={selectedId}
             onSelect={(id) => setSelectedId(id)}
+            focusIds={focusIds}
+            onClearFocus={clearFocus}
           />
           <StatRow />
+          <FundingFlowPanel />
         </main>
 
         {/* Right sidebar */}
@@ -38,7 +54,14 @@ export function LensDashboard() {
           {selectedId ? (
             <ParishDetail parishId={selectedId} onBack={() => setSelectedId(null)} />
           ) : (
-            <RankingsList layer={layer} selectedId={selectedId} onSelect={setSelectedId} />
+            <RankingsList
+              layer={layer}
+              selectedId={selectedId}
+              onSelect={setSelectedId}
+              focusIds={focusIds}
+              onToggleFocus={toggleFocus}
+              onClearFocus={clearFocus}
+            />
           )}
         </aside>
       </div>
