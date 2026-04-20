@@ -30,94 +30,122 @@ export interface Parish {
 export const PARISHES: Parish[] = [
   {
     id: "ouachita", name: "Ouachita", population: 153279, students: 28400, dfSchools: 11, totalSchools: 48, trend: "down",
-    x: 62, y: 20,
+    x: 37.7, y: 17.5,
     scores: { Health: 42, Need: 78, Access: 65, Readiness: 71, Demand: 82, Pipeline: 58 },
     alert: "Workforce Wave", intervention: "A2+C",
   },
   {
     id: "caddo", name: "Caddo", population: 237848, students: 38900, dfSchools: 19, totalSchools: 65, trend: "down",
-    x: 11, y: 16,
+    x: 5.4, y: 16.4,
     scores: { Health: 38, Need: 84, Access: 72, Readiness: 68, Demand: 61, Pipeline: 71 },
     alert: "Staffing Crisis", intervention: "A1+C",
   },
   {
     id: "ebr", name: "E. Baton Rouge", population: 456781, students: 41200, dfSchools: 22, totalSchools: 88, trend: "down",
-    x: 54, y: 66,
+    x: 57.2, y: 59.5,
     scores: { Health: 51, Need: 72, Access: 48, Readiness: 62, Demand: 74, Pipeline: 52 },
     alert: "Skills Mismatch", intervention: "A2",
   },
   {
     id: "calcasieu", name: "Calcasieu", population: 216785, students: 32100, dfSchools: 9, totalSchools: 56, trend: "up",
-    x: 22, y: 78,
+    x: 16.2, y: 66.7,
     scores: { Health: 55, Need: 61, Access: 58, Readiness: 65, Demand: 91, Pipeline: 44 },
     alert: "Workforce Wave", intervention: "B",
   },
   {
     id: "jefferson", name: "Jefferson", population: 440781, students: 49800, dfSchools: 14, totalSchools: 78, trend: "flat",
-    x: 74, y: 84,
+    x: 73, y: 75.6,
     scores: { Health: 58, Need: 64, Access: 42, Readiness: 59, Demand: 68, Pipeline: 41 },
     alert: "Access Desert", intervention: "A1",
   },
   {
     id: "orleans", name: "Orleans", population: 383997, students: 45600, dfSchools: 8, totalSchools: 82, trend: "up",
-    x: 84, y: 80,
+    x: 77.2, y: 70.1,
     scores: { Health: 64, Need: 58, Access: 22, Readiness: 55, Demand: 72, Pipeline: 48 },
     alert: null, intervention: "Monitor",
   },
   {
     id: "sttammany", name: "St. Tammany", population: 264570, students: 38200, dfSchools: 4, totalSchools: 60, trend: "up",
-    x: 78, y: 70,
+    x: 76.5, y: 61.6,
     scores: { Health: 78, Need: 35, Access: 31, Readiness: 42, Demand: 55, Pipeline: 28 },
     alert: null, intervention: "Monitor",
   },
   {
     id: "lafayette", name: "Lafayette", population: 244390, students: 31600, dfSchools: 7, totalSchools: 52, trend: "flat",
-    x: 40, y: 72,
+    x: 39.2, y: 67,
     scores: { Health: 68, Need: 48, Access: 39, Readiness: 51, Demand: 62, Pipeline: 36 },
     alert: null, intervention: "Monitor",
   },
   {
     id: "rapides", name: "Rapides", population: 130023, students: 22400, dfSchools: 8, totalSchools: 44, trend: "down",
-    x: 38, y: 48,
+    x: 29.4, y: 46.4,
     scores: { Health: 52, Need: 69, Access: 62, Readiness: 58, Demand: 52, Pipeline: 55 },
     alert: "Specialty Desert", intervention: "A3",
   },
   {
     id: "ascension", name: "Ascension", population: 130158, students: 24300, dfSchools: 3, totalSchools: 32, trend: "up",
-    x: 60, y: 73,
+    x: 58.8, y: 67,
     scores: { Health: 61, Need: 44, Access: 52, Readiness: 56, Demand: 88, Pipeline: 32 },
     alert: "Workforce Wave", intervention: "B",
   },
   {
     id: "bossier", name: "Bossier", population: 128746, students: 23100, dfSchools: 6, totalSchools: 38, trend: "flat",
-    x: 20, y: 18,
+    x: 9.8, y: 13.3,
     scores: { Health: 62, Need: 52, Access: 45, Readiness: 54, Demand: 58, Pipeline: 42 },
     alert: null, intervention: "Monitor",
   },
   {
     id: "richland", name: "Richland", population: 20122, students: 4200, dfSchools: 5, totalSchools: 14, trend: "down",
-    x: 54, y: 24,
+    x: 43.9, y: 19.4,
     scores: { Health: 44, Need: 76, Access: 81, Readiness: 74, Demand: 94, Pipeline: 62 },
     alert: "Workforce Wave", intervention: "A2",
   },
 ];
 
+/** Major existing employers — used as context pins on the Health layer. */
 export const EMPLOYERS = [
-  { name: "META", value: "$10B", x: 56, y: 20 },
-  { name: "HYUNDAI", value: "$5.8B", x: 62, y: 71 },
-  { name: "WOODSIDE", value: "$17.5B", x: 20, y: 76 },
+  { name: "META", value: "$10B", x: 39.5, y: 18.5 },     // Richland
+  { name: "EXXON", value: "$2.4B", x: 56.5, y: 58.0 },   // Baton Rouge
+  { name: "WOODSIDE", value: "$17.5B", x: 18.0, y: 64.0 }, // Calcasieu LNG
 ];
 
 /**
- * Major Louisiana interstates as polylines in 0-100 viewport coordinates.
- * Approximated routes for visual reference, not survey-accurate.
+ * Major announced industrial investments — green $ markers on the map.
+ * Hover reveals: amount, jobs, sector, and which parish demand it lifts.
+ */
+export interface Investment {
+  id: string;
+  name: string;
+  parish: string;
+  amount: string;
+  jobs: number;
+  sector: string;
+  status: "Announced" | "Under construction" | "Operational";
+  online: string;
+  x: number;
+  y: number;
+}
+
+export const INVESTMENTS: Investment[] = [
+  { id: "meta", name: "Meta AI Data Center", parish: "Richland", amount: "$10B", jobs: 500, sector: "Tech / AI infra", status: "Under construction", online: "2027", x: 43.5, y: 19.0 },
+  { id: "hyundai", name: "Hyundai Steel Mill", parish: "Ascension", amount: "$5.8B", jobs: 1300, sector: "Heavy industry", status: "Announced", online: "2029", x: 58.0, y: 67.5 },
+  { id: "woodside", name: "Woodside Louisiana LNG", parish: "Calcasieu", amount: "$17.5B", jobs: 1500, sector: "Energy / LNG", status: "Under construction", online: "2026", x: 17.0, y: 67.5 },
+  { id: "ccs", name: "Air Products Clean Energy", parish: "Ascension", amount: "$4.5B", jobs: 170, sector: "Hydrogen / CCS", status: "Under construction", online: "2026", x: 60.0, y: 67.0 },
+  { id: "venture", name: "Venture Global CP2 LNG", parish: "Cameron", amount: "$10B", jobs: 250, sector: "Energy / LNG", status: "Announced", online: "2027", x: 12.0, y: 73.0 },
+  { id: "first", name: "First Solar Cell Plant", parish: "Iberia", amount: "$1.1B", jobs: 700, sector: "Solar mfg", status: "Under construction", online: "2025", x: 47.5, y: 70.5 },
+  { id: "shintech", name: "Shintech PVC Expansion", parish: "Plaquemine", amount: "$1.4B", jobs: 120, sector: "Petrochem", status: "Operational", online: "2024", x: 55.0, y: 64.5 },
+];
+
+/**
+ * Major Louisiana interstates as polylines in the projected 0-100 viewBox.
+ * Approximate routes — visual reference, not survey-accurate.
  */
 export const HIGHWAYS: { name: string; d: string }[] = [
-  { name: "I-10", d: "M 6,80 L 22,79 L 38,75 L 54,72 L 64,76 L 76,82 L 92,84" },
-  { name: "I-20", d: "M 6,18 L 20,18 L 38,18 L 54,22 L 64,22 L 76,22" },
-  { name: "I-49", d: "M 12,16 L 18,28 L 28,40 L 36,52 L 40,66 L 42,72" },
-  { name: "I-12", d: "M 54,68 L 64,68 L 74,70 L 82,71" },
-  { name: "I-55", d: "M 70,40 L 72,55 L 74,68 L 76,80" },
+  { name: "I-10", d: "M 4,67 L 16,67 L 30,68 L 40,67 L 50,64 L 57,61 L 65,66 L 73,72 L 78,71 L 88,71" },
+  { name: "I-20", d: "M 5,16 L 10,14 L 22,15 L 30,17 L 38,17 L 44,19 L 52,18 L 60,17" },
+  { name: "I-49", d: "M 5,17 L 9,24 L 16,32 L 22,40 L 27,46 L 32,54 L 36,62 L 39,67" },
+  { name: "I-12", d: "M 57,60 L 65,60 L 72,60 L 78,61" },
+  { name: "I-55", d: "M 65,30 L 66,42 L 67,52 L 68,60" },
 ];
 
 /**
@@ -145,19 +173,148 @@ export function buildSchoolDots(): SchoolDot[] {
   const rand = mulberry32(42);
   for (const p of PARISHES) {
     // Cap rendered dots so dense parishes don't dominate visually
-    const renderCount = Math.min(p.totalSchools, 18);
+    const renderCount = Math.min(p.totalSchools, 22);
     const failingCount = Math.round((p.dfSchools / p.totalSchools) * renderCount);
     for (let i = 0; i < renderCount; i++) {
       const angle = rand() * Math.PI * 2;
-      const radius = Math.sqrt(rand()) * 4.2; // cluster radius (% of viewport)
+      const radius = Math.sqrt(rand()) * 3.0; // tighter cluster, fits within parish
       dots.push({
         x: p.x + Math.cos(angle) * radius,
-        y: p.y + Math.sin(angle) * radius * 0.85,
+        y: p.y + Math.sin(angle) * radius * 0.9,
         failing: i < failingCount,
       });
     }
   }
   return dots;
+}
+
+/* ------------------------- Hex-bin school density ------------------------ */
+
+export interface HexBin {
+  x: number;
+  y: number;
+  count: number;
+  failing: number;
+}
+
+/**
+ * Bins school dots into a hex grid. Used for the report-page density map and
+ * (optionally) the dashboard heatmap mode.
+ */
+export function buildHexBins(size = 4.2): HexBin[] {
+  const dots = buildSchoolDots();
+  const w = size;
+  const h = size * Math.sqrt(3) / 2;
+  const bins = new Map<string, HexBin>();
+  for (const d of dots) {
+    const row = Math.round(d.y / h);
+    const offset = row % 2 === 0 ? 0 : w / 2;
+    const col = Math.round((d.x - offset) / w);
+    const cx = col * w + offset;
+    const cy = row * h;
+    const key = `${col}_${row}`;
+    const b = bins.get(key);
+    if (b) {
+      b.count++;
+      if (d.failing) b.failing++;
+    } else {
+      bins.set(key, { x: cx, y: cy, count: 1, failing: d.failing ? 1 : 0 });
+    }
+  }
+  return [...bins.values()];
+}
+
+/* ------------------------- Sankey: graduate outcomes --------------------- */
+
+export interface SankeyData {
+  nodes: { name: string }[];
+  links: { source: number; target: number; value: number }[];
+}
+
+export function buildOutcomeSankey(parishId: string): SankeyData {
+  const p = PARISHES.find((x) => x.id === parishId);
+  if (!p) return { nodes: [], links: [] };
+  const rand = mulberry32(p.population);
+  const grads = Math.round(p.students / 13); // ~ one grade
+  const onTime = Math.round(grads * (0.78 + rand() * 0.12));
+  const late = grads - onTime;
+
+  const fourYear = Math.round(onTime * (0.28 + rand() * 0.10));
+  const twoYear = Math.round(onTime * (0.22 + rand() * 0.08));
+  const cte = Math.round(onTime * (0.18 + rand() * 0.08));
+  const workforce = Math.round(onTime * (0.18 + rand() * 0.06));
+  const military = Math.round(onTime * 0.04);
+  const unknown = Math.max(0, onTime - fourYear - twoYear - cte - workforce - military);
+
+  // Outcomes from each pathway
+  const indices = {
+    grads: 0, onTime: 1, late: 2,
+    fourYear: 3, twoYear: 4, cte: 5, workforce: 6, military: 7, unknown: 8,
+    employed: 9, enrolled: 10, disconnected: 11,
+  };
+  const nodes = [
+    { name: "Graduates" },
+    { name: "On-time" },
+    { name: "Late / GED" },
+    { name: "4-yr College" },
+    { name: "2-yr College" },
+    { name: "CTE Credential" },
+    { name: "Direct Workforce" },
+    { name: "Military" },
+    { name: "Unknown" },
+    { name: "Employed @ 1yr" },
+    { name: "Still enrolled" },
+    { name: "Disconnected" },
+  ];
+
+  const links = [
+    { source: indices.grads, target: indices.onTime, value: onTime },
+    { source: indices.grads, target: indices.late, value: late },
+    { source: indices.onTime, target: indices.fourYear, value: fourYear },
+    { source: indices.onTime, target: indices.twoYear, value: twoYear },
+    { source: indices.onTime, target: indices.cte, value: cte },
+    { source: indices.onTime, target: indices.workforce, value: workforce },
+    { source: indices.onTime, target: indices.military, value: military },
+    { source: indices.onTime, target: indices.unknown, value: unknown },
+    { source: indices.late, target: indices.workforce, value: Math.round(late * 0.45) },
+    { source: indices.late, target: indices.cte, value: Math.round(late * 0.18) },
+    { source: indices.late, target: indices.unknown, value: Math.round(late * 0.37) },
+    // 1-year outcomes
+    { source: indices.fourYear, target: indices.enrolled, value: Math.round(fourYear * 0.85) },
+    { source: indices.fourYear, target: indices.disconnected, value: Math.round(fourYear * 0.15) },
+    { source: indices.twoYear, target: indices.enrolled, value: Math.round(twoYear * 0.65) },
+    { source: indices.twoYear, target: indices.employed, value: Math.round(twoYear * 0.25) },
+    { source: indices.twoYear, target: indices.disconnected, value: Math.round(twoYear * 0.10) },
+    { source: indices.cte, target: indices.employed, value: Math.round(cte * 0.75) },
+    { source: indices.cte, target: indices.enrolled, value: Math.round(cte * 0.15) },
+    { source: indices.cte, target: indices.disconnected, value: Math.round(cte * 0.10) },
+    { source: indices.workforce, target: indices.employed, value: Math.round((workforce + late * 0.45) * 0.78) },
+    { source: indices.workforce, target: indices.disconnected, value: Math.round((workforce + late * 0.45) * 0.22) },
+    { source: indices.military, target: indices.employed, value: military },
+    { source: indices.unknown, target: indices.disconnected, value: Math.round((unknown + late * 0.37) * 0.7) },
+    { source: indices.unknown, target: indices.employed, value: Math.round((unknown + late * 0.37) * 0.3) },
+  ].filter(l => l.value > 0);
+
+  return { nodes, links };
+}
+
+/* ------------------------- Trajectory race ------------------------------- */
+
+/** 6-year rank race across all parishes for the active layer (Health). */
+export function buildRaceSeries() {
+  const years = ["2019", "2020", "2021", "2022", "2023", "2024"];
+  return years.map((year, i) => {
+    const t = i / (years.length - 1);
+    const row: Record<string, string | number> = { year };
+    for (const p of PARISHES) {
+      const rand = mulberry32(p.name.length * 31 + i * 7);
+      const drift = p.trend === "up" ? -10 : p.trend === "down" ? 9 : 1;
+      const start = Math.max(15, Math.min(95, p.scores.Health - drift));
+      const wobble = (rand() - 0.5) * 5;
+      row[p.id] = Math.round(start + (p.scores.Health - start) * t + wobble);
+    }
+    return row;
+  });
 }
 
 /**
