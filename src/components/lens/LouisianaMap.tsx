@@ -321,8 +321,9 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
                 </g>
               )}
 
-              {/* School dots — only in pin mode */}
-              {showPins && (
+              {/* School dots — only in pin mode and only when NOT focused.
+                  When focused, we show only the focused parishes' schools below. */}
+              {showPins && !hasFocus && (
                 <g clipPath="url(#laClip)">
                   {dots.map((d, i) => (
                     <circle
@@ -336,6 +337,142 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
                       style={{ animationDelay: `${(i % 7) * 0.4}s` }}
                     />
                   ))}
+                </g>
+              )}
+
+              {/* SPOTLIGHT: dim everything outside focused parish polygons */}
+              {hasFocus && (
+                <g pointerEvents="none">
+                  <defs>
+                    <mask id="focusMask">
+                      <rect x="0" y="0" width="100" height="100" fill="white" />
+                      {[...focusIds].map((id) => (
+                        <polygon key={id} points={PARISH_POLYGONS[id]} fill="black" />
+                      ))}
+                    </mask>
+                  </defs>
+                  <path
+                    d={LA_PATH}
+                    fill="oklch(0.18 0.015 260 / 0.55)"
+                    mask="url(#focusMask)"
+                  />
+                </g>
+              )}
+
+              {/* Focused parish boundaries — glowing outline */}
+              {hasFocus &&
+                [...focusIds].map((id) => {
+                  const p = PARISHES.find((x) => x.id === id);
+                  if (!p) return null;
+                  const color = SEV_COLOR[severity(layer, p.scores[layer])];
+                  return (
+                    <g key={`focus-${id}`}>
+                      <polygon
+                        points={PARISH_POLYGONS[id]}
+                        fill={color}
+                        fillOpacity={0.12}
+                        stroke={color}
+                        strokeWidth={0.55}
+                        strokeDasharray="0.8 0.4"
+                        filter="url(#focusGlow)"
+                      />
+                      {/* Parish label inside polygon */}
+                      <text
+                        x={p.x}
+                        y={p.y - 4}
+                        fontSize="2.2"
+                        fontWeight="800"
+                        fill="var(--ink)"
+                        textAnchor="middle"
+                        style={{ paintOrder: "stroke", stroke: "var(--surface-elevated)", strokeWidth: 0.5 }}
+                      >
+                        {p.name}
+                      </text>
+                    </g>
+                  );
+                })}
+
+              {/* Focused-parish school dots (always visible when focused, in any mode) */}
+              {hasFocus && (
+                <g clipPath="url(#laClip)">
+                  {/* D/F red glow halos for clusters */}
+                  {focusedDots
+                    .filter((d) => d.failing)
+                    .map((d) => {
+                      const cluster = failingClusterScore(focusedDots, d.x, d.y, 4);
+                      if (cluster < 2) return null;
+                      const r = 1.6 + cluster * 0.5;
+                      return (
+                        <circle
+                          key={`halo-${d.id}`}
+                          cx={d.x}
+                          cy={d.y}
+                          r={r}
+                          fill="var(--sev-red)"
+                          fillOpacity={Math.min(0.45, 0.12 + cluster * 0.06)}
+                          filter="url(#dfHalo)"
+                        />
+                      );
+                    })}
+                  {/* Dots */}
+                  {focusedDots.map((d) => (
+                    <circle
+                      key={d.id}
+                      cx={d.x}
+                      cy={d.y}
+                      r={d.failing ? 0.7 : 0.5}
+                      fill={d.failing ? "var(--sev-red)" : "var(--ink)"}
+                      opacity={d.failing ? 0.95 : 0.7}
+                      stroke="var(--surface-elevated)"
+                      strokeWidth={0.12}
+                      className={d.failing ? "school-dot cursor-pointer" : "cursor-pointer"}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsoSchool((curr) => (curr?.id === d.id ? null : d));
+                      }}
+                    />
+                  ))}
+                </g>
+              )}
+
+              {/* Travel-time isochrones — concentric rings around clicked school */}
+              {isoSchool && (
+                <g pointerEvents="none">
+                  {[
+                    { r: 3.0, label: "30 min", color: "var(--sev-green)" },
+                    { r: 6.0, label: "60 min", color: "var(--sev-yellow)" },
+                    { r: 9.0, label: "90 min", color: "var(--sev-orange)" },
+                  ].map((ring) => (
+                    <g key={ring.label}>
+                      <circle
+                        cx={isoSchool.x}
+                        cy={isoSchool.y}
+                        r={ring.r}
+                        fill={ring.color}
+                        fillOpacity={0.07}
+                        stroke={ring.color}
+                        strokeWidth={0.2}
+                        strokeDasharray="0.5 0.4"
+                      />
+                      <text
+                        x={isoSchool.x + ring.r * 0.71}
+                        y={isoSchool.y - ring.r * 0.71}
+                        fontSize="1.6"
+                        fontWeight="700"
+                        fill={ring.color}
+                      >
+                        {ring.label}
+                      </text>
+                    </g>
+                  ))}
+                  <circle
+                    cx={isoSchool.x}
+                    cy={isoSchool.y}
+                    r={0.9}
+                    fill="var(--ink)"
+                    stroke="var(--surface-elevated)"
+                    strokeWidth={0.3}
+                  />
                 </g>
               )}
             </svg>
