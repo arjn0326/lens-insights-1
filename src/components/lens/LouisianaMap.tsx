@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   EMPLOYERS,
   HIGHWAYS,
@@ -9,7 +9,7 @@ import {
   severityLabel,
   type LayerKey,
 } from "@/lib/lens-data";
-import { ArrowDown, ArrowUp, Minus, TriangleAlert } from "lucide-react";
+import { ArrowDown, ArrowUp, Maximize2, Minus, Plus, RotateCcw, TriangleAlert } from "lucide-react";
 
 interface Props {
   layer: LayerKey;
@@ -17,22 +17,64 @@ interface Props {
   onSelect: (id: string) => void;
 }
 
-/**
- * Approximate Louisiana state outline in a 100×100 viewBox.
- * Shape captures the boot/heel and the Florida Parishes notch.
- */
 const LA_PATH =
   "M 6,8 L 53,7 L 53,18 L 92,18 L 92,42 L 88,52 L 86,62 L 90,68 L 92,76 L 86,80 L 78,82 L 76,88 L 70,90 L 64,86 L 60,90 L 54,88 L 50,92 L 44,90 L 40,94 L 34,92 L 28,94 L 22,92 L 16,88 L 12,82 L 8,74 L 6,62 L 7,46 L 6,30 Z";
 
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 3.5;
+
 export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
   const [hoverId, setHoverId] = useState<string | null>(null);
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [dragging, setDragging] = useState(false);
+  const dragStart = useRef<{ x: number; y: number; px: number; py: number } | null>(null);
+
   const dots = useMemo(() => buildSchoolDots(), []);
   const activeId = hoverId ?? selectedId;
   const activeParish = PARISHES.find((p) => p.id === activeId) ?? null;
 
+  const reset = () => {
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
+  };
+
+  const zoomBy = (delta: number) => {
+    setZoom((z) => {
+      const next = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, z + delta));
+      if (next === MIN_ZOOM) setPan({ x: 0, y: 0 });
+      return next;
+    });
+  };
+
+  const onWheel = (e: React.WheelEvent) => {
+    if (!e.ctrlKey && !e.metaKey && Math.abs(e.deltaY) < 30) return;
+    e.preventDefault();
+    zoomBy(e.deltaY > 0 ? -0.2 : 0.2);
+  };
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    if (zoom === 1) return;
+    (e.target as Element).setPointerCapture?.(e.pointerId);
+    setDragging(true);
+    dragStart.current = { x: e.clientX, y: e.clientY, px: pan.x, py: pan.y };
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!dragging || !dragStart.current) return;
+    const dx = e.clientX - dragStart.current.x;
+    const dy = e.clientY - dragStart.current.y;
+    setPan({ x: dragStart.current.px + dx, y: dragStart.current.py + dy });
+  };
+  const onPointerUp = () => {
+    setDragging(false);
+    dragStart.current = null;
+  };
+
+  const transform = `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`;
+
   return (
-    <div className="relative flex-1 overflow-hidden rounded-2xl border border-border bg-[var(--surface-elevated)] shadow-card">
-      {/* Top strip: title + legend */}
+    <div className="relative flex flex-col overflow-hidden rounded-2xl border border-border bg-[var(--surface-elevated)] shadow-card">
+      {/* Top strip */}
       <div className="flex items-start justify-between px-5 pt-4">
         <div>
           <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
@@ -43,7 +85,7 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
             <span className="text-gradient-accent">{layer}</span>
           </div>
         </div>
-        <div className="flex items-center gap-3 text-[9px] uppercase tracking-[0.14em] text-[var(--text-muted)]">
+        <div className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1 text-[9px] uppercase tracking-[0.14em] text-[var(--text-muted)]">
           <Legend swatch={<span className="h-2 w-2 rounded-full" style={{ background: "var(--sev-green)" }} />}>
             Healthy
           </Legend>
@@ -62,175 +104,252 @@ export function LouisianaMap({ layer, selectedId, onSelect }: Props) {
         </div>
       </div>
 
-      {/* Map canvas */}
-      <div className="relative mx-auto mt-3 aspect-[5/4] w-full max-w-[820px] px-5 pb-4">
-        <svg
-          viewBox="0 0 100 100"
-          preserveAspectRatio="xMidYMid meet"
-          className="absolute inset-0 mx-auto h-full w-full"
+      {/* Map canvas — taller aspect so the boot fits, pan/zoom enabled */}
+      <div
+        className="relative mx-auto mt-3 w-full max-w-[820px] flex-1 px-5 pb-4"
+        style={{ minHeight: 420 }}
+      >
+        <div
+          onWheel={onWheel}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerLeave={onPointerUp}
+          className={`relative h-full w-full select-none touch-none ${
+            zoom > 1 ? (dragging ? "cursor-grabbing" : "cursor-grab") : "cursor-default"
+          }`}
+          style={{ aspectRatio: "5 / 4" }}
         >
-          <defs>
-            <linearGradient id="laFill" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="oklch(0.96 0.012 85)" />
-              <stop offset="100%" stopColor="oklch(0.93 0.014 85)" />
-            </linearGradient>
-            <pattern id="dots" width="2" height="2" patternUnits="userSpaceOnUse">
-              <circle cx="0.5" cy="0.5" r="0.18" fill="oklch(0.78 0.012 85)" />
-            </pattern>
-            <clipPath id="laClip">
-              <path d={LA_PATH} />
-            </clipPath>
-          </defs>
+          {/* Transform wrapper — everything inside scales/pans together */}
+          <div
+            className="absolute inset-0 origin-center"
+            style={{
+              transform,
+              transition: dragging ? "none" : "transform 0.18s ease-out",
+            }}
+          >
+            <svg
+              viewBox="0 0 100 100"
+              preserveAspectRatio="xMidYMid meet"
+              className="absolute inset-0 h-full w-full"
+            >
+              <defs>
+                <linearGradient id="laFill" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="oklch(0.96 0.012 85)" />
+                  <stop offset="100%" stopColor="oklch(0.93 0.014 85)" />
+                </linearGradient>
+                <pattern id="dots" width="2" height="2" patternUnits="userSpaceOnUse">
+                  <circle cx="0.5" cy="0.5" r="0.18" fill="oklch(0.78 0.012 85)" />
+                </pattern>
+                <clipPath id="laClip">
+                  <path d={LA_PATH} />
+                </clipPath>
+              </defs>
 
-          {/* State silhouette */}
-          <path d={LA_PATH} fill="url(#laFill)" stroke="var(--ink)" strokeWidth="0.35" strokeLinejoin="round" />
-          <path d={LA_PATH} fill="url(#dots)" opacity="0.5" />
-
-          {/* Highways clipped to state */}
-          <g clipPath="url(#laClip)" opacity="0.55">
-            {HIGHWAYS.map((h) => (
               <path
-                key={h.name}
-                d={h.d}
-                fill="none"
+                d={LA_PATH}
+                fill="url(#laFill)"
                 stroke="var(--ink)"
                 strokeWidth="0.35"
-                strokeDasharray="0.9 0.6"
-                strokeLinecap="round"
+                strokeLinejoin="round"
               />
-            ))}
-          </g>
+              <path d={LA_PATH} fill="url(#dots)" opacity="0.5" />
 
-          {/* Highway labels */}
-          <g className="pointer-events-none">
-            {HIGHWAYS.map((h) => {
-              // label at first coord
-              const m = h.d.match(/M\s*([\d.]+),([\d.]+)/);
-              if (!m) return null;
-              const x = parseFloat(m[1]) + 0.5;
-              const y = parseFloat(m[2]) - 1.2;
-              return (
-                <text
-                  key={h.name}
-                  x={x}
-                  y={y}
-                  fontSize="1.6"
-                  fontWeight="600"
-                  fill="var(--text-muted)"
-                  letterSpacing="0.05em"
+              <g clipPath="url(#laClip)" opacity="0.55">
+                {HIGHWAYS.map((h) => (
+                  <path
+                    key={h.name}
+                    d={h.d}
+                    fill="none"
+                    stroke="var(--ink)"
+                    strokeWidth="0.35"
+                    strokeDasharray="0.9 0.6"
+                    strokeLinecap="round"
+                  />
+                ))}
+              </g>
+
+              <g className="pointer-events-none">
+                {HIGHWAYS.map((h) => {
+                  const m = h.d.match(/M\s*([\d.]+),([\d.]+)/);
+                  if (!m) return null;
+                  const x = parseFloat(m[1]) + 0.5;
+                  const y = parseFloat(m[2]) - 1.2;
+                  return (
+                    <text
+                      key={h.name}
+                      x={x}
+                      y={y}
+                      fontSize="1.6"
+                      fontWeight="600"
+                      fill="var(--text-muted)"
+                      letterSpacing="0.05em"
+                    >
+                      {h.name}
+                    </text>
+                  );
+                })}
+              </g>
+
+              <g clipPath="url(#laClip)">
+                {dots.map((d, i) => (
+                  <circle
+                    key={i}
+                    cx={d.x}
+                    cy={d.y}
+                    r={d.failing ? 0.55 : 0.42}
+                    className="school-dot"
+                    fill={d.failing ? "var(--sev-red)" : "var(--ink)"}
+                    opacity={d.failing ? 0.85 : 0.45}
+                    style={{ animationDelay: `${(i % 7) * 0.4}s` }}
+                  />
+                ))}
+              </g>
+            </svg>
+
+            {/* Employer markers */}
+            {layer === "Health" &&
+              EMPLOYERS.map((emp) => (
+                <div
+                  key={emp.name}
+                  className="pointer-events-none absolute z-20 flex flex-col items-center"
+                  style={{ left: `${emp.x}%`, top: `${emp.y}%`, transform: "translate(-50%, -100%)" }}
                 >
-                  {h.name}
-                </text>
+                  <div
+                    className="rounded-full border border-foreground/25 bg-[var(--surface-elevated)] px-2 py-0.5 font-mono font-bold tracking-[0.08em] text-foreground shadow-card"
+                    style={{ fontSize: `${8 / zoom}px` }}
+                  >
+                    {emp.name} <span className="text-[var(--text-muted)]">{emp.value}</span>
+                  </div>
+                  <div
+                    className="mt-0.5 h-0 w-0"
+                    style={{
+                      borderLeft: "4px solid transparent",
+                      borderRight: "4px solid transparent",
+                      borderTop: "5px solid var(--ink)",
+                    }}
+                  />
+                </div>
+              ))}
+
+            {/* Parish pins — counter-scale so they stay readable when zoomed */}
+            {PARISHES.map((p) => {
+              const score = p.scores[layer];
+              const sev = severity(layer, score);
+              const color = SEV_COLOR[sev];
+              const isSelected = selectedId === p.id;
+              const isHovered = hoverId === p.id;
+              const isActive = isSelected || isHovered;
+              const inv = 1 / zoom;
+
+              return (
+                <button
+                  key={p.id}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onSelect(p.id);
+                  }}
+                  onMouseEnter={() => setHoverId(p.id)}
+                  onMouseLeave={() => setHoverId(null)}
+                  className="absolute z-10 flex items-center justify-center"
+                  style={{
+                    left: `${p.x}%`,
+                    top: `${p.y}%`,
+                    transform: `translate(-50%, -50%) scale(${inv})`,
+                  }}
+                  aria-label={p.name}
+                >
+                  <span
+                    className="absolute rounded-full transition-all duration-300"
+                    style={{
+                      width: isActive ? 36 : 26,
+                      height: isActive ? 36 : 26,
+                      background: color,
+                      opacity: isActive ? 0.18 : 0.1,
+                    }}
+                  />
+                  <span
+                    className="relative flex items-center justify-center rounded-full border-2 bg-[var(--background)] font-mono text-[10px] font-bold tabular-nums shadow-card transition-all"
+                    style={{
+                      width: isActive ? 30 : 24,
+                      height: isActive ? 30 : 24,
+                      borderColor: color,
+                      color: color,
+                    }}
+                  >
+                    {score}
+                  </span>
+                  {p.alert && (
+                    <span className="absolute -right-0.5 -top-0.5 flex h-2 w-2">
+                      <span
+                        className="alert-dot absolute inline-flex h-full w-full rounded-full"
+                        style={{ background: "var(--sev-red)" }}
+                      />
+                      <span
+                        className="relative inline-flex h-2 w-2 rounded-full ring-1 ring-[var(--background)]"
+                        style={{ background: "var(--sev-red)" }}
+                      />
+                    </span>
+                  )}
+                </button>
               );
             })}
-          </g>
 
-          {/* School dots */}
-          <g clipPath="url(#laClip)">
-            {dots.map((d, i) => (
-              <circle
-                key={i}
-                cx={d.x}
-                cy={d.y}
-                r={d.failing ? 0.55 : 0.42}
-                className="school-dot"
-                fill={d.failing ? "var(--sev-red)" : "var(--ink)"}
-                opacity={d.failing ? 0.85 : 0.45}
-                style={{ animationDelay: `${(i % 7) * 0.4}s` }}
+            {activeParish && (
+              <ParishInsightCard
+                parish={activeParish}
+                layer={layer}
+                pinned={!!selectedId && selectedId === activeParish.id}
+                inv={1 / zoom}
               />
-            ))}
-          </g>
-        </svg>
+            )}
+          </div>
 
-        {/* Employer markers (Health layer only) */}
-        {layer === "Health" &&
-          EMPLOYERS.map((emp) => (
-            <div
-              key={emp.name}
-              className="pointer-events-none absolute z-20 flex flex-col items-center"
-              style={{ left: `${emp.x}%`, top: `${emp.y}%`, transform: "translate(-50%, -100%)" }}
-            >
-              <div className="rounded-full border border-foreground/25 bg-[var(--surface-elevated)] px-2 py-0.5 font-mono text-[8px] font-bold tracking-[0.08em] text-foreground shadow-card">
-                {emp.name} <span className="text-[var(--text-muted)]">{emp.value}</span>
-              </div>
-              <div
-                className="mt-0.5 h-0 w-0"
-                style={{
-                  borderLeft: "4px solid transparent",
-                  borderRight: "4px solid transparent",
-                  borderTop: "5px solid var(--ink)",
-                }}
-              />
+          {/* Zoom / pan controls */}
+          <div className="absolute right-3 top-3 z-40 flex flex-col overflow-hidden rounded-md border border-border bg-[var(--surface-elevated)]/95 shadow-card backdrop-blur">
+            <CtrlBtn onClick={() => zoomBy(0.4)} aria-label="Zoom in" disabled={zoom >= MAX_ZOOM}>
+              <Plus className="h-3.5 w-3.5" />
+            </CtrlBtn>
+            <CtrlBtn onClick={() => zoomBy(-0.4)} aria-label="Zoom out" disabled={zoom <= MIN_ZOOM}>
+              <Minus className="h-3.5 w-3.5" />
+            </CtrlBtn>
+            <CtrlBtn onClick={reset} aria-label="Reset view" disabled={zoom === 1 && pan.x === 0 && pan.y === 0}>
+              <RotateCcw className="h-3.5 w-3.5" />
+            </CtrlBtn>
+          </div>
+
+          {/* Zoom indicator */}
+          <div className="pointer-events-none absolute bottom-2 right-3 z-40 flex items-center gap-1.5 rounded-full border border-border bg-[var(--surface-elevated)]/85 px-2 py-0.5 font-mono text-[9px] tabular-nums text-[var(--text-muted)] backdrop-blur">
+            <Maximize2 className="h-2.5 w-2.5" />
+            {Math.round(zoom * 100)}%
+          </div>
+
+          {zoom === 1 && (
+            <div className="pointer-events-none absolute bottom-2 left-3 z-40 rounded-full border border-border bg-[var(--surface-elevated)]/85 px-2.5 py-0.5 text-[9px] uppercase tracking-[0.14em] text-[var(--text-muted)] backdrop-blur">
+              Scroll or use + to zoom · drag to pan
             </div>
-          ))}
-
-        {/* Parish hit-targets (invisible, capture clicks/hover) and rich pin */}
-        {PARISHES.map((p) => {
-          const score = p.scores[layer];
-          const sev = severity(layer, score);
-          const color = SEV_COLOR[sev];
-          const isSelected = selectedId === p.id;
-          const isHovered = hoverId === p.id;
-          const isActive = isSelected || isHovered;
-
-          return (
-            <button
-              key={p.id}
-              onClick={() => onSelect(p.id)}
-              onMouseEnter={() => setHoverId(p.id)}
-              onMouseLeave={() => setHoverId(null)}
-              className="absolute z-10 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
-              style={{ left: `${p.x}%`, top: `${p.y}%` }}
-              aria-label={p.name}
-            >
-              {/* Outer halo */}
-              <span
-                className="absolute rounded-full transition-all duration-300"
-                style={{
-                  width: isActive ? 36 : 26,
-                  height: isActive ? 36 : 26,
-                  background: color,
-                  opacity: isActive ? 0.18 : 0.10,
-                }}
-              />
-              {/* Pin */}
-              <span
-                className="relative flex items-center justify-center rounded-full border-2 bg-[var(--background)] font-mono text-[10px] font-bold tabular-nums shadow-card transition-all"
-                style={{
-                  width: isActive ? 30 : 24,
-                  height: isActive ? 30 : 24,
-                  borderColor: color,
-                  color: color,
-                }}
-              >
-                {score}
-              </span>
-              {p.alert && (
-                <span className="absolute -right-0.5 -top-0.5 flex h-2 w-2">
-                  <span
-                    className="alert-dot absolute inline-flex h-full w-full rounded-full"
-                    style={{ background: "var(--sev-red)" }}
-                  />
-                  <span
-                    className="relative inline-flex h-2 w-2 rounded-full ring-1 ring-[var(--background)]"
-                    style={{ background: "var(--sev-red)" }}
-                  />
-                </span>
-              )}
-            </button>
-          );
-        })}
-
-        {/* Floating insight card for active parish */}
-        {activeParish && (
-          <ParishInsightCard
-            parish={activeParish}
-            layer={layer}
-            pinned={!!selectedId && selectedId === activeParish.id}
-          />
-        )}
+          )}
+        </div>
       </div>
     </div>
+  );
+}
+
+function CtrlBtn({
+  children,
+  onClick,
+  disabled,
+  ...rest
+}: React.ButtonHTMLAttributes<HTMLButtonElement>) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className="flex h-7 w-7 items-center justify-center border-b border-border text-[var(--text-secondary)] transition-colors last:border-b-0 hover:bg-[var(--background)] hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
+      {...rest}
+    >
+      {children}
+    </button>
   );
 }
 
@@ -238,10 +357,12 @@ function ParishInsightCard({
   parish,
   layer,
   pinned,
+  inv,
 }: {
   parish: (typeof PARISHES)[number];
   layer: LayerKey;
   pinned: boolean;
+  inv: number;
 }) {
   const score = parish.scores[layer];
   const sev = severity(layer, score);
@@ -256,19 +377,22 @@ function ParishInsightCard({
       : "var(--text-muted)";
   const dfPct = ((parish.dfSchools / parish.totalSchools) * 100).toFixed(0);
 
-  // Position above parish if there's room, else below
   const above = parish.y > 35;
-  const transform = above
-    ? "translate(-50%, calc(-100% - 18px))"
-    : "translate(-50%, 18px)";
+  const baseTransform = above
+    ? `translate(-50%, calc(-100% - 18px)) scale(${inv})`
+    : `translate(-50%, 18px) scale(${inv})`;
 
   return (
     <div
-      className="pointer-events-none absolute z-30 w-[220px]"
-      style={{ left: `${parish.x}%`, top: `${parish.y}%`, transform }}
+      className="pointer-events-none absolute z-30 w-[220px] origin-bottom"
+      style={{
+        left: `${parish.x}%`,
+        top: `${parish.y}%`,
+        transform: baseTransform,
+        transformOrigin: above ? "bottom center" : "top center",
+      }}
     >
       <div className="overflow-hidden rounded-xl border border-border bg-[var(--surface-elevated)]/95 shadow-elevated backdrop-blur-md">
-        {/* Severity ribbon */}
         <div className="h-0.5 w-full" style={{ background: color }} />
         <div className="flex items-center justify-between gap-2 px-3 pt-2.5">
           <div className="min-w-0">
@@ -299,7 +423,6 @@ function ParishInsightCard({
           </div>
         </div>
 
-        {/* Mini stats */}
         <div className="grid grid-cols-3 gap-2 px-3 py-2.5">
           <MiniStat label="Schools" value={String(parish.totalSchools)} />
           <MiniStat label="Students" value={`${(parish.students / 1000).toFixed(0)}K`} />
@@ -307,11 +430,15 @@ function ParishInsightCard({
         </div>
 
         {parish.alert && (
-          <div className="flex items-center gap-1.5 border-t border-border px-3 py-1.5"
-            style={{ background: "color-mix(in oklab, var(--sev-red) 6%, transparent)" }}>
+          <div
+            className="flex items-center gap-1.5 border-t border-border px-3 py-1.5"
+            style={{ background: "color-mix(in oklab, var(--sev-red) 6%, transparent)" }}
+          >
             <TriangleAlert className="h-3 w-3 shrink-0" style={{ color: "var(--sev-red)" }} />
-            <span className="truncate text-[10px] font-semibold uppercase tracking-[0.1em]"
-              style={{ color: "var(--sev-red)" }}>
+            <span
+              className="truncate text-[10px] font-semibold uppercase tracking-[0.1em]"
+              style={{ color: "var(--sev-red)" }}
+            >
               {parish.alert}
             </span>
           </div>
@@ -323,17 +450,6 @@ function ParishInsightCard({
           </div>
         )}
       </div>
-      {/* Pointer */}
-      <div
-        className="mx-auto h-0 w-0"
-        style={{
-          borderLeft: "5px solid transparent",
-          borderRight: "5px solid transparent",
-          ...(above
-            ? { borderTop: "6px solid color-mix(in oklab, var(--surface-elevated) 95%, transparent)", marginTop: -1 }
-            : { borderBottom: "6px solid color-mix(in oklab, var(--surface-elevated) 95%, transparent)", marginBottom: -1, position: "absolute", top: -6, left: "50%", transform: "translateX(-50%)" }),
-        }}
-      />
     </div>
   );
 }
