@@ -960,3 +960,281 @@ function TooltipBox({
     </div>
   );
 }
+
+/* ===================== Intelligence Suite components ===================== */
+
+function FlowKpi({ label, value, accent }: { label: string; value: string; accent?: string }) {
+  return (
+    <div className="rounded-lg border border-border bg-[var(--background)] p-2.5">
+      <div className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)]">
+        {label}
+      </div>
+      <div
+        className="mt-1 font-display text-[20px] font-bold leading-none tabular-nums"
+        style={{ color: accent ?? "var(--foreground)" }}
+      >
+        {value}
+      </div>
+    </div>
+  );
+}
+
+/** Custom Sankey node — colored by category with label. */
+function SankeyNode(props: {
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  index?: number;
+  payload?: { name?: string; value?: number };
+  containerWidth: number;
+  healthColor: string;
+}) {
+  const { x = 0, y = 0, width = 0, height = 0, payload, containerWidth, healthColor } = props;
+  const name = payload?.name ?? "";
+  const value = payload?.value ?? 0;
+
+  // Color by node category
+  const colorMap: Record<string, string> = {
+    Graduates: "var(--ink)",
+    "On-time": "var(--sev-green)",
+    "Late / GED": "var(--sev-orange)",
+    "4-yr College": "var(--blue)",
+    "2-yr College": "var(--cyan)",
+    "CTE Credential": "var(--sev-lime)",
+    "Direct Workforce": "var(--sev-yellow)",
+    Military: "var(--text-muted)",
+    Unknown: "var(--text-muted)",
+    "Employed @ 1yr": "var(--sev-green)",
+    "Still enrolled": "var(--blue)",
+    Disconnected: "var(--sev-red)",
+  };
+  const color = colorMap[name] ?? healthColor;
+  const isLast = x + width > containerWidth - 80;
+  const labelX = isLast ? x - 6 : x + width + 6;
+  const anchor = isLast ? "end" : "start";
+
+  return (
+    <g>
+      <rect x={x} y={y} width={width} height={height} fill={color} fillOpacity={0.9} rx={2} />
+      <text x={labelX} y={y + height / 2} textAnchor={anchor} dominantBaseline="middle" fontSize={10} fontWeight={600} fill="var(--foreground)">
+        {name}
+      </text>
+      <text x={labelX} y={y + height / 2 + 11} textAnchor={anchor} dominantBaseline="middle" fontSize={9} fill="var(--text-muted)" className="font-mono tabular-nums">
+        {value.toLocaleString()}
+      </text>
+    </g>
+  );
+}
+
+/** Hex-bin density map — schools binned into hexes. */
+function HexDensityMap({
+  parishId,
+  hexBins,
+  dots,
+  healthColor,
+}: {
+  parishId: string;
+  hexBins: ReturnType<typeof buildHexBins>;
+  dots: ReturnType<typeof buildSchoolDots>;
+  healthColor: string;
+}) {
+  const parish = PARISHES.find((p) => p.id === parishId);
+  if (!parish) return null;
+  const max = Math.max(1, ...hexBins.map((h) => h.count));
+
+  return (
+    <div className="relative h-[260px] w-full overflow-hidden rounded-lg border border-border bg-[var(--background)]">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" className="h-full w-full">
+        <defs>
+          <clipPath id={`hex-clip-${parishId}`}>
+            <path d={LA_PATH_REF} />
+          </clipPath>
+        </defs>
+        <path d={LA_PATH_REF} fill="oklch(0.97 0.012 85)" stroke="var(--border)" strokeWidth="0.3" />
+        <g clipPath={`url(#hex-clip-${parishId})`}>
+          {hexBins.map((h, i) => {
+            const t = h.count / max;
+            const failingT = h.failing / Math.max(1, h.count);
+            const color =
+              failingT > 0.4 ? "var(--sev-red)" : failingT > 0.2 ? "var(--sev-orange)" : "var(--ink)";
+            return (
+              <polygon
+                key={i}
+                points={hexPoly(h.x, h.y, 1.8)}
+                fill={color}
+                fillOpacity={0.15 + t * 0.6}
+                stroke="var(--background)"
+                strokeWidth="0.12"
+              />
+            );
+          })}
+        </g>
+        {/* Highlight the active parish */}
+        <circle
+          cx={parish.x}
+          cy={parish.y}
+          r={5}
+          fill="none"
+          stroke={healthColor}
+          strokeWidth="0.7"
+          strokeDasharray="1.5 1"
+        />
+        <circle cx={parish.x} cy={parish.y} r={1.2} fill={healthColor} />
+        <text x={parish.x + 2.5} y={parish.y - 1.5} fontSize="2.6" fontWeight="700" fill="var(--foreground)">
+          {parish.name}
+        </text>
+      </svg>
+      <div className="pointer-events-none absolute right-2 top-2 rounded-md border border-border bg-[var(--surface-elevated)]/95 px-2 py-1 text-[9px] uppercase tracking-[0.14em] text-[var(--text-muted)] backdrop-blur">
+        {dots.length} schools · {hexBins.length} bins
+      </div>
+    </div>
+  );
+}
+
+function hexPoly(cx: number, cy: number, size: number) {
+  const pts: string[] = [];
+  for (let i = 0; i < 6; i++) {
+    const a = (Math.PI / 3) * i + Math.PI / 6;
+    pts.push(`${(cx + size * Math.cos(a)).toFixed(2)},${(cy + size * Math.sin(a)).toFixed(2)}`);
+  }
+  return pts.join(" ");
+}
+
+/** Animated 6-year trajectory race — bars reorder each year. */
+function TrajectoryRace({
+  data,
+  highlightId,
+  healthColor,
+}: {
+  data: Array<Record<string, string | number>>;
+  highlightId: string;
+  healthColor: string;
+}) {
+  const [yearIdx, setYearIdx] = useState(data.length - 1);
+  const [playing, setPlaying] = useState(false);
+
+  // Auto-advance when playing
+  useEffect(() => {
+    if (!playing) return;
+    const id = setInterval(() => {
+      setYearIdx((i) => {
+        if (i >= data.length - 1) {
+          setPlaying(false);
+          return data.length - 1;
+        }
+        return i + 1;
+      });
+    }, 900);
+    return () => clearInterval(id);
+  }, [playing, data.length]);
+
+  const row = data[yearIdx];
+  const ranked = PARISHES
+    .map((p) => ({ id: p.id, name: p.name, value: Number(row[p.id] ?? 0) }))
+    .sort((a, b) => b.value - a.value);
+  const max = Math.max(...ranked.map((r) => r.value), 100);
+
+  const play = () => {
+    if (yearIdx >= data.length - 1) setYearIdx(0);
+    setPlaying(true);
+  };
+
+  return (
+    <div className="flex flex-col gap-3">
+      {/* Year scrubber */}
+      <div className="flex items-center gap-3">
+        <button
+          onClick={() => (playing ? setPlaying(false) : play())}
+          className="inline-flex items-center gap-1.5 rounded-md border border-foreground bg-foreground px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--background)] transition-opacity hover:opacity-90"
+        >
+          {playing ? <PauseIcon /> : <PlayIcon />}
+          {playing ? "Pause" : "Play race"}
+        </button>
+        <div className="flex flex-1 items-center gap-1.5">
+          {data.map((d, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setYearIdx(i);
+                setPlaying(false);
+              }}
+              className={`flex-1 rounded-full px-1 py-1 text-[9px] font-bold uppercase tracking-[0.12em] transition-colors ${
+                i === yearIdx
+                  ? "bg-[var(--ink)] text-[var(--background)]"
+                  : "bg-[var(--background)] text-[var(--text-muted)] hover:text-foreground border border-border"
+              }`}
+            >
+              {String(d.year)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Animated bars */}
+      <div className="relative h-[300px]">
+        {ranked.map((r, i) => {
+          const isMe = r.id === highlightId;
+          const barColor = isMe ? healthColor : "var(--text-muted)";
+          const w = (r.value / max) * 100;
+          return (
+            <div
+              key={r.id}
+              className="absolute left-0 right-0 flex h-6 items-center"
+              style={{
+                top: i * 24,
+                transition: "top 700ms cubic-bezier(0.4, 0, 0.2, 1)",
+              }}
+            >
+              <span
+                className={`w-[110px] truncate text-[11px] ${
+                  isMe ? "font-bold text-foreground" : "text-[var(--text-secondary)]"
+                }`}
+              >
+                {i + 1}. {r.name}
+              </span>
+              <div className="relative flex-1">
+                <div
+                  className="h-3.5 rounded-r"
+                  style={{
+                    width: `${w}%`,
+                    background: barColor,
+                    opacity: isMe ? 1 : 0.4,
+                    transition: "width 700ms cubic-bezier(0.4, 0, 0.2, 1)",
+                  }}
+                />
+              </div>
+              <span
+                className={`ml-2 w-8 text-right font-mono text-[11px] tabular-nums ${
+                  isMe ? "font-bold" : "text-[var(--text-muted)]"
+                }`}
+                style={{ color: isMe ? healthColor : undefined }}
+              >
+                {r.value}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function PlayIcon() {
+  return (
+    <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor">
+      <path d="M2 1.5L8.5 5L2 8.5z" />
+    </svg>
+  );
+}
+function PauseIcon() {
+  return (
+    <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor">
+      <rect x="2" y="1.5" width="2" height="7" />
+      <rect x="6" y="1.5" width="2" height="7" />
+    </svg>
+  );
+}
+
+/** LA path used inside the hex-bin mini map. */
+const LA_PATH_REF = LA_PATH;
