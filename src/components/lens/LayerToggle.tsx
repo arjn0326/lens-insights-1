@@ -1,4 +1,5 @@
-import { LAYERS, type LayerKey } from "@/lib/lens-data";
+import { LAYERS, LAYER_INFO, type LayerKey } from "@/lib/lens-data";
+import { InfoTip } from "@/components/lens/InfoTip";
 
 interface Props {
   active: LayerKey;
@@ -8,23 +9,32 @@ interface Props {
 export function LayerToggle({ active, onChange }: Props) {
   return (
     <div className="flex flex-wrap items-center gap-1.5">
-      <span className="mr-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)]">
+      <span className="mr-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
         Layer
       </span>
       {LAYERS.map((layer) => {
         const isActive = layer === active;
         return (
-          <button
+          <div
             key={layer}
-            onClick={() => onChange(layer)}
-            className={`rounded-full px-3 py-1 text-[11px] font-medium tracking-wide transition-all ${
+            className={`group inline-flex items-center gap-1 rounded-full border px-2.5 py-1 transition-all ${
               isActive
-                ? "bg-gradient-brand text-white shadow-glow"
-                : "border border-border bg-[var(--surface)] text-[var(--text-secondary)] hover:border-[var(--blue)]/40 hover:text-foreground"
+                ? "border-foreground bg-foreground text-[var(--background)]"
+                : "border-border bg-[var(--surface-elevated)] text-[var(--text-secondary)] hover:border-foreground/40 hover:text-foreground"
             }`}
           >
-            {layer}
-          </button>
+            <button
+              onClick={() => onChange(layer)}
+              className="text-[11px] font-medium tracking-tight"
+            >
+              {layer}
+            </button>
+            <InfoTip
+              text={LAYER_INFO[layer]}
+              size={10}
+              className={isActive ? "text-[var(--background)]/70 hover:text-[var(--background)]" : ""}
+            />
+          </div>
         );
       })}
     </div>
