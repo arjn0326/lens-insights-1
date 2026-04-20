@@ -476,6 +476,86 @@ export function ParishReport({ parishId }: Props) {
           </Panel>
         </section>
 
+        {/* ============ INTELLIGENCE SUITE ============ */}
+        <section className="mt-8">
+          <div className="mb-3 flex items-end justify-between">
+            <div>
+              <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--text-muted)]">
+                Intelligence Suite
+              </div>
+              <h2 className="mt-1 font-display text-[24px] font-bold tracking-tight text-foreground">
+                Deep signals
+              </h2>
+            </div>
+            <span className="rounded-full border border-border bg-[var(--surface-elevated)] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)]">
+              Cohort · Class of 2024
+            </span>
+          </div>
+
+          {/* Sankey: graduate outcome flow */}
+          <Panel
+            title="Graduate Outcome Flow"
+            subtitle="Where this parish's students go — and who reaches stable employment within 1 year"
+          >
+            <div className="h-[380px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <Sankey
+                  data={sankey}
+                  nodePadding={18}
+                  nodeWidth={10}
+                  iterations={64}
+                  link={{ stroke: "var(--ink)", strokeOpacity: 0.18 }}
+                  node={
+                    <SankeyNode
+                      containerWidth={0}
+                      healthColor={healthColor}
+                    />
+                  }
+                >
+                  <Tooltip content={<TooltipBox suffix=" students" />} />
+                </Sankey>
+              </ResponsiveContainer>
+            </div>
+            <div className="mt-3 grid grid-cols-2 gap-3 border-t border-border pt-3 text-[11px] sm:grid-cols-4">
+              <FlowKpi label="Total grads" value={String(sankey.links[0]?.value + (sankey.links[1]?.value ?? 0) || 0)} />
+              <FlowKpi label="College-bound" value={String((sankey.links.find(l => l.target === 3)?.value ?? 0) + (sankey.links.find(l => l.target === 4)?.value ?? 0))} accent="var(--blue)" />
+              <FlowKpi label="CTE / Workforce" value={String(sankey.links.filter(l => l.target === 5 || l.target === 6).reduce((a,b)=>a+b.value,0))} accent="var(--sev-green)" />
+              <FlowKpi label="Disconnected" value={String(sankey.links.filter(l => l.target === 11).reduce((a,b)=>a+b.value,0))} accent="var(--sev-red)" />
+            </div>
+          </Panel>
+
+          {/* Hex-bin density + Trajectory race */}
+          <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1.3fr]">
+            <Panel
+              title="School Density · Hex Bins"
+              subtitle="Where schools cluster across the parish"
+            >
+              <HexDensityMap parishId={parishId} hexBins={hexBins} dots={schoolDots} healthColor={healthColor} />
+              <div className="mt-3 flex items-center justify-between border-t border-border pt-3 text-[10px] uppercase tracking-[0.14em] text-[var(--text-muted)]">
+                <span>Low density</span>
+                <div className="flex gap-1">
+                  {[0.15, 0.3, 0.45, 0.6, 0.8].map((o, i) => (
+                    <span
+                      key={i}
+                      className="h-2 w-5"
+                      style={{ background: "var(--ink)", opacity: o }}
+                    />
+                  ))}
+                </div>
+                <span>High density</span>
+              </div>
+            </Panel>
+
+            <Panel
+              title="6-Year Trajectory Race"
+              subtitle={`${parish.name} vs. peer parishes · Health composite`}
+              badge="Animated"
+            >
+              <TrajectoryRace data={raceSeries} highlightId={parishId} healthColor={healthColor} />
+            </Panel>
+          </div>
+        </section>
+
         {/* Demographics + Grades + Funding */}
         <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
           <Panel title="Student Demographics" subtitle="Enrollment composition">
