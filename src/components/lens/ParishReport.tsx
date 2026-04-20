@@ -1120,7 +1120,7 @@ function TrajectoryRace({
   useEffect(() => {
     if (!playing) return;
     const id = setInterval(() => {
-      setYearIdx((i) => {
+      setYearIdx((i: number) => {
         if (i >= data.length - 1) {
           setPlaying(false);
           return data.length - 1;
