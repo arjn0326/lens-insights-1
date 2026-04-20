@@ -10,6 +10,7 @@ import {
 } from "@/lib/lens-data";
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Lightbulb, Minus, TriangleAlert } from "lucide-react";
 import { InfoTip } from "@/components/lens/InfoTip";
+import { Link } from "@tanstack/react-router";
 
 interface Props {
   parishId: string;
@@ -43,38 +44,47 @@ export function ParishDetail({ parishId, onBack }: Props) {
       </button>
 
       <div className="scrollbar-thin flex-1 overflow-y-auto">
-        {/* Header */}
-        <div className="flex items-start justify-between gap-3 border-b border-border px-4 py-4">
-          <div className="min-w-0">
-            <h2 className="truncate font-display text-[22px] font-bold leading-tight tracking-tight text-foreground">
-              {parish.name}
-            </h2>
-            <div className="mt-1 flex items-center gap-2 text-[11px] text-[var(--text-secondary)]">
-              <span className="font-mono tabular-nums">{parish.population.toLocaleString()} pop</span>
-              <span style={{ color: trendColor }} className="inline-flex items-center gap-0.5">
-                <TrendIcon className="h-3 w-3" />
-                {parish.trend === "flat" ? "stable" : parish.trend}
+        {/* Header — clickable to full report */}
+        <Link
+          to="/parish/$parishId"
+          params={{ parishId: parish.id }}
+          className="group block border-b border-border px-4 py-4 transition-colors hover:bg-[var(--surface-elevated)]"
+        >
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <h2 className="truncate font-display text-[22px] font-bold leading-tight tracking-tight text-foreground">
+                {parish.name}
+              </h2>
+              <div className="mt-1 flex items-center gap-2 text-[11px] text-[var(--text-secondary)]">
+                <span className="font-mono tabular-nums">{parish.population.toLocaleString()} pop</span>
+                <span style={{ color: trendColor }} className="inline-flex items-center gap-0.5">
+                  <TrendIcon className="h-3 w-3" />
+                  {parish.trend === "flat" ? "stable" : parish.trend}
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col items-end">
+              <span
+                className="font-display text-[34px] font-bold leading-none tabular-nums"
+                style={{ color: healthColor }}
+              >
+                {parish.scores.Health}
+              </span>
+              <span
+                className="mt-1 rounded-sm px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider"
+                style={{
+                  background: `color-mix(in oklab, ${healthColor} 14%, transparent)`,
+                  color: healthColor,
+                }}
+              >
+                {healthLabel}
               </span>
             </div>
           </div>
-          <div className="flex flex-col items-end">
-            <span
-              className="font-display text-[34px] font-bold leading-none tabular-nums"
-              style={{ color: healthColor }}
-            >
-              {parish.scores.Health}
-            </span>
-            <span
-              className="mt-1 rounded-sm px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider"
-              style={{
-                background: `color-mix(in oklab, ${healthColor} 14%, transparent)`,
-                color: healthColor,
-              }}
-            >
-              {healthLabel}
-            </span>
+          <div className="mt-3 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--blue)] transition-transform group-hover:translate-x-0.5">
+            See full report <ArrowRight className="h-3 w-3" />
           </div>
-        </div>
+        </Link>
 
         {/* Composite indices */}
         <div className="border-b border-border px-4 py-4">
