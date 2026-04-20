@@ -1,26 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { LensDashboard } from "@/components/lens/LensDashboard";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "LENS — Louisiana Education & Needs Synthesis" },
+      {
+        name: "description",
+        content:
+          "LENS is a decision intelligence platform for Louisiana education leaders — parish-level health, need, access, readiness, demand, and pipeline indices.",
+      },
+      { property: "og:title", content: "LENS — Louisiana Education & Needs Synthesis" },
+      {
+        property: "og:description",
+        content: "Decision intelligence for Louisiana education leaders.",
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return <LensDashboard />;
 }
