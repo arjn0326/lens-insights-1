@@ -228,3 +228,101 @@ export const INDEX_LABELS: { key: Exclude<LayerKey, "Health">; label: string }[]
   { key: "Demand", label: "Workforce Demand" },
   { key: "Pipeline", label: "Teacher Pipeline" },
 ];
+
+/** Benchmarks for comparison views. */
+export const STATE_AVG: Record<LayerKey, number> = {
+  Health: 56, Need: 60, Access: 51, Readiness: 58, Demand: 71, Pipeline: 47,
+};
+export const NATIONAL_AVG: Record<LayerKey, number> = {
+  Health: 64, Need: 52, Access: 44, Readiness: 54, Demand: 60, Pipeline: 41,
+};
+
+/** 6-year historical trend for a parish's Health score (synthetic but coherent). */
+export function buildTrendSeries(parishId: string) {
+  const p = PARISHES.find((x) => x.id === parishId);
+  if (!p) return [];
+  const end = p.scores.Health;
+  const drift = p.trend === "up" ? -8 : p.trend === "down" ? 9 : 2;
+  const start = Math.max(15, Math.min(95, end - drift));
+  const years = ["2019", "2020", "2021", "2022", "2023", "2024"];
+  const rand = mulberry32(p.name.length * 17 + 3);
+  return years.map((year, i) => {
+    const t = i / (years.length - 1);
+    const base = start + (end - start) * t;
+    const wobble = (rand() - 0.5) * 6;
+    const parishVal = Math.round(Math.max(10, Math.min(98, base + wobble)));
+    const stateVal = Math.round(STATE_AVG.Health + (rand() - 0.5) * 4);
+    const nationalVal = Math.round(NATIONAL_AVG.Health + (rand() - 0.5) * 3);
+    return { year, parish: parishVal, state: stateVal, national: nationalVal };
+  });
+}
+
+/** Demographic breakdown for the parish — synthetic but plausible mix. */
+export function buildDemographics(parishId: string) {
+  const p = PARISHES.find((x) => x.id === parishId);
+  if (!p) return [];
+  const seed = p.name.charCodeAt(0) + p.name.charCodeAt(1);
+  const rand = mulberry32(seed);
+  const black = Math.round(30 + rand() * 40);
+  const white = Math.round((100 - black) * (0.45 + rand() * 0.35));
+  const hispanic = Math.round((100 - black - white) * (0.55 + rand() * 0.3));
+  const other = Math.max(2, 100 - black - white - hispanic);
+  return [
+    { name: "Black", value: black },
+    { name: "White", value: white },
+    { name: "Hispanic", value: hispanic },
+    { name: "Other", value: other },
+  ];
+}
+
+/** School performance grade distribution (A–F). */
+export function buildGradeDistribution(parishId: string) {
+  const p = PARISHES.find((x) => x.id === parishId);
+  if (!p) return [];
+  const total = p.totalSchools;
+  const df = p.dfSchools;
+  const remaining = total - df;
+  const a = Math.round(remaining * 0.18);
+  const b = Math.round(remaining * 0.32);
+  const c = Math.round(remaining * 0.34);
+  const dCount = Math.round(df * 0.55);
+  const f = df - dCount;
+  const cAdj = remaining - a - b;
+  return [
+    { grade: "A", count: a },
+    { grade: "B", count: b },
+    { grade: "C", count: cAdj },
+    { grade: "D", count: dCount },
+    { grade: "F", count: f },
+  ];
+}
+
+/** Funding allocation per pupil — split across categories. */
+export function buildFundingBreakdown(parishId: string) {
+  const p = PARISHES.find((x) => x.id === parishId);
+  if (!p) return [];
+  const rand = mulberry32(p?.population ?? 1);
+  const total = 11800 + Math.round(rand() * 1800);
+  return [
+    { category: "Instruction", value: Math.round(total * 0.58) },
+    { category: "Support", value: Math.round(total * 0.16) },
+    { category: "Admin", value: Math.round(total * 0.09) },
+    { category: "Facilities", value: Math.round(total * 0.11) },
+    { category: "Transport", value: Math.round(total * 0.06) },
+  ];
+}
+
+/** Workforce pathway alignment by sector (% of graduates). */
+export function buildWorkforceAlignment(parishId: string) {
+  const p = PARISHES.find((x) => x.id === parishId);
+  if (!p) return [];
+  const rand = mulberry32((p?.scores.Demand ?? 50) * 7);
+  const sectors = ["Industrial", "Healthcare", "Tech", "Logistics", "Trades", "Other"];
+  const raw = sectors.map(() => 5 + rand() * 25);
+  const sum = raw.reduce((a, b) => a + b, 0);
+  return sectors.map((s, i) => ({
+    sector: s,
+    aligned: Math.round((raw[i] / sum) * 100),
+    demand: Math.round(8 + rand() * 28),
+  }));
+}
