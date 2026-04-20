@@ -943,3 +943,95 @@ function Legend({ swatch, children }: { swatch: React.ReactNode; children: React
     </span>
   );
 }
+
+function IsochroneCard({
+  school,
+  inv,
+  onClose,
+}: {
+  school: ParishSchoolDot;
+  inv: number;
+  onClose: () => void;
+}) {
+  // Synthetic reach numbers based on grade severity
+  const baseStudents = school.failing ? 480 : 720;
+  const reach30 = baseStudents;
+  const reach60 = Math.round(baseStudents * 3.4);
+  const reach90 = Math.round(baseStudents * 7.1);
+  const peers30 = school.failing ? 1 : 4;
+  const above = school.y > 30;
+  return (
+    <div
+      className="pointer-events-auto absolute z-40 w-[230px]"
+      style={{
+        left: `${school.x}%`,
+        top: `${school.y}%`,
+        transform: above
+          ? `translate(-50%, calc(-100% - 22px)) scale(${inv})`
+          : `translate(-50%, 22px) scale(${inv})`,
+        transformOrigin: above ? "bottom center" : "top center",
+      }}
+    >
+      <div className="overflow-hidden rounded-xl border border-border bg-[var(--surface-elevated)]/97 shadow-elevated backdrop-blur-md">
+        <div className="flex items-center justify-between gap-2 px-3 pt-2.5">
+          <div className="min-w-0">
+            <div className="text-[8px] font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)]">
+              School · Travel-time reach
+            </div>
+            <div className="truncate font-display text-[13px] font-bold tracking-tight text-foreground">
+              {school.name}
+            </div>
+          </div>
+          <span
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md font-mono text-[12px] font-bold"
+            style={{
+              background: school.failing
+                ? "color-mix(in oklab, var(--sev-red) 18%, transparent)"
+                : "color-mix(in oklab, var(--sev-green) 14%, transparent)",
+              color: school.failing ? "var(--sev-red)" : "var(--sev-green)",
+            }}
+          >
+            {school.grade}
+          </span>
+        </div>
+        <div className="grid grid-cols-3 gap-1 px-3 py-2.5">
+          <ReachCell color="var(--sev-green)" mins="30" students={reach30} />
+          <ReachCell color="var(--sev-yellow)" mins="60" students={reach60} />
+          <ReachCell color="var(--sev-orange)" mins="90" students={reach90} />
+        </div>
+        <div className="flex items-center justify-between border-t border-border px-3 py-1.5 text-[10px] text-[var(--text-secondary)]">
+          <span>
+            <span className="font-mono font-bold tabular-nums text-foreground">{peers30}</span>{" "}
+            quality alt within 30m
+          </span>
+          <button
+            onClick={onClose}
+            className="inline-flex items-center gap-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)] hover:text-foreground"
+          >
+            <X className="h-2.5 w-2.5" /> close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ReachCell({ color, mins, students }: { color: string; mins: string; students: number }) {
+  return (
+    <div
+      className="rounded-md border px-1.5 py-1.5"
+      style={{
+        borderColor: `color-mix(in oklab, ${color} 30%, transparent)`,
+        background: `color-mix(in oklab, ${color} 8%, transparent)`,
+      }}
+    >
+      <div className="text-[8px] font-semibold uppercase tracking-[0.12em]" style={{ color }}>
+        {mins} min
+      </div>
+      <div className="font-mono text-[12px] font-bold tabular-nums leading-tight text-foreground">
+        {students.toLocaleString()}
+      </div>
+      <div className="text-[8px] text-[var(--text-muted)]">students</div>
+    </div>
+  );
+}
