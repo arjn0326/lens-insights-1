@@ -1,0 +1,2461 @@
+{
+  "meta": {
+    "generated_at": "2026-05-09T23:05:12.034994+00:00",
+    "data_vintage": {
+      "ldoe_sps": "2024-2025",
+      "acs": "2023 5-year estimates",
+      "bls": "2024 annual"
+    },
+    "version": "1.0.0",
+    "parish_count": 64
+  },
+  "parishes": [
+    {
+      "fips": "22001",
+      "name": "Acadia",
+      "name_slug": "acadia",
+      "school_count": 26,
+      "health_score": 35,
+      "indices": {
+        "academic": 50.2,
+        "equity": 28.5,
+        "workforce_alignment": 48.4,
+        "educator_capacity": 30.8,
+        "opportunity": 15.6
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 76.2,
+        "df_school_count": 4,
+        "a_school_count": 4,
+        "pct_df_schools": 15.4,
+        "median_household_income": 45562,
+        "poverty_rate": 19.5,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 13.9,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22003",
+      "name": "Allen",
+      "name_slug": "allen",
+      "school_count": 11,
+      "health_score": 49,
+      "indices": {
+        "academic": 92.3,
+        "equity": 18.3,
+        "workforce_alignment": 20.3,
+        "educator_capacity": 100.0,
+        "opportunity": 12.6
+      },
+      "alerts": [
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 86.7,
+        "df_school_count": 0,
+        "a_school_count": 6,
+        "pct_df_schools": 0.0,
+        "median_household_income": 46469,
+        "poverty_rate": 21.1,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 11.9,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22005",
+      "name": "Ascension",
+      "name_slug": "ascension",
+      "school_count": 32,
+      "health_score": 96,
+      "indices": {
+        "academic": 100.0,
+        "equity": 100.0,
+        "workforce_alignment": 92.4,
+        "educator_capacity": 100.0,
+        "opportunity": 85.8
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "D",
+        "label": "Monitor and maintain",
+        "rationale": "Parish performing above state average \u2014 continue current trajectory."
+      },
+      "signals": {
+        "avg_sps_2025": 88.7,
+        "df_school_count": 1,
+        "a_school_count": 17,
+        "pct_df_schools": 3.1,
+        "median_household_income": 91549,
+        "poverty_rate": 8.0,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 29.1,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22007",
+      "name": "Assumption",
+      "name_slug": "assumption",
+      "school_count": 6,
+      "health_score": 54,
+      "indices": {
+        "academic": 28.7,
+        "equity": 96.9,
+        "workforce_alignment": 87.1,
+        "educator_capacity": 33.4,
+        "opportunity": 21.9
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 70.9,
+        "df_school_count": 1,
+        "a_school_count": 1,
+        "pct_df_schools": 16.7,
+        "median_household_income": 51423,
+        "poverty_rate": 8.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 13.8,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22009",
+      "name": "Avoyelles",
+      "name_slug": "avoyelles",
+      "school_count": 10,
+      "health_score": 32,
+      "indices": {
+        "academic": 48.2,
+        "equity": 7.5,
+        "workforce_alignment": 59.0,
+        "educator_capacity": 40.0,
+        "opportunity": 4.0
+      },
+      "alerts": [
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 75.7,
+        "df_school_count": 2,
+        "a_school_count": 2,
+        "pct_df_schools": 20.0,
+        "median_household_income": 39325,
+        "poverty_rate": 22.8,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 11.5,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22011",
+      "name": "Beauregard",
+      "name_slug": "beauregard",
+      "school_count": 12,
+      "health_score": 46,
+      "indices": {
+        "academic": 50.0,
+        "equity": 74.1,
+        "workforce_alignment": 60.4,
+        "educator_capacity": 0.0,
+        "opportunity": 44.6
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 76.2,
+        "df_school_count": 1,
+        "a_school_count": 0,
+        "pct_df_schools": 8.3,
+        "median_household_income": 65944,
+        "poverty_rate": 12.3,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 17.1,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22013",
+      "name": "Bienville",
+      "name_slug": "bienville",
+      "school_count": 7,
+      "health_score": 35,
+      "indices": {
+        "academic": 64.9,
+        "equity": 10.1,
+        "workforce_alignment": 67.0,
+        "educator_capacity": 28.6,
+        "opportunity": 3.4
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 79.9,
+        "df_school_count": 0,
+        "a_school_count": 1,
+        "pct_df_schools": 0.0,
+        "median_household_income": 35011,
+        "poverty_rate": 22.4,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 13.2,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22015",
+      "name": "Bossier",
+      "name_slug": "bossier",
+      "school_count": 33,
+      "health_score": 70,
+      "indices": {
+        "academic": 63.8,
+        "equity": 86.8,
+        "workforce_alignment": 72.4,
+        "educator_capacity": 54.6,
+        "opportunity": 71.7
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "D",
+        "label": "Monitor and maintain",
+        "rationale": "Parish performing above state average \u2014 continue current trajectory."
+      },
+      "signals": {
+        "avg_sps_2025": 79.6,
+        "df_school_count": 5,
+        "a_school_count": 9,
+        "pct_df_schools": 15.2,
+        "median_household_income": 69617,
+        "poverty_rate": 10.3,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 28.4,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22017",
+      "name": "Caddo",
+      "name_slug": "caddo",
+      "school_count": 51,
+      "health_score": 37,
+      "indices": {
+        "academic": 27.3,
+        "equity": 40.5,
+        "workforce_alignment": 35.0,
+        "educator_capacity": 35.2,
+        "opportunity": 46.0
+      },
+      "alerts": [
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "C",
+        "label": "Workforce alignment program",
+        "rationale": "Mismatch between academic outcomes and local workforce needs."
+      },
+      "signals": {
+        "avg_sps_2025": 70.6,
+        "df_school_count": 20,
+        "a_school_count": 9,
+        "pct_df_schools": 39.2,
+        "median_household_income": 50705,
+        "poverty_rate": 17.6,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 26.0,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22019",
+      "name": "Calcasieu",
+      "name_slug": "calcasieu",
+      "school_count": 54,
+      "health_score": 66,
+      "indices": {
+        "academic": 65.7,
+        "equity": 72.2,
+        "workforce_alignment": 79.1,
+        "educator_capacity": 51.8,
+        "opportunity": 62.2
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 80.1,
+        "df_school_count": 6,
+        "a_school_count": 14,
+        "pct_df_schools": 11.1,
+        "median_household_income": 67564,
+        "poverty_rate": 12.6,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 24.9,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22021",
+      "name": "Caldwell",
+      "name_slug": "caldwell",
+      "school_count": 5,
+      "health_score": 20,
+      "indices": {
+        "academic": 20.0,
+        "equity": 11.3,
+        "workforce_alignment": 16.3,
+        "educator_capacity": 40.0,
+        "opportunity": 12.5
+      },
+      "alerts": [
+        {
+          "id": "A1",
+          "severity": "high",
+          "label": "High failing-school concentration in high-need community"
+        },
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "A1",
+        "label": "Targeted school turnaround + community wraparound",
+        "rationale": "40% of schools rated D/F in a high-need community."
+      },
+      "signals": {
+        "avg_sps_2025": 68.7,
+        "df_school_count": 2,
+        "a_school_count": 1,
+        "pct_df_schools": 40.0,
+        "median_household_income": 47028,
+        "poverty_rate": 22.2,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 11.2,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22023",
+      "name": "Cameron",
+      "name_slug": "cameron",
+      "school_count": 5,
+      "health_score": 87,
+      "indices": {
+        "academic": 100.0,
+        "equity": 100.0,
+        "workforce_alignment": 100.0,
+        "educator_capacity": 80.0,
+        "opportunity": 54.2
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "D",
+        "label": "Monitor and maintain",
+        "rationale": "Parish performing above state average \u2014 continue current trajectory."
+      },
+      "signals": {
+        "avg_sps_2025": 91.8,
+        "df_school_count": 0,
+        "a_school_count": 2,
+        "pct_df_schools": 0.0,
+        "median_household_income": 75278,
+        "poverty_rate": 5.1,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 16.8,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22025",
+      "name": "Catahoula",
+      "name_slug": "catahoula",
+      "school_count": 3,
+      "health_score": 40,
+      "indices": {
+        "academic": 49.6,
+        "equity": 24.0,
+        "workforce_alignment": 32.4,
+        "educator_capacity": 66.6,
+        "opportunity": 25.2
+      },
+      "alerts": [
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        },
+        {
+          "id": "D",
+          "severity": "medium",
+          "label": "Limited school options"
+        }
+      ],
+      "intervention": {
+        "type": "C",
+        "label": "Workforce alignment program",
+        "rationale": "Mismatch between academic outcomes and local workforce needs."
+      },
+      "signals": {
+        "avg_sps_2025": 76.1,
+        "df_school_count": 0,
+        "a_school_count": 1,
+        "pct_df_schools": 0.0,
+        "median_household_income": 50275,
+        "poverty_rate": 20.2,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 16.0,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22027",
+      "name": "Claiborne",
+      "name_slug": "claiborne",
+      "school_count": 6,
+      "health_score": 22,
+      "indices": {
+        "academic": 10.0,
+        "equity": 14.5,
+        "workforce_alignment": 83.1,
+        "educator_capacity": 0.0,
+        "opportunity": 0.0
+      },
+      "alerts": [
+        {
+          "id": "A1",
+          "severity": "high",
+          "label": "High failing-school concentration in high-need community"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "A1",
+        "label": "Targeted school turnaround + community wraparound",
+        "rationale": "50% of schools rated D/F in a high-need community."
+      },
+      "signals": {
+        "avg_sps_2025": 66.3,
+        "df_school_count": 3,
+        "a_school_count": 0,
+        "pct_df_schools": 50.0,
+        "median_household_income": 32831,
+        "poverty_rate": 21.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 10.7,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22029",
+      "name": "Concordia",
+      "name_slug": "concordia",
+      "school_count": 9,
+      "health_score": 13,
+      "indices": {
+        "academic": 25.7,
+        "equity": 0.0,
+        "workforce_alignment": 0.0,
+        "educator_capacity": 22.2,
+        "opportunity": 16.2
+      },
+      "alerts": [
+        {
+          "id": "A1",
+          "severity": "high",
+          "label": "High failing-school concentration in high-need community"
+        },
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "A1",
+        "label": "Targeted school turnaround + community wraparound",
+        "rationale": "33% of schools rated D/F in a high-need community."
+      },
+      "signals": {
+        "avg_sps_2025": 70.2,
+        "df_school_count": 3,
+        "a_school_count": 1,
+        "pct_df_schools": 33.3,
+        "median_household_income": 39943,
+        "poverty_rate": 24.8,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 17.2,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22031",
+      "name": "De Soto",
+      "name_slug": "desoto",
+      "school_count": 0,
+      "health_score": 51,
+      "indices": {
+        "academic": 50.0,
+        "equity": 58.9,
+        "workforce_alignment": 71.0,
+        "educator_capacity": 50.0,
+        "opportunity": 23.2
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": null,
+        "df_school_count": null,
+        "a_school_count": null,
+        "pct_df_schools": null,
+        "median_household_income": 48578,
+        "poverty_rate": 14.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 16.0,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22033",
+      "name": "East Baton Rouge",
+      "name_slug": "east-baton-rouge",
+      "school_count": 70,
+      "health_score": 47,
+      "indices": {
+        "academic": 22.7,
+        "equity": 65.2,
+        "workforce_alignment": 48.4,
+        "educator_capacity": 20.0,
+        "opportunity": 80.2
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "A2",
+        "label": "Educator pipeline investment",
+        "rationale": "Low educator capacity in a parish with strong opportunity signals \u2014 invest in teacher recruitment."
+      },
+      "signals": {
+        "avg_sps_2025": 69.4,
+        "df_school_count": 25,
+        "a_school_count": 7,
+        "pct_df_schools": 35.7,
+        "median_household_income": 63071,
+        "poverty_rate": 13.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 38.5,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22035",
+      "name": "East Carroll",
+      "name_slug": "east-carroll",
+      "school_count": 2,
+      "health_score": 28,
+      "indices": {
+        "academic": 36.5,
+        "equity": 0.0,
+        "workforce_alignment": 0.0,
+        "educator_capacity": 100.0,
+        "opportunity": 1.3
+      },
+      "alerts": [
+        {
+          "id": "A1",
+          "severity": "high",
+          "label": "High failing-school concentration in high-need community"
+        },
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        },
+        {
+          "id": "D",
+          "severity": "medium",
+          "label": "Limited school options"
+        }
+      ],
+      "intervention": {
+        "type": "A1",
+        "label": "Targeted school turnaround + community wraparound",
+        "rationale": "50% of schools rated D/F in a high-need community."
+      },
+      "signals": {
+        "avg_sps_2025": 72.8,
+        "df_school_count": 1,
+        "a_school_count": 1,
+        "pct_df_schools": 50.0,
+        "median_household_income": 33341,
+        "poverty_rate": 28.1,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 12.2,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22037",
+      "name": "East Feliciana",
+      "name_slug": "east-feliciana",
+      "school_count": 6,
+      "health_score": 57,
+      "indices": {
+        "academic": 28.9,
+        "equity": 91.2,
+        "workforce_alignment": 72.4,
+        "educator_capacity": 33.4,
+        "opportunity": 57.0
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "A2",
+        "label": "Educator pipeline investment",
+        "rationale": "Low educator capacity in a parish with strong opportunity signals \u2014 invest in teacher recruitment."
+      },
+      "signals": {
+        "avg_sps_2025": 71.0,
+        "df_school_count": 1,
+        "a_school_count": 1,
+        "pct_df_schools": 16.7,
+        "median_household_income": 73085,
+        "poverty_rate": 9.6,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 19.3,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22039",
+      "name": "Evangeline",
+      "name_slug": "evangeline",
+      "school_count": 13,
+      "health_score": 22,
+      "indices": {
+        "academic": 45.1,
+        "equity": 32.3,
+        "workforce_alignment": 20.3,
+        "educator_capacity": 0.0,
+        "opportunity": 11.2
+      },
+      "alerts": [
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "C",
+        "label": "Workforce alignment program",
+        "rationale": "Mismatch between academic outcomes and local workforce needs."
+      },
+      "signals": {
+        "avg_sps_2025": 75.0,
+        "df_school_count": 2,
+        "a_school_count": 0,
+        "pct_df_schools": 15.4,
+        "median_household_income": 41915,
+        "poverty_rate": 18.9,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 13.7,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22041",
+      "name": "Franklin",
+      "name_slug": "franklin",
+      "school_count": 6,
+      "health_score": 23,
+      "indices": {
+        "academic": 0.0,
+        "equity": 48.1,
+        "workforce_alignment": 41.7,
+        "educator_capacity": 0.0,
+        "opportunity": 24.6
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 63.8,
+        "df_school_count": 2,
+        "a_school_count": 0,
+        "pct_df_schools": 33.3,
+        "median_household_income": 47020,
+        "poverty_rate": 16.4,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 17.5,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22043",
+      "name": "Grant",
+      "name_slug": "grant",
+      "school_count": 7,
+      "health_score": 59,
+      "indices": {
+        "academic": 52.9,
+        "equity": 72.8,
+        "workforce_alignment": 100.0,
+        "educator_capacity": 28.6,
+        "opportunity": 39.0
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 76.9,
+        "df_school_count": 1,
+        "a_school_count": 1,
+        "pct_df_schools": 14.3,
+        "median_household_income": 64016,
+        "poverty_rate": 12.5,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 15.4,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22045",
+      "name": "Iberia",
+      "name_slug": "iberia",
+      "school_count": 22,
+      "health_score": 42,
+      "indices": {
+        "academic": 51.3,
+        "equity": 50.0,
+        "workforce_alignment": 53.7,
+        "educator_capacity": 27.2,
+        "opportunity": 30.0
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 76.5,
+        "df_school_count": 0,
+        "a_school_count": 3,
+        "pct_df_schools": 0.0,
+        "median_household_income": 56961,
+        "poverty_rate": 16.1,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 14.8,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22047",
+      "name": "Iberville",
+      "name_slug": "iberville",
+      "school_count": 8,
+      "health_score": 38,
+      "indices": {
+        "academic": 39.0,
+        "equity": 48.7,
+        "workforce_alignment": 69.7,
+        "educator_capacity": 0.0,
+        "opportunity": 34.6
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 73.5,
+        "df_school_count": 0,
+        "a_school_count": 0,
+        "pct_df_schools": 0.0,
+        "median_household_income": 54000,
+        "poverty_rate": 16.3,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 18.6,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22049",
+      "name": "Jackson",
+      "name_slug": "jackson",
+      "school_count": 5,
+      "health_score": 34,
+      "indices": {
+        "academic": 25.9,
+        "equity": 33.5,
+        "workforce_alignment": 52.4,
+        "educator_capacity": 40.0,
+        "opportunity": 16.6
+      },
+      "alerts": [
+        {
+          "id": "A1",
+          "severity": "high",
+          "label": "High failing-school concentration in high-need community"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "A1",
+        "label": "Targeted school turnaround + community wraparound",
+        "rationale": "40% of schools rated D/F in a high-need community."
+      },
+      "signals": {
+        "avg_sps_2025": 70.2,
+        "df_school_count": 2,
+        "a_school_count": 1,
+        "pct_df_schools": 40.0,
+        "median_household_income": 44925,
+        "poverty_rate": 18.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 14.7,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22051",
+      "name": "Jefferson",
+      "name_slug": "jefferson",
+      "school_count": 71,
+      "health_score": 58,
+      "indices": {
+        "academic": 47.2,
+        "equity": 70.3,
+        "workforce_alignment": 68.4,
+        "educator_capacity": 33.8,
+        "opportunity": 71.2
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "A2",
+        "label": "Educator pipeline investment",
+        "rationale": "Low educator capacity in a parish with strong opportunity signals \u2014 invest in teacher recruitment."
+      },
+      "signals": {
+        "avg_sps_2025": 75.5,
+        "df_school_count": 13,
+        "a_school_count": 12,
+        "pct_df_schools": 18.3,
+        "median_household_income": 65252,
+        "poverty_rate": 12.9,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 30.5,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22053",
+      "name": "Jefferson Davis",
+      "name_slug": "jefferson-davis",
+      "school_count": 12,
+      "health_score": 57,
+      "indices": {
+        "academic": 75.8,
+        "equity": 71.6,
+        "workforce_alignment": 88.4,
+        "educator_capacity": 16.6,
+        "opportunity": 31.7
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 82.6,
+        "df_school_count": 0,
+        "a_school_count": 1,
+        "pct_df_schools": 0.0,
+        "median_household_income": 57341,
+        "poverty_rate": 12.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 15.4,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22059",
+      "name": "La Salle",
+      "name_slug": "lasalle",
+      "school_count": 0,
+      "health_score": 62,
+      "indices": {
+        "academic": 50.0,
+        "equity": 86.1,
+        "workforce_alignment": 85.7,
+        "educator_capacity": 50.0,
+        "opportunity": 39.2
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": null,
+        "df_school_count": null,
+        "a_school_count": null,
+        "pct_df_schools": null,
+        "median_household_income": 68497,
+        "poverty_rate": 10.4,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 13.1,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22055",
+      "name": "Lafayette",
+      "name_slug": "lafayette",
+      "school_count": 42,
+      "health_score": 76,
+      "indices": {
+        "academic": 77.1,
+        "equity": 72.2,
+        "workforce_alignment": 83.1,
+        "educator_capacity": 62.0,
+        "opportunity": 83.4
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "D",
+        "label": "Monitor and maintain",
+        "rationale": "Parish performing above state average \u2014 continue current trajectory."
+      },
+      "signals": {
+        "avg_sps_2025": 82.9,
+        "df_school_count": 4,
+        "a_school_count": 13,
+        "pct_df_schools": 9.5,
+        "median_household_income": 67451,
+        "poverty_rate": 12.6,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 35.3,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22057",
+      "name": "Lafourche",
+      "name_slug": "lafourche",
+      "school_count": 29,
+      "health_score": 75,
+      "indices": {
+        "academic": 87.8,
+        "equity": 74.7,
+        "workforce_alignment": 95.1,
+        "educator_capacity": 69.0,
+        "opportunity": 49.6
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "D",
+        "label": "Monitor and maintain",
+        "rationale": "Parish performing above state average \u2014 continue current trajectory."
+      },
+      "signals": {
+        "avg_sps_2025": 85.6,
+        "df_school_count": 0,
+        "a_school_count": 10,
+        "pct_df_schools": 0.0,
+        "median_household_income": 63135,
+        "poverty_rate": 12.2,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 21.1,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22061",
+      "name": "Lincoln",
+      "name_slug": "lincoln",
+      "school_count": 12,
+      "health_score": 66,
+      "indices": {
+        "academic": 86.9,
+        "equity": 20.9,
+        "workforce_alignment": 100.0,
+        "educator_capacity": 66.6,
+        "opportunity": 53.9
+      },
+      "alerts": [
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 85.3,
+        "df_school_count": 0,
+        "a_school_count": 4,
+        "pct_df_schools": 0.0,
+        "median_household_income": 39172,
+        "poverty_rate": 20.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 36.2,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22063",
+      "name": "Livingston",
+      "name_slug": "livingston",
+      "school_count": 42,
+      "health_score": 79,
+      "indices": {
+        "academic": 90.4,
+        "equity": 87.4,
+        "workforce_alignment": 95.1,
+        "educator_capacity": 57.2,
+        "opportunity": 67.1
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "D",
+        "label": "Monitor and maintain",
+        "rationale": "Parish performing above state average \u2014 continue current trajectory."
+      },
+      "signals": {
+        "avg_sps_2025": 86.2,
+        "df_school_count": 0,
+        "a_school_count": 12,
+        "pct_df_schools": 0.0,
+        "median_household_income": 80122,
+        "poverty_rate": 10.2,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 20.5,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22065",
+      "name": "Madison",
+      "name_slug": "madison",
+      "school_count": 3,
+      "health_score": 19,
+      "indices": {
+        "academic": 0.0,
+        "equity": 12.0,
+        "workforce_alignment": 77.7,
+        "educator_capacity": 0.0,
+        "opportunity": 5.2
+      },
+      "alerts": [
+        {
+          "id": "A1",
+          "severity": "high",
+          "label": "High failing-school concentration in high-need community"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        },
+        {
+          "id": "D",
+          "severity": "medium",
+          "label": "Limited school options"
+        }
+      ],
+      "intervention": {
+        "type": "A1",
+        "label": "Targeted school turnaround + community wraparound",
+        "rationale": "66% of schools rated D/F in a high-need community."
+      },
+      "signals": {
+        "avg_sps_2025": 52.0,
+        "df_school_count": 2,
+        "a_school_count": 0,
+        "pct_df_schools": 66.7,
+        "median_household_income": 35456,
+        "poverty_rate": 22.1,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 14.1,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22067",
+      "name": "Morehouse",
+      "name_slug": "morehouse",
+      "school_count": 5,
+      "health_score": 18,
+      "indices": {
+        "academic": 2.7,
+        "equity": 11.3,
+        "workforce_alignment": 25.7,
+        "educator_capacity": 40.0,
+        "opportunity": 8.8
+      },
+      "alerts": [
+        {
+          "id": "A1",
+          "severity": "high",
+          "label": "High failing-school concentration in high-need community"
+        },
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "A1",
+        "label": "Targeted school turnaround + community wraparound",
+        "rationale": "40% of schools rated D/F in a high-need community."
+      },
+      "signals": {
+        "avg_sps_2025": 64.5,
+        "df_school_count": 2,
+        "a_school_count": 1,
+        "pct_df_schools": 40.0,
+        "median_household_income": 39454,
+        "poverty_rate": 22.2,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 13.8,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22069",
+      "name": "Natchitoches",
+      "name_slug": "natchitoches",
+      "school_count": 10,
+      "health_score": 69,
+      "indices": {
+        "academic": 85.6,
+        "equity": 41.1,
+        "workforce_alignment": 76.4,
+        "educator_capacity": 100.0,
+        "opportunity": 40.8
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 85.0,
+        "df_school_count": 0,
+        "a_school_count": 5,
+        "pct_df_schools": 0.0,
+        "median_household_income": 46292,
+        "poverty_rate": 17.5,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 25.8,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22071",
+      "name": "Orleans",
+      "name_slug": "orleans",
+      "school_count": 60,
+      "health_score": 47,
+      "indices": {
+        "academic": 35.7,
+        "equity": 46.8,
+        "workforce_alignment": 51.0,
+        "educator_capacity": 30.0,
+        "opportunity": 73.0
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "A2",
+        "label": "Educator pipeline investment",
+        "rationale": "Low educator capacity in a parish with strong opportunity signals \u2014 invest in teacher recruitment."
+      },
+      "signals": {
+        "avg_sps_2025": 72.7,
+        "df_school_count": 8,
+        "a_school_count": 9,
+        "pct_df_schools": 13.3,
+        "median_household_income": 56631,
+        "poverty_rate": 16.6,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 42.4,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22073",
+      "name": "Ouachita",
+      "name_slug": "ouachita",
+      "school_count": 36,
+      "health_score": 50,
+      "indices": {
+        "academic": 50.1,
+        "equity": 35.4,
+        "workforce_alignment": 64.4,
+        "educator_capacity": 44.4,
+        "opportunity": 55.7
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 76.2,
+        "df_school_count": 6,
+        "a_school_count": 8,
+        "pct_df_schools": 16.7,
+        "median_household_income": 54688,
+        "poverty_rate": 18.4,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 28.6,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22075",
+      "name": "Plaquemines",
+      "name_slug": "plaquemines",
+      "school_count": 8,
+      "health_score": 93,
+      "indices": {
+        "academic": 100.0,
+        "equity": 98.2,
+        "workforce_alignment": 95.1,
+        "educator_capacity": 100.0,
+        "opportunity": 70.3
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "D",
+        "label": "Monitor and maintain",
+        "rationale": "Parish performing above state average \u2014 continue current trajectory."
+      },
+      "signals": {
+        "avg_sps_2025": 91.1,
+        "df_school_count": 0,
+        "a_school_count": 4,
+        "pct_df_schools": 0.0,
+        "median_household_income": 86315,
+        "poverty_rate": 8.5,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 21.5,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22077",
+      "name": "Pointe Coupee",
+      "name_slug": "pointe-coupee",
+      "school_count": 5,
+      "health_score": 39,
+      "indices": {
+        "academic": 12.0,
+        "equity": 76.6,
+        "workforce_alignment": 57.7,
+        "educator_capacity": 0.0,
+        "opportunity": 47.2
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 66.8,
+        "df_school_count": 1,
+        "a_school_count": 0,
+        "pct_df_schools": 20.0,
+        "median_household_income": 65961,
+        "poverty_rate": 11.9,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 18.4,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22079",
+      "name": "Rapides",
+      "name_slug": "rapides",
+      "school_count": 41,
+      "health_score": 60,
+      "indices": {
+        "academic": 61.5,
+        "equity": 55.7,
+        "workforce_alignment": 83.1,
+        "educator_capacity": 53.6,
+        "opportunity": 44.8
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 79.0,
+        "df_school_count": 7,
+        "a_school_count": 11,
+        "pct_df_schools": 17.1,
+        "median_household_income": 54967,
+        "poverty_rate": 15.2,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 23.1,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22081",
+      "name": "Red River",
+      "name_slug": "red-river",
+      "school_count": 3,
+      "health_score": 62,
+      "indices": {
+        "academic": 66.4,
+        "equity": 58.9,
+        "workforce_alignment": 100.0,
+        "educator_capacity": 66.6,
+        "opportunity": 19.8
+      },
+      "alerts": [
+        {
+          "id": "D",
+          "severity": "medium",
+          "label": "Limited school options"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 80.3,
+        "df_school_count": 1,
+        "a_school_count": 1,
+        "pct_df_schools": 33.3,
+        "median_household_income": 49167,
+        "poverty_rate": 14.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 14.0,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22083",
+      "name": "Richland",
+      "name_slug": "richland",
+      "school_count": 11,
+      "health_score": 19,
+      "indices": {
+        "academic": 0.0,
+        "equity": 31.6,
+        "workforce_alignment": 32.4,
+        "educator_capacity": 0.0,
+        "opportunity": 32.0
+      },
+      "alerts": [
+        {
+          "id": "A1",
+          "severity": "high",
+          "label": "High failing-school concentration in high-need community"
+        },
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "A1",
+        "label": "Targeted school turnaround + community wraparound",
+        "rationale": "36% of schools rated D/F in a high-need community."
+      },
+      "signals": {
+        "avg_sps_2025": 63.5,
+        "df_school_count": 4,
+        "a_school_count": 0,
+        "pct_df_schools": 36.4,
+        "median_household_income": 53544,
+        "poverty_rate": 19.0,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 17.6,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22085",
+      "name": "Sabine",
+      "name_slug": "sabine",
+      "school_count": 10,
+      "health_score": 59,
+      "indices": {
+        "academic": 91.2,
+        "equity": 41.1,
+        "workforce_alignment": 63.0,
+        "educator_capacity": 80.0,
+        "opportunity": 20.3
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 86.4,
+        "df_school_count": 0,
+        "a_school_count": 4,
+        "pct_df_schools": 0.0,
+        "median_household_income": 50329,
+        "poverty_rate": 17.5,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 13.6,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22087",
+      "name": "St. Bernard",
+      "name_slug": "st-bernard",
+      "school_count": 11,
+      "health_score": 34,
+      "indices": {
+        "academic": 45.4,
+        "equity": 36.1,
+        "workforce_alignment": 49.7,
+        "educator_capacity": 0.0,
+        "opportunity": 37.6
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 75.1,
+        "df_school_count": 0,
+        "a_school_count": 0,
+        "pct_df_schools": 0.0,
+        "median_household_income": 58651,
+        "poverty_rate": 18.3,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 17.6,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22089",
+      "name": "St. Charles",
+      "name_slug": "st-charles",
+      "school_count": 15,
+      "health_score": 74,
+      "indices": {
+        "academic": 88.9,
+        "equity": 99.5,
+        "workforce_alignment": 61.7,
+        "educator_capacity": 40.0,
+        "opportunity": 81.0
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "D",
+        "label": "Monitor and maintain",
+        "rationale": "Parish performing above state average \u2014 continue current trajectory."
+      },
+      "signals": {
+        "avg_sps_2025": 85.8,
+        "df_school_count": 0,
+        "a_school_count": 3,
+        "pct_df_schools": 0.0,
+        "median_household_income": 80897,
+        "poverty_rate": 8.3,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 26.9,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22091",
+      "name": "St. Helena",
+      "name_slug": "st-helena",
+      "school_count": 3,
+      "health_score": 1,
+      "indices": {
+        "academic": 0.0,
+        "equity": 0.0,
+        "workforce_alignment": 0.0,
+        "educator_capacity": 0.0,
+        "opportunity": 6.9
+      },
+      "alerts": [
+        {
+          "id": "A1",
+          "severity": "high",
+          "label": "High failing-school concentration in high-need community"
+        },
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        },
+        {
+          "id": "D",
+          "severity": "medium",
+          "label": "Limited school options"
+        }
+      ],
+      "intervention": {
+        "type": "A1",
+        "label": "Targeted school turnaround + community wraparound",
+        "rationale": "66% of schools rated D/F in a high-need community."
+      },
+      "signals": {
+        "avg_sps_2025": 50.3,
+        "df_school_count": 2,
+        "a_school_count": 0,
+        "pct_df_schools": 66.7,
+        "median_household_income": 41934,
+        "poverty_rate": 24.2,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 11.4,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22093",
+      "name": "St. James",
+      "name_slug": "st-james",
+      "school_count": 6,
+      "health_score": 56,
+      "indices": {
+        "academic": 37.0,
+        "equity": 100.0,
+        "workforce_alignment": 96.4,
+        "educator_capacity": 0.0,
+        "opportunity": 49.0
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 73.0,
+        "df_school_count": 0,
+        "a_school_count": 0,
+        "pct_df_schools": 0.0,
+        "median_household_income": 65531,
+        "poverty_rate": 8.2,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 19.5,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22095",
+      "name": "St. John the Baptist",
+      "name_slug": "st-john-the-baptist",
+      "school_count": 9,
+      "health_score": 35,
+      "indices": {
+        "academic": 25.6,
+        "equity": 96.9,
+        "workforce_alignment": 5.7,
+        "educator_capacity": 0.0,
+        "opportunity": 47.6
+      },
+      "alerts": [
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "C",
+        "label": "Workforce alignment program",
+        "rationale": "Mismatch between academic outcomes and local workforce needs."
+      },
+      "signals": {
+        "avg_sps_2025": 70.1,
+        "df_school_count": 1,
+        "a_school_count": 0,
+        "pct_df_schools": 11.1,
+        "median_household_income": 66630,
+        "poverty_rate": 8.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 18.2,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22097",
+      "name": "St. Landry",
+      "name_slug": "st-landry",
+      "school_count": 29,
+      "health_score": 28,
+      "indices": {
+        "academic": 32.2,
+        "equity": 12.0,
+        "workforce_alignment": 67.0,
+        "educator_capacity": 13.8,
+        "opportunity": 16.5
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 71.8,
+        "df_school_count": 4,
+        "a_school_count": 2,
+        "pct_df_schools": 13.8,
+        "median_household_income": 44462,
+        "poverty_rate": 22.1,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 14.9,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22099",
+      "name": "St. Martin",
+      "name_slug": "st-martin",
+      "school_count": 15,
+      "health_score": 55,
+      "indices": {
+        "academic": 29.4,
+        "equity": 86.8,
+        "workforce_alignment": 97.7,
+        "educator_capacity": 26.6,
+        "opportunity": 33.0
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 71.1,
+        "df_school_count": 2,
+        "a_school_count": 2,
+        "pct_df_schools": 13.3,
+        "median_household_income": 55960,
+        "poverty_rate": 10.3,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 16.8,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22101",
+      "name": "St. Mary",
+      "name_slug": "st-mary",
+      "school_count": 21,
+      "health_score": 50,
+      "indices": {
+        "academic": 63.4,
+        "equity": 35.4,
+        "workforce_alignment": 79.1,
+        "educator_capacity": 47.6,
+        "opportunity": 22.8
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 79.5,
+        "df_school_count": 2,
+        "a_school_count": 5,
+        "pct_df_schools": 9.5,
+        "median_household_income": 52576,
+        "poverty_rate": 18.4,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 13.6,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22103",
+      "name": "St. Tammany",
+      "name_slug": "st-tammany",
+      "school_count": 55,
+      "health_score": 80,
+      "indices": {
+        "academic": 70.8,
+        "equity": 96.3,
+        "workforce_alignment": 87.1,
+        "educator_capacity": 47.2,
+        "opportunity": 100.0
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "D",
+        "label": "Monitor and maintain",
+        "rationale": "Parish performing above state average \u2014 continue current trajectory."
+      },
+      "signals": {
+        "avg_sps_2025": 81.4,
+        "df_school_count": 3,
+        "a_school_count": 13,
+        "pct_df_schools": 5.5,
+        "median_household_income": 81202,
+        "poverty_rate": 8.8,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 37.7,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22105",
+      "name": "Tangipahoa",
+      "name_slug": "tangipahoa",
+      "school_count": 31,
+      "health_score": 39,
+      "indices": {
+        "academic": 12.5,
+        "equity": 63.3,
+        "workforce_alignment": 71.0,
+        "educator_capacity": 6.4,
+        "opportunity": 42.0
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 66.9,
+        "df_school_count": 6,
+        "a_school_count": 1,
+        "pct_df_schools": 19.4,
+        "median_household_income": 56760,
+        "poverty_rate": 14.0,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 20.8,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22107",
+      "name": "Tensas",
+      "name_slug": "tensas",
+      "school_count": 2,
+      "health_score": 6,
+      "indices": {
+        "academic": 21.4,
+        "equity": 0.0,
+        "workforce_alignment": 0.0,
+        "educator_capacity": 0.0,
+        "opportunity": 7.3
+      },
+      "alerts": [
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        },
+        {
+          "id": "D",
+          "severity": "medium",
+          "label": "Limited school options"
+        }
+      ],
+      "intervention": {
+        "type": "C",
+        "label": "Workforce alignment program",
+        "rationale": "Mismatch between academic outcomes and local workforce needs."
+      },
+      "signals": {
+        "avg_sps_2025": 69.1,
+        "df_school_count": 0,
+        "a_school_count": 0,
+        "pct_df_schools": 0.0,
+        "median_household_income": 36615,
+        "poverty_rate": 25.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 14.6,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22109",
+      "name": "Terrebonne",
+      "name_slug": "terrebonne",
+      "school_count": 26,
+      "health_score": 67,
+      "indices": {
+        "academic": 72.7,
+        "equity": 75.4,
+        "workforce_alignment": 88.4,
+        "educator_capacity": 53.8,
+        "opportunity": 46.7
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 81.8,
+        "df_school_count": 0,
+        "a_school_count": 7,
+        "pct_df_schools": 0.0,
+        "median_household_income": 64836,
+        "poverty_rate": 12.1,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 18.7,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22111",
+      "name": "Union",
+      "name_slug": "union",
+      "school_count": 3,
+      "health_score": 23,
+      "indices": {
+        "academic": 8.0,
+        "equity": 8.2,
+        "workforce_alignment": 83.1,
+        "educator_capacity": 0.0,
+        "opportunity": 14.6
+      },
+      "alerts": [
+        {
+          "id": "A1",
+          "severity": "high",
+          "label": "High failing-school concentration in high-need community"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        },
+        {
+          "id": "D",
+          "severity": "medium",
+          "label": "Limited school options"
+        }
+      ],
+      "intervention": {
+        "type": "A1",
+        "label": "Targeted school turnaround + community wraparound",
+        "rationale": "66% of schools rated D/F in a high-need community."
+      },
+      "signals": {
+        "avg_sps_2025": 65.8,
+        "df_school_count": 2,
+        "a_school_count": 0,
+        "pct_df_schools": 66.7,
+        "median_household_income": 42885,
+        "poverty_rate": 22.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 14.8,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22113",
+      "name": "Vermilion",
+      "name_slug": "vermilion",
+      "school_count": 20,
+      "health_score": 69,
+      "indices": {
+        "academic": 93.4,
+        "equity": 46.8,
+        "workforce_alignment": 81.7,
+        "educator_capacity": 90.0,
+        "opportunity": 34.4
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 87.0,
+        "df_school_count": 0,
+        "a_school_count": 9,
+        "pct_df_schools": 0.0,
+        "median_household_income": 55707,
+        "poverty_rate": 16.6,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 17.6,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22115",
+      "name": "Vernon",
+      "name_slug": "vernon",
+      "school_count": 18,
+      "health_score": 70,
+      "indices": {
+        "academic": 93.3,
+        "equity": 51.9,
+        "workforce_alignment": 75.1,
+        "educator_capacity": 88.8,
+        "opportunity": 40.6
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "D",
+        "label": "Monitor and maintain",
+        "rationale": "Parish performing above state average \u2014 continue current trajectory."
+      },
+      "signals": {
+        "avg_sps_2025": 86.9,
+        "df_school_count": 0,
+        "a_school_count": 8,
+        "pct_df_schools": 0.0,
+        "median_household_income": 57270,
+        "poverty_rate": 15.8,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 19.8,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22117",
+      "name": "Washington",
+      "name_slug": "washington",
+      "school_count": 10,
+      "health_score": 19,
+      "indices": {
+        "academic": 34.2,
+        "equity": 31.0,
+        "workforce_alignment": 19.0,
+        "educator_capacity": 0.0,
+        "opportunity": 13.2
+      },
+      "alerts": [
+        {
+          "id": "A2",
+          "severity": "medium",
+          "label": "Workforce-academic mismatch"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        },
+        {
+          "id": "C",
+          "severity": "high",
+          "label": "Severe poverty headwind"
+        }
+      ],
+      "intervention": {
+        "type": "C",
+        "label": "Workforce alignment program",
+        "rationale": "Mismatch between academic outcomes and local workforce needs."
+      },
+      "signals": {
+        "avg_sps_2025": 72.3,
+        "df_school_count": 0,
+        "a_school_count": 0,
+        "pct_df_schools": 0.0,
+        "median_household_income": 45380,
+        "poverty_rate": 19.1,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 12.8,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22119",
+      "name": "Webster",
+      "name_slug": "webster",
+      "school_count": 14,
+      "health_score": 31,
+      "indices": {
+        "academic": 14.4,
+        "equity": 35.4,
+        "workforce_alignment": 83.1,
+        "educator_capacity": 14.2,
+        "opportunity": 9.6
+      },
+      "alerts": [
+        {
+          "id": "A1",
+          "severity": "high",
+          "label": "High failing-school concentration in high-need community"
+        },
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "A1",
+        "label": "Targeted school turnaround + community wraparound",
+        "rationale": "28% of schools rated D/F in a high-need community."
+      },
+      "signals": {
+        "avg_sps_2025": 67.3,
+        "df_school_count": 4,
+        "a_school_count": 1,
+        "pct_df_schools": 28.6,
+        "median_household_income": 41182,
+        "poverty_rate": 18.4,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 13.3,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22121",
+      "name": "West Baton Rouge",
+      "name_slug": "west-baton-rouge",
+      "school_count": 10,
+      "health_score": 68,
+      "indices": {
+        "academic": 66.5,
+        "equity": 100.0,
+        "workforce_alignment": 57.7,
+        "educator_capacity": 40.0,
+        "opportunity": 74.0
+      },
+      "alerts": [],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 80.3,
+        "df_school_count": 0,
+        "a_school_count": 2,
+        "pct_df_schools": 0.0,
+        "median_household_income": 87299,
+        "poverty_rate": 8.1,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 23.3,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22123",
+      "name": "West Carroll",
+      "name_slug": "west-carroll",
+      "school_count": 3,
+      "health_score": 63,
+      "indices": {
+        "academic": 59.0,
+        "equity": 90.6,
+        "workforce_alignment": 75.1,
+        "educator_capacity": 66.6,
+        "opportunity": 22.3
+      },
+      "alerts": [
+        {
+          "id": "D",
+          "severity": "medium",
+          "label": "Limited school options"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 78.4,
+        "df_school_count": 0,
+        "a_school_count": 1,
+        "pct_df_schools": 0.0,
+        "median_household_income": 49134,
+        "poverty_rate": 9.7,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 15.2,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22125",
+      "name": "West Feliciana",
+      "name_slug": "west-feliciana",
+      "school_count": 4,
+      "health_score": 92,
+      "indices": {
+        "academic": 100.0,
+        "equity": 95.0,
+        "workforce_alignment": 96.4,
+        "educator_capacity": 100.0,
+        "opportunity": 66.4
+      },
+      "alerts": [
+        {
+          "id": "D",
+          "severity": "medium",
+          "label": "Limited school options"
+        }
+      ],
+      "intervention": {
+        "type": "D",
+        "label": "Monitor and maintain",
+        "rationale": "Parish performing above state average \u2014 continue current trajectory."
+      },
+      "signals": {
+        "avg_sps_2025": 94.1,
+        "df_school_count": 0,
+        "a_school_count": 3,
+        "pct_df_schools": 0.0,
+        "median_household_income": 77452,
+        "poverty_rate": 9.0,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 21.6,
+        "labor_force": null
+      }
+    },
+    {
+      "fips": "22127",
+      "name": "Winn",
+      "name_slug": "winn",
+      "school_count": 5,
+      "health_score": 40,
+      "indices": {
+        "academic": 46.9,
+        "equity": 50.6,
+        "workforce_alignment": 81.7,
+        "educator_capacity": 0.0,
+        "opportunity": 20.4
+      },
+      "alerts": [
+        {
+          "id": "B",
+          "severity": "high",
+          "label": "Educator capacity shortage"
+        }
+      ],
+      "intervention": {
+        "type": "B",
+        "label": "Diagnostic review needed",
+        "rationale": "Mixed signals \u2014 recommend deeper diagnostic review."
+      },
+      "signals": {
+        "avg_sps_2025": 75.4,
+        "df_school_count": 1,
+        "a_school_count": 0,
+        "pct_df_schools": 20.0,
+        "median_household_income": 48871,
+        "poverty_rate": 16.0,
+        "unemployment_rate": null,
+        "pct_bachelors_or_higher": 14.4,
+        "labor_force": null
+      }
+    }
+  ]
+}
