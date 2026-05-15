@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
 import {
   ArrowDown,
   ArrowLeft,
@@ -46,7 +45,6 @@ import {
   buildGradeDistribution,
   buildHexBins,
   buildOutcomeSankey,
-  buildRaceSeries,
   buildSchoolDots,
   buildTrendSeries,
   buildWorkforceAlignment,
@@ -55,6 +53,9 @@ import {
   severityLabel,
 } from "@/lib/lens-data";
 import { LA_PATH } from "@/lib/la-geo";
+import { AcademicPerformanceSection } from "@/components/lens/AcademicPerformanceSection";
+import { EducatorQualitySection } from "@/components/lens/EducatorQualitySection";
+import { PostGraduationOutcomesSection } from "@/components/lens/PostGraduationOutcomesSection";
 
 interface Props {
   parishId: string;
@@ -93,7 +94,6 @@ export function ParishReport({ parishId }: Props) {
   const funding = buildFundingBreakdown(parishId);
   const workforce = buildWorkforceAlignment(parishId);
   const sankey = buildOutcomeSankey(parishId);
-  const raceSeries = buildRaceSeries();
   const schoolDots = buildSchoolDots().filter(() => true);
   const hexBins = buildHexBins(3.5);
 
@@ -548,15 +548,18 @@ export function ParishReport({ parishId }: Props) {
               </div>
             </Panel>
 
-            <Panel
-              title="6-Year Trajectory Race"
-              subtitle={`${parish.name} vs. peer parishes · Health composite`}
-              badge="Animated"
-            >
-              <TrajectoryRace data={raceSeries} highlightId={parishId} healthColor={healthColor} />
-            </Panel>
           </div>
         </section>
+
+        <AcademicPerformanceSection
+          parishId={parishId}
+          parishName={parish.name}
+          parishColor={healthColor}
+        />
+
+        <EducatorQualitySection parishId={parishId} />
+
+        <PostGraduationOutcomesSection parishId={parishId} parishColor={healthColor} />
 
         {/* Demographics + Grades + Funding */}
         <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
@@ -1101,141 +1104,6 @@ function hexPoly(cx: number, cy: number, size: number) {
     pts.push(`${(cx + size * Math.cos(a)).toFixed(2)},${(cy + size * Math.sin(a)).toFixed(2)}`);
   }
   return pts.join(" ");
-}
-
-/** Animated 6-year trajectory race — bars reorder each year. */
-function TrajectoryRace({
-  data,
-  highlightId,
-  healthColor,
-}: {
-  data: Array<Record<string, string | number>>;
-  highlightId: string;
-  healthColor: string;
-}) {
-  const [yearIdx, setYearIdx] = useState(data.length - 1);
-  const [playing, setPlaying] = useState(false);
-
-  // Auto-advance when playing
-  useEffect(() => {
-    if (!playing) return;
-    const id = setInterval(() => {
-      setYearIdx((i: number) => {
-        if (i >= data.length - 1) {
-          setPlaying(false);
-          return data.length - 1;
-        }
-        return i + 1;
-      });
-    }, 900);
-    return () => clearInterval(id);
-  }, [playing, data.length]);
-
-  const row = data[yearIdx];
-  const ranked = PARISHES
-    .map((p) => ({ id: p.id, name: p.name, value: Number(row[p.id] ?? 0) }))
-    .sort((a, b) => b.value - a.value);
-  const max = Math.max(...ranked.map((r) => r.value), 100);
-
-  const play = () => {
-    if (yearIdx >= data.length - 1) setYearIdx(0);
-    setPlaying(true);
-  };
-
-  return (
-    <div className="flex flex-col gap-3">
-      {/* Year scrubber */}
-      <div className="flex items-center gap-3">
-        <button
-          onClick={() => (playing ? setPlaying(false) : play())}
-          className="inline-flex items-center gap-1.5 rounded-md border border-foreground bg-foreground px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--background)] transition-opacity hover:opacity-90"
-        >
-          {playing ? <PauseIcon /> : <PlayIcon />}
-          {playing ? "Pause" : "Play race"}
-        </button>
-        <div className="flex flex-1 items-center gap-1.5">
-          {data.map((d, i) => (
-            <button
-              key={i}
-              onClick={() => {
-                setYearIdx(i);
-                setPlaying(false);
-              }}
-              className={`flex-1 rounded-full px-1 py-1 text-[9px] font-bold uppercase tracking-[0.12em] transition-colors ${
-                i === yearIdx
-                  ? "bg-[var(--ink)] text-[var(--background)]"
-                  : "bg-[var(--background)] text-[var(--text-muted)] hover:text-foreground border border-border"
-              }`}
-            >
-              {String(d.year)}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Animated bars */}
-      <div className="relative h-[300px]">
-        {ranked.map((r, i) => {
-          const isMe = r.id === highlightId;
-          const barColor = isMe ? healthColor : "var(--text-muted)";
-          const w = (r.value / max) * 100;
-          return (
-            <div
-              key={r.id}
-              className="absolute left-0 right-0 flex h-6 items-center"
-              style={{
-                top: i * 24,
-                transition: "top 700ms cubic-bezier(0.4, 0, 0.2, 1)",
-              }}
-            >
-              <span
-                className={`w-[110px] truncate text-[11px] ${
-                  isMe ? "font-bold text-foreground" : "text-[var(--text-secondary)]"
-                }`}
-              >
-                {i + 1}. {r.name}
-              </span>
-              <div className="relative flex-1">
-                <div
-                  className="h-3.5 rounded-r"
-                  style={{
-                    width: `${w}%`,
-                    background: barColor,
-                    opacity: isMe ? 1 : 0.4,
-                    transition: "width 700ms cubic-bezier(0.4, 0, 0.2, 1)",
-                  }}
-                />
-              </div>
-              <span
-                className={`ml-2 w-8 text-right font-mono text-[11px] tabular-nums ${
-                  isMe ? "font-bold" : "text-[var(--text-muted)]"
-                }`}
-                style={{ color: isMe ? healthColor : undefined }}
-              >
-                {r.value}
-              </span>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-function PlayIcon() {
-  return (
-    <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor">
-      <path d="M2 1.5L8.5 5L2 8.5z" />
-    </svg>
-  );
-}
-function PauseIcon() {
-  return (
-    <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor">
-      <rect x="2" y="1.5" width="2" height="7" />
-      <rect x="6" y="1.5" width="2" height="7" />
-    </svg>
-  );
 }
 
 /** LA path used inside the hex-bin mini map. */

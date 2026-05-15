@@ -1,5 +1,8 @@
 import { PARISHES, SEV_COLOR, severity, type LayerKey } from "@/lib/lens-data";
-import { Crosshair, X } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, Crosshair, X } from "lucide-react";
+
+export const STATE_SELECTION_ID = "state";
 
 interface Props {
   layer: LayerKey;
@@ -53,6 +56,35 @@ export function RankingsList({
       </div>
 
       <div className="scrollbar-thin flex-1 overflow-y-auto">
+        <div
+          className={`group flex w-full items-center gap-3 border-b-2 border-[var(--blue)]/25 bg-[color-mix(in_oklab,var(--blue)_5%,transparent)] px-4 py-3 transition-colors hover:bg-[color-mix(in_oklab,var(--blue)_9%,transparent)] ${
+            selectedId === STATE_SELECTION_ID ? "bg-[color-mix(in_oklab,var(--blue)_10%,transparent)]" : ""
+          }`}
+        >
+          <button
+            type="button"
+            onClick={() => onSelect(STATE_SELECTION_ID)}
+            className="flex min-w-0 flex-1 items-center gap-3 text-left"
+          >
+            <span className="w-5 font-mono text-[11px] font-semibold tabular-nums text-[var(--blue)]">
+              00
+            </span>
+            <div className="min-w-0 flex-1">
+              <span className="text-[12px] font-semibold text-foreground">State</span>
+              <p className="mt-0.5 text-[10px] text-[var(--text-muted)]">
+                Louisiana statewide overview
+              </p>
+            </div>
+          </button>
+          <Link
+            to="/state"
+            className="inline-flex shrink-0 items-center gap-1 rounded-md border border-[var(--blue)]/35 bg-[var(--background)] px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--blue)] transition-colors hover:border-[var(--blue)] hover:bg-[color-mix(in_oklab,var(--blue)_8%,transparent)]"
+          >
+            Full Report
+            <ArrowRight className="h-3 w-3" />
+          </Link>
+        </div>
+
         {sorted.map((p, i) => {
           const score = p.scores[layer];
           const sev = severity(layer, score);

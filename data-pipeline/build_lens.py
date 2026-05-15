@@ -140,19 +140,24 @@ def load_acs_social():
 def load_bls_unemployment():
     """Load BLS county-level unemployment data."""
     print("  Reading BLS unemployment...")
+    # BLS file layout (row 0 = title, row 1 = header, row 2+ = data):
+    #   LAUS Code | State FIPS | County FIPS | County Name | Year |
+    #   Labor Force | Employed | Unemployed | Unemployment Rate
+    # Note: 9 columns, NOT 10 — there is no blank column between Year and Labor Force.
     df = pd.read_excel(
         RAW / "bls_unemployment_2024.xlsx",
-        skiprows=5,
+        skiprows=2,          # skip title row + header row (we supply our own names)
         header=None,
-        names=['laus_code', 'state_fips', 'county_fips', 'county_name', 'year', 'blank',
+        names=['laus_code', 'state_fips', 'county_fips', 'county_name', 'year',
                'labor_force', 'employed', 'unemployed', 'unemployment_rate'],
         na_values=NA_TOKENS,
     )
     df = df.dropna(subset=['state_fips'])
-    df['state_fips'] = df['state_fips'].astype(str).str.zfill(2)
-    df['county_fips'] = df['county_fips'].astype(str).str.replace('.0', '', regex=False).str.zfill(3)
-    df = df[df['state_fips'] == '22'].copy()
-    df['fips'] = '22' + df['county_fips']
+    # Excel reads FIPS as float (22.0) — convert to int first to avoid "22.0" != "22"
+    df['state_fips'] = pd.to_numeric(df['state_fips'], errors='coerce').astype('Int64')
+    df['county_fips'] = pd.to_numeric(df['county_fips'], errors='coerce').astype('Int64')
+    df = df[df['state_fips'] == 22].copy()
+    df['fips'] = '22' + df['county_fips'].astype(str).str.zfill(3)
     df['labor_force'] = pd.to_numeric(df['labor_force'].astype(str).str.replace(',', ''), errors='coerce')
     df['unemployment_rate_bls'] = pd.to_numeric(df['unemployment_rate'], errors='coerce')
     df = df[['fips', 'labor_force', 'unemployment_rate_bls']]

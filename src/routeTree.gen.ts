@@ -9,9 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StateRouteImport } from './routes/state'
+import { Route as FundingFlowRouteImport } from './routes/funding-flow'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ParishParishIdRouteImport } from './routes/parish.$parishId'
 
+const StateRoute = StateRouteImport.update({
+  id: '/state',
+  path: '/state',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FundingFlowRoute = FundingFlowRouteImport.update({
+  id: '/funding-flow',
+  path: '/funding-flow',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -25,32 +37,54 @@ const ParishParishIdRoute = ParishParishIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/funding-flow': typeof FundingFlowRoute
+  '/state': typeof StateRoute
   '/parish/$parishId': typeof ParishParishIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/funding-flow': typeof FundingFlowRoute
+  '/state': typeof StateRoute
   '/parish/$parishId': typeof ParishParishIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/funding-flow': typeof FundingFlowRoute
+  '/state': typeof StateRoute
   '/parish/$parishId': typeof ParishParishIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/parish/$parishId'
+  fullPaths: '/' | '/funding-flow' | '/state' | '/parish/$parishId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/parish/$parishId'
-  id: '__root__' | '/' | '/parish/$parishId'
+  to: '/' | '/funding-flow' | '/state' | '/parish/$parishId'
+  id: '__root__' | '/' | '/funding-flow' | '/state' | '/parish/$parishId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FundingFlowRoute: typeof FundingFlowRoute
+  StateRoute: typeof StateRoute
   ParishParishIdRoute: typeof ParishParishIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/state': {
+      id: '/state'
+      path: '/state'
+      fullPath: '/state'
+      preLoaderRoute: typeof StateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/funding-flow': {
+      id: '/funding-flow'
+      path: '/funding-flow'
+      fullPath: '/funding-flow'
+      preLoaderRoute: typeof FundingFlowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -70,6 +104,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FundingFlowRoute: FundingFlowRoute,
+  StateRoute: StateRoute,
   ParishParishIdRoute: ParishParishIdRoute,
 }
 export const routeTree = rootRouteImport

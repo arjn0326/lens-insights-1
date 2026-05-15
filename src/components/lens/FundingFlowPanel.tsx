@@ -1,18 +1,59 @@
 import { useMemo, useState } from "react";
 import { ResponsiveContainer, Sankey, Tooltip } from "recharts";
 import { ChevronDown, ChevronUp, GitBranch } from "lucide-react";
-import { buildFundingFlowSankey } from "@/lib/lens-data";
 
-/**
- * Statewide funding flow: Federal/State/Local sources → LDOE pool →
- * top parishes (by enrollment) + Other → school types (Traditional / Charter / CTE).
- */
+function buildFundingFlowSankey() {
+  const nodes = [
+    { name: "Federal Title I" },
+    { name: "Federal IDEA" },
+    { name: "State MFP" },
+    { name: "Local Revenue" },
+    { name: "LDOE Pool" },
+    { name: "Jefferson" },
+    { name: "Orleans" },
+    { name: "East Baton Rouge" },
+    { name: "Caddo" },
+    { name: "Other Parishes" },
+    { name: "Traditional" },
+    { name: "Charter" },
+    { name: "CTE / Magnet" },
+  ];
+  const links = [
+    { source: 0, target: 4, value: 1200 },
+    { source: 1, target: 4, value: 480 },
+    { source: 2, target: 4, value: 3900 },
+    { source: 3, target: 4, value: 1100 },
+    { source: 4, target: 5, value: 820 },
+    { source: 4, target: 6, value: 750 },
+    { source: 4, target: 7, value: 690 },
+    { source: 4, target: 8, value: 510 },
+    { source: 4, target: 9, value: 3910 },
+    { source: 5, target: 10, value: 540 },
+    { source: 5, target: 11, value: 200 },
+    { source: 5, target: 12, value: 80 },
+    { source: 6, target: 10, value: 300 },
+    { source: 6, target: 11, value: 350 },
+    { source: 6, target: 12, value: 100 },
+    { source: 7, target: 10, value: 500 },
+    { source: 7, target: 11, value: 130 },
+    { source: 7, target: 12, value: 60 },
+    { source: 8, target: 10, value: 400 },
+    { source: 8, target: 11, value: 80 },
+    { source: 8, target: 12, value: 30 },
+    { source: 9, target: 10, value: 2800 },
+    { source: 9, target: 11, value: 800 },
+    { source: 9, target: 12, value: 310 },
+  ];
+  return { nodes, links };
+}
+
 export function FundingFlowPanel() {
   const data = useMemo(() => buildFundingFlowSankey(), []);
   const [open, setOpen] = useState(true);
 
+  const ldoeIndex = data.nodes.findIndex((n) => n.name === "LDOE Pool");
   const totalFlow = data.links
-    .filter((l) => l.target === data.nodes.findIndex((n) => n.name === "LDOE Pool"))
+    .filter((l) => l.target === ldoeIndex)
     .reduce((s, l) => s + l.value, 0);
 
   return (
@@ -94,14 +135,7 @@ function FundingNode(props: any) {
   return (
     <g>
       <rect x={x} y={y} width={width} height={height} fill={color} fillOpacity={0.85} rx={2} />
-      <text
-        x={x + width + 6}
-        y={y + height / 2}
-        dy={3}
-        fontSize={10}
-        fill="var(--foreground)"
-        fontWeight={600}
-      >
+      <text x={x + width + 6} y={y + height / 2} dy={3} fontSize={10} fill="var(--foreground)" fontWeight={600}>
         {name}
       </text>
     </g>
@@ -112,15 +146,11 @@ function FundingTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
   const p = payload[0]?.payload;
   if (!p) return null;
-  const label = p.source && p.target
-    ? `${p.source.name} → ${p.target.name}`
-    : p.name;
+  const label = p.source && p.target ? `${p.source.name} → ${p.target.name}` : p.name;
   return (
     <div className="rounded-md border border-border bg-[var(--surface-elevated)] px-2.5 py-1.5 text-[11px] shadow-elevated">
       <div className="font-semibold text-foreground">{label}</div>
-      <div className="font-mono tabular-nums text-[var(--text-secondary)]">
-        ${(p.value ?? 0).toLocaleString()}M
-      </div>
+      <div className="font-mono tabular-nums text-[var(--text-secondary)]">${(p.value ?? 0).toLocaleString()}M</div>
     </div>
   );
 }

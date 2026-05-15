@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Header } from "@/components/lens/Header";
 import { SimulatorPanel } from "@/components/lens/SimulatorPanel";
 import { LayerToggle } from "@/components/lens/LayerToggle";
@@ -6,7 +7,8 @@ import { LouisianaMap } from "@/components/lens/LouisianaMap";
 import { StatRow } from "@/components/lens/StatRow";
 import { RankingsList } from "@/components/lens/RankingsList";
 import { ParishDetail } from "@/components/lens/ParishDetail";
-import { FundingFlowPanel } from "@/components/lens/FundingFlowPanel";
+import { StateDetail } from "@/components/lens/StateDetail";
+import { STATE_SELECTION_ID } from "@/components/lens/RankingsList";
 import type { LayerKey } from "@/lib/lens-data";
 
 export function LensDashboard() {
@@ -36,7 +38,7 @@ export function LensDashboard() {
 
       <div className="flex flex-1 overflow-hidden">
         {/* Main */}
-        <main className="scrollbar-thin flex flex-1 flex-col gap-4 overflow-y-auto p-5">
+        <main className="scrollbar-thin flex flex-1 flex-col gap-5 overflow-y-auto p-5 md:p-6">
           <LayerToggle active={layer} onChange={setLayer} />
           <LouisianaMap
             layer={layer}
@@ -46,12 +48,21 @@ export function LensDashboard() {
             onClearFocus={clearFocus}
           />
           <StatRow />
-          <FundingFlowPanel />
+          <Link
+            to="/funding-flow"
+            className="flex items-center justify-between rounded-xl border border-border bg-[var(--surface)] px-5 py-3.5 shadow-card transition-colors hover:border-foreground/20 hover:bg-[var(--surface-elevated)]"
+          >
+            <span className="font-display text-[14px] font-semibold tracking-tight text-foreground">
+              View Statewide Funding Flow →
+            </span>
+          </Link>
         </main>
 
         {/* Right sidebar */}
         <aside className="flex w-[320px] flex-shrink-0 flex-col border-l border-border bg-[var(--surface)]">
-          {selectedId ? (
+          {selectedId === STATE_SELECTION_ID ? (
+            <StateDetail onBack={() => setSelectedId(null)} />
+          ) : selectedId ? (
             <ParishDetail parishId={selectedId} onBack={() => setSelectedId(null)} />
           ) : (
             <RankingsList
