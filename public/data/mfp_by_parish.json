@@ -1,0 +1,1865 @@
+{
+  "meta": {
+    "fy": "FY2025-26",
+    "source": "LDOE FY2025-26 MFP Weighted Student Funding Table",
+    "parish_count": 64
+  },
+  "parishes": [
+    {
+      "parish_name": "Acadia Parish",
+      "parish_slug": "acadia",
+      "total_students": 8763,
+      "ed": {
+        "count": 6337,
+        "per_pupil": 676.0,
+        "allocation": 4284029,
+        "pct": 72.32
+      },
+      "cte": {
+        "units": 3195.0,
+        "per_unit": 184.0,
+        "allocation": 589072,
+        "pct": 36.46
+      },
+      "swd": {
+        "count": 1190,
+        "per_pupil": 4609.0,
+        "allocation": 5485096,
+        "pct": 13.58
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Allen Parish",
+      "parish_slug": "allen",
+      "total_students": 3614,
+      "ed": {
+        "count": 2578,
+        "per_pupil": 728.0,
+        "allocation": 1876038,
+        "pct": 71.33
+      },
+      "cte": {
+        "units": 1948.0,
+        "per_unit": 198.0,
+        "allocation": 386613,
+        "pct": 53.9
+      },
+      "swd": {
+        "count": 539,
+        "per_pupil": 4962.0,
+        "allocation": 2674337,
+        "pct": 14.91
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Ascension Parish",
+      "parish_slug": "ascension",
+      "total_students": 23318,
+      "ed": {
+        "count": 12700,
+        "per_pupil": 542.0,
+        "allocation": 6881192,
+        "pct": 54.46
+      },
+      "cte": {
+        "units": 15138.5,
+        "per_unit": 148.0,
+        "allocation": 2237028,
+        "pct": 64.92
+      },
+      "swd": {
+        "count": 2853,
+        "per_pupil": 3694.0,
+        "allocation": 10539750,
+        "pct": 12.24
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Assumption Parish",
+      "parish_slug": "assumption",
+      "total_students": 2471,
+      "ed": {
+        "count": 1771,
+        "per_pupil": 646.0,
+        "allocation": 1144250,
+        "pct": 71.67
+      },
+      "cte": {
+        "units": 1260.0,
+        "per_unit": 176.0,
+        "allocation": 222025,
+        "pct": 50.99
+      },
+      "swd": {
+        "count": 421,
+        "per_pupil": 4405.0,
+        "allocation": 1854613,
+        "pct": 17.04
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Avoyelles Parish",
+      "parish_slug": "avoyelles",
+      "total_students": 4633,
+      "ed": {
+        "count": 3666,
+        "per_pupil": 701.0,
+        "allocation": 2568540,
+        "pct": 79.13
+      },
+      "cte": {
+        "units": 3465.5,
+        "per_unit": 191.0,
+        "allocation": 662199,
+        "pct": 74.8
+      },
+      "swd": {
+        "count": 666,
+        "per_pupil": 4777.0,
+        "allocation": 3181535,
+        "pct": 14.38
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Beauregard Parish",
+      "parish_slug": "beauregard",
+      "total_students": 5464,
+      "ed": {
+        "count": 3175,
+        "per_pupil": 620.0,
+        "allocation": 1970085,
+        "pct": 58.11
+      },
+      "cte": {
+        "units": 2101.0,
+        "per_unit": 169.0,
+        "allocation": 355546,
+        "pct": 38.45
+      },
+      "swd": {
+        "count": 910,
+        "per_pupil": 4231.0,
+        "allocation": 3849916,
+        "pct": 16.65
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Bienville Parish",
+      "parish_slug": "bienville",
+      "total_students": 1746,
+      "ed": {
+        "count": 1352,
+        "per_pupil": 401.0,
+        "allocation": 541477,
+        "pct": 77.43
+      },
+      "cte": {
+        "units": 744.0,
+        "per_unit": 109.0,
+        "allocation": 81265,
+        "pct": 42.61
+      },
+      "swd": {
+        "count": 324,
+        "per_pupil": 2731.0,
+        "allocation": 884742,
+        "pct": 18.56
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Bossier Parish",
+      "parish_slug": "bossier",
+      "total_students": 21779,
+      "ed": {
+        "count": 12474,
+        "per_pupil": 634.0,
+        "allocation": 7904119,
+        "pct": 57.28
+      },
+      "cte": {
+        "units": 9303.0,
+        "per_unit": 173.0,
+        "allocation": 1607679,
+        "pct": 42.72
+      },
+      "swd": {
+        "count": 3476,
+        "per_pupil": 4320.0,
+        "allocation": 15017445,
+        "pct": 15.96
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Caddo Parish",
+      "parish_slug": "caddo",
+      "total_students": 31680,
+      "ed": {
+        "count": 23098,
+        "per_pupil": 581.0,
+        "allocation": 13418686,
+        "pct": 72.91
+      },
+      "cte": {
+        "units": 10833.0,
+        "per_unit": 158.0,
+        "allocation": 1716378,
+        "pct": 34.2
+      },
+      "swd": {
+        "count": 4429,
+        "per_pupil": 3961.0,
+        "allocation": 17543243,
+        "pct": 13.98
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Calcasieu Parish",
+      "parish_slug": "calcasieu",
+      "total_students": 27624,
+      "ed": {
+        "count": 17326,
+        "per_pupil": 504.0,
+        "allocation": 8729754,
+        "pct": 62.72
+      },
+      "cte": {
+        "units": 8875.0,
+        "per_unit": 137.0,
+        "allocation": 1219553,
+        "pct": 32.13
+      },
+      "swd": {
+        "count": 5442,
+        "per_pupil": 3435.0,
+        "allocation": 18695230,
+        "pct": 19.7
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Caldwell Parish",
+      "parish_slug": "caldwell",
+      "total_students": 1352,
+      "ed": {
+        "count": 1033,
+        "per_pupil": 710.0,
+        "allocation": 732982,
+        "pct": 76.41
+      },
+      "cte": {
+        "units": 913.0,
+        "per_unit": 194.0,
+        "allocation": 176682,
+        "pct": 67.53
+      },
+      "swd": {
+        "count": 299,
+        "per_pupil": 4838.0,
+        "allocation": 1446547,
+        "pct": 22.12
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Cameron Parish",
+      "parish_slug": "cameron",
+      "total_students": 1070,
+      "ed": {
+        "count": 485,
+        "per_pupil": 221.0,
+        "allocation": 107100,
+        "pct": 45.33
+      },
+      "cte": {
+        "units": 464.5,
+        "per_unit": 60.0,
+        "allocation": 27975,
+        "pct": 43.41
+      },
+      "swd": {
+        "count": 169,
+        "per_pupil": 1506.0,
+        "allocation": 254451,
+        "pct": 15.79
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Catahoula Parish",
+      "parish_slug": "catahoula",
+      "total_students": 869,
+      "ed": {
+        "count": 730,
+        "per_pupil": 697.0,
+        "allocation": 508566,
+        "pct": 84.0
+      },
+      "cte": {
+        "units": 584.0,
+        "per_unit": 190.0,
+        "allocation": 110960,
+        "pct": 67.2
+      },
+      "swd": {
+        "count": 130,
+        "per_pupil": 4750.0,
+        "allocation": 617499,
+        "pct": 14.96
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Claiborne Parish",
+      "parish_slug": "claiborne",
+      "total_students": 1538,
+      "ed": {
+        "count": 1349,
+        "per_pupil": 702.0,
+        "allocation": 947406,
+        "pct": 87.71
+      },
+      "cte": {
+        "units": 751.0,
+        "per_unit": 192.0,
+        "allocation": 143844,
+        "pct": 48.83
+      },
+      "swd": {
+        "count": 347,
+        "per_pupil": 4788.0,
+        "allocation": 1661584,
+        "pct": 22.56
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Concordia Parish",
+      "parish_slug": "concordia",
+      "total_students": 2744,
+      "ed": {
+        "count": 2349,
+        "per_pupil": 709.0,
+        "allocation": 1665857,
+        "pct": 85.6
+      },
+      "cte": {
+        "units": 1355.0,
+        "per_unit": 193.0,
+        "allocation": 262073,
+        "pct": 49.38
+      },
+      "swd": {
+        "count": 401,
+        "per_pupil": 4835.0,
+        "allocation": 1938955,
+        "pct": 14.61
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "DeSoto Parish",
+      "parish_slug": "desoto",
+      "total_students": 4657,
+      "ed": {
+        "count": 2786,
+        "per_pupil": 312.0,
+        "allocation": 870326,
+        "pct": 59.82
+      },
+      "cte": {
+        "units": 3292.5,
+        "per_unit": 85.0,
+        "allocation": 280515,
+        "pct": 70.7
+      },
+      "swd": {
+        "count": 593,
+        "per_pupil": 2130.0,
+        "allocation": 1263061,
+        "pct": 12.73
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "East Baton Rouge Parish",
+      "parish_slug": "east-baton-rouge",
+      "total_students": 38042,
+      "ed": {
+        "count": 30268,
+        "per_pupil": 453.0,
+        "allocation": 13710663,
+        "pct": 79.56
+      },
+      "cte": {
+        "units": 18667.5,
+        "per_unit": 124.0,
+        "allocation": 2306160,
+        "pct": 49.07
+      },
+      "swd": {
+        "count": 4569,
+        "per_pupil": 3088.0,
+        "allocation": 14111217,
+        "pct": 12.01
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "East Carroll Parish",
+      "parish_slug": "east-carroll",
+      "total_students": 699,
+      "ed": {
+        "count": 677,
+        "per_pupil": 645.0,
+        "allocation": 436947,
+        "pct": 96.85
+      },
+      "cte": {
+        "units": 441.0,
+        "per_unit": 176.0,
+        "allocation": 77626,
+        "pct": 63.09
+      },
+      "swd": {
+        "count": 87,
+        "per_pupil": 4401.0,
+        "allocation": 382849,
+        "pct": 12.45
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "East Feliciana Parish",
+      "parish_slug": "east-feliciana",
+      "total_students": 1568,
+      "ed": {
+        "count": 1195,
+        "per_pupil": 500.0,
+        "allocation": 597749,
+        "pct": 76.21
+      },
+      "cte": {
+        "units": 654.0,
+        "per_unit": 136.0,
+        "allocation": 89219,
+        "pct": 41.71
+      },
+      "swd": {
+        "count": 261,
+        "per_pupil": 3411.0,
+        "allocation": 890143,
+        "pct": 16.65
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Evangeline Parish",
+      "parish_slug": "evangeline",
+      "total_students": 5061,
+      "ed": {
+        "count": 3881,
+        "per_pupil": 716.0,
+        "allocation": 2780327,
+        "pct": 76.68
+      },
+      "cte": {
+        "units": 2781.0,
+        "per_unit": 195.0,
+        "allocation": 543353,
+        "pct": 54.95
+      },
+      "swd": {
+        "count": 962,
+        "per_pupil": 4885.0,
+        "allocation": 4698896,
+        "pct": 19.01
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Franklin Parish",
+      "parish_slug": "franklin",
+      "total_students": 2402,
+      "ed": {
+        "count": 2005,
+        "per_pupil": 705.0,
+        "allocation": 1414422,
+        "pct": 83.47
+      },
+      "cte": {
+        "units": 893.5,
+        "per_unit": 192.0,
+        "allocation": 171905,
+        "pct": 37.2
+      },
+      "swd": {
+        "count": 445,
+        "per_pupil": 4810.0,
+        "allocation": 2140391,
+        "pct": 18.53
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Grant Parish",
+      "parish_slug": "grant",
+      "total_students": 2577,
+      "ed": {
+        "count": 1833,
+        "per_pupil": 762.0,
+        "allocation": 1397644,
+        "pct": 71.13
+      },
+      "cte": {
+        "units": 1619.0,
+        "per_unit": 208.0,
+        "allocation": 336674,
+        "pct": 62.82
+      },
+      "swd": {
+        "count": 525,
+        "per_pupil": 5199.0,
+        "allocation": 2729368,
+        "pct": 20.37
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Iberia Parish",
+      "parish_slug": "iberia",
+      "total_students": 10465,
+      "ed": {
+        "count": 8041,
+        "per_pupil": 650.0,
+        "allocation": 5228045,
+        "pct": 76.84
+      },
+      "cte": {
+        "units": 5257.0,
+        "per_unit": 177.0,
+        "allocation": 932171,
+        "pct": 50.23
+      },
+      "swd": {
+        "count": 1580,
+        "per_pupil": 4433.0,
+        "allocation": 7004141,
+        "pct": 15.1
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Iberville Parish",
+      "parish_slug": "iberville",
+      "total_students": 3709,
+      "ed": {
+        "count": 2979,
+        "per_pupil": 221.0,
+        "allocation": 657838,
+        "pct": 80.32
+      },
+      "cte": {
+        "units": 1299.5,
+        "per_unit": 60.0,
+        "allocation": 78262,
+        "pct": 35.04
+      },
+      "swd": {
+        "count": 460,
+        "per_pupil": 1506.0,
+        "allocation": 692588,
+        "pct": 12.4
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Jackson Parish",
+      "parish_slug": "jackson",
+      "total_students": 1918,
+      "ed": {
+        "count": 1279,
+        "per_pupil": 632.0,
+        "allocation": 808061,
+        "pct": 66.68
+      },
+      "cte": {
+        "units": 1516.0,
+        "per_unit": 172.0,
+        "allocation": 261217,
+        "pct": 79.04
+      },
+      "swd": {
+        "count": 263,
+        "per_pupil": 4308.0,
+        "allocation": 1132917,
+        "pct": 13.71
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Jefferson Davis Parish",
+      "parish_slug": "jefferson-davis",
+      "total_students": 5019,
+      "ed": {
+        "count": 3187,
+        "per_pupil": 690.0,
+        "allocation": 2198097,
+        "pct": 63.5
+      },
+      "cte": {
+        "units": 3146.5,
+        "per_unit": 188.0,
+        "allocation": 591863,
+        "pct": 62.69
+      },
+      "swd": {
+        "count": 851,
+        "per_pupil": 4703.0,
+        "allocation": 4001869,
+        "pct": 16.96
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Jefferson Parish",
+      "parish_slug": "jefferson",
+      "total_students": 45578,
+      "ed": {
+        "count": 36868,
+        "per_pupil": 504.0,
+        "allocation": 18579829,
+        "pct": 80.89
+      },
+      "cte": {
+        "units": 17702.5,
+        "per_unit": 137.0,
+        "allocation": 2433074,
+        "pct": 38.84
+      },
+      "swd": {
+        "count": 6792,
+        "per_pupil": 3436.0,
+        "allocation": 23337718,
+        "pct": 14.9
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "LaSalle Parish",
+      "parish_slug": "lasalle",
+      "total_students": 2386,
+      "ed": {
+        "count": 1397,
+        "per_pupil": 697.0,
+        "allocation": 973808,
+        "pct": 58.55
+      },
+      "cte": {
+        "units": 1385.0,
+        "per_unit": 190.0,
+        "allocation": 263303,
+        "pct": 58.05
+      },
+      "swd": {
+        "count": 341,
+        "per_pupil": 4753.0,
+        "allocation": 1620690,
+        "pct": 14.29
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Lafayette Parish",
+      "parish_slug": "lafayette",
+      "total_students": 28643,
+      "ed": {
+        "count": 18657,
+        "per_pupil": 530.0,
+        "allocation": 9888842,
+        "pct": 65.14
+      },
+      "cte": {
+        "units": 13314.0,
+        "per_unit": 145.0,
+        "allocation": 1924601,
+        "pct": 46.48
+      },
+      "swd": {
+        "count": 3091,
+        "per_pupil": 3614.0,
+        "allocation": 11170464,
+        "pct": 10.79
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Lafourche Parish",
+      "parish_slug": "lafourche",
+      "total_students": 12834,
+      "ed": {
+        "count": 8612,
+        "per_pupil": 613.0,
+        "allocation": 5282227,
+        "pct": 67.1
+      },
+      "cte": {
+        "units": 6835.0,
+        "per_unit": 167.0,
+        "allocation": 1143352,
+        "pct": 53.26
+      },
+      "swd": {
+        "count": 1484,
+        "per_pupil": 4182.0,
+        "allocation": 6206053,
+        "pct": 11.56
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Lincoln Parish",
+      "parish_slug": "lincoln",
+      "total_students": 5612,
+      "ed": {
+        "count": 3420,
+        "per_pupil": 589.0,
+        "allocation": 2014192,
+        "pct": 60.94
+      },
+      "cte": {
+        "units": 3029.0,
+        "per_unit": 161.0,
+        "allocation": 486522,
+        "pct": 53.97
+      },
+      "swd": {
+        "count": 993,
+        "per_pupil": 4016.0,
+        "allocation": 3987427,
+        "pct": 17.69
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Livingston Parish",
+      "parish_slug": "livingston",
+      "total_students": 26129,
+      "ed": {
+        "count": 19468,
+        "per_pupil": 736.0,
+        "allocation": 14325164,
+        "pct": 74.51
+      },
+      "cte": {
+        "units": 15667.5,
+        "per_unit": 201.0,
+        "allocation": 3144174,
+        "pct": 59.96
+      },
+      "swd": {
+        "count": 3705,
+        "per_pupil": 5017.0,
+        "allocation": 18588103,
+        "pct": 14.18
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Madison Parish",
+      "parish_slug": "madison",
+      "total_students": 1104,
+      "ed": {
+        "count": 1053,
+        "per_pupil": 632.0,
+        "allocation": 665050,
+        "pct": 95.38
+      },
+      "cte": {
+        "units": 864.0,
+        "per_unit": 172.0,
+        "allocation": 148822,
+        "pct": 78.26
+      },
+      "swd": {
+        "count": 189,
+        "per_pupil": 4306.0,
+        "allocation": 813872,
+        "pct": 17.12
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Morehouse Parish",
+      "parish_slug": "morehouse",
+      "total_students": 3016,
+      "ed": {
+        "count": 2466,
+        "per_pupil": 665.0,
+        "allocation": 1638954,
+        "pct": 81.76
+      },
+      "cte": {
+        "units": 2264.0,
+        "per_unit": 181.0,
+        "allocation": 410373,
+        "pct": 75.07
+      },
+      "swd": {
+        "count": 571,
+        "per_pupil": 4532.0,
+        "allocation": 2587488,
+        "pct": 18.93
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Natchitoches Parish",
+      "parish_slug": "natchitoches",
+      "total_students": 4687,
+      "ed": {
+        "count": 4137,
+        "per_pupil": 573.0,
+        "allocation": 2368718,
+        "pct": 88.27
+      },
+      "cte": {
+        "units": 2469.5,
+        "per_unit": 156.0,
+        "allocation": 385625,
+        "pct": 52.69
+      },
+      "swd": {
+        "count": 559,
+        "per_pupil": 3904.0,
+        "allocation": 2182269,
+        "pct": 11.93
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Orleans Parish",
+      "parish_slug": "orleans",
+      "total_students": 42246,
+      "ed": {
+        "count": 35001,
+        "per_pupil": 463.0,
+        "allocation": 16210233,
+        "pct": 82.85
+      },
+      "cte": {
+        "units": 13509.5,
+        "per_unit": 126.0,
+        "allocation": 1706383,
+        "pct": 31.98
+      },
+      "swd": {
+        "count": 6899,
+        "per_pupil": 3158.0,
+        "allocation": 21785299,
+        "pct": 16.33
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Ouachita Parish",
+      "parish_slug": "ouachita",
+      "total_students": 16952,
+      "ed": {
+        "count": 11064,
+        "per_pupil": 689.0,
+        "allocation": 7619380,
+        "pct": 65.27
+      },
+      "cte": {
+        "units": 6342.0,
+        "per_unit": 188.0,
+        "allocation": 1191139,
+        "pct": 37.41
+      },
+      "swd": {
+        "count": 2477,
+        "per_pupil": 4695.0,
+        "allocation": 11630598,
+        "pct": 14.61
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Plaquemines Parish",
+      "parish_slug": "plaquemines",
+      "total_students": 3286,
+      "ed": {
+        "count": 2167,
+        "per_pupil": 221.0,
+        "allocation": 478528,
+        "pct": 65.95
+      },
+      "cte": {
+        "units": 2083.0,
+        "per_unit": 60.0,
+        "allocation": 125449,
+        "pct": 63.39
+      },
+      "swd": {
+        "count": 535,
+        "per_pupil": 1506.0,
+        "allocation": 805509,
+        "pct": 16.28
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Pointe Coupee Parish",
+      "parish_slug": "pointe-coupee",
+      "total_students": 2102,
+      "ed": {
+        "count": 1617,
+        "per_pupil": 447.0,
+        "allocation": 722592,
+        "pct": 76.93
+      },
+      "cte": {
+        "units": 1566.5,
+        "per_unit": 122.0,
+        "allocation": 190916,
+        "pct": 74.52
+      },
+      "swd": {
+        "count": 414,
+        "per_pupil": 3047.0,
+        "allocation": 1261398,
+        "pct": 19.7
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Rapides Parish",
+      "parish_slug": "rapides",
+      "total_students": 20414,
+      "ed": {
+        "count": 15951,
+        "per_pupil": 650.0,
+        "allocation": 10362974,
+        "pct": 78.14
+      },
+      "cte": {
+        "units": 10872.0,
+        "per_unit": 177.0,
+        "allocation": 1926347,
+        "pct": 53.26
+      },
+      "swd": {
+        "count": 3232,
+        "per_pupil": 4430.0,
+        "allocation": 14316486,
+        "pct": 15.83
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Red River Parish",
+      "parish_slug": "red-river",
+      "total_students": 1160,
+      "ed": {
+        "count": 1069,
+        "per_pupil": 236.0,
+        "allocation": 251880,
+        "pct": 92.16
+      },
+      "cte": {
+        "units": 425.0,
+        "per_unit": 64.0,
+        "allocation": 27311,
+        "pct": 36.64
+      },
+      "swd": {
+        "count": 173,
+        "per_pupil": 1607.0,
+        "allocation": 277927,
+        "pct": 14.91
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Richland Parish",
+      "parish_slug": "richland",
+      "total_students": 2645,
+      "ed": {
+        "count": 2063,
+        "per_pupil": 616.0,
+        "allocation": 1271174,
+        "pct": 78.0
+      },
+      "cte": {
+        "units": 1551.5,
+        "per_unit": 168.0,
+        "allocation": 260727,
+        "pct": 58.66
+      },
+      "swd": {
+        "count": 396,
+        "per_pupil": 4201.0,
+        "allocation": 1663678,
+        "pct": 14.97
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Sabine Parish",
+      "parish_slug": "sabine",
+      "total_students": 3513,
+      "ed": {
+        "count": 2498,
+        "per_pupil": 623.0,
+        "allocation": 1555463,
+        "pct": 71.11
+      },
+      "cte": {
+        "units": 2408.0,
+        "per_unit": 170.0,
+        "allocation": 408933,
+        "pct": 68.55
+      },
+      "swd": {
+        "count": 521,
+        "per_pupil": 4246.0,
+        "allocation": 2211940,
+        "pct": 14.83
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "St. Bernard Parish",
+      "parish_slug": "st-bernard",
+      "total_students": 7172,
+      "ed": {
+        "count": 5093,
+        "per_pupil": 639.0,
+        "allocation": 3254902,
+        "pct": 71.01
+      },
+      "cte": {
+        "units": 3430.0,
+        "per_unit": 174.0,
+        "allocation": 597843,
+        "pct": 47.82
+      },
+      "swd": {
+        "count": 956,
+        "per_pupil": 4357.0,
+        "allocation": 4165726,
+        "pct": 13.33
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "St. Charles Parish",
+      "parish_slug": "st-charles",
+      "total_students": 8681,
+      "ed": {
+        "count": 4666,
+        "per_pupil": 267.0,
+        "allocation": 1245777,
+        "pct": 53.75
+      },
+      "cte": {
+        "units": 5514.5,
+        "per_unit": 73.0,
+        "allocation": 401541,
+        "pct": 63.52
+      },
+      "swd": {
+        "count": 1320,
+        "per_pupil": 1820.0,
+        "allocation": 2402913,
+        "pct": 15.21
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "St. Helena Parish",
+      "parish_slug": "st-helena",
+      "total_students": 988,
+      "ed": {
+        "count": 984,
+        "per_pupil": 736.0,
+        "allocation": 724671,
+        "pct": 99.6
+      },
+      "cte": {
+        "units": 398.0,
+        "per_unit": 201.0,
+        "allocation": 79939,
+        "pct": 40.28
+      },
+      "swd": {
+        "count": 204,
+        "per_pupil": 5021.0,
+        "allocation": 1024341,
+        "pct": 20.65
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "St. James Parish",
+      "parish_slug": "st-james",
+      "total_students": 2998,
+      "ed": {
+        "count": 2087,
+        "per_pupil": 350.0,
+        "allocation": 730467,
+        "pct": 69.61
+      },
+      "cte": {
+        "units": 1439.0,
+        "per_unit": 95.0,
+        "allocation": 137362,
+        "pct": 48.0
+      },
+      "swd": {
+        "count": 599,
+        "per_pupil": 2386.0,
+        "allocation": 1429466,
+        "pct": 19.98
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "St. John the Baptist Parish",
+      "parish_slug": "st-john-the-baptist",
+      "total_students": 4824,
+      "ed": {
+        "count": 4149,
+        "per_pupil": 400.0,
+        "allocation": 1661374,
+        "pct": 86.01
+      },
+      "cte": {
+        "units": 2729.0,
+        "per_unit": 109.0,
+        "allocation": 298027,
+        "pct": 56.57
+      },
+      "swd": {
+        "count": 808,
+        "per_pupil": 2730.0,
+        "allocation": 2205992,
+        "pct": 16.75
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "St. Landry Parish",
+      "parish_slug": "st-landry",
+      "total_students": 10659,
+      "ed": {
+        "count": 8888,
+        "per_pupil": 639.0,
+        "allocation": 5677503,
+        "pct": 83.38
+      },
+      "cte": {
+        "units": 7008.5,
+        "per_unit": 174.0,
+        "allocation": 1220976,
+        "pct": 65.75
+      },
+      "swd": {
+        "count": 1597,
+        "per_pupil": 4355.0,
+        "allocation": 6955476,
+        "pct": 14.98
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "St. Martin Parish",
+      "parish_slug": "st-martin",
+      "total_students": 6443,
+      "ed": {
+        "count": 5561,
+        "per_pupil": 641.0,
+        "allocation": 3562595,
+        "pct": 86.31
+      },
+      "cte": {
+        "units": 3584.0,
+        "per_unit": 175.0,
+        "allocation": 626196,
+        "pct": 55.63
+      },
+      "swd": {
+        "count": 917,
+        "per_pupil": 4368.0,
+        "allocation": 4005451,
+        "pct": 14.23
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "St. Mary Parish",
+      "parish_slug": "st-mary",
+      "total_students": 6872,
+      "ed": {
+        "count": 5625,
+        "per_pupil": 612.0,
+        "allocation": 3443586,
+        "pct": 81.85
+      },
+      "cte": {
+        "units": 4186.0,
+        "per_unit": 167.0,
+        "allocation": 698902,
+        "pct": 60.91
+      },
+      "swd": {
+        "count": 1318,
+        "per_pupil": 4174.0,
+        "allocation": 5501390,
+        "pct": 19.18
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "St. Tammany Parish",
+      "parish_slug": "st-tammany",
+      "total_students": 35097,
+      "ed": {
+        "count": 17601,
+        "per_pupil": 588.0,
+        "allocation": 10341337,
+        "pct": 50.15
+      },
+      "cte": {
+        "units": 14820.0,
+        "per_unit": 160.0,
+        "allocation": 2374740,
+        "pct": 42.23
+      },
+      "swd": {
+        "count": 6599,
+        "per_pupil": 4006.0,
+        "allocation": 26435411,
+        "pct": 18.8
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Tangipahoa Parish",
+      "parish_slug": "tangipahoa",
+      "total_students": 18400,
+      "ed": {
+        "count": 14526,
+        "per_pupil": 675.0,
+        "allocation": 9808595,
+        "pct": 78.95
+      },
+      "cte": {
+        "units": 12232.0,
+        "per_unit": 184.0,
+        "allocation": 2252614,
+        "pct": 66.48
+      },
+      "swd": {
+        "count": 2928,
+        "per_pupil": 4604.0,
+        "allocation": 13480326,
+        "pct": 15.91
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Tensas Parish",
+      "parish_slug": "tensas",
+      "total_students": 310,
+      "ed": {
+        "count": 298,
+        "per_pupil": 529.0,
+        "allocation": 157506,
+        "pct": 96.13
+      },
+      "cte": {
+        "units": 223.0,
+        "per_unit": 144.0,
+        "allocation": 32145,
+        "pct": 71.94
+      },
+      "swd": {
+        "count": 79,
+        "per_pupil": 3604.0,
+        "allocation": 284692,
+        "pct": 25.48
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Terrebonne Parish",
+      "parish_slug": "terrebonne",
+      "total_students": 14051,
+      "ed": {
+        "count": 10549,
+        "per_pupil": 589.0,
+        "allocation": 6214936,
+        "pct": 75.08
+      },
+      "cte": {
+        "units": 6851.0,
+        "per_unit": 161.0,
+        "allocation": 1100799,
+        "pct": 48.76
+      },
+      "swd": {
+        "count": 2012,
+        "per_pupil": 4017.0,
+        "allocation": 8082057,
+        "pct": 14.32
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Union Parish",
+      "parish_slug": "union",
+      "total_students": 1501,
+      "ed": {
+        "count": 1223,
+        "per_pupil": 683.0,
+        "allocation": 834837,
+        "pct": 81.48
+      },
+      "cte": {
+        "units": 686.0,
+        "per_unit": 186.0,
+        "allocation": 127711,
+        "pct": 45.7
+      },
+      "swd": {
+        "count": 200,
+        "per_pupil": 4654.0,
+        "allocation": 930837,
+        "pct": 13.32
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Vermilion Parish",
+      "parish_slug": "vermilion",
+      "total_students": 8179,
+      "ed": {
+        "count": 5196,
+        "per_pupil": 692.0,
+        "allocation": 3597241,
+        "pct": 63.53
+      },
+      "cte": {
+        "units": 3637.0,
+        "per_unit": 189.0,
+        "allocation": 686708,
+        "pct": 44.47
+      },
+      "swd": {
+        "count": 1219,
+        "per_pupil": 4720.0,
+        "allocation": 5754038,
+        "pct": 14.9
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Vernon Parish",
+      "parish_slug": "vernon",
+      "total_students": 7327,
+      "ed": {
+        "count": 4948,
+        "per_pupil": 735.0,
+        "allocation": 3638994,
+        "pct": 67.53
+      },
+      "cte": {
+        "units": 3012.5,
+        "per_unit": 201.0,
+        "allocation": 604237,
+        "pct": 41.12
+      },
+      "swd": {
+        "count": 1136,
+        "per_pupil": 5014.0,
+        "allocation": 5696375,
+        "pct": 15.5
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Washington Parish",
+      "parish_slug": "washington",
+      "total_students": 4385,
+      "ed": {
+        "count": 3336,
+        "per_pupil": 770.0,
+        "allocation": 2568318,
+        "pct": 76.08
+      },
+      "cte": {
+        "units": 2460.5,
+        "per_unit": 210.0,
+        "allocation": 516624,
+        "pct": 56.11
+      },
+      "swd": {
+        "count": 955,
+        "per_pupil": 5249.0,
+        "allocation": 5012966,
+        "pct": 21.78
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Webster Parish",
+      "parish_slug": "webster",
+      "total_students": 4801,
+      "ed": {
+        "count": 3750,
+        "per_pupil": 644.0,
+        "allocation": 2416073,
+        "pct": 78.11
+      },
+      "cte": {
+        "units": 2552.5,
+        "per_unit": 176.0,
+        "allocation": 448511,
+        "pct": 53.17
+      },
+      "swd": {
+        "count": 766,
+        "per_pupil": 4393.0,
+        "allocation": 3364930,
+        "pct": 15.96
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "West Baton Rouge Parish",
+      "parish_slug": "west-baton-rouge",
+      "total_students": 3927,
+      "ed": {
+        "count": 2969,
+        "per_pupil": 380.0,
+        "allocation": 1129670,
+        "pct": 75.6
+      },
+      "cte": {
+        "units": 3253.0,
+        "per_unit": 104.0,
+        "allocation": 337562,
+        "pct": 82.84
+      },
+      "swd": {
+        "count": 573,
+        "per_pupil": 2594.0,
+        "allocation": 1486498,
+        "pct": 14.59
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "West Carroll Parish",
+      "parish_slug": "west-carroll",
+      "total_students": 1409,
+      "ed": {
+        "count": 1121,
+        "per_pupil": 698.0,
+        "allocation": 782661,
+        "pct": 79.56
+      },
+      "cte": {
+        "units": 730.0,
+        "per_unit": 190.0,
+        "allocation": 139002,
+        "pct": 51.81
+      },
+      "swd": {
+        "count": 205,
+        "per_pupil": 4760.0,
+        "allocation": 975867,
+        "pct": 14.55
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "West Feliciana Parish",
+      "parish_slug": "west-feliciana",
+      "total_students": 2051,
+      "ed": {
+        "count": 940,
+        "per_pupil": 435.0,
+        "allocation": 409079,
+        "pct": 45.83
+      },
+      "cte": {
+        "units": 1331.5,
+        "per_unit": 119.0,
+        "allocation": 158034,
+        "pct": 64.92
+      },
+      "swd": {
+        "count": 302,
+        "per_pupil": 2967.0,
+        "allocation": 896097,
+        "pct": 14.72
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "parish_name": "Winn Parish",
+      "parish_slug": "winn",
+      "total_students": 1652,
+      "ed": {
+        "count": 1219,
+        "per_pupil": 667.0,
+        "allocation": 812566,
+        "pct": 73.79
+      },
+      "cte": {
+        "units": 1600.5,
+        "per_unit": 182.0,
+        "allocation": 290964,
+        "pct": 96.88
+      },
+      "swd": {
+        "count": 244,
+        "per_pupil": 4545.0,
+        "allocation": 1108953,
+        "pct": 14.77
+      },
+      "gifted": {
+        "count": 0,
+        "per_pupil": 0.0,
+        "allocation": 0,
+        "pct": 0.0
+      }
+    }
+  ]
+}

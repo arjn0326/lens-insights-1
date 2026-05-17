@@ -1,0 +1,1809 @@
+{
+  "meta": {
+    "generated_at": "2026-05-17T10:13:32.862548+00:00",
+    "source": "lens.json + enrollment_by_parish.json",
+    "parish_count": 64,
+    "state_averages": {
+      "Health": 50,
+      "Need": 59,
+      "Access": 60,
+      "Readiness": 40,
+      "Demand": 43,
+      "Pipeline": 51
+    }
+  },
+  "parishes": [
+    {
+      "id": "acadia",
+      "name": "Acadia",
+      "population": 56264,
+      "students": 8871,
+      "dfSchools": 4,
+      "totalSchools": 32,
+      "trend": "down",
+      "x": 32,
+      "y": 66,
+      "priorityScore": 60,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 40,
+        "Need": 65,
+        "Access": 75,
+        "Readiness": 42,
+        "Demand": 22,
+        "Pipeline": 57
+      },
+      "alert": "Few top schools + high need",
+      "intervention": "E",
+      "gradeCounts": {
+        "A": 4,
+        "df": 4,
+        "total": 26
+      }
+    },
+    {
+      "id": "allen",
+      "name": "Allen",
+      "population": 21135,
+      "students": 3689,
+      "dfSchools": 0,
+      "totalSchools": 11,
+      "trend": "flat",
+      "x": 22,
+      "y": 60,
+      "priorityScore": 41,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 59,
+        "Need": 71,
+        "Access": 8,
+        "Readiness": 42,
+        "Demand": 20,
+        "Pipeline": 16
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 6,
+        "df": 0,
+        "total": 11
+      }
+    },
+    {
+      "id": "ascension",
+      "name": "Ascension",
+      "population": 123913,
+      "students": 23422,
+      "dfSchools": 1,
+      "totalSchools": 33,
+      "trend": "up",
+      "x": 57,
+      "y": 66,
+      "priorityScore": 5,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 95,
+        "Need": 14,
+        "Access": 8,
+        "Readiness": 11,
+        "Demand": 88,
+        "Pipeline": 9
+      },
+      "alert": null,
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 17,
+        "df": 1,
+        "total": 32
+      }
+    },
+    {
+      "id": "assumption",
+      "name": "Assumption",
+      "population": 19993,
+      "students": 2530,
+      "dfSchools": 1,
+      "totalSchools": 6,
+      "trend": "flat",
+      "x": 56,
+      "y": 73,
+      "priorityScore": 46,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 54,
+        "Need": 37,
+        "Access": 65,
+        "Readiness": 34,
+        "Demand": 28,
+        "Pipeline": 68
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 1,
+        "df": 1,
+        "total": 6
+      }
+    },
+    {
+      "id": "avoyelles",
+      "name": "Avoyelles",
+      "population": 38371,
+      "students": 4754,
+      "dfSchools": 2,
+      "totalSchools": 11,
+      "trend": "flat",
+      "x": 40,
+      "y": 46,
+      "priorityScore": 59,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 41,
+        "Need": 80,
+        "Access": 61,
+        "Readiness": 18,
+        "Demand": 20,
+        "Pipeline": 62
+      },
+      "alert": "Few top schools + high need",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 2,
+        "df": 2,
+        "total": 10
+      }
+    },
+    {
+      "id": "beauregard",
+      "name": "Beauregard",
+      "population": 36277,
+      "students": 5579,
+      "dfSchools": 1,
+      "totalSchools": 12,
+      "trend": "flat",
+      "x": 15,
+      "y": 55,
+      "priorityScore": 45,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 55,
+        "Need": 36,
+        "Access": 100,
+        "Readiness": 12,
+        "Demand": 46,
+        "Pipeline": 47
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 0,
+        "df": 1,
+        "total": 12
+      }
+    },
+    {
+      "id": "bienville",
+      "name": "Bienville",
+      "population": 12595,
+      "students": 1796,
+      "dfSchools": 0,
+      "totalSchools": 8,
+      "trend": "down",
+      "x": 19,
+      "y": 21,
+      "priorityScore": 62,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 38,
+        "Need": 88,
+        "Access": 69,
+        "Readiness": 40,
+        "Demand": 20,
+        "Pipeline": 34
+      },
+      "alert": "Few top schools + high need",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 1,
+        "df": 0,
+        "total": 7
+      }
+    },
+    {
+      "id": "bossier",
+      "name": "Bossier",
+      "population": 124180,
+      "students": 21818,
+      "dfSchools": 5,
+      "totalSchools": 34,
+      "trend": "up",
+      "x": 9,
+      "y": 11,
+      "priorityScore": 27,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 73,
+        "Need": 32,
+        "Access": 41,
+        "Readiness": 20,
+        "Demand": 67,
+        "Pipeline": 49
+      },
+      "alert": "Concentrated low ratings",
+      "intervention": "E",
+      "gradeCounts": {
+        "A": 9,
+        "df": 5,
+        "total": 33
+      }
+    },
+    {
+      "id": "caddo",
+      "name": "Caddo",
+      "population": 224462,
+      "students": 32257,
+      "dfSchools": 20,
+      "totalSchools": 55,
+      "trend": "flat",
+      "x": 5,
+      "y": 15,
+      "priorityScore": 59,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 41,
+        "Need": 68,
+        "Access": 71,
+        "Readiness": 46,
+        "Demand": 47,
+        "Pipeline": 86
+      },
+      "alert": "Few top schools + high need",
+      "intervention": "E",
+      "gradeCounts": {
+        "A": 9,
+        "df": 20,
+        "total": 51
+      }
+    },
+    {
+      "id": "calcasieu",
+      "name": "Calcasieu",
+      "population": 199653,
+      "students": 28654,
+      "dfSchools": 6,
+      "totalSchools": 59,
+      "trend": "up",
+      "x": 14,
+      "y": 67,
+      "priorityScore": 33,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 67,
+        "Need": 44,
+        "Access": 44,
+        "Readiness": 26,
+        "Demand": 91,
+        "Pipeline": 40
+      },
+      "alert": "Concentrated low ratings",
+      "intervention": "E",
+      "gradeCounts": {
+        "A": 14,
+        "df": 6,
+        "total": 54
+      }
+    },
+    {
+      "id": "caldwell",
+      "name": "Caldwell",
+      "population": 9422,
+      "students": 1407,
+      "dfSchools": 2,
+      "totalSchools": 8,
+      "trend": "down",
+      "x": 36,
+      "y": 27,
+      "priorityScore": 72,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 28,
+        "Need": 87,
+        "Access": 60,
+        "Readiness": 55,
+        "Demand": 20,
+        "Pipeline": 88
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "A1",
+      "gradeCounts": {
+        "A": 1,
+        "df": 2,
+        "total": 5
+      }
+    },
+    {
+      "id": "cameron",
+      "name": "Cameron",
+      "population": 4996,
+      "students": 1141,
+      "dfSchools": 0,
+      "totalSchools": 5,
+      "trend": "up",
+      "x": 11,
+      "y": 76,
+      "priorityScore": 18,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 82,
+        "Need": 15,
+        "Access": 37,
+        "Readiness": 22,
+        "Demand": 82,
+        "Pipeline": 16
+      },
+      "alert": "Few schools in parish",
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 2,
+        "df": 0,
+        "total": 5
+      }
+    },
+    {
+      "id": "catahoula",
+      "name": "Catahoula",
+      "population": 8545,
+      "students": 827,
+      "dfSchools": 0,
+      "totalSchools": 3,
+      "trend": "down",
+      "x": 38,
+      "y": 36,
+      "priorityScore": 63,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 37,
+        "Need": 79,
+        "Access": 49,
+        "Readiness": 72,
+        "Demand": 30,
+        "Pipeline": 48
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 1,
+        "df": 0,
+        "total": 3
+      }
+    },
+    {
+      "id": "claiborne",
+      "name": "Claiborne",
+      "population": 13725,
+      "students": 1580,
+      "dfSchools": 3,
+      "totalSchools": 7,
+      "trend": "down",
+      "x": 16,
+      "y": 10,
+      "priorityScore": 80,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 20,
+        "Need": 92,
+        "Access": 88,
+        "Readiness": 48,
+        "Demand": 20,
+        "Pipeline": 95
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "A1",
+      "gradeCounts": {
+        "A": 0,
+        "df": 3,
+        "total": 6
+      }
+    },
+    {
+      "id": "concordia",
+      "name": "Concordia",
+      "population": 17814,
+      "students": 2794,
+      "dfSchools": 3,
+      "totalSchools": 11,
+      "trend": "down",
+      "x": 47,
+      "y": 40,
+      "priorityScore": 79,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 21,
+        "Need": 96,
+        "Access": 76,
+        "Readiness": 63,
+        "Demand": 23,
+        "Pipeline": 86
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "A1",
+      "gradeCounts": {
+        "A": 1,
+        "df": 3,
+        "total": 9
+      }
+    },
+    {
+      "id": "desoto",
+      "name": "De Soto",
+      "population": 26730,
+      "students": 4801,
+      "dfSchools": 0,
+      "totalSchools": 9,
+      "trend": "up",
+      "x": 10,
+      "y": 24,
+      "priorityScore": 29,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 71,
+        "Need": 43,
+        "Access": 8,
+        "Readiness": 42,
+        "Demand": 29,
+        "Pipeline": 12
+      },
+      "alert": null,
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 5,
+        "df": 0,
+        "total": 9
+      }
+    },
+    {
+      "id": "east-baton-rouge",
+      "name": "East Baton Rouge",
+      "population": 420931,
+      "students": 38008,
+      "dfSchools": 25,
+      "totalSchools": 77,
+      "trend": "flat",
+      "x": 56,
+      "y": 58,
+      "priorityScore": 57,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 43,
+        "Need": 54,
+        "Access": 98,
+        "Readiness": 53,
+        "Demand": 74,
+        "Pipeline": 88
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "E",
+      "gradeCounts": {
+        "A": 7,
+        "df": 25,
+        "total": 70
+      }
+    },
+    {
+      "id": "east-carroll",
+      "name": "East Carroll",
+      "population": 7037,
+      "students": 687,
+      "dfSchools": 1,
+      "totalSchools": 2,
+      "trend": "down",
+      "x": 50,
+      "y": 11,
+      "priorityScore": 72,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 28,
+        "Need": 89,
+        "Access": 42,
+        "Readiness": 55,
+        "Demand": 20,
+        "Pipeline": 73
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "A1",
+      "gradeCounts": {
+        "A": 1,
+        "df": 1,
+        "total": 2
+      }
+    },
+    {
+      "id": "east-feliciana",
+      "name": "East Feliciana",
+      "population": 19183,
+      "students": 1622,
+      "dfSchools": 1,
+      "totalSchools": 6,
+      "trend": "flat",
+      "x": 56,
+      "y": 52,
+      "priorityScore": 44,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 56,
+        "Need": 41,
+        "Access": 65,
+        "Readiness": 37,
+        "Demand": 56,
+        "Pipeline": 68
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "A2",
+      "gradeCounts": {
+        "A": 1,
+        "df": 1,
+        "total": 6
+      }
+    },
+    {
+      "id": "evangeline",
+      "name": "Evangeline",
+      "population": 31155,
+      "students": 5211,
+      "dfSchools": 2,
+      "totalSchools": 13,
+      "trend": "down",
+      "x": 30,
+      "y": 56,
+      "priorityScore": 66,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 34,
+        "Need": 77,
+        "Access": 100,
+        "Readiness": 40,
+        "Demand": 20,
+        "Pipeline": 59
+      },
+      "alert": "Few top schools + high need",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 0,
+        "df": 2,
+        "total": 13
+      }
+    },
+    {
+      "id": "franklin",
+      "name": "Franklin",
+      "population": 19352,
+      "students": 2575,
+      "dfSchools": 2,
+      "totalSchools": 7,
+      "trend": "down",
+      "x": 40,
+      "y": 25,
+      "priorityScore": 68,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 32,
+        "Need": 75,
+        "Access": 88,
+        "Readiness": 32,
+        "Demand": 30,
+        "Pipeline": 96
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "E",
+      "gradeCounts": {
+        "A": 0,
+        "df": 2,
+        "total": 6
+      }
+    },
+    {
+      "id": "grant",
+      "name": "Grant",
+      "population": 21285,
+      "students": 2685,
+      "dfSchools": 1,
+      "totalSchools": 8,
+      "trend": "flat",
+      "x": 25,
+      "y": 39,
+      "priorityScore": 45,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 55,
+        "Need": 51,
+        "Access": 69,
+        "Readiness": 34,
+        "Demand": 41,
+        "Pipeline": 53
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 1,
+        "df": 1,
+        "total": 7
+      }
+    },
+    {
+      "id": "iberia",
+      "name": "Iberia",
+      "population": 66826,
+      "students": 10424,
+      "dfSchools": 0,
+      "totalSchools": 23,
+      "trend": "flat",
+      "x": 42,
+      "y": 74,
+      "priorityScore": 54,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 46,
+        "Need": 65,
+        "Access": 79,
+        "Readiness": 38,
+        "Demand": 72,
+        "Pipeline": 32
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 3,
+        "df": 0,
+        "total": 22
+      }
+    },
+    {
+      "id": "iberville",
+      "name": "Iberville",
+      "population": 28789,
+      "students": 4064,
+      "dfSchools": 0,
+      "totalSchools": 8,
+      "trend": "flat",
+      "x": 53,
+      "y": 64,
+      "priorityScore": 59,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 41,
+        "Need": 64,
+        "Access": 93,
+        "Readiness": 35,
+        "Demand": 38,
+        "Pipeline": 47
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 0,
+        "df": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "jackson",
+      "name": "Jackson",
+      "population": 14391,
+      "students": 1929,
+      "dfSchools": 2,
+      "totalSchools": 6,
+      "trend": "down",
+      "x": 24,
+      "y": 19,
+      "priorityScore": 61,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 39,
+        "Need": 62,
+        "Access": 60,
+        "Readiness": 34,
+        "Demand": 23,
+        "Pipeline": 85
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "A1",
+      "gradeCounts": {
+        "A": 1,
+        "df": 2,
+        "total": 5
+      }
+    },
+    {
+      "id": "jefferson",
+      "name": "Jefferson",
+      "population": 368149,
+      "students": 45406,
+      "dfSchools": 13,
+      "totalSchools": 76,
+      "trend": "flat",
+      "x": 73,
+      "y": 76,
+      "priorityScore": 45,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 55,
+        "Need": 62,
+        "Access": 74,
+        "Readiness": 45,
+        "Demand": 67,
+        "Pipeline": 65
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "A2",
+      "gradeCounts": {
+        "A": 12,
+        "df": 13,
+        "total": 71
+      }
+    },
+    {
+      "id": "jefferson-davis",
+      "name": "Jefferson Davis",
+      "population": 31666,
+      "students": 5188,
+      "dfSchools": 0,
+      "totalSchools": 13,
+      "trend": "flat",
+      "x": 22,
+      "y": 67,
+      "priorityScore": 46,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 54,
+        "Need": 42,
+        "Access": 85,
+        "Readiness": 40,
+        "Demand": 35,
+        "Pipeline": 24
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 1,
+        "df": 0,
+        "total": 12
+      }
+    },
+    {
+      "id": "lasalle",
+      "name": "La Salle",
+      "population": 14658,
+      "students": 2458,
+      "dfSchools": 0,
+      "totalSchools": 9,
+      "trend": "up",
+      "x": 31,
+      "y": 34,
+      "priorityScore": 25,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 75,
+        "Need": 25,
+        "Access": 38,
+        "Readiness": 22,
+        "Demand": 41,
+        "Pipeline": 20
+      },
+      "alert": null,
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 3,
+        "df": 0,
+        "total": 9
+      }
+    },
+    {
+      "id": "lafayette",
+      "name": "Lafayette",
+      "population": 235117,
+      "students": 28839,
+      "dfSchools": 4,
+      "totalSchools": 44,
+      "trend": "up",
+      "x": 37,
+      "y": 67,
+      "priorityScore": 25,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 75,
+        "Need": 39,
+        "Access": 28,
+        "Readiness": 31,
+        "Demand": 77,
+        "Pipeline": 32
+      },
+      "alert": null,
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 13,
+        "df": 4,
+        "total": 42
+      }
+    },
+    {
+      "id": "lafourche",
+      "name": "Lafourche",
+      "population": 94018,
+      "students": 13133,
+      "dfSchools": 0,
+      "totalSchools": 30,
+      "trend": "up",
+      "x": 63,
+      "y": 80,
+      "priorityScore": 21,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 79,
+        "Need": 37,
+        "Access": 21,
+        "Readiness": 11,
+        "Demand": 50,
+        "Pipeline": 11
+      },
+      "alert": null,
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 10,
+        "df": 0,
+        "total": 29
+      }
+    },
+    {
+      "id": "lincoln",
+      "name": "Lincoln",
+      "population": 46653,
+      "students": 5863,
+      "dfSchools": 0,
+      "totalSchools": 15,
+      "trend": "flat",
+      "x": 23,
+      "y": 14,
+      "priorityScore": 41,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 59,
+        "Need": 68,
+        "Access": 35,
+        "Readiness": 38,
+        "Demand": 53,
+        "Pipeline": 18
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 4,
+        "df": 0,
+        "total": 12
+      }
+    },
+    {
+      "id": "livingston",
+      "name": "Livingston",
+      "population": 142130,
+      "students": 26380,
+      "dfSchools": 0,
+      "totalSchools": 43,
+      "trend": "up",
+      "x": 63,
+      "y": 60,
+      "priorityScore": 18,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 82,
+        "Need": 44,
+        "Access": 36,
+        "Readiness": 11,
+        "Demand": 64,
+        "Pipeline": 7
+      },
+      "alert": null,
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 12,
+        "df": 0,
+        "total": 42
+      }
+    },
+    {
+      "id": "madison",
+      "name": "Madison",
+      "population": 9430,
+      "students": 1083,
+      "dfSchools": 2,
+      "totalSchools": 4,
+      "trend": "down",
+      "x": 49,
+      "y": 17,
+      "priorityScore": 90,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 10,
+        "Need": 87,
+        "Access": 76,
+        "Readiness": 88,
+        "Demand": 20,
+        "Pipeline": 100
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "A1",
+      "gradeCounts": {
+        "A": 0,
+        "df": 2,
+        "total": 3
+      }
+    },
+    {
+      "id": "morehouse",
+      "name": "Morehouse",
+      "population": 24371,
+      "students": 2978,
+      "dfSchools": 2,
+      "totalSchools": 5,
+      "trend": "down",
+      "x": 37,
+      "y": 10,
+      "priorityScore": 81,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 19,
+        "Need": 89,
+        "Access": 60,
+        "Readiness": 67,
+        "Demand": 20,
+        "Pipeline": 97
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "A1",
+      "gradeCounts": {
+        "A": 1,
+        "df": 2,
+        "total": 5
+      }
+    },
+    {
+      "id": "natchitoches",
+      "name": "Natchitoches",
+      "population": 36119,
+      "students": 4745,
+      "dfSchools": 0,
+      "totalSchools": 11,
+      "trend": "up",
+      "x": 17,
+      "y": 32,
+      "priorityScore": 34,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 66,
+        "Need": 75,
+        "Access": 8,
+        "Readiness": 32,
+        "Demand": 43,
+        "Pipeline": 20
+      },
+      "alert": null,
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 5,
+        "df": 0,
+        "total": 10
+      }
+    },
+    {
+      "id": "orleans",
+      "name": "Orleans",
+      "population": 347213,
+      "students": 27000,
+      "dfSchools": 8,
+      "totalSchools": 60,
+      "trend": "flat",
+      "x": 76,
+      "y": 70,
+      "priorityScore": 57,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 43,
+        "Need": 75,
+        "Access": 80,
+        "Readiness": 55,
+        "Demand": 68,
+        "Pipeline": 61
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "E",
+      "gradeCounts": {
+        "A": 9,
+        "df": 8,
+        "total": 60
+      }
+    },
+    {
+      "id": "ouachita",
+      "name": "Ouachita",
+      "population": 155061,
+      "students": 17205,
+      "dfSchools": 6,
+      "totalSchools": 37,
+      "trend": "flat",
+      "x": 35,
+      "y": 16,
+      "priorityScore": 50,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 50,
+        "Need": 62,
+        "Access": 56,
+        "Readiness": 37,
+        "Demand": 55,
+        "Pipeline": 59
+      },
+      "alert": null,
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 8,
+        "df": 6,
+        "total": 36
+      }
+    },
+    {
+      "id": "plaquemines",
+      "name": "Plaquemines",
+      "population": 21449,
+      "students": 3263,
+      "dfSchools": 0,
+      "totalSchools": 8,
+      "trend": "up",
+      "x": 80,
+      "y": 82,
+      "priorityScore": 8,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 92,
+        "Need": 34,
+        "Access": 12,
+        "Readiness": 6,
+        "Demand": 66,
+        "Pipeline": 13
+      },
+      "alert": null,
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 4,
+        "df": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "pointe-coupee",
+      "name": "Pointe Coupee",
+      "population": 19990,
+      "students": 2163,
+      "dfSchools": 1,
+      "totalSchools": 5,
+      "trend": "down",
+      "x": 49,
+      "y": 54,
+      "priorityScore": 60,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 40,
+        "Need": 50,
+        "Access": 84,
+        "Readiness": 59,
+        "Demand": 48,
+        "Pipeline": 78
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 0,
+        "df": 1,
+        "total": 5
+      }
+    },
+    {
+      "id": "rapides",
+      "name": "Rapides",
+      "population": 123951,
+      "students": 20997,
+      "dfSchools": 7,
+      "totalSchools": 43,
+      "trend": "flat",
+      "x": 27,
+      "y": 44,
+      "priorityScore": 38,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 62,
+        "Need": 62,
+        "Access": 42,
+        "Readiness": 24,
+        "Demand": 46,
+        "Pipeline": 54
+      },
+      "alert": "Concentrated low ratings",
+      "intervention": "E",
+      "gradeCounts": {
+        "A": 11,
+        "df": 7,
+        "total": 41
+      }
+    },
+    {
+      "id": "red-river",
+      "name": "Red River",
+      "population": 7352,
+      "students": 1274,
+      "dfSchools": 1,
+      "totalSchools": 4,
+      "trend": "flat",
+      "x": 12,
+      "y": 27,
+      "priorityScore": 47,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 53,
+        "Need": 64,
+        "Access": 49,
+        "Readiness": 45,
+        "Demand": 26,
+        "Pipeline": 54
+      },
+      "alert": "Few schools in parish",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 1,
+        "df": 1,
+        "total": 3
+      }
+    },
+    {
+      "id": "richland",
+      "name": "Richland",
+      "population": 19708,
+      "students": 2627,
+      "dfSchools": 4,
+      "totalSchools": 12,
+      "trend": "down",
+      "x": 42,
+      "y": 19,
+      "priorityScore": 79,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 21,
+        "Need": 75,
+        "Access": 100,
+        "Readiness": 63,
+        "Demand": 94,
+        "Pipeline": 100
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "A1",
+      "gradeCounts": {
+        "A": 0,
+        "df": 4,
+        "total": 11
+      }
+    },
+    {
+      "id": "sabine",
+      "name": "Sabine",
+      "population": 21794,
+      "students": 3680,
+      "dfSchools": 0,
+      "totalSchools": 10,
+      "trend": "flat",
+      "x": 10,
+      "y": 38,
+      "priorityScore": 41,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 59,
+        "Need": 63,
+        "Access": 24,
+        "Readiness": 45,
+        "Demand": 26,
+        "Pipeline": 17
+      },
+      "alert": null,
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 4,
+        "df": 0,
+        "total": 10
+      }
+    },
+    {
+      "id": "st-bernard",
+      "name": "St. Bernard",
+      "population": 41900,
+      "students": 7275,
+      "dfSchools": 0,
+      "totalSchools": 13,
+      "trend": "flat",
+      "x": 82,
+      "y": 73,
+      "priorityScore": 57,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 43,
+        "Need": 61,
+        "Access": 100,
+        "Readiness": 22,
+        "Demand": 40,
+        "Pipeline": 41
+      },
+      "alert": "Few top schools + high need",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 0,
+        "df": 0,
+        "total": 11
+      }
+    },
+    {
+      "id": "st-charles",
+      "name": "St. Charles",
+      "population": 48904,
+      "students": 8792,
+      "dfSchools": 0,
+      "totalSchools": 17,
+      "trend": "up",
+      "x": 68,
+      "y": 72,
+      "priorityScore": 19,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 81,
+        "Need": 23,
+        "Access": 62,
+        "Readiness": 9,
+        "Demand": 75,
+        "Pipeline": 15
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "A2",
+      "gradeCounts": {
+        "A": 3,
+        "df": 0,
+        "total": 15
+      }
+    },
+    {
+      "id": "st-helena",
+      "name": "St. Helena",
+      "population": 10797,
+      "students": 1012,
+      "dfSchools": 2,
+      "totalSchools": 3,
+      "trend": "down",
+      "x": 63,
+      "y": 54,
+      "priorityScore": 89,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 11,
+        "Need": 100,
+        "Access": 76,
+        "Readiness": 78,
+        "Demand": 20,
+        "Pipeline": 100
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "A1",
+      "gradeCounts": {
+        "A": 0,
+        "df": 2,
+        "total": 3
+      }
+    },
+    {
+      "id": "st-james",
+      "name": "St. James",
+      "population": 19181,
+      "students": 3171,
+      "dfSchools": 0,
+      "totalSchools": 7,
+      "trend": "flat",
+      "x": 59,
+      "y": 69,
+      "priorityScore": 46,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 54,
+        "Need": 37,
+        "Access": 88,
+        "Readiness": 36,
+        "Demand": 49,
+        "Pipeline": 50
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 0,
+        "df": 0,
+        "total": 6
+      }
+    },
+    {
+      "id": "st-john-the-baptist",
+      "name": "St. John the Baptist",
+      "population": 38570,
+      "students": 4946,
+      "dfSchools": 1,
+      "totalSchools": 10,
+      "trend": "flat",
+      "x": 65,
+      "y": 70,
+      "priorityScore": 57,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 43,
+        "Need": 47,
+        "Access": 96,
+        "Readiness": 64,
+        "Demand": 48,
+        "Pipeline": 64
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 0,
+        "df": 1,
+        "total": 9
+      }
+    },
+    {
+      "id": "st-landry",
+      "name": "St. Landry",
+      "population": 80344,
+      "students": 11036,
+      "dfSchools": 4,
+      "totalSchools": 32,
+      "trend": "down",
+      "x": 34,
+      "y": 58,
+      "priorityScore": 77,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 23,
+        "Need": 88,
+        "Access": 100,
+        "Readiness": 62,
+        "Demand": 23,
+        "Pipeline": 64
+      },
+      "alert": "Few top schools + high need",
+      "intervention": "E",
+      "gradeCounts": {
+        "A": 2,
+        "df": 4,
+        "total": 29
+      }
+    },
+    {
+      "id": "st-martin",
+      "name": "St. Martin",
+      "population": 50413,
+      "students": 6530,
+      "dfSchools": 2,
+      "totalSchools": 16,
+      "trend": "flat",
+      "x": 43,
+      "y": 70,
+      "priorityScore": 50,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 50,
+        "Need": 53,
+        "Access": 77,
+        "Readiness": 41,
+        "Demand": 36,
+        "Pipeline": 64
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 2,
+        "df": 2,
+        "total": 15
+      }
+    },
+    {
+      "id": "st-mary",
+      "name": "St. Mary",
+      "population": 45459,
+      "students": 6940,
+      "dfSchools": 2,
+      "totalSchools": 22,
+      "trend": "flat",
+      "x": 49,
+      "y": 77,
+      "priorityScore": 49,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 51,
+        "Need": 80,
+        "Access": 52,
+        "Readiness": 27,
+        "Demand": 28,
+        "Pipeline": 41
+      },
+      "alert": null,
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 5,
+        "df": 2,
+        "total": 21
+      }
+    },
+    {
+      "id": "st-tammany",
+      "name": "St. Tammany",
+      "population": 260193,
+      "students": 35375,
+      "dfSchools": 3,
+      "totalSchools": 56,
+      "trend": "up",
+      "x": 75,
+      "y": 60,
+      "priorityScore": 26,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 74,
+        "Need": 22,
+        "Access": 51,
+        "Readiness": 38,
+        "Demand": 85,
+        "Pipeline": 27
+      },
+      "alert": null,
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 13,
+        "df": 3,
+        "total": 55
+      }
+    },
+    {
+      "id": "tangipahoa",
+      "name": "Tangipahoa",
+      "population": 133210,
+      "students": 18788,
+      "dfSchools": 6,
+      "totalSchools": 34,
+      "trend": "down",
+      "x": 68,
+      "y": 55,
+      "priorityScore": 65,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 35,
+        "Need": 58,
+        "Access": 100,
+        "Readiness": 50,
+        "Demand": 44,
+        "Pipeline": 84
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "E",
+      "gradeCounts": {
+        "A": 1,
+        "df": 6,
+        "total": 31
+      }
+    },
+    {
+      "id": "tensas",
+      "name": "Tensas",
+      "population": 3899,
+      "students": 312,
+      "dfSchools": 0,
+      "totalSchools": 2,
+      "trend": "down",
+      "x": 47,
+      "y": 30,
+      "priorityScore": 81,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 19,
+        "Need": 100,
+        "Access": 71,
+        "Readiness": 62,
+        "Demand": 20,
+        "Pipeline": 65
+      },
+      "alert": "Few top schools + high need",
+      "intervention": "C",
+      "gradeCounts": {
+        "A": 0,
+        "df": 0,
+        "total": 2
+      }
+    },
+    {
+      "id": "terrebonne",
+      "name": "Terrebonne",
+      "population": 102748,
+      "students": 14462,
+      "dfSchools": 0,
+      "totalSchools": 28,
+      "trend": "up",
+      "x": 58,
+      "y": 83,
+      "priorityScore": 34,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 66,
+        "Need": 48,
+        "Access": 43,
+        "Readiness": 38,
+        "Demand": 47,
+        "Pipeline": 20
+      },
+      "alert": null,
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 7,
+        "df": 0,
+        "total": 26
+      }
+    },
+    {
+      "id": "union",
+      "name": "Union",
+      "population": 20126,
+      "students": 1514,
+      "dfSchools": 2,
+      "totalSchools": 3,
+      "trend": "down",
+      "x": 26,
+      "y": 10,
+      "priorityScore": 81,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 19,
+        "Need": 83,
+        "Access": 76,
+        "Readiness": 68,
+        "Demand": 22,
+        "Pipeline": 96
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "A1",
+      "gradeCounts": {
+        "A": 0,
+        "df": 2,
+        "total": 3
+      }
+    },
+    {
+      "id": "vermilion",
+      "name": "Vermilion",
+      "population": 55390,
+      "students": 8262,
+      "dfSchools": 0,
+      "totalSchools": 21,
+      "trend": "up",
+      "x": 33,
+      "y": 76,
+      "priorityScore": 29,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 71,
+        "Need": 52,
+        "Access": 8,
+        "Readiness": 34,
+        "Demand": 38,
+        "Pipeline": 10
+      },
+      "alert": null,
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 9,
+        "df": 0,
+        "total": 20
+      }
+    },
+    {
+      "id": "vernon",
+      "name": "Vernon",
+      "population": 45585,
+      "students": 7783,
+      "dfSchools": 0,
+      "totalSchools": 19,
+      "trend": "up",
+      "x": 16,
+      "y": 47,
+      "priorityScore": 27,
+      "uncertainty": "low",
+      "scores": {
+        "Health": 73,
+        "Need": 53,
+        "Access": 8,
+        "Readiness": 25,
+        "Demand": 42,
+        "Pipeline": 11
+      },
+      "alert": null,
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 8,
+        "df": 0,
+        "total": 18
+      }
+    },
+    {
+      "id": "washington",
+      "name": "Washington",
+      "population": 44827,
+      "students": 4421,
+      "dfSchools": 0,
+      "totalSchools": 11,
+      "trend": "down",
+      "x": 73,
+      "y": 52,
+      "priorityScore": 70,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 30,
+        "Need": 77,
+        "Access": 98,
+        "Readiness": 51,
+        "Demand": 21,
+        "Pipeline": 48
+      },
+      "alert": "Few top schools + high need",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 0,
+        "df": 0,
+        "total": 10
+      }
+    },
+    {
+      "id": "webster",
+      "name": "Webster",
+      "population": 35457,
+      "students": 4850,
+      "dfSchools": 4,
+      "totalSchools": 14,
+      "trend": "down",
+      "x": 12,
+      "y": 17,
+      "priorityScore": 73,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 27,
+        "Need": 77,
+        "Access": 90,
+        "Readiness": 49,
+        "Demand": 20,
+        "Pipeline": 92
+      },
+      "alert": "Deep need + weak outcomes",
+      "intervention": "A1",
+      "gradeCounts": {
+        "A": 1,
+        "df": 4,
+        "total": 14
+      }
+    },
+    {
+      "id": "west-baton-rouge",
+      "name": "West Baton Rouge",
+      "population": 27558,
+      "students": 4149,
+      "dfSchools": 0,
+      "totalSchools": 10,
+      "trend": "up",
+      "x": 53,
+      "y": 60,
+      "priorityScore": 26,
+      "uncertainty": "medium",
+      "scores": {
+        "Health": 74,
+        "Need": 39,
+        "Access": 61,
+        "Readiness": 17,
+        "Demand": 69,
+        "Pipeline": 31
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "A2",
+      "gradeCounts": {
+        "A": 2,
+        "df": 0,
+        "total": 10
+      }
+    },
+    {
+      "id": "west-carroll",
+      "name": "West Carroll",
+      "population": 9389,
+      "students": 1396,
+      "dfSchools": 0,
+      "totalSchools": 3,
+      "trend": "flat",
+      "x": 44,
+      "y": 10,
+      "priorityScore": 49,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 51,
+        "Need": 43,
+        "Access": 49,
+        "Readiness": 62,
+        "Demand": 28,
+        "Pipeline": 43
+      },
+      "alert": "Few schools in parish",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 1,
+        "df": 0,
+        "total": 3
+      }
+    },
+    {
+      "id": "west-feliciana",
+      "name": "West Feliciana",
+      "population": 15085,
+      "students": 2161,
+      "dfSchools": 0,
+      "totalSchools": 4,
+      "trend": "up",
+      "x": 51,
+      "y": 50,
+      "priorityScore": 6,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 94,
+        "Need": 18,
+        "Access": 8,
+        "Readiness": 0,
+        "Demand": 63,
+        "Pipeline": 18
+      },
+      "alert": "Few schools in parish",
+      "intervention": "Monitor",
+      "gradeCounts": {
+        "A": 3,
+        "df": 0,
+        "total": 4
+      }
+    },
+    {
+      "id": "winn",
+      "name": "Winn",
+      "population": 12536,
+      "students": 1630,
+      "dfSchools": 1,
+      "totalSchools": 5,
+      "trend": "down",
+      "x": 23,
+      "y": 29,
+      "priorityScore": 61,
+      "uncertainty": "high",
+      "scores": {
+        "Health": 39,
+        "Need": 63,
+        "Access": 84,
+        "Readiness": 50,
+        "Demand": 26,
+        "Pipeline": 60
+      },
+      "alert": "Few top-rated (A) schools vs peers",
+      "intervention": "B",
+      "gradeCounts": {
+        "A": 0,
+        "df": 1,
+        "total": 5
+      }
+    }
+  ]
+}

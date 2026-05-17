@@ -1,0 +1,3476 @@
+{
+  "meta": {
+    "source": "LDOE Multiple Statistics by School System",
+    "report_date": "February 1, 2026",
+    "state_total_enrollment": 660349,
+    "state_total_schools": 1327,
+    "parish_count": 63
+  },
+  "parishes": [
+    {
+      "parish_code": "001",
+      "parish_name": "Acadia Parish",
+      "parish_slug": "acadia",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 32,
+      "total_enrollment": 8871,
+      "pct_of_state": 1.34,
+      "students_per_school": 277.2,
+      "gender": {
+        "pct_female": 49.7,
+        "pct_male": 50.3,
+        "female_count": 4409,
+        "male_count": 4462
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 19,
+        "asian": 19,
+        "black": 2114,
+        "hispanic": 516,
+        "hawaiian_pacific": 0,
+        "white": 5672,
+        "multiple_races": 531
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 0.2,
+        "black": 23.8,
+        "hispanic": 5.8,
+        "hawaiian_pacific": 0.0,
+        "white": 63.9,
+        "multiple_races": 6.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 98.4,
+        "pct_limited": 1.6
+      },
+      "pct_economically_disadvantaged": 69.6,
+      "grades_k12": {
+        "kindergarten": 658,
+        "grade_1": 692,
+        "grade_2": 652,
+        "grade_3": 689,
+        "grade_4": 703,
+        "grade_5": 662,
+        "grade_6": 696,
+        "grade_7": 633,
+        "grade_8": 650,
+        "grade_9": 604,
+        "grade_10": 607,
+        "grade_11": 545,
+        "grade_12": 517
+      },
+      "k12_total": 8308
+    },
+    {
+      "parish_code": "002",
+      "parish_name": "Allen Parish",
+      "parish_slug": "allen",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 11,
+      "total_enrollment": 3689,
+      "pct_of_state": 0.56,
+      "students_per_school": 335.4,
+      "gender": {
+        "pct_female": 47.5,
+        "pct_male": 52.5,
+        "female_count": 1752,
+        "male_count": 1937
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 38,
+        "asian": 21,
+        "black": 661,
+        "hispanic": 67,
+        "hawaiian_pacific": 1,
+        "white": 2649,
+        "multiple_races": 252
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 1.0,
+        "asian": 0.6,
+        "black": 17.9,
+        "hispanic": 1.8,
+        "hawaiian_pacific": 0.0,
+        "white": 71.8,
+        "multiple_races": 6.8
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.7,
+        "pct_limited": 0.3
+      },
+      "pct_economically_disadvantaged": 69.9,
+      "grades_k12": {
+        "kindergarten": 280,
+        "grade_1": 267,
+        "grade_2": 278,
+        "grade_3": 271,
+        "grade_4": 291,
+        "grade_5": 253,
+        "grade_6": 257,
+        "grade_7": 283,
+        "grade_8": 281,
+        "grade_9": 233,
+        "grade_10": 269,
+        "grade_11": 232,
+        "grade_12": 259
+      },
+      "k12_total": 3454
+    },
+    {
+      "parish_code": "003",
+      "parish_name": "Ascension Parish",
+      "parish_slug": "ascension",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 33,
+      "total_enrollment": 23422,
+      "pct_of_state": 3.55,
+      "students_per_school": 709.8,
+      "gender": {
+        "pct_female": 48.6,
+        "pct_male": 51.4,
+        "female_count": 11383,
+        "male_count": 12039
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 31,
+        "asian": 336,
+        "black": 7299,
+        "hispanic": 3246,
+        "hawaiian_pacific": 13,
+        "white": 11347,
+        "multiple_races": 1150
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 1.4,
+        "black": 31.2,
+        "hispanic": 13.9,
+        "hawaiian_pacific": 0.1,
+        "white": 48.4,
+        "multiple_races": 4.9
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 96.3,
+        "pct_limited": 3.7
+      },
+      "pct_economically_disadvantaged": 53.5,
+      "grades_k12": {
+        "kindergarten": 1522,
+        "grade_1": 1661,
+        "grade_2": 1727,
+        "grade_3": 1781,
+        "grade_4": 1800,
+        "grade_5": 1731,
+        "grade_6": 1696,
+        "grade_7": 1748,
+        "grade_8": 1747,
+        "grade_9": 1797,
+        "grade_10": 1812,
+        "grade_11": 1893,
+        "grade_12": 1480
+      },
+      "k12_total": 22395
+    },
+    {
+      "parish_code": "004",
+      "parish_name": "Assumption Parish",
+      "parish_slug": "assumption",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 6,
+      "total_enrollment": 2530,
+      "pct_of_state": 0.38,
+      "students_per_school": 421.7,
+      "gender": {
+        "pct_female": 49.6,
+        "pct_male": 50.4,
+        "female_count": 1255,
+        "male_count": 1275
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 6,
+        "asian": 12,
+        "black": 1031,
+        "hispanic": 147,
+        "hawaiian_pacific": 1,
+        "white": 1245,
+        "multiple_races": 88
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 0.5,
+        "black": 40.8,
+        "hispanic": 5.8,
+        "hawaiian_pacific": 0.0,
+        "white": 49.2,
+        "multiple_races": 3.5
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 98.1,
+        "pct_limited": 1.9
+      },
+      "pct_economically_disadvantaged": 69.4,
+      "grades_k12": {
+        "kindergarten": 194,
+        "grade_1": 189,
+        "grade_2": 180,
+        "grade_3": 186,
+        "grade_4": 180,
+        "grade_5": 188,
+        "grade_6": 163,
+        "grade_7": 155,
+        "grade_8": 154,
+        "grade_9": 126,
+        "grade_10": 180,
+        "grade_11": 162,
+        "grade_12": 171
+      },
+      "k12_total": 2228
+    },
+    {
+      "parish_code": "005",
+      "parish_name": "Avoyelles Parish",
+      "parish_slug": "avoyelles",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 11,
+      "total_enrollment": 4754,
+      "pct_of_state": 0.72,
+      "students_per_school": 432.2,
+      "gender": {
+        "pct_female": 47.6,
+        "pct_male": 52.4,
+        "female_count": 2263,
+        "male_count": 2491
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 30,
+        "asian": 9,
+        "black": 2122,
+        "hispanic": 49,
+        "hawaiian_pacific": 0,
+        "white": 2233,
+        "multiple_races": 311
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.6,
+        "asian": 0.2,
+        "black": 44.6,
+        "hispanic": 1.0,
+        "hawaiian_pacific": 0.0,
+        "white": 47.0,
+        "multiple_races": 6.5
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.4,
+        "pct_limited": 0.6
+      },
+      "pct_economically_disadvantaged": 77.7,
+      "grades_k12": {
+        "kindergarten": 352,
+        "grade_1": 322,
+        "grade_2": 332,
+        "grade_3": 370,
+        "grade_4": 356,
+        "grade_5": 330,
+        "grade_6": 306,
+        "grade_7": 349,
+        "grade_8": 353,
+        "grade_9": 391,
+        "grade_10": 375,
+        "grade_11": 337,
+        "grade_12": 320
+      },
+      "k12_total": 4493
+    },
+    {
+      "parish_code": "006",
+      "parish_name": "Beauregard Parish",
+      "parish_slug": "beauregard",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 12,
+      "total_enrollment": 5579,
+      "pct_of_state": 0.84,
+      "students_per_school": 464.9,
+      "gender": {
+        "pct_female": 48.4,
+        "pct_male": 51.6,
+        "female_count": 2700,
+        "male_count": 2879
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 22,
+        "asian": 16,
+        "black": 531,
+        "hispanic": 316,
+        "hawaiian_pacific": 8,
+        "white": 4350,
+        "multiple_races": 336
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.4,
+        "asian": 0.3,
+        "black": 9.5,
+        "hispanic": 5.7,
+        "hawaiian_pacific": 0.1,
+        "white": 78.0,
+        "multiple_races": 6.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.1,
+        "pct_limited": 0.9
+      },
+      "pct_economically_disadvantaged": 51.9,
+      "grades_k12": {
+        "kindergarten": 446,
+        "grade_1": 412,
+        "grade_2": 427,
+        "grade_3": 442,
+        "grade_4": 477,
+        "grade_5": 427,
+        "grade_6": 444,
+        "grade_7": 420,
+        "grade_8": 406,
+        "grade_9": 389,
+        "grade_10": 352,
+        "grade_11": 384,
+        "grade_12": 343
+      },
+      "k12_total": 5369
+    },
+    {
+      "parish_code": "007",
+      "parish_name": "Bienville Parish",
+      "parish_slug": "bienville",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 8,
+      "total_enrollment": 1796,
+      "pct_of_state": 0.27,
+      "students_per_school": 224.5,
+      "gender": {
+        "pct_female": 49.3,
+        "pct_male": 50.7,
+        "female_count": 885,
+        "male_count": 911
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 0,
+        "asian": 5,
+        "black": 937,
+        "hispanic": 25,
+        "hawaiian_pacific": 0,
+        "white": 773,
+        "multiple_races": 56
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.0,
+        "asian": 0.3,
+        "black": 52.2,
+        "hispanic": 1.4,
+        "hawaiian_pacific": 0.0,
+        "white": 43.0,
+        "multiple_races": 3.1
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.6,
+        "pct_limited": 0.4
+      },
+      "pct_economically_disadvantaged": 76.2,
+      "grades_k12": {
+        "kindergarten": 155,
+        "grade_1": 143,
+        "grade_2": 132,
+        "grade_3": 140,
+        "grade_4": 130,
+        "grade_5": 116,
+        "grade_6": 130,
+        "grade_7": 112,
+        "grade_8": 168,
+        "grade_9": 142,
+        "grade_10": 101,
+        "grade_11": 116,
+        "grade_12": 125
+      },
+      "k12_total": 1710
+    },
+    {
+      "parish_code": "008",
+      "parish_name": "Bossier Parish",
+      "parish_slug": "bossier",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 34,
+      "total_enrollment": 21818,
+      "pct_of_state": 3.3,
+      "students_per_school": 641.7,
+      "gender": {
+        "pct_female": 48.6,
+        "pct_male": 51.4,
+        "female_count": 10604,
+        "male_count": 11214
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 57,
+        "asian": 380,
+        "black": 6565,
+        "hispanic": 2848,
+        "hawaiian_pacific": 54,
+        "white": 10737,
+        "multiple_races": 1177
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.3,
+        "asian": 1.7,
+        "black": 30.1,
+        "hispanic": 13.1,
+        "hawaiian_pacific": 0.2,
+        "white": 49.2,
+        "multiple_races": 5.4
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 95.2,
+        "pct_limited": 4.8
+      },
+      "pct_economically_disadvantaged": 55.9,
+      "grades_k12": {
+        "kindergarten": 1525,
+        "grade_1": 1582,
+        "grade_2": 1581,
+        "grade_3": 1626,
+        "grade_4": 1587,
+        "grade_5": 1712,
+        "grade_6": 1692,
+        "grade_7": 1648,
+        "grade_8": 1710,
+        "grade_9": 1512,
+        "grade_10": 1678,
+        "grade_11": 1544,
+        "grade_12": 1510
+      },
+      "k12_total": 20907
+    },
+    {
+      "parish_code": "009",
+      "parish_name": "Caddo Parish",
+      "parish_slug": "caddo",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 55,
+      "total_enrollment": 32257,
+      "pct_of_state": 4.88,
+      "students_per_school": 586.5,
+      "gender": {
+        "pct_female": 49.8,
+        "pct_male": 50.2,
+        "female_count": 16064,
+        "male_count": 16193
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 35,
+        "asian": 471,
+        "black": 21030,
+        "hispanic": 2001,
+        "hawaiian_pacific": 8,
+        "white": 7613,
+        "multiple_races": 1099
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 1.5,
+        "black": 65.2,
+        "hispanic": 6.2,
+        "hawaiian_pacific": 0.0,
+        "white": 23.6,
+        "multiple_races": 3.4
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 97.6,
+        "pct_limited": 2.4
+      },
+      "pct_economically_disadvantaged": 73.8,
+      "grades_k12": {
+        "kindergarten": 2345,
+        "grade_1": 2272,
+        "grade_2": 2350,
+        "grade_3": 2459,
+        "grade_4": 2271,
+        "grade_5": 2332,
+        "grade_6": 2313,
+        "grade_7": 2275,
+        "grade_8": 2398,
+        "grade_9": 2120,
+        "grade_10": 2451,
+        "grade_11": 2514,
+        "grade_12": 2286
+      },
+      "k12_total": 30386
+    },
+    {
+      "parish_code": "010",
+      "parish_name": "Calcasieu Parish",
+      "parish_slug": "calcasieu",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 59,
+      "total_enrollment": 28654,
+      "pct_of_state": 4.34,
+      "students_per_school": 485.7,
+      "gender": {
+        "pct_female": 48.8,
+        "pct_male": 51.2,
+        "female_count": 13983,
+        "male_count": 14671
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 93,
+        "asian": 526,
+        "black": 8869,
+        "hispanic": 2423,
+        "hawaiian_pacific": 24,
+        "white": 15553,
+        "multiple_races": 1166
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.3,
+        "asian": 1.8,
+        "black": 31.0,
+        "hispanic": 8.5,
+        "hawaiian_pacific": 0.1,
+        "white": 54.3,
+        "multiple_races": 4.1
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 97.1,
+        "pct_limited": 2.9
+      },
+      "pct_economically_disadvantaged": 62.2,
+      "grades_k12": {
+        "kindergarten": 2214,
+        "grade_1": 2289,
+        "grade_2": 2146,
+        "grade_3": 2278,
+        "grade_4": 2163,
+        "grade_5": 2064,
+        "grade_6": 1975,
+        "grade_7": 2080,
+        "grade_8": 1998,
+        "grade_9": 1766,
+        "grade_10": 2058,
+        "grade_11": 1932,
+        "grade_12": 1880
+      },
+      "k12_total": 26843
+    },
+    {
+      "parish_code": "011",
+      "parish_name": "Caldwell Parish",
+      "parish_slug": "caldwell",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 8,
+      "total_enrollment": 1407,
+      "pct_of_state": 0.21,
+      "students_per_school": 175.9,
+      "gender": {
+        "pct_female": 48.3,
+        "pct_male": 51.7,
+        "female_count": 680,
+        "male_count": 727
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 3,
+        "asian": 0,
+        "black": 238,
+        "hispanic": 41,
+        "hawaiian_pacific": 0,
+        "white": 1072,
+        "multiple_races": 53
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 0.0,
+        "black": 16.9,
+        "hispanic": 2.9,
+        "hawaiian_pacific": 0.0,
+        "white": 76.2,
+        "multiple_races": 3.8
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.6,
+        "pct_limited": 0.4
+      },
+      "pct_economically_disadvantaged": 79.5,
+      "grades_k12": {
+        "kindergarten": 99,
+        "grade_1": 93,
+        "grade_2": 99,
+        "grade_3": 96,
+        "grade_4": 95,
+        "grade_5": 96,
+        "grade_6": 124,
+        "grade_7": 98,
+        "grade_8": 93,
+        "grade_9": 100,
+        "grade_10": 96,
+        "grade_11": 86,
+        "grade_12": 85
+      },
+      "k12_total": 1260
+    },
+    {
+      "parish_code": "012",
+      "parish_name": "Cameron Parish",
+      "parish_slug": "cameron",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 5,
+      "total_enrollment": 1141,
+      "pct_of_state": 0.17,
+      "students_per_school": 228.2,
+      "gender": {
+        "pct_female": 47.5,
+        "pct_male": 52.5,
+        "female_count": 542,
+        "male_count": 599
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 4,
+        "asian": 0,
+        "black": 12,
+        "hispanic": 88,
+        "hawaiian_pacific": 0,
+        "white": 1009,
+        "multiple_races": 28
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.4,
+        "asian": 0.0,
+        "black": 1.1,
+        "hispanic": 7.7,
+        "hawaiian_pacific": 0.0,
+        "white": 88.4,
+        "multiple_races": 2.5
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 98.2,
+        "pct_limited": 1.8
+      },
+      "pct_economically_disadvantaged": 46.7,
+      "grades_k12": {
+        "kindergarten": 78,
+        "grade_1": 86,
+        "grade_2": 79,
+        "grade_3": 86,
+        "grade_4": 97,
+        "grade_5": 89,
+        "grade_6": 78,
+        "grade_7": 79,
+        "grade_8": 74,
+        "grade_9": 69,
+        "grade_10": 97,
+        "grade_11": 81,
+        "grade_12": 73
+      },
+      "k12_total": 1066
+    },
+    {
+      "parish_code": "013",
+      "parish_name": "Catahoula Parish",
+      "parish_slug": "catahoula",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 3,
+      "total_enrollment": 827,
+      "pct_of_state": 0.13,
+      "students_per_school": 275.7,
+      "gender": {
+        "pct_female": 50.7,
+        "pct_male": 49.3,
+        "female_count": 419,
+        "male_count": 408
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 0,
+        "asian": 0,
+        "black": 290,
+        "hispanic": 2,
+        "hawaiian_pacific": 0,
+        "white": 515,
+        "multiple_races": 20
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.0,
+        "asian": 0.0,
+        "black": 35.1,
+        "hispanic": 0.2,
+        "hawaiian_pacific": 0.0,
+        "white": 62.3,
+        "multiple_races": 2.4
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.9,
+        "pct_limited": 0.1
+      },
+      "pct_economically_disadvantaged": 83.2,
+      "grades_k12": {
+        "kindergarten": 59,
+        "grade_1": 71,
+        "grade_2": 57,
+        "grade_3": 73,
+        "grade_4": 66,
+        "grade_5": 65,
+        "grade_6": 50,
+        "grade_7": 70,
+        "grade_8": 57,
+        "grade_9": 50,
+        "grade_10": 69,
+        "grade_11": 50,
+        "grade_12": 42
+      },
+      "k12_total": 779
+    },
+    {
+      "parish_code": "014",
+      "parish_name": "Claiborne Parish",
+      "parish_slug": "claiborne",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 7,
+      "total_enrollment": 1580,
+      "pct_of_state": 0.24,
+      "students_per_school": 225.7,
+      "gender": {
+        "pct_female": 51.1,
+        "pct_male": 48.9,
+        "female_count": 807,
+        "male_count": 773
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 2,
+        "asian": 7,
+        "black": 1062,
+        "hispanic": 31,
+        "hawaiian_pacific": 1,
+        "white": 428,
+        "multiple_races": 49
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.4,
+        "black": 67.2,
+        "hispanic": 2.0,
+        "hawaiian_pacific": 0.1,
+        "white": 27.1,
+        "multiple_races": 3.1
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.7,
+        "pct_limited": 0.3
+      },
+      "pct_economically_disadvantaged": 88.2,
+      "grades_k12": {
+        "kindergarten": 108,
+        "grade_1": 118,
+        "grade_2": 106,
+        "grade_3": 124,
+        "grade_4": 117,
+        "grade_5": 119,
+        "grade_6": 108,
+        "grade_7": 117,
+        "grade_8": 120,
+        "grade_9": 116,
+        "grade_10": 100,
+        "grade_11": 95,
+        "grade_12": 118
+      },
+      "k12_total": 1466
+    },
+    {
+      "parish_code": "015",
+      "parish_name": "Concordia Parish",
+      "parish_slug": "concordia",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 11,
+      "total_enrollment": 2794,
+      "pct_of_state": 0.42,
+      "students_per_school": 254.0,
+      "gender": {
+        "pct_female": 46.6,
+        "pct_male": 53.4,
+        "female_count": 1302,
+        "male_count": 1492
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 2,
+        "asian": 32,
+        "black": 1392,
+        "hispanic": 125,
+        "hawaiian_pacific": 0,
+        "white": 1181,
+        "multiple_races": 62
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 1.1,
+        "black": 49.8,
+        "hispanic": 4.5,
+        "hawaiian_pacific": 0.0,
+        "white": 42.3,
+        "multiple_races": 2.2
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 97.3,
+        "pct_limited": 2.7
+      },
+      "pct_economically_disadvantaged": 86.9,
+      "grades_k12": {
+        "kindergarten": 230,
+        "grade_1": 220,
+        "grade_2": 207,
+        "grade_3": 206,
+        "grade_4": 192,
+        "grade_5": 215,
+        "grade_6": 192,
+        "grade_7": 199,
+        "grade_8": 214,
+        "grade_9": 113,
+        "grade_10": 174,
+        "grade_11": 179,
+        "grade_12": 200
+      },
+      "k12_total": 2541
+    },
+    {
+      "parish_code": "016",
+      "parish_name": "DeSoto Parish",
+      "parish_slug": "desoto",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 9,
+      "total_enrollment": 4801,
+      "pct_of_state": 0.73,
+      "students_per_school": 533.4,
+      "gender": {
+        "pct_female": 47.5,
+        "pct_male": 52.5,
+        "female_count": 2280,
+        "male_count": 2521
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 23,
+        "asian": 28,
+        "black": 1896,
+        "hispanic": 248,
+        "hawaiian_pacific": 2,
+        "white": 2379,
+        "multiple_races": 225
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.5,
+        "asian": 0.6,
+        "black": 39.5,
+        "hispanic": 5.2,
+        "hawaiian_pacific": 0.0,
+        "white": 49.6,
+        "multiple_races": 4.7
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.1,
+        "pct_limited": 0.9
+      },
+      "pct_economically_disadvantaged": 57.2,
+      "grades_k12": {
+        "kindergarten": 354,
+        "grade_1": 354,
+        "grade_2": 324,
+        "grade_3": 362,
+        "grade_4": 353,
+        "grade_5": 348,
+        "grade_6": 349,
+        "grade_7": 325,
+        "grade_8": 345,
+        "grade_9": 380,
+        "grade_10": 330,
+        "grade_11": 342,
+        "grade_12": 316
+      },
+      "k12_total": 4482
+    },
+    {
+      "parish_code": "017",
+      "parish_name": "East Baton Rouge Parish",
+      "parish_slug": "east-baton-rouge",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 77,
+      "total_enrollment": 38008,
+      "pct_of_state": 5.76,
+      "students_per_school": 493.6,
+      "gender": {
+        "pct_female": 49.4,
+        "pct_male": 50.6,
+        "female_count": 18776,
+        "male_count": 19232
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 74,
+        "asian": 1411,
+        "black": 25986,
+        "hispanic": 5689,
+        "hawaiian_pacific": 72,
+        "white": 4150,
+        "multiple_races": 626
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 3.7,
+        "black": 68.4,
+        "hispanic": 15.0,
+        "hawaiian_pacific": 0.2,
+        "white": 10.9,
+        "multiple_races": 1.6
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 90.4,
+        "pct_limited": 9.6
+      },
+      "pct_economically_disadvantaged": 78.0,
+      "grades_k12": {
+        "kindergarten": 2984,
+        "grade_1": 2961,
+        "grade_2": 2982,
+        "grade_3": 3123,
+        "grade_4": 2991,
+        "grade_5": 2837,
+        "grade_6": 2729,
+        "grade_7": 2759,
+        "grade_8": 2605,
+        "grade_9": 2366,
+        "grade_10": 2595,
+        "grade_11": 2359,
+        "grade_12": 2324
+      },
+      "k12_total": 35615
+    },
+    {
+      "parish_code": "018",
+      "parish_name": "East Carroll Parish",
+      "parish_slug": "east-carroll",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 2,
+      "total_enrollment": 687,
+      "pct_of_state": 0.1,
+      "students_per_school": 343.5,
+      "gender": {
+        "pct_female": 50.4,
+        "pct_male": 49.6,
+        "female_count": 346,
+        "male_count": 341
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 0,
+        "asian": 0,
+        "black": 676,
+        "hispanic": 2,
+        "hawaiian_pacific": 0,
+        "white": 7,
+        "multiple_races": 2
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.0,
+        "asian": 0.0,
+        "black": 98.4,
+        "hispanic": 0.3,
+        "hawaiian_pacific": 0.0,
+        "white": 1.0,
+        "multiple_races": 0.3
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 100.0,
+        "pct_limited": 0.0
+      },
+      "pct_economically_disadvantaged": 98.1,
+      "grades_k12": {
+        "kindergarten": 52,
+        "grade_1": 51,
+        "grade_2": 40,
+        "grade_3": 63,
+        "grade_4": 46,
+        "grade_5": 63,
+        "grade_6": 54,
+        "grade_7": 47,
+        "grade_8": 48,
+        "grade_9": 58,
+        "grade_10": 37,
+        "grade_11": 49,
+        "grade_12": 55
+      },
+      "k12_total": 663
+    },
+    {
+      "parish_code": "019",
+      "parish_name": "East Feliciana Parish",
+      "parish_slug": "east-feliciana",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 6,
+      "total_enrollment": 1622,
+      "pct_of_state": 0.25,
+      "students_per_school": 270.3,
+      "gender": {
+        "pct_female": 49.6,
+        "pct_male": 50.4,
+        "female_count": 805,
+        "male_count": 817
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 2,
+        "asian": 4,
+        "black": 927,
+        "hispanic": 41,
+        "hawaiian_pacific": 0,
+        "white": 596,
+        "multiple_races": 52
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.2,
+        "black": 57.2,
+        "hispanic": 2.5,
+        "hawaiian_pacific": 0.0,
+        "white": 36.7,
+        "multiple_races": 3.2
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.0,
+        "pct_limited": 1.0
+      },
+      "pct_economically_disadvantaged": 72.7,
+      "grades_k12": {
+        "kindergarten": 117,
+        "grade_1": 109,
+        "grade_2": 140,
+        "grade_3": 116,
+        "grade_4": 119,
+        "grade_5": 129,
+        "grade_6": 114,
+        "grade_7": 124,
+        "grade_8": 112,
+        "grade_9": 120,
+        "grade_10": 120,
+        "grade_11": 111,
+        "grade_12": 109
+      },
+      "k12_total": 1540
+    },
+    {
+      "parish_code": "020",
+      "parish_name": "Evangeline Parish",
+      "parish_slug": "evangeline",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 13,
+      "total_enrollment": 5211,
+      "pct_of_state": 0.79,
+      "students_per_school": 400.8,
+      "gender": {
+        "pct_female": 47.5,
+        "pct_male": 52.5,
+        "female_count": 2475,
+        "male_count": 2736
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 5,
+        "asian": 19,
+        "black": 1976,
+        "hispanic": 136,
+        "hawaiian_pacific": 1,
+        "white": 2867,
+        "multiple_races": 207
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.4,
+        "black": 37.9,
+        "hispanic": 2.6,
+        "hawaiian_pacific": 0.0,
+        "white": 55.0,
+        "multiple_races": 4.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.5,
+        "pct_limited": 0.5
+      },
+      "pct_economically_disadvantaged": 76.4,
+      "grades_k12": {
+        "kindergarten": 385,
+        "grade_1": 436,
+        "grade_2": 384,
+        "grade_3": 370,
+        "grade_4": 404,
+        "grade_5": 364,
+        "grade_6": 341,
+        "grade_7": 415,
+        "grade_8": 364,
+        "grade_9": 381,
+        "grade_10": 353,
+        "grade_11": 344,
+        "grade_12": 399
+      },
+      "k12_total": 4940
+    },
+    {
+      "parish_code": "021",
+      "parish_name": "Franklin Parish",
+      "parish_slug": "franklin",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 7,
+      "total_enrollment": 2575,
+      "pct_of_state": 0.39,
+      "students_per_school": 367.9,
+      "gender": {
+        "pct_female": 49.2,
+        "pct_male": 50.8,
+        "female_count": 1267,
+        "male_count": 1308
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 3,
+        "asian": 2,
+        "black": 1407,
+        "hispanic": 33,
+        "hawaiian_pacific": 0,
+        "white": 1064,
+        "multiple_races": 66
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.1,
+        "black": 54.6,
+        "hispanic": 1.3,
+        "hawaiian_pacific": 0.0,
+        "white": 41.3,
+        "multiple_races": 2.6
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.9,
+        "pct_limited": 0.1
+      },
+      "pct_economically_disadvantaged": 81.8,
+      "grades_k12": {
+        "kindergarten": 196,
+        "grade_1": 189,
+        "grade_2": 163,
+        "grade_3": 187,
+        "grade_4": 211,
+        "grade_5": 161,
+        "grade_6": 182,
+        "grade_7": 171,
+        "grade_8": 190,
+        "grade_9": 194,
+        "grade_10": 172,
+        "grade_11": 143,
+        "grade_12": 177
+      },
+      "k12_total": 2336
+    },
+    {
+      "parish_code": "022",
+      "parish_name": "Grant Parish",
+      "parish_slug": "grant",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 8,
+      "total_enrollment": 2685,
+      "pct_of_state": 0.41,
+      "students_per_school": 335.6,
+      "gender": {
+        "pct_female": 48.0,
+        "pct_male": 52.0,
+        "female_count": 1289,
+        "male_count": 1396
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 15,
+        "asian": 7,
+        "black": 313,
+        "hispanic": 25,
+        "hawaiian_pacific": 0,
+        "white": 2221,
+        "multiple_races": 104
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.6,
+        "asian": 0.3,
+        "black": 11.7,
+        "hispanic": 0.9,
+        "hawaiian_pacific": 0.0,
+        "white": 82.7,
+        "multiple_races": 3.9
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.8,
+        "pct_limited": 0.2
+      },
+      "pct_economically_disadvantaged": 70.3,
+      "grades_k12": {
+        "kindergarten": 194,
+        "grade_1": 189,
+        "grade_2": 244,
+        "grade_3": 230,
+        "grade_4": 198,
+        "grade_5": 201,
+        "grade_6": 194,
+        "grade_7": 202,
+        "grade_8": 202,
+        "grade_9": 165,
+        "grade_10": 180,
+        "grade_11": 172,
+        "grade_12": 127
+      },
+      "k12_total": 2498
+    },
+    {
+      "parish_code": "023",
+      "parish_name": "Iberia Parish",
+      "parish_slug": "iberia",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 23,
+      "total_enrollment": 10424,
+      "pct_of_state": 1.58,
+      "students_per_school": 453.2,
+      "gender": {
+        "pct_female": 48.5,
+        "pct_male": 51.5,
+        "female_count": 5056,
+        "male_count": 5368
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 21,
+        "asian": 218,
+        "black": 4476,
+        "hispanic": 700,
+        "hawaiian_pacific": 1,
+        "white": 4375,
+        "multiple_races": 633
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 2.1,
+        "black": 42.9,
+        "hispanic": 6.7,
+        "hawaiian_pacific": 0.0,
+        "white": 42.0,
+        "multiple_races": 6.1
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 97.9,
+        "pct_limited": 2.1
+      },
+      "pct_economically_disadvantaged": 75.9,
+      "grades_k12": {
+        "kindergarten": 806,
+        "grade_1": 851,
+        "grade_2": 830,
+        "grade_3": 835,
+        "grade_4": 823,
+        "grade_5": 791,
+        "grade_6": 777,
+        "grade_7": 725,
+        "grade_8": 706,
+        "grade_9": 652,
+        "grade_10": 669,
+        "grade_11": 657,
+        "grade_12": 654
+      },
+      "k12_total": 9776
+    },
+    {
+      "parish_code": "024",
+      "parish_name": "Iberville Parish",
+      "parish_slug": "iberville",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 8,
+      "total_enrollment": 4064,
+      "pct_of_state": 0.62,
+      "students_per_school": 508.0,
+      "gender": {
+        "pct_female": 49.5,
+        "pct_male": 50.5,
+        "female_count": 2012,
+        "male_count": 2052
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 3,
+        "asian": 10,
+        "black": 2797,
+        "hispanic": 156,
+        "hawaiian_pacific": 1,
+        "white": 1015,
+        "multiple_races": 82
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.2,
+        "black": 68.8,
+        "hispanic": 3.8,
+        "hawaiian_pacific": 0.0,
+        "white": 25.0,
+        "multiple_races": 2.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 98.2,
+        "pct_limited": 1.8
+      },
+      "pct_economically_disadvantaged": 78.3,
+      "grades_k12": {
+        "kindergarten": 300,
+        "grade_1": 258,
+        "grade_2": 292,
+        "grade_3": 287,
+        "grade_4": 265,
+        "grade_5": 250,
+        "grade_6": 243,
+        "grade_7": 261,
+        "grade_8": 322,
+        "grade_9": 287,
+        "grade_10": 263,
+        "grade_11": 272,
+        "grade_12": 308
+      },
+      "k12_total": 3608
+    },
+    {
+      "parish_code": "025",
+      "parish_name": "Jackson Parish",
+      "parish_slug": "jackson",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 6,
+      "total_enrollment": 1929,
+      "pct_of_state": 0.29,
+      "students_per_school": 321.5,
+      "gender": {
+        "pct_female": 47.3,
+        "pct_male": 52.7,
+        "female_count": 912,
+        "male_count": 1017
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 5,
+        "asian": 4,
+        "black": 579,
+        "hispanic": 49,
+        "hawaiian_pacific": 0,
+        "white": 1212,
+        "multiple_races": 80
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.3,
+        "asian": 0.2,
+        "black": 30.0,
+        "hispanic": 2.5,
+        "hawaiian_pacific": 0.0,
+        "white": 62.8,
+        "multiple_races": 4.1
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.6,
+        "pct_limited": 0.4
+      },
+      "pct_economically_disadvantaged": 66.0,
+      "grades_k12": {
+        "kindergarten": 136,
+        "grade_1": 105,
+        "grade_2": 125,
+        "grade_3": 148,
+        "grade_4": 138,
+        "grade_5": 149,
+        "grade_6": 145,
+        "grade_7": 134,
+        "grade_8": 170,
+        "grade_9": 154,
+        "grade_10": 161,
+        "grade_11": 137,
+        "grade_12": 141
+      },
+      "k12_total": 1843
+    },
+    {
+      "parish_code": "026",
+      "parish_name": "Jefferson Parish",
+      "parish_slug": "jefferson",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 76,
+      "total_enrollment": 45406,
+      "pct_of_state": 6.88,
+      "students_per_school": 597.4,
+      "gender": {
+        "pct_female": 48.2,
+        "pct_male": 51.8,
+        "female_count": 21886,
+        "male_count": 23520
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 149,
+        "asian": 2247,
+        "black": 15285,
+        "hispanic": 17239,
+        "hawaiian_pacific": 21,
+        "white": 9362,
+        "multiple_races": 1103
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.3,
+        "asian": 4.9,
+        "black": 33.7,
+        "hispanic": 38.0,
+        "hawaiian_pacific": 0.0,
+        "white": 20.6,
+        "multiple_races": 2.4
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 80.8,
+        "pct_limited": 19.2
+      },
+      "pct_economically_disadvantaged": 77.4,
+      "grades_k12": {
+        "kindergarten": 3324,
+        "grade_1": 3492,
+        "grade_2": 3442,
+        "grade_3": 3771,
+        "grade_4": 3500,
+        "grade_5": 3436,
+        "grade_6": 3306,
+        "grade_7": 3075,
+        "grade_8": 3331,
+        "grade_9": 2836,
+        "grade_10": 3130,
+        "grade_11": 2797,
+        "grade_12": 2826
+      },
+      "k12_total": 42266
+    },
+    {
+      "parish_code": "027",
+      "parish_name": "Jefferson Davis Parish",
+      "parish_slug": "jefferson-davis",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 13,
+      "total_enrollment": 5188,
+      "pct_of_state": 0.79,
+      "students_per_school": 399.1,
+      "gender": {
+        "pct_female": 48.1,
+        "pct_male": 51.9,
+        "female_count": 2495,
+        "male_count": 2693
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 48,
+        "asian": 11,
+        "black": 995,
+        "hispanic": 229,
+        "hawaiian_pacific": 1,
+        "white": 3440,
+        "multiple_races": 464
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.9,
+        "asian": 0.2,
+        "black": 19.2,
+        "hispanic": 4.4,
+        "hawaiian_pacific": 0.0,
+        "white": 66.3,
+        "multiple_races": 8.9
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 98.6,
+        "pct_limited": 1.4
+      },
+      "pct_economically_disadvantaged": 62.6,
+      "grades_k12": {
+        "kindergarten": 369,
+        "grade_1": 402,
+        "grade_2": 384,
+        "grade_3": 353,
+        "grade_4": 372,
+        "grade_5": 356,
+        "grade_6": 364,
+        "grade_7": 361,
+        "grade_8": 390,
+        "grade_9": 384,
+        "grade_10": 389,
+        "grade_11": 354,
+        "grade_12": 335
+      },
+      "k12_total": 4813
+    },
+    {
+      "parish_code": "028",
+      "parish_name": "Lafayette Parish",
+      "parish_slug": "lafayette",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 44,
+      "total_enrollment": 28839,
+      "pct_of_state": 4.37,
+      "students_per_school": 655.4,
+      "gender": {
+        "pct_female": 49.2,
+        "pct_male": 50.8,
+        "female_count": 14189,
+        "male_count": 14650
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 81,
+        "asian": 774,
+        "black": 11699,
+        "hispanic": 3528,
+        "hawaiian_pacific": 29,
+        "white": 11659,
+        "multiple_races": 1069
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.3,
+        "asian": 2.7,
+        "black": 40.6,
+        "hispanic": 12.2,
+        "hawaiian_pacific": 0.1,
+        "white": 40.4,
+        "multiple_races": 3.7
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 93.2,
+        "pct_limited": 6.8
+      },
+      "pct_economically_disadvantaged": 65.7,
+      "grades_k12": {
+        "kindergarten": 2000,
+        "grade_1": 2129,
+        "grade_2": 2086,
+        "grade_3": 2245,
+        "grade_4": 2167,
+        "grade_5": 2198,
+        "grade_6": 2060,
+        "grade_7": 2016,
+        "grade_8": 1959,
+        "grade_9": 1722,
+        "grade_10": 2151,
+        "grade_11": 2165,
+        "grade_12": 1923
+      },
+      "k12_total": 26821
+    },
+    {
+      "parish_code": "029",
+      "parish_name": "Lafourche Parish",
+      "parish_slug": "lafourche",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 30,
+      "total_enrollment": 13133,
+      "pct_of_state": 1.99,
+      "students_per_school": 437.8,
+      "gender": {
+        "pct_female": 48.7,
+        "pct_male": 51.3,
+        "female_count": 6396,
+        "male_count": 6737
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 350,
+        "asian": 113,
+        "black": 2558,
+        "hispanic": 1481,
+        "hawaiian_pacific": 6,
+        "white": 7693,
+        "multiple_races": 932
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 2.7,
+        "asian": 0.9,
+        "black": 19.5,
+        "hispanic": 11.3,
+        "hawaiian_pacific": 0.0,
+        "white": 58.6,
+        "multiple_races": 7.1
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 96.0,
+        "pct_limited": 4.0
+      },
+      "pct_economically_disadvantaged": 64.1,
+      "grades_k12": {
+        "kindergarten": 943,
+        "grade_1": 981,
+        "grade_2": 1027,
+        "grade_3": 1032,
+        "grade_4": 990,
+        "grade_5": 987,
+        "grade_6": 981,
+        "grade_7": 908,
+        "grade_8": 954,
+        "grade_9": 840,
+        "grade_10": 930,
+        "grade_11": 882,
+        "grade_12": 818
+      },
+      "k12_total": 12273
+    },
+    {
+      "parish_code": "030",
+      "parish_name": "LaSalle Parish",
+      "parish_slug": "lasalle",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 9,
+      "total_enrollment": 2458,
+      "pct_of_state": 0.37,
+      "students_per_school": 273.1,
+      "gender": {
+        "pct_female": 48.1,
+        "pct_male": 51.9,
+        "female_count": 1182,
+        "male_count": 1276
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 29,
+        "asian": 9,
+        "black": 199,
+        "hispanic": 24,
+        "hawaiian_pacific": 0,
+        "white": 2105,
+        "multiple_races": 92
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 1.2,
+        "asian": 0.4,
+        "black": 8.1,
+        "hispanic": 1.0,
+        "hawaiian_pacific": 0.0,
+        "white": 85.6,
+        "multiple_races": 3.7
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.7,
+        "pct_limited": 0.3
+      },
+      "pct_economically_disadvantaged": 56.8,
+      "grades_k12": {
+        "kindergarten": 192,
+        "grade_1": 195,
+        "grade_2": 201,
+        "grade_3": 203,
+        "grade_4": 185,
+        "grade_5": 164,
+        "grade_6": 177,
+        "grade_7": 193,
+        "grade_8": 156,
+        "grade_9": 177,
+        "grade_10": 166,
+        "grade_11": 153,
+        "grade_12": 149
+      },
+      "k12_total": 2311
+    },
+    {
+      "parish_code": "031",
+      "parish_name": "Lincoln Parish",
+      "parish_slug": "lincoln",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 15,
+      "total_enrollment": 5863,
+      "pct_of_state": 0.89,
+      "students_per_school": 390.9,
+      "gender": {
+        "pct_female": 48.8,
+        "pct_male": 51.2,
+        "female_count": 2861,
+        "male_count": 3002
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 8,
+        "asian": 76,
+        "black": 2349,
+        "hispanic": 498,
+        "hawaiian_pacific": 1,
+        "white": 2754,
+        "multiple_races": 177
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 1.3,
+        "black": 40.1,
+        "hispanic": 8.5,
+        "hawaiian_pacific": 0.0,
+        "white": 47.0,
+        "multiple_races": 3.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 97.1,
+        "pct_limited": 2.9
+      },
+      "pct_economically_disadvantaged": 61.8,
+      "grades_k12": {
+        "kindergarten": 531,
+        "grade_1": 426,
+        "grade_2": 433,
+        "grade_3": 460,
+        "grade_4": 460,
+        "grade_5": 418,
+        "grade_6": 406,
+        "grade_7": 436,
+        "grade_8": 432,
+        "grade_9": 407,
+        "grade_10": 424,
+        "grade_11": 369,
+        "grade_12": 366
+      },
+      "k12_total": 5568
+    },
+    {
+      "parish_code": "032",
+      "parish_name": "Livingston Parish",
+      "parish_slug": "livingston",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 43,
+      "total_enrollment": 26380,
+      "pct_of_state": 3.99,
+      "students_per_school": 613.5,
+      "gender": {
+        "pct_female": 49.0,
+        "pct_male": 51.0,
+        "female_count": 12926,
+        "male_count": 13454
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 40,
+        "asian": 244,
+        "black": 3802,
+        "hispanic": 3683,
+        "hawaiian_pacific": 12,
+        "white": 17544,
+        "multiple_races": 1055
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 0.9,
+        "black": 14.4,
+        "hispanic": 14.0,
+        "hawaiian_pacific": 0.0,
+        "white": 66.5,
+        "multiple_races": 4.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 94.9,
+        "pct_limited": 5.1
+      },
+      "pct_economically_disadvantaged": 77.3,
+      "grades_k12": {
+        "kindergarten": 1907,
+        "grade_1": 1945,
+        "grade_2": 1956,
+        "grade_3": 2071,
+        "grade_4": 2076,
+        "grade_5": 2034,
+        "grade_6": 2001,
+        "grade_7": 2049,
+        "grade_8": 1955,
+        "grade_9": 1965,
+        "grade_10": 1901,
+        "grade_11": 1778,
+        "grade_12": 1656
+      },
+      "k12_total": 25294
+    },
+    {
+      "parish_code": "033",
+      "parish_name": "Madison Parish",
+      "parish_slug": "madison",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 4,
+      "total_enrollment": 1083,
+      "pct_of_state": 0.16,
+      "students_per_school": 270.8,
+      "gender": {
+        "pct_female": 48.8,
+        "pct_male": 51.2,
+        "female_count": 529,
+        "male_count": 554
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 0,
+        "asian": 8,
+        "black": 1029,
+        "hispanic": 13,
+        "hawaiian_pacific": 0,
+        "white": 19,
+        "multiple_races": 14
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.0,
+        "asian": 0.7,
+        "black": 95.0,
+        "hispanic": 1.2,
+        "hawaiian_pacific": 0.0,
+        "white": 1.8,
+        "multiple_races": 1.3
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.4,
+        "pct_limited": 0.6
+      },
+      "pct_economically_disadvantaged": 95.1,
+      "grades_k12": {
+        "kindergarten": 72,
+        "grade_1": 85,
+        "grade_2": 82,
+        "grade_3": 71,
+        "grade_4": 69,
+        "grade_5": 90,
+        "grade_6": 85,
+        "grade_7": 76,
+        "grade_8": 94,
+        "grade_9": 118,
+        "grade_10": 67,
+        "grade_11": 51,
+        "grade_12": 77
+      },
+      "k12_total": 1037
+    },
+    {
+      "parish_code": "034",
+      "parish_name": "Morehouse Parish",
+      "parish_slug": "morehouse",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 5,
+      "total_enrollment": 2978,
+      "pct_of_state": 0.45,
+      "students_per_school": 595.6,
+      "gender": {
+        "pct_female": 48.2,
+        "pct_male": 51.8,
+        "female_count": 1435,
+        "male_count": 1543
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 3,
+        "asian": 13,
+        "black": 1931,
+        "hispanic": 37,
+        "hawaiian_pacific": 0,
+        "white": 943,
+        "multiple_races": 51
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.4,
+        "black": 64.8,
+        "hispanic": 1.2,
+        "hawaiian_pacific": 0.0,
+        "white": 31.7,
+        "multiple_races": 1.7
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.1,
+        "pct_limited": 0.9
+      },
+      "pct_economically_disadvantaged": 80.8,
+      "grades_k12": {
+        "kindergarten": 259,
+        "grade_1": 226,
+        "grade_2": 225,
+        "grade_3": 244,
+        "grade_4": 222,
+        "grade_5": 208,
+        "grade_6": 233,
+        "grade_7": 215,
+        "grade_8": 255,
+        "grade_9": 209,
+        "grade_10": 223,
+        "grade_11": 200,
+        "grade_12": 199
+      },
+      "k12_total": 2918
+    },
+    {
+      "parish_code": "035",
+      "parish_name": "Natchitoches Parish",
+      "parish_slug": "natchitoches",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 11,
+      "total_enrollment": 4745,
+      "pct_of_state": 0.72,
+      "students_per_school": 431.4,
+      "gender": {
+        "pct_female": 49.7,
+        "pct_male": 50.3,
+        "female_count": 2358,
+        "male_count": 2387
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 34,
+        "asian": 23,
+        "black": 2741,
+        "hispanic": 197,
+        "hawaiian_pacific": 0,
+        "white": 1584,
+        "multiple_races": 166
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.7,
+        "asian": 0.5,
+        "black": 57.8,
+        "hispanic": 4.2,
+        "hawaiian_pacific": 0.0,
+        "white": 33.4,
+        "multiple_races": 3.5
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 98.6,
+        "pct_limited": 1.4
+      },
+      "pct_economically_disadvantaged": 86.8,
+      "grades_k12": {
+        "kindergarten": 361,
+        "grade_1": 356,
+        "grade_2": 334,
+        "grade_3": 366,
+        "grade_4": 358,
+        "grade_5": 322,
+        "grade_6": 346,
+        "grade_7": 364,
+        "grade_8": 353,
+        "grade_9": 283,
+        "grade_10": 332,
+        "grade_11": 292,
+        "grade_12": 339
+      },
+      "k12_total": 4406
+    },
+    {
+      "parish_code": "037",
+      "parish_name": "Ouachita Parish",
+      "parish_slug": "ouachita",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 37,
+      "total_enrollment": 17205,
+      "pct_of_state": 2.61,
+      "students_per_school": 465.0,
+      "gender": {
+        "pct_female": 48.6,
+        "pct_male": 51.4,
+        "female_count": 8362,
+        "male_count": 8843
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 27,
+        "asian": 201,
+        "black": 6135,
+        "hispanic": 954,
+        "hawaiian_pacific": 7,
+        "white": 9372,
+        "multiple_races": 509
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 1.2,
+        "black": 35.7,
+        "hispanic": 5.5,
+        "hawaiian_pacific": 0.0,
+        "white": 54.5,
+        "multiple_races": 3.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 97.6,
+        "pct_limited": 2.4
+      },
+      "pct_economically_disadvantaged": 66.5,
+      "grades_k12": {
+        "kindergarten": 1253,
+        "grade_1": 1334,
+        "grade_2": 1273,
+        "grade_3": 1295,
+        "grade_4": 1191,
+        "grade_5": 1288,
+        "grade_6": 1293,
+        "grade_7": 1336,
+        "grade_8": 1339,
+        "grade_9": 1189,
+        "grade_10": 1225,
+        "grade_11": 1128,
+        "grade_12": 1147
+      },
+      "k12_total": 16291
+    },
+    {
+      "parish_code": "038",
+      "parish_name": "Plaquemines Parish",
+      "parish_slug": "plaquemines",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 8,
+      "total_enrollment": 3263,
+      "pct_of_state": 0.49,
+      "students_per_school": 407.9,
+      "gender": {
+        "pct_female": 47.0,
+        "pct_male": 53.0,
+        "female_count": 1534,
+        "male_count": 1729
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 62,
+        "asian": 201,
+        "black": 883,
+        "hispanic": 376,
+        "hawaiian_pacific": 1,
+        "white": 1670,
+        "multiple_races": 70
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 1.9,
+        "asian": 6.2,
+        "black": 27.1,
+        "hispanic": 11.5,
+        "hawaiian_pacific": 0.0,
+        "white": 51.2,
+        "multiple_races": 2.1
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 96.4,
+        "pct_limited": 3.6
+      },
+      "pct_economically_disadvantaged": 64.6,
+      "grades_k12": {
+        "kindergarten": 188,
+        "grade_1": 201,
+        "grade_2": 224,
+        "grade_3": 224,
+        "grade_4": 222,
+        "grade_5": 247,
+        "grade_6": 243,
+        "grade_7": 196,
+        "grade_8": 232,
+        "grade_9": 272,
+        "grade_10": 254,
+        "grade_11": 252,
+        "grade_12": 286
+      },
+      "k12_total": 3041
+    },
+    {
+      "parish_code": "039",
+      "parish_name": "Pointe Coupee Parish",
+      "parish_slug": "pointe-coupee",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 5,
+      "total_enrollment": 2163,
+      "pct_of_state": 0.33,
+      "students_per_school": 432.6,
+      "gender": {
+        "pct_female": 49.6,
+        "pct_male": 50.4,
+        "female_count": 1073,
+        "male_count": 1090
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 3,
+        "asian": 3,
+        "black": 1203,
+        "hispanic": 144,
+        "hawaiian_pacific": 0,
+        "white": 773,
+        "multiple_races": 37
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.1,
+        "black": 55.6,
+        "hispanic": 6.7,
+        "hawaiian_pacific": 0.0,
+        "white": 35.7,
+        "multiple_races": 1.7
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 96.9,
+        "pct_limited": 3.1
+      },
+      "pct_economically_disadvantaged": 76.3,
+      "grades_k12": {
+        "kindergarten": 126,
+        "grade_1": 153,
+        "grade_2": 133,
+        "grade_3": 131,
+        "grade_4": 136,
+        "grade_5": 167,
+        "grade_6": 155,
+        "grade_7": 148,
+        "grade_8": 141,
+        "grade_9": 152,
+        "grade_10": 197,
+        "grade_11": 180,
+        "grade_12": 127
+      },
+      "k12_total": 1946
+    },
+    {
+      "parish_code": "040",
+      "parish_name": "Rapides Parish",
+      "parish_slug": "rapides",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 43,
+      "total_enrollment": 20997,
+      "pct_of_state": 3.18,
+      "students_per_school": 488.3,
+      "gender": {
+        "pct_female": 48.7,
+        "pct_male": 51.3,
+        "female_count": 10226,
+        "male_count": 10771
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 101,
+        "asian": 265,
+        "black": 8593,
+        "hispanic": 1265,
+        "hawaiian_pacific": 2,
+        "white": 9946,
+        "multiple_races": 825
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.5,
+        "asian": 1.3,
+        "black": 40.9,
+        "hispanic": 6.0,
+        "hawaiian_pacific": 0.0,
+        "white": 47.4,
+        "multiple_races": 3.9
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 97.3,
+        "pct_limited": 2.7
+      },
+      "pct_economically_disadvantaged": 74.3,
+      "grades_k12": {
+        "kindergarten": 1471,
+        "grade_1": 1498,
+        "grade_2": 1518,
+        "grade_3": 1530,
+        "grade_4": 1599,
+        "grade_5": 1486,
+        "grade_6": 1575,
+        "grade_7": 1489,
+        "grade_8": 1502,
+        "grade_9": 1228,
+        "grade_10": 1545,
+        "grade_11": 1486,
+        "grade_12": 1501
+      },
+      "k12_total": 19428
+    },
+    {
+      "parish_code": "041",
+      "parish_name": "Red River Parish",
+      "parish_slug": "red-river",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 4,
+      "total_enrollment": 1274,
+      "pct_of_state": 0.19,
+      "students_per_school": 318.5,
+      "gender": {
+        "pct_female": 45.8,
+        "pct_male": 54.2,
+        "female_count": 583,
+        "male_count": 691
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 0,
+        "asian": 8,
+        "black": 779,
+        "hispanic": 26,
+        "hawaiian_pacific": 0,
+        "white": 413,
+        "multiple_races": 48
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.0,
+        "asian": 0.6,
+        "black": 61.1,
+        "hispanic": 2.0,
+        "hawaiian_pacific": 0.0,
+        "white": 32.4,
+        "multiple_races": 3.8
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.9,
+        "pct_limited": 0.1
+      },
+      "pct_economically_disadvantaged": 90.7,
+      "grades_k12": {
+        "kindergarten": 90,
+        "grade_1": 86,
+        "grade_2": 83,
+        "grade_3": 85,
+        "grade_4": 69,
+        "grade_5": 66,
+        "grade_6": 96,
+        "grade_7": 74,
+        "grade_8": 93,
+        "grade_9": 111,
+        "grade_10": 108,
+        "grade_11": 89,
+        "grade_12": 78
+      },
+      "k12_total": 1128
+    },
+    {
+      "parish_code": "042",
+      "parish_name": "Richland Parish",
+      "parish_slug": "richland",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 12,
+      "total_enrollment": 2627,
+      "pct_of_state": 0.4,
+      "students_per_school": 218.9,
+      "gender": {
+        "pct_female": 47.0,
+        "pct_male": 53.0,
+        "female_count": 1235,
+        "male_count": 1392
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 5,
+        "asian": 6,
+        "black": 1367,
+        "hispanic": 53,
+        "hawaiian_pacific": 0,
+        "white": 1149,
+        "multiple_races": 47
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 0.2,
+        "black": 52.0,
+        "hispanic": 2.0,
+        "hawaiian_pacific": 0.0,
+        "white": 43.7,
+        "multiple_races": 1.8
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.4,
+        "pct_limited": 0.6
+      },
+      "pct_economically_disadvantaged": 78.3,
+      "grades_k12": {
+        "kindergarten": 240,
+        "grade_1": 186,
+        "grade_2": 197,
+        "grade_3": 187,
+        "grade_4": 187,
+        "grade_5": 223,
+        "grade_6": 200,
+        "grade_7": 189,
+        "grade_8": 186,
+        "grade_9": 199,
+        "grade_10": 171,
+        "grade_11": 171,
+        "grade_12": 210
+      },
+      "k12_total": 2546
+    },
+    {
+      "parish_code": "043",
+      "parish_name": "Sabine Parish",
+      "parish_slug": "sabine",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 10,
+      "total_enrollment": 3680,
+      "pct_of_state": 0.56,
+      "students_per_school": 368.0,
+      "gender": {
+        "pct_female": 48.0,
+        "pct_male": 52.0,
+        "female_count": 1766,
+        "male_count": 1914
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 463,
+        "asian": 9,
+        "black": 820,
+        "hispanic": 111,
+        "hawaiian_pacific": 3,
+        "white": 1967,
+        "multiple_races": 307
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 12.6,
+        "asian": 0.2,
+        "black": 22.3,
+        "hispanic": 3.0,
+        "hawaiian_pacific": 0.1,
+        "white": 53.5,
+        "multiple_races": 8.3
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.6,
+        "pct_limited": 0.4
+      },
+      "pct_economically_disadvantaged": 64.4,
+      "grades_k12": {
+        "kindergarten": 233,
+        "grade_1": 265,
+        "grade_2": 274,
+        "grade_3": 251,
+        "grade_4": 246,
+        "grade_5": 267,
+        "grade_6": 272,
+        "grade_7": 268,
+        "grade_8": 290,
+        "grade_9": 255,
+        "grade_10": 240,
+        "grade_11": 239,
+        "grade_12": 244
+      },
+      "k12_total": 3344
+    },
+    {
+      "parish_code": "044",
+      "parish_name": "St. Bernard Parish",
+      "parish_slug": "st-bernard",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 13,
+      "total_enrollment": 7275,
+      "pct_of_state": 1.1,
+      "students_per_school": 559.6,
+      "gender": {
+        "pct_female": 48.9,
+        "pct_male": 51.1,
+        "female_count": 3557,
+        "male_count": 3718
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 21,
+        "asian": 159,
+        "black": 2274,
+        "hispanic": 1467,
+        "hawaiian_pacific": 3,
+        "white": 2972,
+        "multiple_races": 379
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.3,
+        "asian": 2.2,
+        "black": 31.3,
+        "hispanic": 20.2,
+        "hawaiian_pacific": 0.0,
+        "white": 40.9,
+        "multiple_races": 5.2
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 90.1,
+        "pct_limited": 9.9
+      },
+      "pct_economically_disadvantaged": 70.7,
+      "grades_k12": {
+        "kindergarten": 479,
+        "grade_1": 519,
+        "grade_2": 517,
+        "grade_3": 566,
+        "grade_4": 560,
+        "grade_5": 566,
+        "grade_6": 546,
+        "grade_7": 561,
+        "grade_8": 523,
+        "grade_9": 498,
+        "grade_10": 527,
+        "grade_11": 523,
+        "grade_12": 442
+      },
+      "k12_total": 6827
+    },
+    {
+      "parish_code": "045",
+      "parish_name": "St. Charles Parish",
+      "parish_slug": "st-charles",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 17,
+      "total_enrollment": 8792,
+      "pct_of_state": 1.33,
+      "students_per_school": 517.2,
+      "gender": {
+        "pct_female": 48.9,
+        "pct_male": 51.1,
+        "female_count": 4299,
+        "male_count": 4493
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 20,
+        "asian": 108,
+        "black": 2725,
+        "hispanic": 1124,
+        "hawaiian_pacific": 9,
+        "white": 4369,
+        "multiple_races": 437
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 1.2,
+        "black": 31.0,
+        "hispanic": 12.8,
+        "hawaiian_pacific": 0.1,
+        "white": 49.7,
+        "multiple_races": 5.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 97.2,
+        "pct_limited": 2.8
+      },
+      "pct_economically_disadvantaged": 51.7,
+      "grades_k12": {
+        "kindergarten": 543,
+        "grade_1": 588,
+        "grade_2": 579,
+        "grade_3": 634,
+        "grade_4": 634,
+        "grade_5": 632,
+        "grade_6": 664,
+        "grade_7": 674,
+        "grade_8": 621,
+        "grade_9": 635,
+        "grade_10": 642,
+        "grade_11": 707,
+        "grade_12": 618
+      },
+      "k12_total": 8171
+    },
+    {
+      "parish_code": "046",
+      "parish_name": "St. Helena Parish",
+      "parish_slug": "st-helena",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 3,
+      "total_enrollment": 1012,
+      "pct_of_state": 0.15,
+      "students_per_school": 337.3,
+      "gender": {
+        "pct_female": 51.1,
+        "pct_male": 48.9,
+        "female_count": 517,
+        "male_count": 495
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 0,
+        "asian": 1,
+        "black": 897,
+        "hispanic": 20,
+        "hawaiian_pacific": 0,
+        "white": 68,
+        "multiple_races": 26
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.0,
+        "asian": 0.1,
+        "black": 88.6,
+        "hispanic": 2.0,
+        "hawaiian_pacific": 0.0,
+        "white": 6.7,
+        "multiple_races": 2.6
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.7,
+        "pct_limited": 0.3
+      },
+      "pct_economically_disadvantaged": 99.6,
+      "grades_k12": {
+        "kindergarten": 80,
+        "grade_1": 78,
+        "grade_2": 76,
+        "grade_3": 79,
+        "grade_4": 74,
+        "grade_5": 79,
+        "grade_6": 70,
+        "grade_7": 80,
+        "grade_8": 69,
+        "grade_9": 84,
+        "grade_10": 68,
+        "grade_11": 81,
+        "grade_12": 61
+      },
+      "k12_total": 979
+    },
+    {
+      "parish_code": "047",
+      "parish_name": "St. James Parish",
+      "parish_slug": "st-james",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 7,
+      "total_enrollment": 3171,
+      "pct_of_state": 0.48,
+      "students_per_school": 453.0,
+      "gender": {
+        "pct_female": 47.7,
+        "pct_male": 52.3,
+        "female_count": 1513,
+        "male_count": 1658
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 5,
+        "asian": 9,
+        "black": 1958,
+        "hispanic": 54,
+        "hawaiian_pacific": 0,
+        "white": 1105,
+        "multiple_races": 40
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 0.3,
+        "black": 61.7,
+        "hispanic": 1.7,
+        "hawaiian_pacific": 0.0,
+        "white": 34.8,
+        "multiple_races": 1.3
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.7,
+        "pct_limited": 0.3
+      },
+      "pct_economically_disadvantaged": 64.4,
+      "grades_k12": {
+        "kindergarten": 183,
+        "grade_1": 214,
+        "grade_2": 201,
+        "grade_3": 218,
+        "grade_4": 178,
+        "grade_5": 209,
+        "grade_6": 225,
+        "grade_7": 213,
+        "grade_8": 236,
+        "grade_9": 253,
+        "grade_10": 257,
+        "grade_11": 252,
+        "grade_12": 223
+      },
+      "k12_total": 2862
+    },
+    {
+      "parish_code": "048",
+      "parish_name": "St. John the Baptist Parish",
+      "parish_slug": "st-john-the-baptist",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 10,
+      "total_enrollment": 4946,
+      "pct_of_state": 0.75,
+      "students_per_school": 494.6,
+      "gender": {
+        "pct_female": 49.3,
+        "pct_male": 50.7,
+        "female_count": 2438,
+        "male_count": 2508
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 4,
+        "asian": 11,
+        "black": 3559,
+        "hispanic": 862,
+        "hawaiian_pacific": 5,
+        "white": 381,
+        "multiple_races": 124
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.2,
+        "black": 72.0,
+        "hispanic": 17.4,
+        "hawaiian_pacific": 0.1,
+        "white": 7.7,
+        "multiple_races": 2.5
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 92.1,
+        "pct_limited": 7.9
+      },
+      "pct_economically_disadvantaged": 82.5,
+      "grades_k12": {
+        "kindergarten": 339,
+        "grade_1": 388,
+        "grade_2": 350,
+        "grade_3": 382,
+        "grade_4": 367,
+        "grade_5": 375,
+        "grade_6": 346,
+        "grade_7": 351,
+        "grade_8": 382,
+        "grade_9": 382,
+        "grade_10": 306,
+        "grade_11": 364,
+        "grade_12": 275
+      },
+      "k12_total": 4607
+    },
+    {
+      "parish_code": "049",
+      "parish_name": "St. Landry Parish",
+      "parish_slug": "st-landry",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 32,
+      "total_enrollment": 11036,
+      "pct_of_state": 1.67,
+      "students_per_school": 344.9,
+      "gender": {
+        "pct_female": 48.8,
+        "pct_male": 51.2,
+        "female_count": 5386,
+        "male_count": 5650
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 22,
+        "asian": 75,
+        "black": 6009,
+        "hispanic": 625,
+        "hawaiian_pacific": 0,
+        "white": 4015,
+        "multiple_races": 290
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 0.7,
+        "black": 54.4,
+        "hispanic": 5.7,
+        "hawaiian_pacific": 0.0,
+        "white": 36.4,
+        "multiple_races": 2.6
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 97.5,
+        "pct_limited": 2.5
+      },
+      "pct_economically_disadvantaged": 79.2,
+      "grades_k12": {
+        "kindergarten": 904,
+        "grade_1": 870,
+        "grade_2": 815,
+        "grade_3": 876,
+        "grade_4": 842,
+        "grade_5": 793,
+        "grade_6": 675,
+        "grade_7": 709,
+        "grade_8": 723,
+        "grade_9": 690,
+        "grade_10": 782,
+        "grade_11": 793,
+        "grade_12": 657
+      },
+      "k12_total": 10129
+    },
+    {
+      "parish_code": "050",
+      "parish_name": "St. Martin Parish",
+      "parish_slug": "st-martin",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 16,
+      "total_enrollment": 6530,
+      "pct_of_state": 0.99,
+      "students_per_school": 408.1,
+      "gender": {
+        "pct_female": 48.5,
+        "pct_male": 51.5,
+        "female_count": 3167,
+        "male_count": 3363
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 16,
+        "asian": 48,
+        "black": 2953,
+        "hispanic": 375,
+        "hawaiian_pacific": 0,
+        "white": 2782,
+        "multiple_races": 356
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 0.7,
+        "black": 45.2,
+        "hispanic": 5.7,
+        "hawaiian_pacific": 0.0,
+        "white": 42.6,
+        "multiple_races": 5.5
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 96.7,
+        "pct_limited": 3.3
+      },
+      "pct_economically_disadvantaged": 78.4,
+      "grades_k12": {
+        "kindergarten": 473,
+        "grade_1": 478,
+        "grade_2": 446,
+        "grade_3": 510,
+        "grade_4": 471,
+        "grade_5": 481,
+        "grade_6": 437,
+        "grade_7": 499,
+        "grade_8": 432,
+        "grade_9": 417,
+        "grade_10": 458,
+        "grade_11": 440,
+        "grade_12": 451
+      },
+      "k12_total": 5993
+    },
+    {
+      "parish_code": "051",
+      "parish_name": "St. Mary Parish",
+      "parish_slug": "st-mary",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 22,
+      "total_enrollment": 6940,
+      "pct_of_state": 1.05,
+      "students_per_school": 315.5,
+      "gender": {
+        "pct_female": 48.5,
+        "pct_male": 51.5,
+        "female_count": 3366,
+        "male_count": 3574
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 40,
+        "asian": 62,
+        "black": 2549,
+        "hispanic": 1353,
+        "hawaiian_pacific": 5,
+        "white": 2423,
+        "multiple_races": 508
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.6,
+        "asian": 0.9,
+        "black": 36.7,
+        "hispanic": 19.5,
+        "hawaiian_pacific": 0.1,
+        "white": 34.9,
+        "multiple_races": 7.3
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 94.1,
+        "pct_limited": 5.9
+      },
+      "pct_economically_disadvantaged": 77.1,
+      "grades_k12": {
+        "kindergarten": 485,
+        "grade_1": 528,
+        "grade_2": 489,
+        "grade_3": 501,
+        "grade_4": 504,
+        "grade_5": 543,
+        "grade_6": 474,
+        "grade_7": 476,
+        "grade_8": 476,
+        "grade_9": 383,
+        "grade_10": 535,
+        "grade_11": 487,
+        "grade_12": 548
+      },
+      "k12_total": 6429
+    },
+    {
+      "parish_code": "052",
+      "parish_name": "St. Tammany Parish",
+      "parish_slug": "st-tammany",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 56,
+      "total_enrollment": 35375,
+      "pct_of_state": 5.36,
+      "students_per_school": 631.7,
+      "gender": {
+        "pct_female": 48.5,
+        "pct_male": 51.5,
+        "female_count": 17157,
+        "male_count": 18218
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 91,
+        "asian": 453,
+        "black": 7738,
+        "hispanic": 4164,
+        "hawaiian_pacific": 40,
+        "white": 21169,
+        "multiple_races": 1720
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.3,
+        "asian": 1.3,
+        "black": 21.9,
+        "hispanic": 11.8,
+        "hawaiian_pacific": 0.1,
+        "white": 59.8,
+        "multiple_races": 4.9
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 96.4,
+        "pct_limited": 3.6
+      },
+      "pct_economically_disadvantaged": 49.2,
+      "grades_k12": {
+        "kindergarten": 2409,
+        "grade_1": 2556,
+        "grade_2": 2592,
+        "grade_3": 2699,
+        "grade_4": 2685,
+        "grade_5": 2710,
+        "grade_6": 2750,
+        "grade_7": 2659,
+        "grade_8": 2478,
+        "grade_9": 2735,
+        "grade_10": 2596,
+        "grade_11": 2450,
+        "grade_12": 2459
+      },
+      "k12_total": 33778
+    },
+    {
+      "parish_code": "053",
+      "parish_name": "Tangipahoa Parish",
+      "parish_slug": "tangipahoa",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 34,
+      "total_enrollment": 18788,
+      "pct_of_state": 2.85,
+      "students_per_school": 552.6,
+      "gender": {
+        "pct_female": 49.5,
+        "pct_male": 50.5,
+        "female_count": 9300,
+        "male_count": 9488
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 28,
+        "asian": 115,
+        "black": 9095,
+        "hispanic": 2083,
+        "hawaiian_pacific": 10,
+        "white": 6433,
+        "multiple_races": 1024
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.6,
+        "black": 48.4,
+        "hispanic": 11.1,
+        "hawaiian_pacific": 0.1,
+        "white": 34.2,
+        "multiple_races": 5.5
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 95.8,
+        "pct_limited": 4.2
+      },
+      "pct_economically_disadvantaged": 76.5,
+      "grades_k12": {
+        "kindergarten": 1418,
+        "grade_1": 1311,
+        "grade_2": 1421,
+        "grade_3": 1458,
+        "grade_4": 1364,
+        "grade_5": 1390,
+        "grade_6": 1360,
+        "grade_7": 1360,
+        "grade_8": 1359,
+        "grade_9": 1466,
+        "grade_10": 1313,
+        "grade_11": 1236,
+        "grade_12": 1311
+      },
+      "k12_total": 17767
+    },
+    {
+      "parish_code": "054",
+      "parish_name": "Tensas Parish",
+      "parish_slug": "tensas",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 2,
+      "total_enrollment": 312,
+      "pct_of_state": 0.05,
+      "students_per_school": 156.0,
+      "gender": {
+        "pct_female": 46.2,
+        "pct_male": 53.8,
+        "female_count": 144,
+        "male_count": 168
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 0,
+        "asian": 0,
+        "black": 273,
+        "hispanic": 7,
+        "hawaiian_pacific": 0,
+        "white": 24,
+        "multiple_races": 8
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.0,
+        "asian": 0.0,
+        "black": 87.5,
+        "hispanic": 2.2,
+        "hawaiian_pacific": 0.0,
+        "white": 7.7,
+        "multiple_races": 2.6
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 98.7,
+        "pct_limited": 1.3
+      },
+      "pct_economically_disadvantaged": 95.5,
+      "grades_k12": {
+        "kindergarten": 23,
+        "grade_1": 28,
+        "grade_2": 24,
+        "grade_3": 27,
+        "grade_4": 26,
+        "grade_5": 18,
+        "grade_6": 27,
+        "grade_7": 26,
+        "grade_8": 20,
+        "grade_9": 16,
+        "grade_10": 23,
+        "grade_11": 13,
+        "grade_12": 21
+      },
+      "k12_total": 292
+    },
+    {
+      "parish_code": "055",
+      "parish_name": "Terrebonne Parish",
+      "parish_slug": "terrebonne",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 28,
+      "total_enrollment": 14462,
+      "pct_of_state": 2.19,
+      "students_per_school": 516.5,
+      "gender": {
+        "pct_female": 48.0,
+        "pct_male": 52.0,
+        "female_count": 6942,
+        "male_count": 7520
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 893,
+        "asian": 167,
+        "black": 3734,
+        "hispanic": 2037,
+        "hawaiian_pacific": 7,
+        "white": 6102,
+        "multiple_races": 1522
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 6.2,
+        "asian": 1.2,
+        "black": 25.8,
+        "hispanic": 14.1,
+        "hawaiian_pacific": 0.0,
+        "white": 42.2,
+        "multiple_races": 10.5
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 93.5,
+        "pct_limited": 6.5
+      },
+      "pct_economically_disadvantaged": 69.4,
+      "grades_k12": {
+        "kindergarten": 975,
+        "grade_1": 1144,
+        "grade_2": 1058,
+        "grade_3": 1010,
+        "grade_4": 1034,
+        "grade_5": 1051,
+        "grade_6": 1017,
+        "grade_7": 998,
+        "grade_8": 952,
+        "grade_9": 1091,
+        "grade_10": 1042,
+        "grade_11": 1036,
+        "grade_12": 906
+      },
+      "k12_total": 13314
+    },
+    {
+      "parish_code": "056",
+      "parish_name": "Union Parish",
+      "parish_slug": "union",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 3,
+      "total_enrollment": 1514,
+      "pct_of_state": 0.23,
+      "students_per_school": 504.7,
+      "gender": {
+        "pct_female": 49.3,
+        "pct_male": 50.7,
+        "female_count": 746,
+        "male_count": 768
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 5,
+        "asian": 8,
+        "black": 592,
+        "hispanic": 218,
+        "hawaiian_pacific": 1,
+        "white": 659,
+        "multiple_races": 31
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.3,
+        "asian": 0.5,
+        "black": 39.1,
+        "hispanic": 14.4,
+        "hawaiian_pacific": 0.1,
+        "white": 43.5,
+        "multiple_races": 2.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 92.3,
+        "pct_limited": 7.7
+      },
+      "pct_economically_disadvantaged": 81.1,
+      "grades_k12": {
+        "kindergarten": 110,
+        "grade_1": 104,
+        "grade_2": 111,
+        "grade_3": 111,
+        "grade_4": 97,
+        "grade_5": 105,
+        "grade_6": 121,
+        "grade_7": 123,
+        "grade_8": 124,
+        "grade_9": 113,
+        "grade_10": 109,
+        "grade_11": 104,
+        "grade_12": 82
+      },
+      "k12_total": 1414
+    },
+    {
+      "parish_code": "057",
+      "parish_name": "Vermilion Parish",
+      "parish_slug": "vermilion",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 21,
+      "total_enrollment": 8262,
+      "pct_of_state": 1.25,
+      "students_per_school": 393.4,
+      "gender": {
+        "pct_female": 49.1,
+        "pct_male": 50.9,
+        "female_count": 4057,
+        "male_count": 4205
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 17,
+        "asian": 161,
+        "black": 1766,
+        "hispanic": 426,
+        "hawaiian_pacific": 2,
+        "white": 5434,
+        "multiple_races": 456
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 1.9,
+        "black": 21.4,
+        "hispanic": 5.2,
+        "hawaiian_pacific": 0.0,
+        "white": 65.8,
+        "multiple_races": 5.5
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 98.1,
+        "pct_limited": 1.9
+      },
+      "pct_economically_disadvantaged": 63.3,
+      "grades_k12": {
+        "kindergarten": 583,
+        "grade_1": 633,
+        "grade_2": 574,
+        "grade_3": 583,
+        "grade_4": 610,
+        "grade_5": 604,
+        "grade_6": 584,
+        "grade_7": 554,
+        "grade_8": 591,
+        "grade_9": 622,
+        "grade_10": 643,
+        "grade_11": 524,
+        "grade_12": 583
+      },
+      "k12_total": 7688
+    },
+    {
+      "parish_code": "058",
+      "parish_name": "Vernon Parish",
+      "parish_slug": "vernon",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 19,
+      "total_enrollment": 7783,
+      "pct_of_state": 1.18,
+      "students_per_school": 409.6,
+      "gender": {
+        "pct_female": 48.6,
+        "pct_male": 51.4,
+        "female_count": 3783,
+        "male_count": 4000
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 37,
+        "asian": 61,
+        "black": 1108,
+        "hispanic": 738,
+        "hawaiian_pacific": 43,
+        "white": 5176,
+        "multiple_races": 620
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.5,
+        "asian": 0.8,
+        "black": 14.2,
+        "hispanic": 9.5,
+        "hawaiian_pacific": 0.6,
+        "white": 66.5,
+        "multiple_races": 8.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 98.8,
+        "pct_limited": 1.2
+      },
+      "pct_economically_disadvantaged": 64.3,
+      "grades_k12": {
+        "kindergarten": 596,
+        "grade_1": 613,
+        "grade_2": 595,
+        "grade_3": 575,
+        "grade_4": 620,
+        "grade_5": 548,
+        "grade_6": 543,
+        "grade_7": 565,
+        "grade_8": 559,
+        "grade_9": 542,
+        "grade_10": 467,
+        "grade_11": 427,
+        "grade_12": 440
+      },
+      "k12_total": 7090
+    },
+    {
+      "parish_code": "059",
+      "parish_name": "Washington Parish",
+      "parish_slug": "washington",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 11,
+      "total_enrollment": 4421,
+      "pct_of_state": 0.67,
+      "students_per_school": 401.9,
+      "gender": {
+        "pct_female": 47.8,
+        "pct_male": 52.2,
+        "female_count": 2113,
+        "male_count": 2308
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 9,
+        "asian": 14,
+        "black": 1183,
+        "hispanic": 227,
+        "hawaiian_pacific": 2,
+        "white": 2848,
+        "multiple_races": 138
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 0.3,
+        "black": 26.8,
+        "hispanic": 5.1,
+        "hawaiian_pacific": 0.0,
+        "white": 64.4,
+        "multiple_races": 3.1
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 98.4,
+        "pct_limited": 1.6
+      },
+      "pct_economically_disadvantaged": 76.4,
+      "grades_k12": {
+        "kindergarten": 309,
+        "grade_1": 295,
+        "grade_2": 289,
+        "grade_3": 356,
+        "grade_4": 354,
+        "grade_5": 342,
+        "grade_6": 310,
+        "grade_7": 313,
+        "grade_8": 297,
+        "grade_9": 248,
+        "grade_10": 310,
+        "grade_11": 297,
+        "grade_12": 296
+      },
+      "k12_total": 4016
+    },
+    {
+      "parish_code": "060",
+      "parish_name": "Webster Parish",
+      "parish_slug": "webster",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 14,
+      "total_enrollment": 4850,
+      "pct_of_state": 0.73,
+      "students_per_school": 346.4,
+      "gender": {
+        "pct_female": 48.2,
+        "pct_male": 51.8,
+        "female_count": 2338,
+        "male_count": 2512
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 11,
+        "asian": 16,
+        "black": 2256,
+        "hispanic": 168,
+        "hawaiian_pacific": 0,
+        "white": 2191,
+        "multiple_races": 208
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.2,
+        "asian": 0.3,
+        "black": 46.5,
+        "hispanic": 3.5,
+        "hawaiian_pacific": 0.0,
+        "white": 45.2,
+        "multiple_races": 4.3
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 98.8,
+        "pct_limited": 1.2
+      },
+      "pct_economically_disadvantaged": 79.6,
+      "grades_k12": {
+        "kindergarten": 356,
+        "grade_1": 382,
+        "grade_2": 357,
+        "grade_3": 353,
+        "grade_4": 330,
+        "grade_5": 366,
+        "grade_6": 307,
+        "grade_7": 329,
+        "grade_8": 341,
+        "grade_9": 391,
+        "grade_10": 322,
+        "grade_11": 366,
+        "grade_12": 380
+      },
+      "k12_total": 4580
+    },
+    {
+      "parish_code": "061",
+      "parish_name": "West Baton Rouge Parish",
+      "parish_slug": "west-baton-rouge",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 10,
+      "total_enrollment": 4149,
+      "pct_of_state": 0.63,
+      "students_per_school": 414.9,
+      "gender": {
+        "pct_female": 48.9,
+        "pct_male": 51.1,
+        "female_count": 2029,
+        "male_count": 2120
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 3,
+        "asian": 19,
+        "black": 2212,
+        "hispanic": 327,
+        "hawaiian_pacific": 0,
+        "white": 1504,
+        "multiple_races": 84
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.5,
+        "black": 53.3,
+        "hispanic": 7.9,
+        "hawaiian_pacific": 0.0,
+        "white": 36.2,
+        "multiple_races": 2.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 96.6,
+        "pct_limited": 3.4
+      },
+      "pct_economically_disadvantaged": 72.9,
+      "grades_k12": {
+        "kindergarten": 311,
+        "grade_1": 274,
+        "grade_2": 317,
+        "grade_3": 326,
+        "grade_4": 322,
+        "grade_5": 246,
+        "grade_6": 297,
+        "grade_7": 302,
+        "grade_8": 284,
+        "grade_9": 278,
+        "grade_10": 305,
+        "grade_11": 261,
+        "grade_12": 277
+      },
+      "k12_total": 3800
+    },
+    {
+      "parish_code": "062",
+      "parish_name": "West Carroll Parish",
+      "parish_slug": "west-carroll",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 3,
+      "total_enrollment": 1396,
+      "pct_of_state": 0.21,
+      "students_per_school": 465.3,
+      "gender": {
+        "pct_female": 48.3,
+        "pct_male": 51.7,
+        "female_count": 674,
+        "male_count": 722
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 4,
+        "asian": 4,
+        "black": 254,
+        "hispanic": 48,
+        "hawaiian_pacific": 1,
+        "white": 1054,
+        "multiple_races": 31
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.3,
+        "asian": 0.3,
+        "black": 18.2,
+        "hispanic": 3.4,
+        "hawaiian_pacific": 0.1,
+        "white": 75.5,
+        "multiple_races": 2.2
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.7,
+        "pct_limited": 0.3
+      },
+      "pct_economically_disadvantaged": 75.9,
+      "grades_k12": {
+        "kindergarten": 111,
+        "grade_1": 106,
+        "grade_2": 103,
+        "grade_3": 94,
+        "grade_4": 96,
+        "grade_5": 117,
+        "grade_6": 95,
+        "grade_7": 106,
+        "grade_8": 97,
+        "grade_9": 93,
+        "grade_10": 95,
+        "grade_11": 87,
+        "grade_12": 104
+      },
+      "k12_total": 1304
+    },
+    {
+      "parish_code": "063",
+      "parish_name": "West Feliciana Parish",
+      "parish_slug": "west-feliciana",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 4,
+      "total_enrollment": 2161,
+      "pct_of_state": 0.33,
+      "students_per_school": 540.2,
+      "gender": {
+        "pct_female": 49.5,
+        "pct_male": 50.5,
+        "female_count": 1070,
+        "male_count": 1091
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 3,
+        "asian": 3,
+        "black": 715,
+        "hispanic": 40,
+        "hawaiian_pacific": 0,
+        "white": 1347,
+        "multiple_races": 53
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.1,
+        "black": 33.1,
+        "hispanic": 1.9,
+        "hawaiian_pacific": 0.0,
+        "white": 62.3,
+        "multiple_races": 2.5
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.4,
+        "pct_limited": 0.6
+      },
+      "pct_economically_disadvantaged": 44.9,
+      "grades_k12": {
+        "kindergarten": 141,
+        "grade_1": 148,
+        "grade_2": 167,
+        "grade_3": 168,
+        "grade_4": 159,
+        "grade_5": 142,
+        "grade_6": 150,
+        "grade_7": 179,
+        "grade_8": 163,
+        "grade_9": 166,
+        "grade_10": 144,
+        "grade_11": 144,
+        "grade_12": 131
+      },
+      "k12_total": 2002
+    },
+    {
+      "parish_code": "064",
+      "parish_name": "Winn Parish",
+      "parish_slug": "winn",
+      "source_date": "February 1, 2026",
+      "schools_reporting": 5,
+      "total_enrollment": 1630,
+      "pct_of_state": 0.25,
+      "students_per_school": 326.0,
+      "gender": {
+        "pct_female": 49.1,
+        "pct_male": 50.9,
+        "female_count": 800,
+        "male_count": 830
+      },
+      "race_ethnicity_counts": {
+        "american_indian": 2,
+        "asian": 1,
+        "black": 568,
+        "hispanic": 48,
+        "hawaiian_pacific": 0,
+        "white": 945,
+        "multiple_races": 66
+      },
+      "race_ethnicity_pct": {
+        "american_indian": 0.1,
+        "asian": 0.1,
+        "black": 34.8,
+        "hispanic": 2.9,
+        "hawaiian_pacific": 0.0,
+        "white": 58.0,
+        "multiple_races": 4.0
+      },
+      "english_proficiency": {
+        "pct_fully_proficient": 99.5,
+        "pct_limited": 0.5
+      },
+      "pct_economically_disadvantaged": 73.8,
+      "grades_k12": {
+        "kindergarten": 97,
+        "grade_1": 117,
+        "grade_2": 114,
+        "grade_3": 112,
+        "grade_4": 147,
+        "grade_5": 117,
+        "grade_6": 110,
+        "grade_7": 114,
+        "grade_8": 113,
+        "grade_9": 135,
+        "grade_10": 124,
+        "grade_11": 118,
+        "grade_12": 113
+      },
+      "k12_total": 1531
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+.env
+
 # Logs
 logs
 *.log
@@ -19,6 +21,10 @@ dist-ssr
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
+
+# Python
+__pycache__/
+*.py[cod]
 
 # Editor directories and files
 .vscode/*

@@ -12,6 +12,8 @@ import {
   type LayerKey,
 } from "@/lib/lens-data";
 import { LA_PATH } from "@/lib/la-geo";
+import { formatParishSchools, formatParishStudents, getParishRealStats } from "@/lib/parish-stats";
+import { LayerToggle } from "@/components/lens/LayerToggle";
 import {
   ArrowDown,
   ArrowUp,
@@ -30,6 +32,7 @@ import {
 
 interface Props {
   layer: LayerKey;
+  onLayerChange: (layer: LayerKey) => void;
   selectedId: string | null;
   onSelect: (id: string) => void;
   focusIds: Set<string>;
@@ -38,10 +41,16 @@ interface Props {
 
 type ViewMode = "pins" | "heatmap";
 
+function parishRings(id: string): string[] {
+  const raw = PARISH_POLYGONS[id];
+  if (!raw) return [];
+  return Array.isArray(raw) ? raw : [raw];
+}
+
 const MIN_ZOOM = 0.55;
 const MAX_ZOOM = 3.5;
 
-export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFocus }: Props) {
+export function LouisianaMap({ layer, onLayerChange, selectedId, onSelect, focusIds, onClearFocus }: Props) {
   const [hoverId, setHoverId] = useState<string | null>(null);
   const [hoverInv, setHoverInv] = useState<Investment | null>(null);
   const [hoverEmp, setHoverEmp] = useState<string | null>(null);
@@ -93,26 +102,31 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
 
   return (
     <div className="relative flex flex-col overflow-hidden rounded-2xl border border-border bg-[var(--surface-elevated)] shadow-card">
-      {/* Header: title row + legend row (less crowded than one wrapped strip) */}
-      <div className="border-b border-border/80 px-5 pb-3 pt-4">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)]">
-              Geographic intelligence
-            </div>
-            <div className="mt-1 font-display text-lg font-semibold tracking-tight text-foreground md:text-xl">
-              Louisiana <span className="text-[var(--text-muted)]">·</span>{" "}
-              <span className="text-gradient-accent">{layer}</span>
-            </div>
-          </div>
+      <div className="px-4 pb-2 pt-3 md:px-5">
+        <LayerToggle active={layer} onChange={onLayerChange} compact />
 
-          <div className="flex items-center gap-1 rounded-full border border-border bg-[var(--background)] p-0.5 shadow-sm">
-            <ModeBtn active={showPins} onClick={() => setMode("pins")} label="Pins" icon={Pin} />
-            <ModeBtn active={showHeat} onClick={() => setMode("heatmap")} label="Heatmap" icon={Flame} />
-          </div>
-        </div>
-
-        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border/70 pt-3 text-[10px] font-medium uppercase tracking-[0.12em] text-[var(--text-secondary)]">
+        <div className="mt-2.5 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-medium uppercase tracking-[0.12em] text-[var(--text-secondary)]">
+          {showHeat && (
+            <>
+              <Legend swatch={<span className="h-2 w-2 rounded-full" style={{ background: "var(--sev-green)" }} />}>
+                Healthy
+              </Legend>
+              <Legend swatch={<span className="h-2 w-2 rounded-full" style={{ background: "var(--sev-lime)" }} />}>
+                Watch
+              </Legend>
+              <Legend swatch={<span className="h-2 w-2 rounded-full" style={{ background: "var(--sev-yellow)" }} />}>
+                Concerning
+              </Legend>
+              <Legend swatch={<span className="h-2 w-2 rounded-full" style={{ background: "var(--sev-orange)" }} />}>
+                Critical
+              </Legend>
+              <Legend swatch={<span className="h-2 w-2 rounded-full" style={{ background: "var(--sev-red)" }} />}>
+                Crisis
+              </Legend>
+              <span className="hidden h-3 w-px bg-border sm:inline sm:mx-0.5" aria-hidden />
+            </>
+          )}
           {showPins && (
             <>
               <Legend swatch={<span className="h-2 w-2 rounded-full" style={{ background: "var(--sev-green)" }} />}>
@@ -134,11 +148,17 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
           <Legend swatch={<TriangleAlert className="h-2.5 w-2.5" style={{ color: "var(--sev-red)" }} />}>
             Alert
           </Legend>
+          </div>
+
+          <div className="flex shrink-0 items-center gap-1 rounded-full border border-border bg-[var(--background)] p-0.5 shadow-sm">
+            <ModeBtn active={showPins} onClick={() => setMode("pins")} label="Pins" icon={Pin} />
+            <ModeBtn active={showHeat} onClick={() => setMode("heatmap")} label="Heatmap" icon={Flame} />
+          </div>
         </div>
       </div>
 
       {/* Map canvas */}
-      <div className="relative mx-auto mt-3 w-full max-w-[960px] px-5 pb-4">
+      <div className="relative w-full px-4 pb-4 md:px-5">
         <div
           onWheel={onWheel}
           onPointerDown={onPointerDown}
@@ -148,7 +168,7 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
           className={`relative w-full select-none touch-none overflow-hidden rounded-lg ${
             dragging ? "cursor-grabbing" : "cursor-grab"
           }`}
-          style={{ aspectRatio: "100 / 94" }}
+          style={{ aspectRatio: "100 / 82", minHeight: "min(72vh, 640px)" }}
         >
           {/* Transform wrapper */}
           <div
@@ -185,44 +205,75 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
                 </filter>
               </defs>
 
-              {/* Real Louisiana shape */}
-              <path
-                d={LA_PATH}
-                fill="url(#laFill)"
-                stroke="var(--ink)"
-                strokeWidth="0.35"
-                strokeLinejoin="round"
-              />
+              {/* Real Louisiana shape — pins mode base; heatmap uses parish fills only */}
+              {!showHeat && (
+                <path
+                  d={LA_PATH}
+                  fill="url(#laFill)"
+                  stroke="var(--ink)"
+                  strokeWidth="0.35"
+                  strokeLinejoin="round"
+                />
+              )}
               {!showHeat && <path d={LA_PATH} fill="url(#dots)" opacity="0.4" />}
 
-              {/* HEATMAP MODE: parish-level choropleth fills with borders */}
+              {/* HEATMAP: solid parish tiles (stroke matches fill to hide sub-pixel gaps) */}
               {showHeat && (
                 <g clipPath="url(#laClip)">
-                  {/* Filled parish polygons */}
-                  {PARISHES.map((p) => {
-                    const score = p.scores[layer];
-                    const sev = severity(layer, score);
-                    const color = SEV_COLOR[sev];
-                    const polyPoints = PARISH_POLYGONS[p.id];
-                    if (!polyPoints) return null;
-                    const isHovered = hoverId === p.id;
-                    return (
+                  {[...PARISHES]
+                    .sort((a, b) => a.scores[layer] - b.scores[layer])
+                    .map((p) => {
+                      const score = p.scores[layer];
+                      const sev = severity(layer, score);
+                      const color = SEV_COLOR[sev];
+                      const rings = parishRings(p.id);
+                      if (rings.length === 0) return null;
+                      const isHovered = hoverId === p.id;
+                      const isSelected = selectedId === p.id;
+                      return rings.map((polyPoints, ri) => (
+                        <polygon
+                          key={`fill-${p.id}-${ri}`}
+                          points={polyPoints}
+                          fill={color}
+                          fillOpacity={1}
+                          stroke={color}
+                          strokeWidth={isHovered || isSelected ? 0.65 : 0.5}
+                          strokeLinejoin="round"
+                          strokeLinecap="round"
+                          paintOrder="stroke fill"
+                          onMouseEnter={() => setHoverId(p.id)}
+                          onMouseLeave={() => setHoverId(null)}
+                          onClick={() => onSelect(p.id)}
+                          className="cursor-pointer"
+                          style={{ opacity: isHovered || isSelected ? 1 : 0.92 }}
+                        />
+                      ));
+                    })}
+                  {/* Parish borders on top */}
+                  {[...PARISHES].flatMap((p) =>
+                    parishRings(p.id).map((polyPoints, ri) => (
                       <polygon
-                        key={`fill-${p.id}`}
+                        key={`edge-${p.id}-${ri}`}
                         points={polyPoints}
-                        fill={color}
-                        fillOpacity={isHovered ? 0.85 : 0.6}
-                        stroke="var(--background)"
-                        strokeWidth={isHovered ? 0.6 : 0.3}
+                        fill="none"
+                        stroke="rgba(45,42,38,0.22)"
+                        strokeWidth={0.22}
                         strokeLinejoin="round"
-                        onMouseEnter={() => setHoverId(p.id)}
-                        onMouseLeave={() => setHoverId(null)}
-                        onClick={() => onSelect(p.id)}
-                        className="cursor-pointer transition-[fill-opacity] duration-150"
+                        pointerEvents="none"
                       />
-                    );
-                  })}
+                    )),
+                  )}
                 </g>
+              )}
+              {showHeat && (
+                <path
+                  d={LA_PATH}
+                  fill="none"
+                  stroke="var(--ink)"
+                  strokeWidth="0.45"
+                  strokeLinejoin="round"
+                  pointerEvents="none"
+                />
               )}
 
               {/* Highways */}
@@ -267,9 +318,11 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
                   <defs>
                     <mask id="focusMask">
                       <rect x="0" y="0" width="100" height="100" fill="white" />
-                      {[...focusIds].map((id) => (
-                        <polygon key={id} points={PARISH_POLYGONS[id]} fill="black" />
-                      ))}
+                      {[...focusIds].flatMap((id) =>
+                        parishRings(id).map((pts, ri) => (
+                          <polygon key={`${id}-${ri}`} points={pts} fill="black" />
+                        )),
+                      )}
                     </mask>
                   </defs>
                   <path
@@ -288,15 +341,18 @@ export function LouisianaMap({ layer, selectedId, onSelect, focusIds, onClearFoc
                   const color = SEV_COLOR[severity(layer, p.scores[layer])];
                   return (
                     <g key={`focus-${id}`}>
-                      <polygon
-                        points={PARISH_POLYGONS[id]}
-                        fill={color}
-                        fillOpacity={0.12}
-                        stroke={color}
-                        strokeWidth={0.55}
-                        strokeDasharray="0.8 0.4"
-                        filter="url(#focusGlow)"
-                      />
+                      {parishRings(id).map((pts, ri) => (
+                        <polygon
+                          key={`focus-poly-${id}-${ri}`}
+                          points={pts}
+                          fill={color}
+                          fillOpacity={0.12}
+                          stroke={color}
+                          strokeWidth={0.55}
+                          strokeDasharray="0.8 0.4"
+                          filter="url(#focusGlow)"
+                        />
+                      ))}
                       {/* Parish label inside polygon */}
                       <text
                         x={p.x}
@@ -652,6 +708,7 @@ function ParishInsightCard({
       ? "var(--sev-red)"
       : "var(--text-muted)";
   const dfPct = ((parish.dfSchools / parish.totalSchools) * 100).toFixed(0);
+  const real = getParishRealStats(parish.id);
 
   const above = parish.y > 35;
   const baseTransform = above
@@ -676,7 +733,7 @@ function ParishInsightCard({
               {parish.name}
             </div>
             <div className="mt-0.5 flex items-center gap-1.5 text-[10px] text-[var(--text-muted)]">
-              <span className="font-mono tabular-nums">{(parish.population / 1000).toFixed(0)}K pop</span>
+              <span className="font-mono tabular-nums">{formatParishStudents(real)} enrolled</span>
               <span style={{ color: trendColor }} className="inline-flex items-center gap-0.5">
                 <TrendIcon className="h-2.5 w-2.5" />
                 {parish.trend === "flat" ? "stable" : parish.trend}
@@ -700,8 +757,8 @@ function ParishInsightCard({
         </div>
 
         <div className="grid grid-cols-3 gap-2 px-3 py-2.5">
-          <MiniStat label="Schools" value={String(parish.totalSchools)} />
-          <MiniStat label="Students" value={`${(parish.students / 1000).toFixed(0)}K`} />
+          <MiniStat label="Schools" value={formatParishSchools(real)} />
+          <MiniStat label="Students" value={formatParishStudents(real)} />
           <MiniStat label="D/F" value={`${dfPct}%`} tone="danger" />
         </div>
 

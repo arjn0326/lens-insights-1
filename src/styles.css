@@ -123,6 +123,29 @@
     border-radius: 3px;
   }
   .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .policy-sim-slider {
+    height: 6px;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 999px;
+    background: var(--border);
+  }
+  .policy-sim-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--blue);
+    border: 2px solid var(--surface-elevated);
+    box-shadow: 0 1px 3px oklch(0.18 0.015 260 / 0.2);
+  }
+  .policy-sim-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--blue);
+    border: 2px solid var(--surface-elevated);
+  }
   .font-display {
     font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
     letter-spacing: -0.02em;
@@ -140,3 +163,68 @@
   50% { opacity: 0.95; }
 }
 .school-dot { animation: school-pulse 3s ease-in-out infinite; }
+
+/* Landing page */
+.landing-grid {
+  background-image:
+    linear-gradient(oklch(0.88 0.012 85 / 0.6) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.88 0.012 85 / 0.6) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 75%);
+}
+
+.landing-card {
+  animation: landing-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes landing-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Full report print / Save as PDF */
+@media print {
+  @page {
+    margin: 0.75in;
+    size: letter;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .lens-report header.sticky {
+    position: static !important;
+  }
+
+  .lens-report aside {
+    display: none !important;
+  }
+
+  .lens-report .lg\:flex-row {
+    display: block !important;
+  }
+
+  .lens-report [class*="sticky"] {
+    position: static !important;
+  }
+
+  .lens-report section,
+  .lens-report .rounded-xl {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

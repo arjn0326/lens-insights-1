@@ -1,10 +1,6 @@
 import { useCallback, useState } from "react";
-import { Link } from "@tanstack/react-router";
-import { Header } from "@/components/lens/Header";
-import { SimulatorPanel } from "@/components/lens/SimulatorPanel";
-import { LayerToggle } from "@/components/lens/LayerToggle";
+import { DashboardTopBar } from "@/components/lens/Header";
 import { LouisianaMap } from "@/components/lens/LouisianaMap";
-import { StatRow } from "@/components/lens/StatRow";
 import { RankingsList } from "@/components/lens/RankingsList";
 import { ParishDetail } from "@/components/lens/ParishDetail";
 import { StateDetail } from "@/components/lens/StateDetail";
@@ -14,7 +10,6 @@ import type { LayerKey } from "@/lib/lens-data";
 export function LensDashboard() {
   const [layer, setLayer] = useState<LayerKey>("Health");
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [simulatorOpen, setSimulatorOpen] = useState(false);
   const [focusIds, setFocusIds] = useState<Set<string>>(new Set());
 
   const toggleFocus = useCallback((id: string) => {
@@ -30,40 +25,28 @@ export function LensDashboard() {
 
   return (
     <div className="flex h-screen w-full flex-col overflow-hidden bg-background text-foreground">
-      <Header
-        simulatorOpen={simulatorOpen}
-        onToggleSimulator={() => setSimulatorOpen((v) => !v)}
+      <DashboardTopBar
+        showBack={selectedId !== null}
+        onBack={() => setSelectedId(null)}
       />
-      {simulatorOpen && <SimulatorPanel />}
 
       <div className="flex flex-1 overflow-hidden">
-        {/* Main */}
-        <main className="scrollbar-thin flex flex-1 flex-col gap-5 overflow-y-auto p-5 md:p-6">
-          <LayerToggle active={layer} onChange={setLayer} />
+        <main className="scrollbar-thin flex flex-1 flex-col overflow-y-auto px-3 pb-4 pt-3 md:px-4 md:pb-5">
           <LouisianaMap
             layer={layer}
+            onLayerChange={setLayer}
             selectedId={selectedId}
             onSelect={(id) => setSelectedId(id)}
             focusIds={focusIds}
             onClearFocus={clearFocus}
           />
-          <StatRow />
-          <Link
-            to="/funding-flow"
-            className="flex items-center justify-between rounded-xl border border-border bg-[var(--surface)] px-5 py-3.5 shadow-card transition-colors hover:border-foreground/20 hover:bg-[var(--surface-elevated)]"
-          >
-            <span className="font-display text-[14px] font-semibold tracking-tight text-foreground">
-              View Statewide Funding Flow →
-            </span>
-          </Link>
         </main>
 
-        {/* Right sidebar */}
-        <aside className="flex w-[320px] flex-shrink-0 flex-col border-l border-border bg-[var(--surface)]">
+        <aside className="flex w-[min(420px,38vw)] min-w-[380px] flex-shrink-0 flex-col border-l border-border/60 bg-[var(--background)]">
           {selectedId === STATE_SELECTION_ID ? (
-            <StateDetail onBack={() => setSelectedId(null)} />
+            <StateDetail />
           ) : selectedId ? (
-            <ParishDetail parishId={selectedId} onBack={() => setSelectedId(null)} />
+            <ParishDetail parishId={selectedId} />
           ) : (
             <RankingsList
               layer={layer}

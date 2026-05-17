@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { StateReport } from "@/components/StateReport";
+import { requireAuth } from "@/lib/route-auth";
 
 export const Route = createFileRoute("/state")({
+  beforeLoad: requireAuth,
   component: StateReportPage,
   head: () => ({
     meta: [

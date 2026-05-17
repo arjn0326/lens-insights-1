@@ -1,15 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { LensDashboard } from "@/components/lens/LensDashboard";
+import { LandingPage } from "@/components/landing/LandingPage";
+import { redirectIfAuthenticated } from "@/lib/route-auth";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  beforeLoad: redirectIfAuthenticated,
+  component: LandingPage,
   head: () => ({
     meta: [
-      { title: "LENS — Louisiana Education & Needs Synthesis" },
+      { title: "LENS — Sign in" },
       {
         name: "description",
         content:
-          "LENS is a decision intelligence platform for Louisiana education leaders — parish-level health, need, access, readiness, demand, and pipeline indices.",
+          "Louisiana Education & Needs Synthesis — secure access to parish intelligence, maps, and statewide reports.",
       },
       { property: "og:title", content: "LENS — Louisiana Education & Needs Synthesis" },
       {
@@ -19,7 +21,3 @@ export const Route = createFileRoute("/")({
     ],
   }),
 });
-
-function Index() {
-  return <LensDashboard />;
-}

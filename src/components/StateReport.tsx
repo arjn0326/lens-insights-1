@@ -1,7 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { sankey, sankeyLinkHorizontal, type SankeyGraph, type SankeyLink, type SankeyNode } from "d3-sankey";
 import { ArrowLeft } from "lucide-react";
+import { ReportToolbar } from "@/components/lens/report/ReportToolbar";
 import {
   Bar,
   BarChart,
@@ -22,10 +21,30 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import stateReportData from "../../public/data/state_report_data.json";
-import ldoeFundingData from "../../public/data/ldoe_funding.json";
 import { StatewideAcademicSection } from "@/components/lens/StatewideAcademicSection";
 import { TeacherCompensationSection } from "@/components/lens/TeacherCompensationSection";
 import { WorkforceSnapshotSection } from "@/components/lens/WorkforceSnapshotSection";
+import { LaborMarketPanel } from "@/components/lens/LaborMarketPanel";
+import { GraduationPanel } from "@/components/lens/GraduationPanel";
+import { StatePerPupilFundingSection } from "@/components/lens/StatePerPupilFundingSection";
+import { StateLdoeBudgetSankey } from "@/components/lens/StateLdoeBudgetSankey";
+import { ReportLayout } from "@/components/lens/report/ReportLayout";
+import { ReportSection } from "@/components/lens/report/ReportSection";
+import {
+  STATE_REPORT_SECTIONS,
+} from "@/components/lens/report/state-report-sections";
+import enrollmentData from "../../public/data/enrollment_by_parish.json";
+
+const enrollmentMeta = (
+  enrollmentData as {
+    meta: {
+      state_total_enrollment: number;
+      state_total_schools: number;
+      report_date: string;
+      parish_count: number;
+    };
+  }
+).meta;
 
 const { gradeConfig, spsTrend, districtTrend } = stateReportData;
 
@@ -61,20 +80,6 @@ const districtLineData = districtTrend.years.map((year, i) => ({
 
 const axisTick = { fontSize: 10, fill: "var(--text-muted)" };
 const gridStroke = "var(--border)";
-
-const LDOE_SOURCE_COLOR = "#3D3A35";
-const APPROPRIATION_COLORS: Record<string, string> = {
-  "678": "#378ADD",
-  "681": "#1D9E75",
-  "682": "#BA7517",
-  "695": "#534AB7",
-  "697": "#D85A30",
-};
-
-type FundingNodeDatum = { id: string; label: string };
-type FundingSankeyNode = SankeyNode<FundingNodeDatum, Record<string, unknown>>;
-type FundingSankeyLink = SankeyLink<FundingNodeDatum, FundingSankeyNode>;
-type FundingGraph = SankeyGraph<FundingNodeDatum, FundingSankeyLink>;
 
 function ChartTooltip({
   active,
@@ -136,115 +141,22 @@ function SpsTooltip({
   );
 }
 
-function LdoeFundingSankey() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(720);
-  const height = 380;
-  const margin = { top: 12, right: 148, bottom: 12, left: 108 };
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const update = () => setWidth(el.clientWidth);
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
-
-  const graph = useMemo((): FundingGraph | null => {
-    if (width <= 0) return null;
-    const nodes = ldoeFundingData.nodes.map((n) => ({ ...n }));
-    const links = ldoeFundingData.links.map((l) => ({ ...l }));
-    const layout = sankey<FundingNodeDatum, Record<string, unknown>>()
-      .nodeId((d) => d.id)
-      .nodeWidth(16)
-      .nodePadding(20)
-      .extent([
-        [margin.left, margin.top],
-        [width - margin.right, height - margin.bottom],
-      ]);
-    return layout({ nodes, links }) as FundingGraph;
-  }, [width]);
-
-  const linkPath = useMemo(() => sankeyLinkHorizontal(), []);
-
-  return (
-    <div ref={containerRef} className="w-full">
-      <svg width={width} height={height} className="overflow-visible">
-        {graph?.links.map((link, i) => {
-          const targetId = (link.target as FundingSankeyNode).id;
-          const color = APPROPRIATION_COLORS[targetId] ?? "#378ADD";
-          const d = linkPath(link);
-          if (!d) return null;
-          return (
-            <path
-              key={i}
-              d={d}
-              fill={color}
-              fillOpacity={0.4}
-              stroke="none"
-            />
-          );
-        })}
-        {graph?.nodes.map((node) => {
-          const nodeId = node.id;
-          const color =
-            nodeId === "LDOE" ? LDOE_SOURCE_COLOR : (APPROPRIATION_COLORS[nodeId] ?? "#378ADD");
-          const x = node.x0 ?? 0;
-          const y = node.y0 ?? 0;
-          const w = (node.x1 ?? 0) - x;
-          const h = (node.y1 ?? 0) - y;
-          const onLeft = x + w / 2 < width / 2;
-          const labelX = onLeft ? x - 10 : (node.x1 ?? 0) + 10;
-          const anchor = onLeft ? "end" : "start";
-          const lines = node.label.split("\n");
-
-          return (
-            <g key={nodeId}>
-              <rect
-                x={x}
-                y={y}
-                width={w}
-                height={h}
-                fill={color}
-                rx={2}
-                opacity={0.92}
-              />
-              <text
-                x={labelX}
-                y={y + h / 2}
-                textAnchor={anchor}
-                dominantBaseline="middle"
-                fill="var(--foreground)"
-                fontSize={10}
-                fontWeight={nodeId === "LDOE" ? 700 : 600}
-              >
-                {lines.map((line, li) => (
-                  <tspan
-                    key={li}
-                    x={labelX}
-                    dy={li === 0 ? `${-(lines.length - 1) * 0.55}em` : "1.1em"}
-                  >
-                    {line}
-                  </tspan>
-                ))}
-              </text>
-            </g>
-          );
-        })}
-      </svg>
-    </div>
-  );
+function reportShareUrl(path: string) {
+  if (typeof window !== "undefined") {
+    return `${window.location.origin}${path}`;
+  }
+  return path;
 }
 
 export function StateReport() {
+  const shareUrl = reportShareUrl("/state");
+
   return (
-    <div className="min-h-screen w-full bg-background text-foreground">
-      <header className="sticky top-0 z-30 border-b border-border bg-[var(--background)]/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-[960px] items-center justify-between px-4 py-3 md:px-8">
+    <div className="lens-report min-h-screen w-full bg-background text-foreground">
+      <header className="sticky top-0 z-30 border-b border-border bg-[var(--background)]/85 backdrop-blur-md print:hidden">
+        <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3 md:px-8">
           <Link
-            to="/"
+            to="/app"
             className="group inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--text-secondary)] transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
@@ -254,19 +166,64 @@ export function StateReport() {
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--blue)]" />
             LENS · State Report
           </div>
+          <ReportToolbar shareUrl={shareUrl} />
         </div>
       </header>
 
-      <div className="mx-auto max-w-[960px] px-4 py-8 md:px-8">
-        <header className="mb-8">
-          <p className="font-mono text-[10px] font-semibold tabular-nums tracking-wider text-[var(--blue)]">
-            00 · STATEWIDE
-          </p>
-          <h1 className="mt-1 font-display text-2xl font-bold tracking-tight md:text-3xl">
-            Louisiana — State Overview
-          </h1>
-        </header>
+      <ReportLayout
+        sections={STATE_REPORT_SECTIONS}
+        hero={
+          <header>
+            <p className="font-mono text-[10px] font-semibold tabular-nums tracking-wider text-[var(--blue)]">
+              00 · STATEWIDE
+            </p>
+            <h1 className="mt-1 font-display text-3xl font-bold tracking-tight md:text-4xl">
+              Louisiana — State Overview
+            </h1>
+            <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[var(--text-secondary)]">
+              A guided tour of enrollment, funding, graduation, school performance, workforce demand, and
+              academic outcomes across all 64 parishes.
+            </p>
+          </header>
+        }
+      >
+        <ReportSection id="at-a-glance" number="01" title="At a glance">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="rounded-xl border border-border bg-[var(--surface-elevated)] p-4 sm:col-span-2">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
+              LDOE · {enrollmentMeta.report_date} · Public schools only
+            </p>
+            <p className="mt-1 text-[11px] text-[var(--text-secondary)]">Total students enrolled statewide</p>
+            <p className="mt-2 font-display text-3xl font-bold tabular-nums tracking-tight text-foreground">
+              {enrollmentMeta.state_total_enrollment.toLocaleString()}
+            </p>
+          </div>
+          <div className="rounded-xl border border-border bg-[var(--surface-elevated)] p-4">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
+              Reporting sites
+            </p>
+            <p className="mt-2 font-display text-3xl font-bold tabular-nums tracking-tight text-foreground">
+              {enrollmentMeta.state_total_schools.toLocaleString()}
+            </p>
+            <p className="mt-1 text-[11px] text-[var(--text-secondary)]">
+              across {enrollmentMeta.parish_count} parishes
+            </p>
+          </div>
+        </div>
+        </ReportSection>
 
+        <ReportSection id="funding" number="02" title="Funding & investment">
+          <div className="space-y-8">
+            <StateLdoeBudgetSankey />
+            <StatePerPupilFundingSection />
+          </div>
+        </ReportSection>
+
+        <ReportSection id="graduation" number="03" title="Graduation & credentials">
+          <GraduationPanel variant="state" />
+        </ReportSection>
+
+        <ReportSection id="school-performance" number="04" title="School performance">
         <div className="flex flex-col gap-6">
         <Card>
           <CardHeader>
@@ -419,25 +376,28 @@ export function StateReport() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>LDOE 5YR Strategic Plan Funding Flow 2023–2028</CardTitle>
-            <CardDescription>
-              Total budget dispersal across five major appropriation categories (amounts in $M)
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <LdoeFundingSankey />
-          </CardContent>
-        </Card>
-
-        <StatewideAcademicSection />
-
-        <TeacherCompensationSection />
-
-        <WorkforceSnapshotSection />
         </div>
-      </div>
+        </ReportSection>
+
+        <ReportSection id="workforce" number="05" title="Workforce & economy">
+          <div className="space-y-8">
+            <LaborMarketPanel />
+            <WorkforceSnapshotSection />
+          </div>
+        </ReportSection>
+
+        <ReportSection id="academic" number="06" title="Academic outcomes">
+          <StatewideAcademicSection />
+        </ReportSection>
+
+        <ReportSection id="educators" number="07" title="Educator compensation">
+          <TeacherCompensationSection />
+        </ReportSection>
+
+        <footer className="border-t border-border pt-5 text-[10px] uppercase tracking-[0.16em] text-[var(--text-muted)]">
+          LENS · Louisiana Education &amp; Needs Synthesis
+        </footer>
+      </ReportLayout>
     </div>
   );
 }

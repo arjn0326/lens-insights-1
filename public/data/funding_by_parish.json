@@ -1,0 +1,642 @@
+{
+  "meta": {
+    "source": "Louisiana Treasurer's Office \u00b7 LDOE",
+    "description": "Per pupil expenditure and statewide spending breakdown",
+    "state_avg_per_pupil": 15387,
+    "parish_count": 64
+  },
+  "state": {
+    "spend_per_pupil": 15387,
+    "spending_categories": [
+      {
+        "id": "instruction",
+        "name": "Instruction",
+        "amount": 8441,
+        "pct": 54.9,
+        "description": "Teachers, classroom materials, curriculum delivery"
+      },
+      {
+        "id": "other-support",
+        "name": "Other Support",
+        "amount": 3235,
+        "pct": 21.0,
+        "description": "District-level support services"
+      },
+      {
+        "id": "student-support",
+        "name": "Student & Instructional Support",
+        "amount": 1868,
+        "pct": 12.1,
+        "description": "Counselors, librarians, instructional coaches"
+      },
+      {
+        "id": "administration",
+        "name": "School Administration",
+        "amount": 990,
+        "pct": 6.4,
+        "description": "Principals, school office operations"
+      },
+      {
+        "id": "transportation",
+        "name": "Transportation",
+        "amount": 853,
+        "pct": 5.5,
+        "description": "School buses, routes, drivers"
+      }
+    ],
+    "funding_sources": [
+      {
+        "id": "state",
+        "name": "State Sources",
+        "amount": 13190,
+        "pct": 85.7,
+        "notes": "MFP formula + statutory dedications"
+      },
+      {
+        "id": "federal",
+        "name": "Federal Sources",
+        "amount": 2199,
+        "pct": 14.3,
+        "notes": "Title I, IDEA, ESEA grants"
+      }
+    ]
+  },
+  "parishes": [
+    {
+      "parish_slug": "orleans",
+      "parish_name": "Orleans Parish",
+      "spend_per_pupil": 38300,
+      "vs_state_avg_dollars": 22913,
+      "vs_state_avg_pct": 148.9,
+      "rank": 1,
+      "signal": null
+    },
+    {
+      "parish_slug": "cameron",
+      "parish_name": "Cameron Parish",
+      "spend_per_pupil": 29249,
+      "vs_state_avg_dollars": 13862,
+      "vs_state_avg_pct": 90.1,
+      "rank": 2,
+      "signal": null
+    },
+    {
+      "parish_slug": "red-river",
+      "parish_name": "Red River Parish",
+      "spend_per_pupil": 25330,
+      "vs_state_avg_dollars": 9943,
+      "vs_state_avg_pct": 64.6,
+      "rank": 3,
+      "signal": null
+    },
+    {
+      "parish_slug": "tensas",
+      "parish_name": "Tensas Parish",
+      "spend_per_pupil": 23694,
+      "vs_state_avg_dollars": 8307,
+      "vs_state_avg_pct": 54.0,
+      "rank": 4,
+      "signal": null
+    },
+    {
+      "parish_slug": "iberville",
+      "parish_name": "Iberville Parish",
+      "spend_per_pupil": 23241,
+      "vs_state_avg_dollars": 7854,
+      "vs_state_avg_pct": 51.0,
+      "rank": 5,
+      "signal": null
+    },
+    {
+      "parish_slug": "st-charles",
+      "parish_name": "St. Charles Parish",
+      "spend_per_pupil": 21751,
+      "vs_state_avg_dollars": 6364,
+      "vs_state_avg_pct": 41.4,
+      "rank": 6,
+      "signal": null
+    },
+    {
+      "parish_slug": "st-john-the-baptist",
+      "parish_name": "St. John the Baptist Parish",
+      "spend_per_pupil": 21562,
+      "vs_state_avg_dollars": 6175,
+      "vs_state_avg_pct": 40.1,
+      "rank": 7,
+      "signal": null
+    },
+    {
+      "parish_slug": "bienville",
+      "parish_name": "Bienville Parish",
+      "spend_per_pupil": 21373,
+      "vs_state_avg_dollars": 5986,
+      "vs_state_avg_pct": 38.9,
+      "rank": 8,
+      "signal": null
+    },
+    {
+      "parish_slug": "east-carroll",
+      "parish_name": "East Carroll Parish",
+      "spend_per_pupil": 20185,
+      "vs_state_avg_dollars": 4798,
+      "vs_state_avg_pct": 31.2,
+      "rank": 9,
+      "signal": null
+    },
+    {
+      "parish_slug": "plaquemines",
+      "parish_name": "Plaquemines Parish",
+      "spend_per_pupil": 20166,
+      "vs_state_avg_dollars": 4779,
+      "vs_state_avg_pct": 31.1,
+      "rank": 10,
+      "signal": null
+    },
+    {
+      "parish_slug": "st-james",
+      "parish_name": "St. James Parish",
+      "spend_per_pupil": 19832,
+      "vs_state_avg_dollars": 4445,
+      "vs_state_avg_pct": 28.9,
+      "rank": 11,
+      "signal": null
+    },
+    {
+      "parish_slug": "madison",
+      "parish_name": "Madison Parish",
+      "spend_per_pupil": 19726,
+      "vs_state_avg_dollars": 4339,
+      "vs_state_avg_pct": 28.2,
+      "rank": 12,
+      "signal": null
+    },
+    {
+      "parish_slug": "west-feliciana",
+      "parish_name": "West Feliciana Parish",
+      "spend_per_pupil": 19093,
+      "vs_state_avg_dollars": 3706,
+      "vs_state_avg_pct": 24.1,
+      "rank": 13,
+      "signal": null
+    },
+    {
+      "parish_slug": "desoto",
+      "parish_name": "DeSoto Parish",
+      "spend_per_pupil": 18678,
+      "vs_state_avg_dollars": 3291,
+      "vs_state_avg_pct": 21.4,
+      "rank": 14,
+      "signal": null
+    },
+    {
+      "parish_slug": "west-baton-rouge",
+      "parish_name": "West Baton Rouge Parish",
+      "spend_per_pupil": 18486,
+      "vs_state_avg_dollars": 3099,
+      "vs_state_avg_pct": 20.1,
+      "rank": 15,
+      "signal": null
+    },
+    {
+      "parish_slug": "catahoula",
+      "parish_name": "Catahoula Parish",
+      "spend_per_pupil": 17997,
+      "vs_state_avg_dollars": 2610,
+      "vs_state_avg_pct": 17.0,
+      "rank": 16,
+      "signal": null
+    },
+    {
+      "parish_slug": "claiborne",
+      "parish_name": "Claiborne Parish",
+      "spend_per_pupil": 17705,
+      "vs_state_avg_dollars": 2318,
+      "vs_state_avg_pct": 15.1,
+      "rank": 17,
+      "signal": null
+    },
+    {
+      "parish_slug": "pointe-coupee",
+      "parish_name": "Pointe Coupee Parish",
+      "spend_per_pupil": 17701,
+      "vs_state_avg_dollars": 2314,
+      "vs_state_avg_pct": 15.0,
+      "rank": 18,
+      "signal": null
+    },
+    {
+      "parish_slug": "morehouse",
+      "parish_name": "Morehouse Parish",
+      "spend_per_pupil": 17449,
+      "vs_state_avg_dollars": 2062,
+      "vs_state_avg_pct": 13.4,
+      "rank": 19,
+      "signal": null
+    },
+    {
+      "parish_slug": "east-feliciana",
+      "parish_name": "East Feliciana Parish",
+      "spend_per_pupil": 17234,
+      "vs_state_avg_dollars": 1847,
+      "vs_state_avg_pct": 12.0,
+      "rank": 20,
+      "signal": null
+    },
+    {
+      "parish_slug": "caldwell",
+      "parish_name": "Caldwell Parish",
+      "spend_per_pupil": 16899,
+      "vs_state_avg_dollars": 1512,
+      "vs_state_avg_pct": 9.8,
+      "rank": 21,
+      "signal": null
+    },
+    {
+      "parish_slug": "natchitoches",
+      "parish_name": "Natchitoches Parish",
+      "spend_per_pupil": 16838,
+      "vs_state_avg_dollars": 1451,
+      "vs_state_avg_pct": 9.4,
+      "rank": 22,
+      "signal": null
+    },
+    {
+      "parish_slug": "concordia",
+      "parish_name": "Concordia Parish",
+      "spend_per_pupil": 16686,
+      "vs_state_avg_dollars": 1299,
+      "vs_state_avg_pct": 8.4,
+      "rank": 23,
+      "signal": null
+    },
+    {
+      "parish_slug": "union",
+      "parish_name": "Union Parish",
+      "spend_per_pupil": 16681,
+      "vs_state_avg_dollars": 1294,
+      "vs_state_avg_pct": 8.4,
+      "rank": 24,
+      "signal": null
+    },
+    {
+      "parish_slug": "sabine",
+      "parish_name": "Sabine Parish",
+      "spend_per_pupil": 16582,
+      "vs_state_avg_dollars": 1195,
+      "vs_state_avg_pct": 7.8,
+      "rank": 25,
+      "signal": null
+    },
+    {
+      "parish_slug": "east-baton-rouge",
+      "parish_name": "East Baton Rouge Parish",
+      "spend_per_pupil": 16539,
+      "vs_state_avg_dollars": 1152,
+      "vs_state_avg_pct": 7.5,
+      "rank": 26,
+      "signal": null
+    },
+    {
+      "parish_slug": "jackson",
+      "parish_name": "Jackson Parish",
+      "spend_per_pupil": 16331,
+      "vs_state_avg_dollars": 944,
+      "vs_state_avg_pct": 6.1,
+      "rank": 27,
+      "signal": null
+    },
+    {
+      "parish_slug": "franklin",
+      "parish_name": "Franklin Parish",
+      "spend_per_pupil": 16140,
+      "vs_state_avg_dollars": 753,
+      "vs_state_avg_pct": 4.9,
+      "rank": 28,
+      "signal": null
+    },
+    {
+      "parish_slug": "calcasieu",
+      "parish_name": "Calcasieu Parish",
+      "spend_per_pupil": 16007,
+      "vs_state_avg_dollars": 620,
+      "vs_state_avg_pct": 4.0,
+      "rank": 29,
+      "signal": null
+    },
+    {
+      "parish_slug": "st-tammany",
+      "parish_name": "St. Tammany Parish",
+      "spend_per_pupil": 15911,
+      "vs_state_avg_dollars": 524,
+      "vs_state_avg_pct": 3.4,
+      "rank": 30,
+      "signal": null
+    },
+    {
+      "parish_slug": "evangeline",
+      "parish_name": "Evangeline Parish",
+      "spend_per_pupil": 15775,
+      "vs_state_avg_dollars": 388,
+      "vs_state_avg_pct": 2.5,
+      "rank": 31,
+      "signal": null
+    },
+    {
+      "parish_slug": "lincoln",
+      "parish_name": "Lincoln Parish",
+      "spend_per_pupil": 15553,
+      "vs_state_avg_dollars": 166,
+      "vs_state_avg_pct": 1.1,
+      "rank": 32,
+      "signal": null
+    },
+    {
+      "parish_slug": "west-carroll",
+      "parish_name": "West Carroll Parish",
+      "spend_per_pupil": 15411,
+      "vs_state_avg_dollars": 24,
+      "vs_state_avg_pct": 0.2,
+      "rank": 33,
+      "signal": null
+    },
+    {
+      "parish_slug": "winn",
+      "parish_name": "Winn Parish",
+      "spend_per_pupil": 15349,
+      "vs_state_avg_dollars": -38,
+      "vs_state_avg_pct": -0.2,
+      "rank": 34,
+      "signal": null
+    },
+    {
+      "parish_slug": "webster",
+      "parish_name": "Webster Parish",
+      "spend_per_pupil": 15338,
+      "vs_state_avg_dollars": -49,
+      "vs_state_avg_pct": -0.3,
+      "rank": 35,
+      "signal": null
+    },
+    {
+      "parish_slug": "assumption",
+      "parish_name": "Assumption Parish",
+      "spend_per_pupil": 15335,
+      "vs_state_avg_dollars": -52,
+      "vs_state_avg_pct": -0.3,
+      "rank": 36,
+      "signal": null
+    },
+    {
+      "parish_slug": "st-landry",
+      "parish_name": "St. Landry Parish",
+      "spend_per_pupil": 15301,
+      "vs_state_avg_dollars": -86,
+      "vs_state_avg_pct": -0.6,
+      "rank": 37,
+      "signal": null
+    },
+    {
+      "parish_slug": "jefferson",
+      "parish_name": "Jefferson Parish",
+      "spend_per_pupil": 15262,
+      "vs_state_avg_dollars": -125,
+      "vs_state_avg_pct": -0.8,
+      "rank": 38,
+      "signal": null
+    },
+    {
+      "parish_slug": "caddo",
+      "parish_name": "Caddo Parish",
+      "spend_per_pupil": 15149,
+      "vs_state_avg_dollars": -238,
+      "vs_state_avg_pct": -1.5,
+      "rank": 39,
+      "signal": null
+    },
+    {
+      "parish_slug": "allen",
+      "parish_name": "Allen Parish",
+      "spend_per_pupil": 15082,
+      "vs_state_avg_dollars": -305,
+      "vs_state_avg_pct": -2.0,
+      "rank": 40,
+      "signal": null
+    },
+    {
+      "parish_slug": "jefferson-davis",
+      "parish_name": "Jefferson Davis Parish",
+      "spend_per_pupil": 14662,
+      "vs_state_avg_dollars": -725,
+      "vs_state_avg_pct": -4.7,
+      "rank": 41,
+      "signal": null
+    },
+    {
+      "parish_slug": "st-mary",
+      "parish_name": "St. Mary Parish",
+      "spend_per_pupil": 14661,
+      "vs_state_avg_dollars": -726,
+      "vs_state_avg_pct": -4.7,
+      "rank": 42,
+      "signal": null
+    },
+    {
+      "parish_slug": "richland",
+      "parish_name": "Richland Parish",
+      "spend_per_pupil": 14658,
+      "vs_state_avg_dollars": -729,
+      "vs_state_avg_pct": -4.7,
+      "rank": 43,
+      "signal": null
+    },
+    {
+      "parish_slug": "ascension",
+      "parish_name": "Ascension Parish",
+      "spend_per_pupil": 14506,
+      "vs_state_avg_dollars": -881,
+      "vs_state_avg_pct": -5.7,
+      "rank": 44,
+      "signal": null
+    },
+    {
+      "parish_slug": "rapides",
+      "parish_name": "Rapides Parish",
+      "spend_per_pupil": 14408,
+      "vs_state_avg_dollars": -979,
+      "vs_state_avg_pct": -6.4,
+      "rank": 45,
+      "signal": null
+    },
+    {
+      "parish_slug": "avoyelles",
+      "parish_name": "Avoyelles Parish",
+      "spend_per_pupil": 14291,
+      "vs_state_avg_dollars": -1096,
+      "vs_state_avg_pct": -7.1,
+      "rank": 46,
+      "signal": null
+    },
+    {
+      "parish_slug": "lasalle",
+      "parish_name": "LaSalle Parish",
+      "spend_per_pupil": 14279,
+      "vs_state_avg_dollars": -1108,
+      "vs_state_avg_pct": -7.2,
+      "rank": 47,
+      "signal": null
+    },
+    {
+      "parish_slug": "st-bernard",
+      "parish_name": "St. Bernard Parish",
+      "spend_per_pupil": 14267,
+      "vs_state_avg_dollars": -1120,
+      "vs_state_avg_pct": -7.3,
+      "rank": 48,
+      "signal": null
+    },
+    {
+      "parish_slug": "bossier",
+      "parish_name": "Bossier Parish",
+      "spend_per_pupil": 14226,
+      "vs_state_avg_dollars": -1161,
+      "vs_state_avg_pct": -7.5,
+      "rank": 49,
+      "signal": null
+    },
+    {
+      "parish_slug": "washington",
+      "parish_name": "Washington Parish",
+      "spend_per_pupil": 14220,
+      "vs_state_avg_dollars": -1167,
+      "vs_state_avg_pct": -7.6,
+      "rank": 50,
+      "signal": null
+    },
+    {
+      "parish_slug": "st-martin",
+      "parish_name": "St. Martin Parish",
+      "spend_per_pupil": 14217,
+      "vs_state_avg_dollars": -1170,
+      "vs_state_avg_pct": -7.6,
+      "rank": 51,
+      "signal": null
+    },
+    {
+      "parish_slug": "vernon",
+      "parish_name": "Vernon Parish",
+      "spend_per_pupil": 14167,
+      "vs_state_avg_dollars": -1220,
+      "vs_state_avg_pct": -7.9,
+      "rank": 52,
+      "signal": null
+    },
+    {
+      "parish_slug": "ouachita",
+      "parish_name": "Ouachita Parish",
+      "spend_per_pupil": 13815,
+      "vs_state_avg_dollars": -1572,
+      "vs_state_avg_pct": -10.2,
+      "rank": 53,
+      "signal": null
+    },
+    {
+      "parish_slug": "st-helena",
+      "parish_name": "St. Helena Parish",
+      "spend_per_pupil": 13766,
+      "vs_state_avg_dollars": -1621,
+      "vs_state_avg_pct": -10.5,
+      "rank": 54,
+      "signal": null
+    },
+    {
+      "parish_slug": "tangipahoa",
+      "parish_name": "Tangipahoa Parish",
+      "spend_per_pupil": 13589,
+      "vs_state_avg_dollars": -1798,
+      "vs_state_avg_pct": -11.7,
+      "rank": 55,
+      "signal": null
+    },
+    {
+      "parish_slug": "grant",
+      "parish_name": "Grant Parish",
+      "spend_per_pupil": 13351,
+      "vs_state_avg_dollars": -2036,
+      "vs_state_avg_pct": -13.2,
+      "rank": 56,
+      "signal": null
+    },
+    {
+      "parish_slug": "terrebonne",
+      "parish_name": "Terrebonne Parish",
+      "spend_per_pupil": 13300,
+      "vs_state_avg_dollars": -2087,
+      "vs_state_avg_pct": -13.6,
+      "rank": 57,
+      "signal": null
+    },
+    {
+      "parish_slug": "iberia",
+      "parish_name": "Iberia Parish",
+      "spend_per_pupil": 13239,
+      "vs_state_avg_dollars": -2148,
+      "vs_state_avg_pct": -14.0,
+      "rank": 58,
+      "signal": null
+    },
+    {
+      "parish_slug": "acadia",
+      "parish_name": "Acadia Parish",
+      "spend_per_pupil": 13116,
+      "vs_state_avg_dollars": -2271,
+      "vs_state_avg_pct": -14.8,
+      "rank": 59,
+      "signal": null
+    },
+    {
+      "parish_slug": "beauregard",
+      "parish_name": "Beauregard Parish",
+      "spend_per_pupil": 13061,
+      "vs_state_avg_dollars": -2326,
+      "vs_state_avg_pct": -15.1,
+      "rank": 60,
+      "signal": null
+    },
+    {
+      "parish_slug": "vermilion",
+      "parish_name": "Vermilion Parish",
+      "spend_per_pupil": 12979,
+      "vs_state_avg_dollars": -2408,
+      "vs_state_avg_pct": -15.6,
+      "rank": 61,
+      "signal": null
+    },
+    {
+      "parish_slug": "lafayette",
+      "parish_name": "Lafayette Parish",
+      "spend_per_pupil": 12964,
+      "vs_state_avg_dollars": -2423,
+      "vs_state_avg_pct": -15.7,
+      "rank": 62,
+      "signal": null
+    },
+    {
+      "parish_slug": "livingston",
+      "parish_name": "Livingston Parish",
+      "spend_per_pupil": 12544,
+      "vs_state_avg_dollars": -2843,
+      "vs_state_avg_pct": -18.5,
+      "rank": 63,
+      "signal": null
+    },
+    {
+      "parish_slug": "lafourche",
+      "parish_name": "Lafourche Parish",
+      "spend_per_pupil": 12399,
+      "vs_state_avg_dollars": -2988,
+      "vs_state_avg_pct": -19.4,
+      "rank": 64,
+      "signal": null
+    }
+  ]
+}

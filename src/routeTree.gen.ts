@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StateRouteImport } from './routes/state'
 import { Route as FundingFlowRouteImport } from './routes/funding-flow'
+import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ParishParishIdRouteImport } from './routes/parish.$parishId'
+import { Route as ApiAssistantRouteImport } from './routes/api.assistant'
 
 const StateRoute = StateRouteImport.update({
   id: '/state',
@@ -22,6 +24,11 @@ const StateRoute = StateRouteImport.update({
 const FundingFlowRoute = FundingFlowRouteImport.update({
   id: '/funding-flow',
   path: '/funding-flow',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -34,38 +41,70 @@ const ParishParishIdRoute = ParishParishIdRouteImport.update({
   path: '/parish/$parishId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAssistantRoute = ApiAssistantRouteImport.update({
+  id: '/api/assistant',
+  path: '/api/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRoute
   '/funding-flow': typeof FundingFlowRoute
   '/state': typeof StateRoute
+  '/api/assistant': typeof ApiAssistantRoute
   '/parish/$parishId': typeof ParishParishIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/app': typeof AppRoute
   '/funding-flow': typeof FundingFlowRoute
   '/state': typeof StateRoute
+  '/api/assistant': typeof ApiAssistantRoute
   '/parish/$parishId': typeof ParishParishIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRoute
   '/funding-flow': typeof FundingFlowRoute
   '/state': typeof StateRoute
+  '/api/assistant': typeof ApiAssistantRoute
   '/parish/$parishId': typeof ParishParishIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/funding-flow' | '/state' | '/parish/$parishId'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/funding-flow'
+    | '/state'
+    | '/api/assistant'
+    | '/parish/$parishId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/funding-flow' | '/state' | '/parish/$parishId'
-  id: '__root__' | '/' | '/funding-flow' | '/state' | '/parish/$parishId'
+  to:
+    | '/'
+    | '/app'
+    | '/funding-flow'
+    | '/state'
+    | '/api/assistant'
+    | '/parish/$parishId'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/funding-flow'
+    | '/state'
+    | '/api/assistant'
+    | '/parish/$parishId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRoute
   FundingFlowRoute: typeof FundingFlowRoute
   StateRoute: typeof StateRoute
+  ApiAssistantRoute: typeof ApiAssistantRoute
   ParishParishIdRoute: typeof ParishParishIdRoute
 }
 
@@ -85,6 +124,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FundingFlowRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -99,13 +145,22 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ParishParishIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/assistant': {
+      id: '/api/assistant'
+      path: '/api/assistant'
+      fullPath: '/api/assistant'
+      preLoaderRoute: typeof ApiAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRoute,
   FundingFlowRoute: FundingFlowRoute,
   StateRoute: StateRoute,
+  ApiAssistantRoute: ApiAssistantRoute,
   ParishParishIdRoute: ParishParishIdRoute,
 }
 export const routeTree = rootRouteImport

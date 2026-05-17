@@ -1,4 +1,6 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
+import { LensAssistant } from "@/components/lens/LensAssistant";
+import { isAuthenticated } from "@/lib/demo-auth";
 
 import appCss from "../styles.css?url";
 
@@ -65,5 +67,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const showAssistant = pathname !== "/" && isAuthenticated();
+
+  return (
+    <>
+      <Outlet />
+      {showAssistant && <LensAssistant />}
+    </>
+  );
 }

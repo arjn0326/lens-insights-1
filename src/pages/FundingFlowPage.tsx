@@ -8,7 +8,7 @@ export function FundingFlowPage() {
       <header className="sticky top-0 z-30 border-b border-border bg-[var(--background)]/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-3">
           <Link
-            to="/"
+            to="/app"
             className="group inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--text-secondary)] transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />

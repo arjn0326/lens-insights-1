@@ -3,14 +3,11 @@ import {
   ArrowDown,
   ArrowLeft,
   ArrowUp,
-  Download,
   Lightbulb,
   Minus,
-  Printer,
-  Share2,
-  Sparkles,
   TriangleAlert,
 } from "lucide-react";
+import { ReportToolbar } from "@/components/lens/report/ReportToolbar";
 import {
   Bar,
   BarChart,
@@ -19,8 +16,6 @@ import {
   Legend,
   Line,
   LineChart,
-  Pie,
-  PieChart,
   PolarAngleAxis,
   PolarGrid,
   PolarRadiusAxis,
@@ -36,26 +31,44 @@ import {
   ALERT_EXPLANATIONS,
   INDEX_LABELS,
   LAYERS,
-  NATIONAL_AVG,
   PARISHES,
   SEV_COLOR,
   STATE_AVG,
-  buildDemographics,
   buildFundingBreakdown,
   buildGradeDistribution,
-  buildHexBins,
-  buildOutcomeSankey,
-  buildSchoolDots,
   buildTrendSeries,
   buildWorkforceAlignment,
   interventionRecommendation,
   severity,
   severityLabel,
 } from "@/lib/lens-data";
-import { LA_PATH } from "@/lib/la-geo";
 import { AcademicPerformanceSection } from "@/components/lens/AcademicPerformanceSection";
 import { EducatorQualitySection } from "@/components/lens/EducatorQualitySection";
 import { PostGraduationOutcomesSection } from "@/components/lens/PostGraduationOutcomesSection";
+import { SpedAccessPanel } from "@/components/lens/SpedAccessPanel";
+import { EnrollmentPanel, type EnrollmentData } from "@/components/lens/EnrollmentPanel";
+import { MFPFundingPanel } from "@/components/lens/MFPFundingPanel";
+import { GraduationPanel } from "@/components/lens/GraduationPanel";
+import { ParishPerPupilFundingPanel } from "@/components/lens/ParishPerPupilFundingPanel";
+import {
+  formatFundingDollars,
+  getParishFunding,
+  FUNDING_BY_PARISH,
+} from "@/lib/funding-by-parish";
+import {
+  formatParishSchools,
+  formatParishStudents,
+  getParishRealStats,
+} from "@/lib/parish-stats";
+import { ReportLayout } from "@/components/lens/report/ReportLayout";
+import { ReportSection } from "@/components/lens/report/ReportSection";
+import {
+  PARISH_REPORT_SECTIONS,
+} from "@/components/lens/report/parish-report-sections";
+import enrollmentData from "../../../public/data/enrollment_by_parish.json";
+import { buildOutcomeSankeyFromCohort } from "@/lib/parish-outcome-sankey";
+import { getParishRecommendationCopy } from "@/lib/parish-report-insights";
+import { PolicySimulator } from "@/components/lens/PolicySimulator";
 
 interface Props {
   parishId: string;
@@ -66,7 +79,7 @@ export function ParishReport({ parishId }: Props) {
   if (!parish) {
     return (
       <div className="flex h-screen items-center justify-center">
-        <Link to="/" className="text-sm underline">
+        <Link to="/app" className="text-sm underline">
           Parish not found — back to dashboard
         </Link>
       </div>
@@ -86,29 +99,29 @@ export function ParishReport({ parishId }: Props) {
       : "var(--text-muted)";
 
   const dfPct = (parish.dfSchools / parish.totalSchools) * 100;
-  const studentsPerSchool = Math.round(parish.students / parish.totalSchools);
+  const real = getParishRealStats(parishId);
+  const fundingRecord = getParishFunding(parishId);
+  const studentTotal = real.students ?? parish.students;
+  const schoolTotal = real.schools ?? parish.totalSchools;
+  const studentsPerSchool = schoolTotal > 0 ? Math.round(studentTotal / schoolTotal) : 0;
 
   const trendSeries = buildTrendSeries(parishId);
-  const demographics = buildDemographics(parishId);
   const grades = buildGradeDistribution(parishId);
   const funding = buildFundingBreakdown(parishId);
   const workforce = buildWorkforceAlignment(parishId);
-  const sankey = buildOutcomeSankey(parishId);
-  const schoolDots = buildSchoolDots().filter(() => true);
-  const hexBins = buildHexBins(3.5);
+  const sankey = buildOutcomeSankeyFromCohort(parishId);
+  const recommendationCopy = getParishRecommendationCopy(parishId);
 
   const radarData = LAYERS.map((k) => ({
     layer: k,
     parish: parish.scores[k],
     state: STATE_AVG[k],
-    national: NATIONAL_AVG[k],
   }));
 
   const compareData = LAYERS.map((k) => ({
     layer: k,
     parish: parish.scores[k],
     state: STATE_AVG[k],
-    national: NATIONAL_AVG[k],
   }));
 
   const fundingTotal = funding.reduce((a, b) => a + b.value, 0);
@@ -117,13 +130,23 @@ export function ParishReport({ parishId }: Props) {
   const sorted = [...PARISHES].sort((a, b) => b.scores.Health - a.scores.Health);
   const rank = sorted.findIndex((p) => p.id === parishId) + 1;
 
+  type EnrollmentParishRecord = EnrollmentData & { parish_slug: string };
+  const enrollmentParish = (
+    enrollmentData as { parishes: EnrollmentParishRecord[] }
+  ).parishes.find((p) => p.parish_slug === parishId);
+
+  const shareUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/parish/${parishId}`
+      : `/parish/${parishId}`;
+
   return (
-    <div className="min-h-screen w-full bg-background text-foreground">
+    <div className="lens-report min-h-screen w-full bg-background text-foreground">
       {/* Top bar */}
-      <header className="sticky top-0 z-30 border-b border-border bg-[var(--background)]/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-3">
+      <header className="sticky top-0 z-30 border-b border-border bg-[var(--background)]/85 backdrop-blur-md print:hidden">
+        <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-6 py-3">
           <Link
-            to="/"
+            to="/app"
             className="group inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--text-secondary)] transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
@@ -133,16 +156,13 @@ export function ParishReport({ parishId }: Props) {
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--blue)]" />
             LENS · Full Parish Report
           </div>
-          <div className="flex items-center gap-1.5">
-            <ActionButton icon={Share2} label="Share" />
-            <ActionButton icon={Printer} label="Print" />
-            <ActionButton icon={Download} label="Export" primary />
-          </div>
+          <ReportToolbar shareUrl={shareUrl} parishId={parishId} />
         </div>
       </header>
 
-      <div className="mx-auto max-w-[1280px] px-6 py-8">
-        {/* Hero */}
+      <ReportLayout
+        sections={PARISH_REPORT_SECTIONS}
+        hero={
         <section className="grid grid-cols-1 gap-6 lg:grid-cols-[1.4fr_1fr]">
           <div>
             <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--text-muted)]">
@@ -155,11 +175,9 @@ export function ParishReport({ parishId }: Props) {
               <span className="text-[var(--text-muted)]">.</span>
             </h1>
             <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-[var(--text-secondary)]">
-              <Stat label="Population" value={parish.population.toLocaleString()} />
+              <Stat label="Students" value={formatParishStudents(real)} />
               <Dot />
-              <Stat label="Students" value={`${(parish.students / 1000).toFixed(1)}K`} />
-              <Dot />
-              <Stat label="Schools" value={String(parish.totalSchools)} />
+              <Stat label="Schools" value={formatParishSchools(real)} />
               <Dot />
               <span className="inline-flex items-center gap-1" style={{ color: trendColor }}>
                 <TrendIcon className="h-3.5 w-3.5" />
@@ -232,7 +250,7 @@ export function ParishReport({ parishId }: Props) {
                 </div>
               </div>
 
-              <div className="mt-5 grid grid-cols-3 gap-3 border-t border-border pt-4">
+              <div className="mt-5 grid grid-cols-2 gap-3 border-t border-border pt-4">
                 <Mini label="State Rank" value={`#${rank}`} sub={`of ${PARISHES.length}`} />
                 <Mini
                   label="vs State"
@@ -241,20 +259,14 @@ export function ParishReport({ parishId }: Props) {
                   }`}
                   tone={parish.scores.Health >= STATE_AVG.Health ? "positive" : "negative"}
                 />
-                <Mini
-                  label="vs National"
-                  value={`${parish.scores.Health - NATIONAL_AVG.Health > 0 ? "+" : ""}${
-                    parish.scores.Health - NATIONAL_AVG.Health
-                  }`}
-                  tone={parish.scores.Health >= NATIONAL_AVG.Health ? "positive" : "negative"}
-                />
               </div>
             </div>
           </div>
         </section>
-
-        {/* KPI strip */}
-        <section className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
+        }
+      >
+        <ReportSection id="at-a-glance" number="01" title="At a glance">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           <Kpi
             label="D/F Schools"
             value={String(parish.dfSchools)}
@@ -264,12 +276,21 @@ export function ParishReport({ parishId }: Props) {
           <Kpi
             label="Students / School"
             value={studentsPerSchool.toLocaleString()}
-            sub={`${parish.students.toLocaleString()} total`}
+            sub={`${studentTotal.toLocaleString()} total · LDOE`}
           />
           <Kpi
             label="Per-Pupil Funding"
-            value={`$${(fundingTotal / 1000).toFixed(1)}K`}
-            sub="annual avg"
+            value={
+              fundingRecord
+                ? formatFundingDollars(fundingRecord.spend_per_pupil)
+                : `$${(fundingTotal / 1000).toFixed(1)}K`
+            }
+            sub={
+              fundingRecord
+                ? `#${fundingRecord.rank} of ${FUNDING_BY_PARISH.meta.parish_count} · Treasurer`
+                : "annual avg"
+            }
+            tone={fundingRecord && fundingRecord.vs_state_avg_dollars > 0 ? "info" : undefined}
           />
           <Kpi
             label="Intervention"
@@ -277,13 +298,23 @@ export function ParishReport({ parishId }: Props) {
             sub="recommended track"
             tone="info"
           />
-        </section>
+        </div>
+        </ReportSection>
 
-        {/* Trend + Radar */}
-        <section className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-[1.5fr_1fr]">
+        <ReportSection id="enrollment" number="02" title="Enrollment & demographics">
+          <div className="space-y-6">
+            <EnrollmentPanel data={enrollmentParish ?? null} hideSourceDate />
+            <MFPFundingPanel parishSlug={parishId} />
+            <ParishPerPupilFundingPanel parishSlug={parishId} parishName={parish.name} />
+          </div>
+        </ReportSection>
+
+        <ReportSection id="outcomes" number="03" title="Outcomes & trajectory">
+        <div className="space-y-4">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.5fr_1fr]">
           <Panel
             title="Health Trajectory"
-            subtitle="6-year composite vs state & national"
+            subtitle="Composite health vs Louisiana statewide"
             badge={`${trendSeries[0]?.parish ?? 0} → ${trendSeries.at(-1)?.parish ?? 0}`}
           >
             <div className="h-[280px]">
@@ -313,15 +344,6 @@ export function ParishReport({ parishId }: Props) {
                   />
                   <Line
                     type="monotone"
-                    dataKey="national"
-                    name="National avg"
-                    stroke="var(--text-muted)"
-                    strokeWidth={1.5}
-                    strokeDasharray="3 3"
-                    dot={false}
-                  />
-                  <Line
-                    type="monotone"
                     dataKey="state"
                     name="Louisiana avg"
                     stroke="var(--blue)"
@@ -343,7 +365,7 @@ export function ParishReport({ parishId }: Props) {
             </div>
           </Panel>
 
-          <Panel title="Index Footprint" subtitle="All six layers vs benchmarks">
+          <Panel title="Index Footprint" subtitle="Six layers vs Louisiana statewide">
             <div className="h-[280px]">
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart data={radarData} outerRadius="78%">
@@ -359,15 +381,6 @@ export function ParishReport({ parishId }: Props) {
                     axisLine={false}
                   />
                   <Tooltip content={<TooltipBox />} />
-                  <Radar
-                    name="National"
-                    dataKey="national"
-                    stroke="var(--text-muted)"
-                    fill="var(--text-muted)"
-                    fillOpacity={0.06}
-                    strokeWidth={1}
-                    strokeDasharray="3 3"
-                  />
                   <Radar
                     name="State"
                     dataKey="state"
@@ -388,13 +401,11 @@ export function ParishReport({ parishId }: Props) {
               </ResponsiveContainer>
             </div>
           </Panel>
-        </section>
+        </div>
 
-        {/* Composite indices breakdown */}
-        <section className="mt-4">
           <Panel
             title="Composite Indices · Comparative"
-            subtitle={`How ${parish.name} stacks against state & national averages`}
+            subtitle={`How ${parish.name} stacks against Louisiana statewide`}
           >
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
@@ -425,7 +436,6 @@ export function ParishReport({ parishId }: Props) {
                     iconSize={7}
                     wrapperStyle={{ fontSize: 10, color: "var(--text-secondary)" }}
                   />
-                  <Bar dataKey="national" name="National" fill="var(--text-muted)" radius={[3, 3, 0, 0]} />
                   <Bar dataKey="state" name="Louisiana" fill="var(--blue)" radius={[3, 3, 0, 0]} />
                   <Bar dataKey="parish" name={parish.name} radius={[3, 3, 0, 0]}>
                     {compareData.map((entry, i) => (
@@ -476,28 +486,21 @@ export function ParishReport({ parishId }: Props) {
               })}
             </div>
           </Panel>
-        </section>
-
-        {/* ============ INTELLIGENCE SUITE ============ */}
-        <section className="mt-8">
-          <div className="mb-3 flex items-end justify-between">
-            <div>
-              <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--text-muted)]">
-                Intelligence Suite
-              </div>
-              <h2 className="mt-1 font-display text-[24px] font-bold tracking-tight text-foreground">
-                Deep signals
-              </h2>
-            </div>
-            <span className="rounded-full border border-border bg-[var(--surface-elevated)] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)]">
-              Cohort · Class of 2024
-            </span>
+          <div className="mt-4">
+            <GraduationPanel parishSlug={parishId} />
           </div>
+        </div>
+        </ReportSection>
 
-          {/* Sankey: graduate outcome flow */}
+        <ReportSection
+          id="deep-signals"
+          number="04"
+          title="Deep signals"
+          badge="Cohort · Class of 2024"
+        >
           <Panel
             title="Graduate Outcome Flow"
-            subtitle="Where this parish's students go — and who reaches stable employment within 1 year"
+            subtitle="LDOE cohort credentials · college enrollment · estimated grad-class pathways"
           >
             <div className="h-[380px] w-full">
               <ResponsiveContainer width="100%" height="100%">
@@ -511,6 +514,7 @@ export function ParishReport({ parishId }: Props) {
                     <SankeyNode
                       containerWidth={0}
                       healthColor={healthColor}
+                      gradClass={sankey.gradClass}
                     />
                   }
                 >
@@ -518,104 +522,17 @@ export function ParishReport({ parishId }: Props) {
                 </Sankey>
               </ResponsiveContainer>
             </div>
-            <div className="mt-3 grid grid-cols-2 gap-3 border-t border-border pt-3 text-[11px] sm:grid-cols-4">
-              <FlowKpi label="Total grads" value={String(sankey.links[0]?.value + (sankey.links[1]?.value ?? 0) || 0)} />
-              <FlowKpi label="College-bound" value={String((sankey.links.find(l => l.target === 3)?.value ?? 0) + (sankey.links.find(l => l.target === 4)?.value ?? 0))} accent="var(--blue)" />
-              <FlowKpi label="CTE / Workforce" value={String(sankey.links.filter(l => l.target === 5 || l.target === 6).reduce((a,b)=>a+b.value,0))} accent="var(--sev-green)" />
-              <FlowKpi label="Disconnected" value={String(sankey.links.filter(l => l.target === 11).reduce((a,b)=>a+b.value,0))} accent="var(--sev-red)" />
-            </div>
           </Panel>
+        </ReportSection>
 
-          {/* Hex-bin density + Trajectory race */}
-          <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1.3fr]">
-            <Panel
-              title="School Density · Hex Bins"
-              subtitle="Where schools cluster across the parish"
-            >
-              <HexDensityMap parishId={parishId} hexBins={hexBins} dots={schoolDots} healthColor={healthColor} />
-              <div className="mt-3 flex items-center justify-between border-t border-border pt-3 text-[10px] uppercase tracking-[0.14em] text-[var(--text-muted)]">
-                <span>Low density</span>
-                <div className="flex gap-1">
-                  {[0.15, 0.3, 0.45, 0.6, 0.8].map((o, i) => (
-                    <span
-                      key={i}
-                      className="h-2 w-5"
-                      style={{ background: "var(--ink)", opacity: o }}
-                    />
-                  ))}
-                </div>
-                <span>High density</span>
-              </div>
-            </Panel>
-
-          </div>
-        </section>
-
-        <AcademicPerformanceSection
-          parishId={parishId}
-          parishName={parish.name}
-          parishColor={healthColor}
-        />
-
-        <EducatorQualitySection parishId={parishId} />
-
-        <PostGraduationOutcomesSection parishId={parishId} parishColor={healthColor} />
-
-        {/* Demographics + Grades + Funding */}
-        <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
-          <Panel title="Student Demographics" subtitle="Enrollment composition">
-            <div className="h-[240px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Tooltip content={<TooltipBox suffix="%" />} />
-                  <Pie
-                    data={demographics}
-                    dataKey="value"
-                    nameKey="name"
-                    innerRadius={50}
-                    outerRadius={86}
-                    paddingAngle={2}
-                    stroke="var(--background)"
-                    strokeWidth={2}
-                  >
-                    {demographics.map((_, i) => (
-                      <Cell
-                        key={i}
-                        fill={
-                          [
-                            "var(--ink)",
-                            "var(--blue)",
-                            "var(--sev-orange)",
-                            "var(--text-muted)",
-                          ][i] ?? "var(--text-muted)"
-                        }
-                      />
-                    ))}
-                  </Pie>
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-            <div className="mt-2 grid grid-cols-2 gap-1.5 text-[11px]">
-              {demographics.map((d, i) => (
-                <div key={d.name} className="flex items-center gap-1.5">
-                  <span
-                    className="h-2 w-2 rounded-sm"
-                    style={{
-                      background: [
-                        "var(--ink)",
-                        "var(--blue)",
-                        "var(--sev-orange)",
-                        "var(--text-muted)",
-                      ][i],
-                    }}
-                  />
-                  <span className="text-[var(--text-secondary)]">{d.name}</span>
-                  <span className="ml-auto font-mono tabular-nums text-foreground">{d.value}%</span>
-                </div>
-              ))}
-            </div>
-          </Panel>
-
+        <ReportSection id="academic" number="05" title="Academic performance">
+          <div className="space-y-6">
+            <AcademicPerformanceSection
+              parishId={parishId}
+              parishName={parish.name}
+              parishColor={healthColor}
+            />
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <Panel title="School Grade Distribution" subtitle={`${parish.totalSchools} schools rated`}>
             <div className="h-[240px]">
               <ResponsiveContainer width="100%" height="100%">
@@ -652,77 +569,87 @@ export function ParishReport({ parishId }: Props) {
             </div>
           </Panel>
 
-          <Panel title="Per-Pupil Funding" subtitle={`$${fundingTotal.toLocaleString()} avg / student`}>
-            <div className="flex flex-col gap-2.5">
-              {funding.map((f) => {
-                const pct = (f.value / fundingTotal) * 100;
-                return (
-                  <div key={f.category}>
-                    <div className="flex items-center justify-between text-[11px]">
-                      <span className="text-[var(--text-secondary)]">{f.category}</span>
-                      <span className="font-mono tabular-nums text-foreground">
-                        ${f.value.toLocaleString()}
-                        <span className="ml-1.5 text-[var(--text-muted)]">{pct.toFixed(0)}%</span>
-                      </span>
-                    </div>
-                    <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-border">
-                      <div
-                        className="h-full rounded-full bg-gradient-accent"
-                        style={{ width: `${pct}%` }}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
             </div>
-          </Panel>
+          </div>
+        </ReportSection>
+
+        <ReportSection id="educators" number="06" title="Educator quality">
+          <EducatorQualitySection parishId={parishId} />
+        </ReportSection>
+
+        <ReportSection id="post-graduation" number="07" title="Post-graduation">
+          <div className="space-y-6">
+            <PostGraduationOutcomesSection parishId={parishId} parishColor={healthColor} />
+            <Panel
+              title="Workforce Pathway Alignment"
+              subtitle="Graduate credentials vs projected employer demand by sector"
+            >
+              <div className="h-[260px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={workforce}
+                    margin={{ top: 16, right: 16, bottom: 0, left: -8 }}
+                    barCategoryGap="28%"
+                  >
+                    <CartesianGrid stroke="var(--border)" strokeDasharray="2 4" vertical={false} />
+                    <XAxis
+                      dataKey="sector"
+                      tick={{ fontSize: 10, fill: "var(--text-secondary)" }}
+                      axisLine={{ stroke: "var(--border)" }}
+                      tickLine={false}
+                    />
+                    <YAxis
+                      tick={{ fontSize: 10, fill: "var(--text-muted)" }}
+                      axisLine={false}
+                      tickLine={false}
+                      width={28}
+                      unit="%"
+                    />
+                    <Tooltip content={<TooltipBox suffix="%" />} cursor={{ fill: "var(--border)", opacity: 0.3 }} />
+                    <Legend
+                      verticalAlign="top"
+                      height={28}
+                      iconType="circle"
+                      iconSize={7}
+                      wrapperStyle={{ fontSize: 10, color: "var(--text-secondary)" }}
+                    />
+                    <Bar dataKey="aligned" name="Grads aligned" fill="var(--ink)" radius={[3, 3, 0, 0]} />
+                    <Bar dataKey="demand" name="Employer demand" fill="var(--blue)" radius={[3, 3, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </Panel>
+          </div>
+        </ReportSection>
+
+        <ReportSection id="equity" number="08" title="Equity & access">
+          <SpedAccessPanel
+            parishName={parish.name}
+            iepPct={parish.signals?.sped_iep_pct ?? null}
+            gapPct={parish.signals?.sped_teacher_gap_pct ?? null}
+            iepCount={parish.signals?.sped_iep_count ?? null}
+            fteTotal={parish.signals?.sped_teacher_fte_total ?? null}
+            fteCertified={parish.signals?.sped_teacher_fte_certified ?? null}
+            fteUncertified={parish.signals?.sped_teacher_fte_uncertified ?? null}
+          />
+        </ReportSection>
+
+        {/* Policy Simulator */}
+        <section id="policy-simulator" className="mt-8 scroll-mt-28">
+          <div className="mb-3">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
+              Interactive · What-If Analysis
+            </p>
+            <h2 className="mt-0.5 text-[17px] font-semibold text-foreground">Policy Simulator</h2>
+            <p className="mt-1 text-[12px] text-[var(--text-secondary)]">
+              Adjust real signals and see how Health Score changes live
+            </p>
+          </div>
+          <PolicySimulator parishId={parishId} />
         </section>
 
-        {/* Workforce alignment */}
-        <section className="mt-4">
-          <Panel
-            title="Workforce Pathway Alignment"
-            subtitle="Graduate credentials vs projected employer demand by sector"
-          >
-            <div className="h-[260px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={workforce}
-                  margin={{ top: 16, right: 16, bottom: 0, left: -8 }}
-                  barCategoryGap="28%"
-                >
-                  <CartesianGrid stroke="var(--border)" strokeDasharray="2 4" vertical={false} />
-                  <XAxis
-                    dataKey="sector"
-                    tick={{ fontSize: 10, fill: "var(--text-secondary)" }}
-                    axisLine={{ stroke: "var(--border)" }}
-                    tickLine={false}
-                  />
-                  <YAxis
-                    tick={{ fontSize: 10, fill: "var(--text-muted)" }}
-                    axisLine={false}
-                    tickLine={false}
-                    width={28}
-                    unit="%"
-                  />
-                  <Tooltip content={<TooltipBox suffix="%" />} cursor={{ fill: "var(--border)", opacity: 0.3 }} />
-                  <Legend
-                    verticalAlign="top"
-                    height={28}
-                    iconType="circle"
-                    iconSize={7}
-                    wrapperStyle={{ fontSize: 10, color: "var(--text-secondary)" }}
-                  />
-                  <Bar dataKey="aligned" name="Grads aligned" fill="var(--ink)" radius={[3, 3, 0, 0]} />
-                  <Bar dataKey="demand" name="Employer demand" fill="var(--blue)" radius={[3, 3, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </Panel>
-        </section>
-
-        {/* Alert + Recommendation */}
-        <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <ReportSection id="recommendations" number="09" title="Recommendations">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           {parish.alert && (
             <div
               className="overflow-hidden rounded-2xl border p-5"
@@ -747,7 +674,7 @@ export function ParishReport({ parishId }: Props) {
                 {parish.alert}
               </h3>
               <p className="mt-2 text-[13px] leading-relaxed text-[var(--text-secondary)]">
-                {ALERT_EXPLANATIONS[parish.alert]}
+                {recommendationCopy.alertDetail ?? ALERT_EXPLANATIONS[parish.alert]}
               </p>
             </div>
           )}
@@ -774,50 +701,23 @@ export function ParishReport({ parishId }: Props) {
             >
               {interventionRecommendation(parish.intervention)}
             </h3>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <button className="inline-flex items-center gap-1.5 rounded-md bg-foreground px-3.5 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--background)] transition-transform hover:scale-[1.02]">
-                <Sparkles className="h-3 w-3" /> Generate Funder Brief
-              </button>
-              <button className="rounded-md border border-border bg-[var(--background)] px-3.5 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--text-secondary)] transition-colors hover:border-foreground/40 hover:text-foreground">
-                Open in Simulator
-              </button>
-            </div>
+            <p className="mt-3 text-[13px] leading-relaxed text-[var(--text-secondary)]">
+              {recommendationCopy.interventionDetail}
+            </p>
           </div>
-        </section>
+        </div>
+        </ReportSection>
 
-        {/* Footer */}
-        <footer className="mt-10 flex items-center justify-between border-t border-border pt-5 text-[10px] uppercase tracking-[0.16em] text-[var(--text-muted)]">
+        <footer className="flex items-center justify-between border-t border-border pt-5 text-[10px] uppercase tracking-[0.16em] text-[var(--text-muted)]">
           <span>LENS · Louisiana Education & Needs Synthesis</span>
-          <span>Report generated {new Date().toLocaleDateString()}</span>
+          <span>Louisiana Education &amp; Needs Synthesis</span>
         </footer>
-      </div>
+      </ReportLayout>
     </div>
   );
 }
 
 /* ---------- helpers ---------- */
-
-function ActionButton({
-  icon: Icon,
-  label,
-  primary,
-}: {
-  icon: typeof Download;
-  label: string;
-  primary?: boolean;
-}) {
-  return (
-    <button
-      className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] transition-colors ${
-        primary
-          ? "border-foreground bg-foreground text-[var(--background)] hover:opacity-90"
-          : "border-border bg-[var(--background)] text-[var(--text-secondary)] hover:border-foreground/40 hover:text-foreground"
-      }`}
-    >
-      <Icon className="h-3 w-3" /> {label}
-    </button>
-  );
-}
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
@@ -968,22 +868,6 @@ function TooltipBox({
 
 /* ===================== Intelligence Suite components ===================== */
 
-function FlowKpi({ label, value, accent }: { label: string; value: string; accent?: string }) {
-  return (
-    <div className="rounded-lg border border-border bg-[var(--background)] p-2.5">
-      <div className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)]">
-        {label}
-      </div>
-      <div
-        className="mt-1 font-display text-[20px] font-bold leading-none tabular-nums"
-        style={{ color: accent ?? "var(--foreground)" }}
-      >
-        {value}
-      </div>
-    </div>
-  );
-}
-
 /** Custom Sankey node — colored by category with label. */
 function SankeyNode(props: {
   x?: number;
@@ -994,19 +878,34 @@ function SankeyNode(props: {
   payload?: { name?: string; value?: number };
   containerWidth: number;
   healthColor: string;
+  gradClass?: number;
 }) {
-  const { x = 0, y = 0, width = 0, height = 0, payload, containerWidth, healthColor } = props;
+  const {
+    x = 0,
+    y = 0,
+    width = 0,
+    height = 0,
+    payload,
+    containerWidth,
+    healthColor,
+    gradClass = 0,
+  } = props;
   const name = payload?.name ?? "";
   const value = payload?.value ?? 0;
 
   // Color by node category
   const colorMap: Record<string, string> = {
     Graduates: "var(--ink)",
+    "On-time grads": "var(--sev-green)",
     "On-time": "var(--sev-green)",
     "Late / GED": "var(--sev-orange)",
+    "4-yr college": "var(--blue)",
     "4-yr College": "var(--blue)",
+    "2-yr college": "var(--cyan)",
     "2-yr College": "var(--cyan)",
+    "CTE credential": "var(--sev-lime)",
     "CTE Credential": "var(--sev-lime)",
+    "Direct workforce": "var(--sev-yellow)",
     "Direct Workforce": "var(--sev-yellow)",
     Military: "var(--text-muted)",
     Unknown: "var(--text-muted)",
@@ -1026,85 +925,8 @@ function SankeyNode(props: {
         {name}
       </text>
       <text x={labelX} y={y + height / 2 + 11} textAnchor={anchor} dominantBaseline="middle" fontSize={9} fill="var(--text-muted)" className="font-mono tabular-nums">
-        {value.toLocaleString()}
+        {gradClass > 0 ? `${Math.round((value / gradClass) * 100)}%` : value.toLocaleString()}
       </text>
     </g>
   );
 }
-
-/** Hex-bin density map — schools binned into hexes. */
-function HexDensityMap({
-  parishId,
-  hexBins,
-  dots,
-  healthColor,
-}: {
-  parishId: string;
-  hexBins: ReturnType<typeof buildHexBins>;
-  dots: ReturnType<typeof buildSchoolDots>;
-  healthColor: string;
-}) {
-  const parish = PARISHES.find((p) => p.id === parishId);
-  if (!parish) return null;
-  const max = Math.max(1, ...hexBins.map((h) => h.count));
-
-  return (
-    <div className="relative h-[260px] w-full overflow-hidden rounded-lg border border-border bg-[var(--background)]">
-      <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" className="h-full w-full">
-        <defs>
-          <clipPath id={`hex-clip-${parishId}`}>
-            <path d={LA_PATH_REF} />
-          </clipPath>
-        </defs>
-        <path d={LA_PATH_REF} fill="oklch(0.97 0.012 85)" stroke="var(--border)" strokeWidth="0.3" />
-        <g clipPath={`url(#hex-clip-${parishId})`}>
-          {hexBins.map((h, i) => {
-            const t = h.count / max;
-            const failingT = h.failing / Math.max(1, h.count);
-            const color =
-              failingT > 0.4 ? "var(--sev-red)" : failingT > 0.2 ? "var(--sev-orange)" : "var(--ink)";
-            return (
-              <polygon
-                key={i}
-                points={hexPoly(h.x, h.y, 1.8)}
-                fill={color}
-                fillOpacity={0.15 + t * 0.6}
-                stroke="var(--background)"
-                strokeWidth="0.12"
-              />
-            );
-          })}
-        </g>
-        {/* Highlight the active parish */}
-        <circle
-          cx={parish.x}
-          cy={parish.y}
-          r={5}
-          fill="none"
-          stroke={healthColor}
-          strokeWidth="0.7"
-          strokeDasharray="1.5 1"
-        />
-        <circle cx={parish.x} cy={parish.y} r={1.2} fill={healthColor} />
-        <text x={parish.x + 2.5} y={parish.y - 1.5} fontSize="2.6" fontWeight="700" fill="var(--foreground)">
-          {parish.name}
-        </text>
-      </svg>
-      <div className="pointer-events-none absolute right-2 top-2 rounded-md border border-border bg-[var(--surface-elevated)]/95 px-2 py-1 text-[9px] uppercase tracking-[0.14em] text-[var(--text-muted)] backdrop-blur">
-        {dots.length} schools · {hexBins.length} bins
-      </div>
-    </div>
-  );
-}
-
-function hexPoly(cx: number, cy: number, size: number) {
-  const pts: string[] = [];
-  for (let i = 0; i < 6; i++) {
-    const a = (Math.PI / 3) * i + Math.PI / 6;
-    pts.push(`${(cx + size * Math.cos(a)).toFixed(2)},${(cy + size * Math.sin(a)).toFixed(2)}`);
-  }
-  return pts.join(" ");
-}
-
-/** LA path used inside the hex-bin mini map. */
-const LA_PATH_REF = LA_PATH;

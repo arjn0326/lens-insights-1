@@ -64,27 +64,92 @@
   "workforceSnapshot": {
     "source": "LDOE 2024-2025 Educator Workforce Snapshot",
     "certificationByGrade": [
-      { "grade": "A", "certified": 72, "outOfField": 19, "uncertified": 9 },
-      { "grade": "B", "certified": 70, "outOfField": 18, "uncertified": 12 },
-      { "grade": "C", "certified": 58, "outOfField": 17, "uncertified": 24 },
-      { "grade": "D", "certified": 52, "outOfField": 16, "uncertified": 31 },
-      { "grade": "F", "certified": 51, "outOfField": 15, "uncertified": 34 }
+      {
+        "grade": "A",
+        "certified": 72,
+        "outOfField": 19,
+        "uncertified": 9
+      },
+      {
+        "grade": "B",
+        "certified": 70,
+        "outOfField": 18,
+        "uncertified": 12
+      },
+      {
+        "grade": "C",
+        "certified": 58,
+        "outOfField": 17,
+        "uncertified": 24
+      },
+      {
+        "grade": "D",
+        "certified": 52,
+        "outOfField": 16,
+        "uncertified": 31
+      },
+      {
+        "grade": "F",
+        "certified": 51,
+        "outOfField": 15,
+        "uncertified": 34
+      }
     ],
     "vacanciesBySubject": [
-      { "subject": "Elementary", "vacancies": 139 },
-      { "subject": "Special Education", "vacancies": 82 },
-      { "subject": "Math", "vacancies": 77 },
-      { "subject": "English", "vacancies": 58 },
-      { "subject": "Science", "vacancies": 56 },
-      { "subject": "Social Studies", "vacancies": 43 },
-      { "subject": "World Languages", "vacancies": 27 },
-      { "subject": "Other", "vacancies": 254 }
+      {
+        "subject": "Elementary",
+        "vacancies": 139
+      },
+      {
+        "subject": "Special Education",
+        "vacancies": 82
+      },
+      {
+        "subject": "Math",
+        "vacancies": 77
+      },
+      {
+        "subject": "English",
+        "vacancies": 58
+      },
+      {
+        "subject": "Science",
+        "vacancies": 56
+      },
+      {
+        "subject": "Social Studies",
+        "vacancies": 43
+      },
+      {
+        "subject": "World Languages",
+        "vacancies": 27
+      },
+      {
+        "subject": "Other",
+        "vacancies": 254
+      }
     ],
     "retentionByPathway": [
-      { "year": "Hired 2021-22", "undergraduate": 100, "postBacc": 100 },
-      { "year": "Year 2", "undergraduate": 90, "postBacc": 86 },
-      { "year": "Year 3", "undergraduate": 80, "postBacc": 76 },
-      { "year": "Year 4", "undergraduate": 74, "postBacc": 68 }
+      {
+        "year": "Hired 2021-22",
+        "undergraduate": 100,
+        "postBacc": 100
+      },
+      {
+        "year": "Year 2",
+        "undergraduate": 90,
+        "postBacc": 86
+      },
+      {
+        "year": "Year 3",
+        "undergraduate": 80,
+        "postBacc": 76
+      },
+      {
+        "year": "Year 4",
+        "undergraduate": 74,
+        "postBacc": 68
+      }
     ],
     "headlines": {
       "totalTeachers": 52809,
@@ -155,7 +220,15 @@
         "pct_bachelors_or_higher": 13.9,
         "labor_force": 23532,
         "population_total": 56264,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 1202,
+        "sped_gen_ed_public": 9140,
+        "sped_total_public_enrollment": 10342,
+        "sped_iep_pct": 11.6,
+        "sped_teacher_fte_total": 40.24,
+        "sped_teacher_fte_certified": 26.74,
+        "sped_teacher_fte_uncertified": 13.5,
+        "sped_teacher_gap_pct": 33.5
       }
     },
     {
@@ -205,7 +278,15 @@
         "pct_bachelors_or_higher": 11.9,
         "labor_force": 7903,
         "population_total": 21135,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 540,
+        "sped_gen_ed_public": 3927,
+        "sped_total_public_enrollment": 4467,
+        "sped_iep_pct": 12.1,
+        "sped_teacher_fte_total": 23.0,
+        "sped_teacher_fte_certified": 17.0,
+        "sped_teacher_fte_uncertified": 6.0,
+        "sped_teacher_gap_pct": 26.1
       }
     },
     {
@@ -249,7 +330,15 @@
         "pct_bachelors_or_higher": 29.1,
         "labor_force": 68799,
         "population_total": 123913,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 3242,
+        "sped_gen_ed_public": 24158,
+        "sped_total_public_enrollment": 27400,
+        "sped_iep_pct": 11.8,
+        "sped_teacher_fte_total": 174.07,
+        "sped_teacher_fte_certified": 130.07,
+        "sped_teacher_fte_uncertified": 44.0,
+        "sped_teacher_gap_pct": 25.3
       }
     },
     {
@@ -304,7 +393,15 @@
         "pct_bachelors_or_higher": 13.8,
         "labor_force": 9376,
         "population_total": 19993,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 486,
+        "sped_gen_ed_public": 2847,
+        "sped_total_public_enrollment": 3333,
+        "sped_iep_pct": 14.6,
+        "sped_teacher_fte_total": 31.22,
+        "sped_teacher_fte_certified": 21.22,
+        "sped_teacher_fte_uncertified": 10.0,
+        "sped_teacher_gap_pct": 32.0
       }
     },
     {
@@ -359,7 +456,15 @@
         "pct_bachelors_or_higher": 11.5,
         "labor_force": 14594,
         "population_total": 38371,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 605,
+        "sped_gen_ed_public": 4859,
+        "sped_total_public_enrollment": 5464,
+        "sped_iep_pct": 11.1,
+        "sped_teacher_fte_total": 37.33,
+        "sped_teacher_fte_certified": 25.83,
+        "sped_teacher_fte_uncertified": 11.5,
+        "sped_teacher_gap_pct": 30.8
       }
     },
     {
@@ -409,7 +514,15 @@
         "pct_bachelors_or_higher": 17.1,
         "labor_force": 14678,
         "population_total": 36277,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 972,
+        "sped_gen_ed_public": 5732,
+        "sped_total_public_enrollment": 6704,
+        "sped_iep_pct": 14.5,
+        "sped_teacher_fte_total": 58.99,
+        "sped_teacher_fte_certified": 53.99,
+        "sped_teacher_fte_uncertified": 5.0,
+        "sped_teacher_gap_pct": 8.5
       }
     },
     {
@@ -469,7 +582,15 @@
         "pct_bachelors_or_higher": 13.2,
         "labor_force": 4568,
         "population_total": 12595,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 398,
+        "sped_gen_ed_public": 1851,
+        "sped_total_public_enrollment": 2249,
+        "sped_iep_pct": 17.7,
+        "sped_teacher_fte_total": 9.95,
+        "sped_teacher_fte_certified": 5.95,
+        "sped_teacher_fte_uncertified": 4.0,
+        "sped_teacher_gap_pct": 40.2
       }
     },
     {
@@ -519,7 +640,15 @@
         "pct_bachelors_or_higher": 28.4,
         "labor_force": 57777,
         "population_total": 124180,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 4551,
+        "sped_gen_ed_public": 22279,
+        "sped_total_public_enrollment": 26830,
+        "sped_iep_pct": 17.0,
+        "sped_teacher_fte_total": 178.3,
+        "sped_teacher_fte_certified": 177.3,
+        "sped_teacher_fte_uncertified": 1.0,
+        "sped_teacher_gap_pct": 0.6
       }
     },
     {
@@ -574,7 +703,15 @@
         "pct_bachelors_or_higher": 26.0,
         "labor_force": 99122,
         "population_total": 224462,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 6118,
+        "sped_gen_ed_public": 33245,
+        "sped_total_public_enrollment": 39363,
+        "sped_iep_pct": 15.5,
+        "sped_teacher_fte_total": 260.07,
+        "sped_teacher_fte_certified": 206.35,
+        "sped_teacher_fte_uncertified": 53.72,
+        "sped_teacher_gap_pct": 20.7
       }
     },
     {
@@ -624,7 +761,15 @@
         "pct_bachelors_or_higher": 24.9,
         "labor_force": 83886,
         "population_total": 199653,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 5779,
+        "sped_gen_ed_public": 28399,
+        "sped_total_public_enrollment": 34178,
+        "sped_iep_pct": 16.9,
+        "sped_teacher_fte_total": 307.43,
+        "sped_teacher_fte_certified": 246.76,
+        "sped_teacher_fte_uncertified": 60.67,
+        "sped_teacher_gap_pct": 19.7
       }
     },
     {
@@ -689,7 +834,15 @@
         "pct_bachelors_or_higher": 11.2,
         "labor_force": 3292,
         "population_total": 9422,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 342,
+        "sped_gen_ed_public": 1516,
+        "sped_total_public_enrollment": 1858,
+        "sped_iep_pct": 18.4,
+        "sped_teacher_fte_total": 10.23,
+        "sped_teacher_fte_certified": 5.0,
+        "sped_teacher_fte_uncertified": 5.23,
+        "sped_teacher_gap_pct": 51.1
       }
     },
     {
@@ -739,7 +892,15 @@
         "pct_bachelors_or_higher": 16.8,
         "labor_force": 1913,
         "population_total": 4996,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 217,
+        "sped_gen_ed_public": 1122,
+        "sped_total_public_enrollment": 1339,
+        "sped_iep_pct": 16.2,
+        "sped_teacher_fte_total": 12.25,
+        "sped_teacher_fte_certified": 11.25,
+        "sped_teacher_fte_uncertified": 1.0,
+        "sped_teacher_gap_pct": 8.2
       }
     },
     {
@@ -794,7 +955,15 @@
         "pct_bachelors_or_higher": 16.0,
         "labor_force": 3415,
         "population_total": 8545,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 129,
+        "sped_gen_ed_public": 936,
+        "sped_total_public_enrollment": 1065,
+        "sped_iep_pct": 12.1,
+        "sped_teacher_fte_total": 7.0,
+        "sped_teacher_fte_certified": 2.0,
+        "sped_teacher_fte_uncertified": 5.0,
+        "sped_teacher_gap_pct": 71.4
       }
     },
     {
@@ -869,7 +1038,15 @@
         "pct_bachelors_or_higher": 10.7,
         "labor_force": 4370,
         "population_total": 13725,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 458,
+        "sped_gen_ed_public": 1634,
+        "sped_total_public_enrollment": 2092,
+        "sped_iep_pct": 21.9,
+        "sped_teacher_fte_total": 13.11,
+        "sped_teacher_fte_certified": 6.8,
+        "sped_teacher_fte_uncertified": 6.31,
+        "sped_teacher_gap_pct": 48.1
       }
     },
     {
@@ -934,7 +1111,15 @@
         "pct_bachelors_or_higher": 17.2,
         "labor_force": 6477,
         "population_total": 17814,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 493,
+        "sped_gen_ed_public": 2989,
+        "sped_total_public_enrollment": 3482,
+        "sped_iep_pct": 14.2,
+        "sped_teacher_fte_total": 20.39,
+        "sped_teacher_fte_certified": 13.14,
+        "sped_teacher_fte_uncertified": 7.25,
+        "sped_teacher_gap_pct": 35.6
       }
     },
     {
@@ -978,7 +1163,15 @@
         "pct_bachelors_or_higher": 16.0,
         "labor_force": 10993,
         "population_total": 26730,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 783,
+        "sped_gen_ed_public": 4974,
+        "sped_total_public_enrollment": 5757,
+        "sped_iep_pct": 13.6,
+        "sped_teacher_fte_total": 41.0,
+        "sped_teacher_fte_certified": 35.0,
+        "sped_teacher_fte_uncertified": 6.0,
+        "sped_teacher_gap_pct": 14.6
       }
     },
     {
@@ -1033,7 +1226,15 @@
         "pct_bachelors_or_higher": 38.5,
         "labor_force": 225721,
         "population_total": 420931,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 5596,
+        "sped_gen_ed_public": 40287,
+        "sped_total_public_enrollment": 45883,
+        "sped_iep_pct": 12.2,
+        "sped_teacher_fte_total": 276.49,
+        "sped_teacher_fte_certified": 213.49,
+        "sped_teacher_fte_uncertified": 63.0,
+        "sped_teacher_gap_pct": 22.8
       }
     },
     {
@@ -1103,7 +1304,15 @@
         "pct_bachelors_or_higher": 12.2,
         "labor_force": 1238,
         "population_total": 7037,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 90,
+        "sped_gen_ed_public": 755,
+        "sped_total_public_enrollment": 845,
+        "sped_iep_pct": 10.7,
+        "sped_teacher_fte_total": 1.95,
+        "sped_teacher_fte_certified": 1.95,
+        "sped_teacher_fte_uncertified": 0.0,
+        "sped_teacher_gap_pct": 0.0
       }
     },
     {
@@ -1158,7 +1367,15 @@
         "pct_bachelors_or_higher": 19.3,
         "labor_force": 7342,
         "population_total": 19183,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 257,
+        "sped_gen_ed_public": 1687,
+        "sped_total_public_enrollment": 1944,
+        "sped_iep_pct": 13.2,
+        "sped_teacher_fte_total": 4.0,
+        "sped_teacher_fte_certified": 1.0,
+        "sped_teacher_fte_uncertified": 3.0,
+        "sped_teacher_gap_pct": 75.0
       }
     },
     {
@@ -1213,7 +1430,15 @@
         "pct_bachelors_or_higher": 13.7,
         "labor_force": 11799,
         "population_total": 31155,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 1079,
+        "sped_gen_ed_public": 5434,
+        "sped_total_public_enrollment": 6513,
+        "sped_iep_pct": 16.6,
+        "sped_teacher_fte_total": 53.53,
+        "sped_teacher_fte_certified": 28.33,
+        "sped_teacher_fte_uncertified": 25.2,
+        "sped_teacher_gap_pct": 47.1
       }
     },
     {
@@ -1273,7 +1498,15 @@
         "pct_bachelors_or_higher": 17.5,
         "labor_force": 7430,
         "population_total": 19352,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 501,
+        "sped_gen_ed_public": 2618,
+        "sped_total_public_enrollment": 3119,
+        "sped_iep_pct": 16.1,
+        "sped_teacher_fte_total": 19.43,
+        "sped_teacher_fte_certified": 5.0,
+        "sped_teacher_fte_uncertified": 14.43,
+        "sped_teacher_gap_pct": 74.3
       }
     },
     {
@@ -1328,7 +1561,15 @@
         "pct_bachelors_or_higher": 15.4,
         "labor_force": 8184,
         "population_total": 21285,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 558,
+        "sped_gen_ed_public": 2743,
+        "sped_total_public_enrollment": 3301,
+        "sped_iep_pct": 16.9,
+        "sped_teacher_fte_total": 27.24,
+        "sped_teacher_fte_certified": 15.61,
+        "sped_teacher_fte_uncertified": 11.63,
+        "sped_teacher_gap_pct": 42.7
       }
     },
     {
@@ -1378,7 +1619,15 @@
         "pct_bachelors_or_higher": 14.8,
         "labor_force": 28515,
         "population_total": 66826,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 1892,
+        "sped_gen_ed_public": 11032,
+        "sped_total_public_enrollment": 12924,
+        "sped_iep_pct": 14.6,
+        "sped_teacher_fte_total": 114.83,
+        "sped_teacher_fte_certified": 75.33,
+        "sped_teacher_fte_uncertified": 39.5,
+        "sped_teacher_gap_pct": 34.4
       }
     },
     {
@@ -1428,7 +1677,15 @@
         "pct_bachelors_or_higher": 18.6,
         "labor_force": 12820,
         "population_total": 28789,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 594,
+        "sped_gen_ed_public": 4142,
+        "sped_total_public_enrollment": 4736,
+        "sped_iep_pct": 12.5,
+        "sped_teacher_fte_total": 28.91,
+        "sped_teacher_fte_certified": 16.91,
+        "sped_teacher_fte_uncertified": 12.0,
+        "sped_teacher_gap_pct": 41.5
       }
     },
     {
@@ -1498,7 +1755,15 @@
         "pct_bachelors_or_higher": 14.7,
         "labor_force": 5697,
         "population_total": 14391,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 327,
+        "sped_gen_ed_public": 2019,
+        "sped_total_public_enrollment": 2346,
+        "sped_iep_pct": 13.9,
+        "sped_teacher_fte_total": 8.0,
+        "sped_teacher_fte_certified": 7.0,
+        "sped_teacher_fte_uncertified": 1.0,
+        "sped_teacher_gap_pct": 12.5
       }
     },
     {
@@ -1548,7 +1813,15 @@
         "pct_bachelors_or_higher": 30.5,
         "labor_force": 208401,
         "population_total": 368149,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 9225,
+        "sped_gen_ed_public": 47903,
+        "sped_total_public_enrollment": 57128,
+        "sped_iep_pct": 16.1,
+        "sped_teacher_fte_total": 284.07,
+        "sped_teacher_fte_certified": 160.67,
+        "sped_teacher_fte_uncertified": 123.4,
+        "sped_teacher_gap_pct": 43.4
       }
     },
     {
@@ -1598,7 +1871,15 @@
         "pct_bachelors_or_higher": 15.4,
         "labor_force": 12457,
         "population_total": 31666,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 901,
+        "sped_gen_ed_public": 5402,
+        "sped_total_public_enrollment": 6303,
+        "sped_iep_pct": 14.3,
+        "sped_teacher_fte_total": 42.24,
+        "sped_teacher_fte_certified": 34.24,
+        "sped_teacher_fte_uncertified": 8.0,
+        "sped_teacher_gap_pct": 18.9
       }
     },
     {
@@ -1642,7 +1923,15 @@
         "pct_bachelors_or_higher": 13.1,
         "labor_force": 5996,
         "population_total": 14658,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 336,
+        "sped_gen_ed_public": 2490,
+        "sped_total_public_enrollment": 2826,
+        "sped_iep_pct": 11.9,
+        "sped_teacher_fte_total": 16.99,
+        "sped_teacher_fte_certified": 12.89,
+        "sped_teacher_fte_uncertified": 4.1,
+        "sped_teacher_gap_pct": 24.1
       }
     },
     {
@@ -1686,7 +1975,15 @@
         "pct_bachelors_or_higher": 35.3,
         "labor_force": 125853,
         "population_total": 235117,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 4288,
+        "sped_gen_ed_public": 30374,
+        "sped_total_public_enrollment": 34662,
+        "sped_iep_pct": 12.4,
+        "sped_teacher_fte_total": 205.43,
+        "sped_teacher_fte_certified": 161.43,
+        "sped_teacher_fte_uncertified": 44.0,
+        "sped_teacher_gap_pct": 21.4
       }
     },
     {
@@ -1730,7 +2027,15 @@
         "pct_bachelors_or_higher": 21.1,
         "labor_force": 42123,
         "population_total": 94018,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 1737,
+        "sped_gen_ed_public": 13562,
+        "sped_total_public_enrollment": 15299,
+        "sped_iep_pct": 11.4,
+        "sped_teacher_fte_total": 84.0,
+        "sped_teacher_fte_certified": 68.04,
+        "sped_teacher_fte_uncertified": 15.96,
+        "sped_teacher_gap_pct": 19.0
       }
     },
     {
@@ -1780,7 +2085,15 @@
         "pct_bachelors_or_higher": 36.2,
         "labor_force": 21507,
         "population_total": 46653,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 1195,
+        "sped_gen_ed_public": 5809,
+        "sped_total_public_enrollment": 7004,
+        "sped_iep_pct": 17.1,
+        "sped_teacher_fte_total": 64.65,
+        "sped_teacher_fte_certified": 58.15,
+        "sped_teacher_fte_uncertified": 6.5,
+        "sped_teacher_gap_pct": 10.1
       }
     },
     {
@@ -1824,7 +2137,15 @@
         "pct_bachelors_or_higher": 20.5,
         "labor_force": 71688,
         "population_total": 142130,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 4620,
+        "sped_gen_ed_public": 26986,
+        "sped_total_public_enrollment": 31606,
+        "sped_iep_pct": 14.6,
+        "sped_teacher_fte_total": 233.9,
+        "sped_teacher_fte_certified": 174.07,
+        "sped_teacher_fte_uncertified": 59.83,
+        "sped_teacher_gap_pct": 25.6
       }
     },
     {
@@ -1899,7 +2220,15 @@
         "pct_bachelors_or_higher": 14.1,
         "labor_force": 3204,
         "population_total": 9430,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 183,
+        "sped_gen_ed_public": 1251,
+        "sped_total_public_enrollment": 1434,
+        "sped_iep_pct": 12.8,
+        "sped_teacher_fte_total": 4.0,
+        "sped_teacher_fte_certified": 1.5,
+        "sped_teacher_fte_uncertified": 2.5,
+        "sped_teacher_gap_pct": 62.5
       }
     },
     {
@@ -1974,7 +2303,15 @@
         "pct_bachelors_or_higher": 13.8,
         "labor_force": 9421,
         "population_total": 24371,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 540,
+        "sped_gen_ed_public": 3171,
+        "sped_total_public_enrollment": 3711,
+        "sped_iep_pct": 14.6,
+        "sped_teacher_fte_total": 24.94,
+        "sped_teacher_fte_certified": 16.0,
+        "sped_teacher_fte_uncertified": 8.94,
+        "sped_teacher_gap_pct": 35.8
       }
     },
     {
@@ -2018,7 +2355,15 @@
         "pct_bachelors_or_higher": 25.8,
         "labor_force": 14525,
         "population_total": 36119,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 788,
+        "sped_gen_ed_public": 4947,
+        "sped_total_public_enrollment": 5735,
+        "sped_iep_pct": 13.7,
+        "sped_teacher_fte_total": 38.3,
+        "sped_teacher_fte_certified": 26.3,
+        "sped_teacher_fte_uncertified": 12.0,
+        "sped_teacher_gap_pct": 31.3
       }
     },
     {
@@ -2073,7 +2418,15 @@
         "pct_bachelors_or_higher": 42.4,
         "labor_force": 176992,
         "population_total": 347213,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 516,
+        "sped_gen_ed_public": 2648,
+        "sped_total_public_enrollment": 3164,
+        "sped_iep_pct": 16.3,
+        "sped_teacher_fte_total": 12.3,
+        "sped_teacher_fte_certified": 5.97,
+        "sped_teacher_fte_uncertified": 6.33,
+        "sped_teacher_gap_pct": 51.5
       }
     },
     {
@@ -2117,7 +2470,15 @@
         "pct_bachelors_or_higher": 28.6,
         "labor_force": 70463,
         "population_total": 155061,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 3016,
+        "sped_gen_ed_public": 17838,
+        "sped_total_public_enrollment": 20854,
+        "sped_iep_pct": 14.5,
+        "sped_teacher_fte_total": 88.08,
+        "sped_teacher_fte_certified": 85.08,
+        "sped_teacher_fte_uncertified": 3.0,
+        "sped_teacher_gap_pct": 3.4
       }
     },
     {
@@ -2161,7 +2522,15 @@
         "pct_bachelors_or_higher": 21.5,
         "labor_force": 10360,
         "population_total": 21449,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 781,
+        "sped_gen_ed_public": 3741,
+        "sped_total_public_enrollment": 4522,
+        "sped_iep_pct": 17.3,
+        "sped_teacher_fte_total": 53.33,
+        "sped_teacher_fte_certified": 40.0,
+        "sped_teacher_fte_uncertified": 13.33,
+        "sped_teacher_gap_pct": 25.0
       }
     },
     {
@@ -2216,7 +2585,15 @@
         "pct_bachelors_or_higher": 18.4,
         "labor_force": 8794,
         "population_total": 19990,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 391,
+        "sped_gen_ed_public": 2437,
+        "sped_total_public_enrollment": 2828,
+        "sped_iep_pct": 13.8,
+        "sped_teacher_fte_total": 9.7,
+        "sped_teacher_fte_certified": 6.5,
+        "sped_teacher_fte_uncertified": 3.2,
+        "sped_teacher_gap_pct": 33.0
       }
     },
     {
@@ -2266,7 +2643,15 @@
         "pct_bachelors_or_higher": 23.1,
         "labor_force": 56172,
         "population_total": 123951,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 3690,
+        "sped_gen_ed_public": 22134,
+        "sped_total_public_enrollment": 25824,
+        "sped_iep_pct": 14.3,
+        "sped_teacher_fte_total": 207.93,
+        "sped_teacher_fte_certified": 142.95,
+        "sped_teacher_fte_uncertified": 64.98,
+        "sped_teacher_gap_pct": 31.3
       }
     },
     {
@@ -2316,7 +2701,15 @@
         "pct_bachelors_or_higher": 14.0,
         "labor_force": 2978,
         "population_total": 7352,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 191,
+        "sped_gen_ed_public": 1285,
+        "sped_total_public_enrollment": 1476,
+        "sped_iep_pct": 12.9,
+        "sped_teacher_fte_total": 9.5,
+        "sped_teacher_fte_certified": 8.5,
+        "sped_teacher_fte_uncertified": 1.0,
+        "sped_teacher_gap_pct": 10.5
       }
     },
     {
@@ -2381,7 +2774,15 @@
         "pct_bachelors_or_higher": 17.6,
         "labor_force": 7975,
         "population_total": 19708,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 472,
+        "sped_gen_ed_public": 2739,
+        "sped_total_public_enrollment": 3211,
+        "sped_iep_pct": 14.7,
+        "sped_teacher_fte_total": 14.33,
+        "sped_teacher_fte_certified": 12.0,
+        "sped_teacher_fte_uncertified": 2.33,
+        "sped_teacher_gap_pct": 16.3
       }
     },
     {
@@ -2425,7 +2826,15 @@
         "pct_bachelors_or_higher": 13.6,
         "labor_force": 7984,
         "population_total": 21794,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 628,
+        "sped_gen_ed_public": 3814,
+        "sped_total_public_enrollment": 4442,
+        "sped_iep_pct": 14.1,
+        "sped_teacher_fte_total": 33.0,
+        "sped_teacher_fte_certified": 19.0,
+        "sped_teacher_fte_uncertified": 14.0,
+        "sped_teacher_gap_pct": 42.4
       }
     },
     {
@@ -2475,7 +2884,15 @@
         "pct_bachelors_or_higher": 17.6,
         "labor_force": 19624,
         "population_total": 41900,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 1031,
+        "sped_gen_ed_public": 7730,
+        "sped_total_public_enrollment": 8761,
+        "sped_iep_pct": 11.8,
+        "sped_teacher_fte_total": 43.98,
+        "sped_teacher_fte_certified": 42.98,
+        "sped_teacher_fte_uncertified": 1.0,
+        "sped_teacher_gap_pct": 2.3
       }
     },
     {
@@ -2525,7 +2942,15 @@
         "pct_bachelors_or_higher": 26.9,
         "labor_force": 24973,
         "population_total": 48904,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 1977,
+        "sped_gen_ed_public": 9241,
+        "sped_total_public_enrollment": 11218,
+        "sped_iep_pct": 17.6,
+        "sped_teacher_fte_total": 106.67,
+        "sped_teacher_fte_certified": 78.67,
+        "sped_teacher_fte_uncertified": 28.0,
+        "sped_teacher_gap_pct": 26.2
       }
     },
     {
@@ -2600,7 +3025,15 @@
         "pct_bachelors_or_higher": 11.4,
         "labor_force": 4220,
         "population_total": 10797,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 228,
+        "sped_gen_ed_public": 1046,
+        "sped_total_public_enrollment": 1274,
+        "sped_iep_pct": 17.9,
+        "sped_teacher_fte_total": 10.0,
+        "sped_teacher_fte_certified": 4.0,
+        "sped_teacher_fte_uncertified": 6.0,
+        "sped_teacher_gap_pct": 60.0
       }
     },
     {
@@ -2655,7 +3088,15 @@
         "pct_bachelors_or_higher": 19.5,
         "labor_force": 9050,
         "population_total": 19181,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 674,
+        "sped_gen_ed_public": 3382,
+        "sped_total_public_enrollment": 4056,
+        "sped_iep_pct": 16.6,
+        "sped_teacher_fte_total": 37.0,
+        "sped_teacher_fte_certified": 21.25,
+        "sped_teacher_fte_uncertified": 15.75,
+        "sped_teacher_gap_pct": 42.6
       }
     },
     {
@@ -2705,7 +3146,15 @@
         "pct_bachelors_or_higher": 18.2,
         "labor_force": 18477,
         "population_total": 38570,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 835,
+        "sped_gen_ed_public": 5202,
+        "sped_total_public_enrollment": 6037,
+        "sped_iep_pct": 13.8,
+        "sped_teacher_fte_total": 43.0,
+        "sped_teacher_fte_certified": 16.5,
+        "sped_teacher_fte_uncertified": 26.5,
+        "sped_teacher_gap_pct": 61.6
       }
     },
     {
@@ -2765,7 +3214,15 @@
         "pct_bachelors_or_higher": 14.9,
         "labor_force": 32592,
         "population_total": 80344,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 1819,
+        "sped_gen_ed_public": 11473,
+        "sped_total_public_enrollment": 13292,
+        "sped_iep_pct": 13.7,
+        "sped_teacher_fte_total": 96.6,
+        "sped_teacher_fte_certified": 74.1,
+        "sped_teacher_fte_uncertified": 22.5,
+        "sped_teacher_gap_pct": 23.3
       }
     },
     {
@@ -2815,7 +3272,15 @@
         "pct_bachelors_or_higher": 16.8,
         "labor_force": 23493,
         "population_total": 50413,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 1173,
+        "sped_gen_ed_public": 6954,
+        "sped_total_public_enrollment": 8127,
+        "sped_iep_pct": 14.4,
+        "sped_teacher_fte_total": 42.33,
+        "sped_teacher_fte_certified": 32.33,
+        "sped_teacher_fte_uncertified": 10.0,
+        "sped_teacher_gap_pct": 23.6
       }
     },
     {
@@ -2859,7 +3324,15 @@
         "pct_bachelors_or_higher": 13.6,
         "labor_force": 19156,
         "population_total": 45459,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 1781,
+        "sped_gen_ed_public": 7532,
+        "sped_total_public_enrollment": 9313,
+        "sped_iep_pct": 19.1,
+        "sped_teacher_fte_total": 51.5,
+        "sped_teacher_fte_certified": 44.5,
+        "sped_teacher_fte_uncertified": 7.0,
+        "sped_teacher_gap_pct": 13.6
       }
     },
     {
@@ -2903,7 +3376,15 @@
         "pct_bachelors_or_higher": 37.7,
         "labor_force": 129353,
         "population_total": 260193,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 8550,
+        "sped_gen_ed_public": 36819,
+        "sped_total_public_enrollment": 45369,
+        "sped_iep_pct": 18.8,
+        "sped_teacher_fte_total": 418.08,
+        "sped_teacher_fte_certified": 416.06,
+        "sped_teacher_fte_uncertified": 2.02,
+        "sped_teacher_gap_pct": 0.5
       }
     },
     {
@@ -2958,7 +3439,15 @@
         "pct_bachelors_or_higher": 20.8,
         "labor_force": 60971,
         "population_total": 133210,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 3088,
+        "sped_gen_ed_public": 19482,
+        "sped_total_public_enrollment": 22570,
+        "sped_iep_pct": 13.7,
+        "sped_teacher_fte_total": 167.96,
+        "sped_teacher_fte_certified": 76.43,
+        "sped_teacher_fte_uncertified": 91.53,
+        "sped_teacher_gap_pct": 54.5
       }
     },
     {
@@ -3023,7 +3512,15 @@
         "pct_bachelors_or_higher": 14.6,
         "labor_force": 1173,
         "population_total": 3899,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 84,
+        "sped_gen_ed_public": 331,
+        "sped_total_public_enrollment": 415,
+        "sped_iep_pct": 20.2,
+        "sped_teacher_fte_total": 4.0,
+        "sped_teacher_fte_certified": 2.0,
+        "sped_teacher_fte_uncertified": 2.0,
+        "sped_teacher_gap_pct": 50.0
       }
     },
     {
@@ -3067,7 +3564,15 @@
         "pct_bachelors_or_higher": 18.7,
         "labor_force": 45875,
         "population_total": 102748,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 2335,
+        "sped_gen_ed_public": 15030,
+        "sped_total_public_enrollment": 17365,
+        "sped_iep_pct": 13.4,
+        "sped_teacher_fte_total": 119.68,
+        "sped_teacher_fte_certified": 78.61,
+        "sped_teacher_fte_uncertified": 41.07,
+        "sped_teacher_gap_pct": 34.3
       }
     },
     {
@@ -3132,7 +3637,15 @@
         "pct_bachelors_or_higher": 14.8,
         "labor_force": 8104,
         "population_total": 20126,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 217,
+        "sped_gen_ed_public": 1691,
+        "sped_total_public_enrollment": 1908,
+        "sped_iep_pct": 11.4,
+        "sped_teacher_fte_total": 9.0,
+        "sped_teacher_fte_certified": 5.0,
+        "sped_teacher_fte_uncertified": 4.0,
+        "sped_teacher_gap_pct": 44.4
       }
     },
     {
@@ -3176,7 +3689,15 @@
         "pct_bachelors_or_higher": 17.6,
         "labor_force": 25040,
         "population_total": 55390,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 1452,
+        "sped_gen_ed_public": 9300,
+        "sped_total_public_enrollment": 10752,
+        "sped_iep_pct": 13.5,
+        "sped_teacher_fte_total": 67.75,
+        "sped_teacher_fte_certified": 56.75,
+        "sped_teacher_fte_uncertified": 11.0,
+        "sped_teacher_gap_pct": 16.2
       }
     },
     {
@@ -3220,7 +3741,15 @@
         "pct_bachelors_or_higher": 19.8,
         "labor_force": 17111,
         "population_total": 45585,
-        "school_tier_uncertainty": "low"
+        "school_tier_uncertainty": "low",
+        "sped_iep_count": 1272,
+        "sped_gen_ed_public": 8126,
+        "sped_total_public_enrollment": 9398,
+        "sped_iep_pct": 13.5,
+        "sped_teacher_fte_total": 58.68,
+        "sped_teacher_fte_certified": 39.79,
+        "sped_teacher_fte_uncertified": 18.89,
+        "sped_teacher_gap_pct": 32.2
       }
     },
     {
@@ -3275,7 +3804,15 @@
         "pct_bachelors_or_higher": 12.8,
         "labor_force": 18222,
         "population_total": 44827,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 1242,
+        "sped_gen_ed_public": 4597,
+        "sped_total_public_enrollment": 5839,
+        "sped_iep_pct": 21.3,
+        "sped_teacher_fte_total": 33.62,
+        "sped_teacher_fte_certified": 17.9,
+        "sped_teacher_fte_uncertified": 15.72,
+        "sped_teacher_gap_pct": 46.8
       }
     },
     {
@@ -3330,7 +3867,15 @@
         "pct_bachelors_or_higher": 13.3,
         "labor_force": 13211,
         "population_total": 35457,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 1074,
+        "sped_gen_ed_public": 5108,
+        "sped_total_public_enrollment": 6182,
+        "sped_iep_pct": 17.4,
+        "sped_teacher_fte_total": 39.64,
+        "sped_teacher_fte_certified": 22.64,
+        "sped_teacher_fte_uncertified": 17.0,
+        "sped_teacher_gap_pct": 42.9
       }
     },
     {
@@ -3380,7 +3925,15 @@
         "pct_bachelors_or_higher": 23.3,
         "labor_force": 14058,
         "population_total": 27558,
-        "school_tier_uncertainty": "medium"
+        "school_tier_uncertainty": "medium",
+        "sped_iep_count": 748,
+        "sped_gen_ed_public": 4257,
+        "sped_total_public_enrollment": 5005,
+        "sped_iep_pct": 14.9,
+        "sped_teacher_fte_total": 51.0,
+        "sped_teacher_fte_certified": 38.0,
+        "sped_teacher_fte_uncertified": 13.0,
+        "sped_teacher_gap_pct": 25.5
       }
     },
     {
@@ -3430,7 +3983,15 @@
         "pct_bachelors_or_higher": 15.2,
         "labor_force": 3662,
         "population_total": 9389,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 232,
+        "sped_gen_ed_public": 1568,
+        "sped_total_public_enrollment": 1800,
+        "sped_iep_pct": 12.9,
+        "sped_teacher_fte_total": 3.5,
+        "sped_teacher_fte_certified": 2.5,
+        "sped_teacher_fte_uncertified": 1.0,
+        "sped_teacher_gap_pct": 28.6
       }
     },
     {
@@ -3480,7 +4041,15 @@
         "pct_bachelors_or_higher": 21.6,
         "labor_force": 5819,
         "population_total": 15085,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 534,
+        "sped_gen_ed_public": 2196,
+        "sped_total_public_enrollment": 2730,
+        "sped_iep_pct": 19.6,
+        "sped_teacher_fte_total": 22.15,
+        "sped_teacher_fte_certified": 18.68,
+        "sped_teacher_fte_uncertified": 3.47,
+        "sped_teacher_gap_pct": 15.7
       }
     },
     {
@@ -3535,7 +4104,15 @@
         "pct_bachelors_or_higher": 14.4,
         "labor_force": 4798,
         "population_total": 12536,
-        "school_tier_uncertainty": "high"
+        "school_tier_uncertainty": "high",
+        "sped_iep_count": 320,
+        "sped_gen_ed_public": 1811,
+        "sped_total_public_enrollment": 2131,
+        "sped_iep_pct": 15.0,
+        "sped_teacher_fte_total": 10.0,
+        "sped_teacher_fte_certified": 6.0,
+        "sped_teacher_fte_uncertified": 4.0,
+        "sped_teacher_gap_pct": 40.0
       }
     }
   ]

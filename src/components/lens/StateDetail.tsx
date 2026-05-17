@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import stateReportData from "../../../public/data/state_report_data.json";
 
@@ -16,20 +16,9 @@ const latestDistricts = districtTrend.years.length
     districtTrend.F.at(-1)!
   : 0;
 
-interface Props {
-  onBack: () => void;
-}
-
-export function StateDetail({ onBack }: Props) {
+export function StateDetail() {
   return (
     <div className="flex h-full flex-col">
-      <button
-        onClick={onBack}
-        className="flex items-center gap-1.5 border-b border-border px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)] transition-colors hover:text-foreground"
-      >
-        <ArrowLeft className="h-3 w-3" /> Back to rankings
-      </button>
-
       <div className="scrollbar-thin flex-1 overflow-y-auto">
         <div className="border-b border-border bg-[color-mix(in_oklab,var(--blue)_6%,var(--surface))] px-4 py-5">
           <p className="font-mono text-[10px] font-semibold tabular-nums tracking-wider text-[var(--blue)]">

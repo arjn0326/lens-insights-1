@@ -1,8 +1,10 @@
 import { createFileRoute, Link, useParams } from "@tanstack/react-router";
 import { ParishReport } from "@/components/lens/ParishReport";
 import { PARISHES } from "@/lib/lens-data";
+import { requireAuth } from "@/lib/route-auth";
 
 export const Route = createFileRoute("/parish/$parishId")({
+  beforeLoad: requireAuth,
   component: ParishReportPage,
   head: ({ params }) => {
     const p = PARISHES.find((x) => x.id === params.parishId);
@@ -26,7 +28,7 @@ export const Route = createFileRoute("/parish/$parishId")({
     <div className="flex h-screen items-center justify-center">
       <div className="text-center">
         <h1 className="font-display text-2xl font-bold">Parish not found</h1>
-        <Link to="/" className="mt-2 inline-block text-sm underline">
+        <Link to="/app" className="mt-2 inline-block text-sm underline">
           Back to dashboard
         </Link>
       </div>

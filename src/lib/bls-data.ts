@@ -1,0 +1,28 @@
+export const BLS_JOLTS_LOUISIANA = {
+  source: "U.S. Bureau of Labor Statistics, Louisiana JOLTS",
+  release_date: "February 25, 2026",
+  reference_month: "December 2025",
+  note: "All data seasonally adjusted. Statewide only — not parish-level.",
+  headline: {
+    job_openings: 95000,
+    job_openings_rate: 4.5,
+    us_job_openings_rate: 3.9,
+    unemployed_per_opening: 0.9,
+    hires: 71000,
+    total_separations: 84000,
+    quits: 54000,
+    layoffs: 25000,
+    other_separations: 5000,
+  },
+  trend: [
+    { month: "Jan 22", louisiana: 7.2, us: 7.0 },
+    { month: "Jul 22", louisiana: 7.4, us: 6.9 },
+    { month: "Jan 23", louisiana: 7.6, us: 6.3 },
+    { month: "Jul 23", louisiana: 6.0, us: 5.2 },
+    { month: "Jan 24", louisiana: 5.9, us: 5.1 },
+    { month: "Jul 24", louisiana: 4.6, us: 4.5 },
+    { month: "Jan 25", louisiana: 5.2, us: 4.7 },
+    { month: "Jul 25", louisiana: 5.0, us: 4.3 },
+    { month: "Dec 25", louisiana: 4.5, us: 3.9 },
+  ],
+} as const;

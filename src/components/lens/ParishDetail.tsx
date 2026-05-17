@@ -8,18 +8,34 @@ import {
   severity,
   severityLabel,
 } from "@/lib/lens-data";
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Lightbulb, Minus, TriangleAlert } from "lucide-react";
+import { getMfpParish } from "@/lib/mfp-by-parish";
+import {
+  formatParishSchools,
+  formatParishStudents,
+  getParishRealStats,
+} from "@/lib/parish-stats";
+import { ArrowDown, ArrowRight, ArrowUp, Lightbulb, Minus, TriangleAlert } from "lucide-react";
 import { InfoTip } from "@/components/lens/InfoTip";
+import { ParishSidebarFundingCard } from "@/components/lens/ParishSidebarFundingCard";
+import { FunderBriefButton } from "@/components/lens/FunderBriefButton";
 import { Link } from "@tanstack/react-router";
 
 interface Props {
   parishId: string;
-  onBack: () => void;
 }
 
-export function ParishDetail({ parishId, onBack }: Props) {
+function mfpEdColor(pct: number): string {
+  if (pct > 70) return "var(--sev-red)";
+  if (pct >= 50) return "var(--sev-orange)";
+  return "var(--sev-green)";
+}
+
+export function ParishDetail({ parishId }: Props) {
   const parish = PARISHES.find((p) => p.id === parishId);
   if (!parish) return null;
+
+  const real = getParishRealStats(parishId);
+  const mfp = getMfpParish(parishId);
 
   const healthSev = severity("Health", parish.scores.Health);
   const healthColor = SEV_COLOR[healthSev];
@@ -31,37 +47,30 @@ export function ParishDetail({ parishId, onBack }: Props) {
     parish.trend === "up"
       ? "var(--sev-green)"
       : parish.trend === "down"
-      ? "var(--sev-red)"
-      : "var(--text-muted)";
+        ? "var(--sev-red)"
+        : "var(--text-muted)";
 
   return (
     <div className="flex h-full flex-col">
-      <button
-        onClick={onBack}
-        className="flex items-center gap-1.5 border-b border-border px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)] transition-colors hover:text-foreground"
-      >
-        <ArrowLeft className="h-3 w-3" /> Back to rankings
-      </button>
-
-      <div className="scrollbar-thin flex-1 overflow-y-auto">
-        {/* Header — clickable to full report */}
-        <Link
-          to="/parish/$parishId"
-          params={{ parishId: parish.id }}
-          className="group block border-b border-border px-4 py-4 transition-colors hover:bg-[var(--surface-elevated)]"
-        >
+      <div className="scrollbar-thin min-h-0 flex-1 overflow-y-auto">
+        <header className="border-b border-border px-4 py-4">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
               <h2 className="truncate font-display text-[22px] font-bold leading-tight tracking-tight text-foreground">
                 {parish.name}
               </h2>
-              <div className="mt-1 flex items-center gap-2 text-[11px] text-[var(--text-secondary)]">
-                <span className="font-mono tabular-nums">{parish.population.toLocaleString()} pop</span>
+              <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] text-[var(--text-secondary)]">
+                <span className="font-mono tabular-nums">{formatParishStudents(real)} students</span>
                 <span style={{ color: trendColor }} className="inline-flex items-center gap-0.5">
                   <TrendIcon className="h-3 w-3" />
                   {parish.trend === "flat" ? "stable" : parish.trend}
                 </span>
               </div>
+              {real.enrollmentSourceDate && (
+                <p className="mt-1 text-[10px] text-[var(--text-muted)]">
+                  LDOE enrollment · {real.enrollmentSourceDate}
+                </p>
+              )}
             </div>
             <div className="flex flex-col items-end">
               <span
@@ -81,16 +90,44 @@ export function ParishDetail({ parishId, onBack }: Props) {
               </span>
             </div>
           </div>
-          <div className="mt-3 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--blue)] transition-transform group-hover:translate-x-0.5">
-            See full report <ArrowRight className="h-3 w-3" />
-          </div>
-        </Link>
+        </header>
 
-        {/* Composite indices */}
-        <div className="border-b border-border px-4 py-4">
-          <div className="mb-3 text-[9px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
-            Composite Indices
+        <div className="grid grid-cols-3 gap-2 border-b border-border px-4 py-4">
+          <MiniStat label="Schools" value={formatParishSchools(real)} />
+          <MiniStat
+            label="Students"
+            value={formatParishStudents(real)}
+            sub={real.enrollmentSourceDate ? "LDOE" : undefined}
+          />
+          <MiniStat label="D/F Schools" value={`${parish.dfSchools}`} sub={`${dfPct}%`} tone="danger" />
+        </div>
+
+        <ParishSidebarFundingCard parishSlug={parishId} />
+
+        {mfp && (
+          <div className="border-b border-border px-4 py-4">
+            <div className="mb-2 flex items-center gap-1">
+              <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
+                MFP weighted populations · FY2025-26
+              </p>
+              <InfoTip
+                text="Share of MFP-funded membership in each weighted category. Percentages overlap — students may qualify for more than one."
+                size={10}
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <MfpPill label="ED" pct={mfp.ed.pct} color={mfpEdColor(mfp.ed.pct)} />
+              <MfpPill label="CTE" pct={mfp.cte.pct} color="var(--blue)" />
+              <MfpPill label="SWD" pct={mfp.swd.pct} color="var(--sev-orange)" />
+              <MfpPill label="MFP total" pct={100} color="var(--text-muted)" value={mfp.total_students.toLocaleString()} />
+            </div>
           </div>
+        )}
+
+        <div className="border-b border-border px-4 py-4">
+          <p className="mb-3 text-[9px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
+            Composite indices
+          </p>
           <div className="flex flex-col gap-2.5">
             {INDEX_LABELS.map(({ key, label }) => {
               const score = parish.scores[key];
@@ -119,19 +156,6 @@ export function ParishDetail({ parishId, onBack }: Props) {
           </div>
         </div>
 
-        {/* Mini stats */}
-        <div className="grid grid-cols-3 gap-2 border-b border-border px-4 py-4">
-          <MiniStat label="Schools" value={String(parish.totalSchools)} />
-          <MiniStat label="Students" value={`${(parish.students / 1000).toFixed(0)}K`} />
-          <MiniStat
-            label="D/F Schools"
-            value={`${parish.dfSchools}`}
-            sub={`${dfPct}%`}
-            tone="danger"
-          />
-        </div>
-
-        {/* Alert */}
         {parish.alert && (
           <div className="border-b border-border px-4 py-4">
             <div
@@ -142,7 +166,7 @@ export function ParishDetail({ parishId, onBack }: Props) {
               }}
             >
               <div className="flex items-center gap-1.5">
-                <TriangleAlert className="h-3.5 w-3.5" style={{ color: "var(--sev-red)" }} />
+                <TriangleAlert className="h-3.5 w-3.5 shrink-0" style={{ color: "var(--sev-red)" }} />
                 <span
                   className="text-[10px] font-bold uppercase tracking-[0.14em]"
                   style={{ color: "var(--sev-red)" }}
@@ -157,7 +181,6 @@ export function ParishDetail({ parishId, onBack }: Props) {
           </div>
         )}
 
-        {/* Recommendation */}
         <div className="px-4 py-4">
           <div
             className="rounded-lg border p-3"
@@ -167,8 +190,11 @@ export function ParishDetail({ parishId, onBack }: Props) {
             }}
           >
             <div className="flex items-center gap-1.5">
-              <Lightbulb className="h-3.5 w-3.5" style={{ color: "var(--blue)" }} />
-              <span className="text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: "var(--blue)" }}>
+              <Lightbulb className="h-3.5 w-3.5 shrink-0" style={{ color: "var(--blue)" }} />
+              <span
+                className="text-[10px] font-bold uppercase tracking-[0.14em]"
+                style={{ color: "var(--blue)" }}
+              >
                 Recommendation · {parish.intervention}
               </span>
             </div>
@@ -179,21 +205,19 @@ export function ParishDetail({ parishId, onBack }: Props) {
         </div>
       </div>
 
-      {/* CTAs */}
-      <div className="flex flex-col gap-2 border-t border-border bg-[var(--surface)] p-4">
+      <div className="shrink-0 border-t border-border bg-[var(--surface)] p-4">
         <Link
           to="/parish/$parishId"
           params={{ parishId: parish.id }}
-          className="inline-flex items-center justify-center gap-1.5 rounded-md bg-foreground px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--background)] transition-transform hover:scale-[1.01]"
+          className="group flex w-full items-center justify-center gap-2 rounded-xl bg-foreground px-4 py-3.5 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--background)] shadow-[0_4px_14px_color-mix(in_oklab,var(--foreground)_25%,transparent)] transition-all hover:brightness-110 active:scale-[0.99]"
         >
-          See Full Report <ArrowRight className="h-3.5 w-3.5" />
+          See full report
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
-        <button className="rounded-md border border-border bg-transparent px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)] transition-colors hover:border-foreground/40 hover:text-foreground">
-          Generate Funder Brief
-        </button>
-        <button className="rounded-md border border-border bg-transparent px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)] transition-colors hover:border-foreground/40 hover:text-foreground">
-          Open in Simulator
-        </button>
+        <FunderBriefButton parishId={parish.id} />
+        <p className="mt-2 text-center text-[9px] leading-relaxed text-[var(--text-muted)]">
+          Enrollment, MFP funding, academics, and workforce — full parish dossier
+        </p>
       </div>
     </div>
   );
@@ -219,11 +243,31 @@ function MiniStat({
       <div className="mt-1 font-display text-[18px] font-bold leading-none tabular-nums" style={{ color }}>
         {value}
       </div>
-      {sub && (
-        <div className="mt-0.5 text-[10px] tabular-nums text-[var(--text-muted)]">
-          {sub}
-        </div>
-      )}
+      {sub && <div className="mt-0.5 text-[9px] text-[var(--text-muted)]">{sub}</div>}
+    </div>
+  );
+}
+
+function MfpPill({
+  label,
+  pct,
+  color,
+  value,
+}: {
+  label: string;
+  pct: number;
+  color: string;
+  value?: string;
+}) {
+  return (
+    <div
+      className="rounded-md border border-border bg-[var(--background)] px-2.5 py-2"
+      style={{ borderTopWidth: 3, borderTopColor: color }}
+    >
+      <p className="text-[8px] font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">{label}</p>
+      <p className="mt-0.5 font-display text-[16px] font-bold tabular-nums" style={{ color }}>
+        {value ?? `${pct}%`}
+      </p>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import type { LucideIcon } from "lucide-react";
 import { Info } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -5,9 +6,10 @@ interface Props {
   text: string;
   size?: number;
   className?: string;
+  icon?: LucideIcon;
 }
 
-export function InfoTip({ text, size = 11, className = "" }: Props) {
+export function InfoTip({ text, size = 11, className = "", icon: Icon = Info }: Props) {
   return (
     <TooltipProvider delayDuration={120}>
       <Tooltip>
@@ -18,7 +20,7 @@ export function InfoTip({ text, size = 11, className = "" }: Props) {
             aria-label="More info"
             onClick={(e) => e.stopPropagation()}
           >
-            <Info style={{ width: size, height: size }} />
+            <Icon style={{ width: size, height: size }} strokeWidth={2.25} />
           </button>
         </TooltipTrigger>
         <TooltipContent
